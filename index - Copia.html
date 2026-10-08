@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FormNex — Menos procura. Mais compatibilidade.</title>
+
+    <meta name="description"
+        content="FormNex conecta pessoas, capacidades e oportunidades com mais inteligência.">
+
+    <style>
+
+        /* =========================================================
+           FORMNEX
+           Identidade visual inicial
+           Paleta Teal
+           ========================================================= */
+
+        :root {
+            --teal-dark: #0F766E;
+            --teal: #14BBA6;
+            --teal-light: #99F6E4;
+            --teal-bg: #F0FDFA;
+
+            --graphite: #1F2937;
+            --gray: #64748B;
+            --gray-light: #E2E8F0;
+            --white: #FFFFFF;
+
+            --shadow: 0 12px 35px rgba(15, 118, 110, 0.10);
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--graphite);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CABEÇALHO
+           ========================================================= */
+
+        header {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E5E7EB;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1180px;
+            margin: auto;
+            padding: 16px 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Diamante provisório — preparado para receber o símbolo oficial */
+
+.diamond {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+
+        .diamond::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            right: 0;
+            bottom: 0;
+
+            background: rgba(255,255,255,0.18);
+        }
+
+        .brand-name {
+            font-size: 29px;
+            font-weight: 800;
+            letter-spacing: -1.2px;
+        }
+
+        .brand-name span {
+            color: var(--teal);
+        }
+
+        .menu {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--graphite);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .menu a:hover {
+            color: var(--teal-dark);
+        }
+
+        .menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(153, 246, 228, 0.42),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    180deg,
+                    #F0FDFA 0%,
+                    #FFFFFF 100%
+                );
+
+            padding: 90px 24px 85px;
+        }
+
+        .hero-content {
+            max-width: 1180px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(44px, 6vw, 70px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 span {
+            color: var(--teal-dark);
+        }
+
+        .hero-text p {
+            max-width: 600px;
+            font-size: 19px;
+            color: var(--gray);
+            margin-bottom: 34px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            padding: 15px 23px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--teal-dark);
+        }
+
+        .btn-primary:hover {
+            background: #0b5d57;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            color: var(--teal-dark);
+            background: white;
+            border: 1px solid var(--teal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--teal-bg);
+        }
+
+        /* =========================================================
+           CARTÃO DE INTELIGÊNCIA
+           ========================================================= */
+
+        .intelligence-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(20, 187, 166, 0.14);
+        }
+
+        .card-label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .job-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .compatibility {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: var(--teal-bg);
+            padding: 15px 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+
+        .compatibility strong {
+            color: var(--teal-dark);
+            font-size: 25px;
+        }
+
+        .compatibility small {
+            color: var(--gray);
+        }
+
+        .mobility {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mobility-item {
+            padding: 12px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .mobility-item strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .mobility-item span {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .job-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+
+            background: var(--teal);
+            color: white;
+
+            padding: 13px;
+            border-radius: 9px;
+
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           FRASE CENTRAL
+           ========================================================= */
+
+        .statement {
+            padding: 75px 24px;
+            text-align: center;
+        }
+
+        .statement-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .statement h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .statement h2 span {
+            color: var(--teal-dark);
+        }
+
+        .statement p {
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        /* =========================================================
+           DOIS CAMINHOS
+           ========================================================= */
+
+        .paths {
+            background: var(--teal-bg);
+            padding: 75px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: auto auto 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        .path-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .path-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 34px;
+            border: 1px solid rgba(20, 187, 166, 0.14);
+            box-shadow: 0 8px 25px rgba(15, 118, 110, 0.06);
+        }
+
+        .path-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--teal-light);
+            color: var(--teal-dark);
+
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .path-card h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .path-card p {
+            color: var(--gray);
+            margin-bottom: 22px;
+        }
+
+        .path-link {
+            color: var(--teal-dark);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           COMO PENSAMOS
+           ========================================================= */
+
+        .thinking {
+            padding: 80px 24px;
+        }
+
+        .thinking-grid {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .thinking-card {
+            border: 1px solid var(--gray-light);
+            border-radius: 15px;
+            padding: 25px;
+            background: white;
+        }
+
+        .thinking-number {
+            color: var(--teal);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .thinking-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .thinking-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           VIVÊNCIA OFF
+           ========================================================= */
+
+        .off-section {
+            background: #F8FAFC;
+            padding: 80px 24px;
+        }
+
+        .off-content {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .off-badge {
+            display: inline-block;
+            background: var(--teal-dark);
+            color: white;
+
+            padding: 8px 13px;
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .off-content h2 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .off-content h2 span {
+            color: var(--teal-dark);
+        }
+
+        .off-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .off-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .off-item {
+            background: white;
+            border: 1px solid var(--gray-light);
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .off-item strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .off-item span {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           DESLOCAMENTO
+           ========================================================= */
+
+        .mobility-section {
+            padding: 80px 24px;
+        }
+
+        .mobility-box {
+            max-width: 1000px;
+            margin: auto;
+
+            background: var(--teal-bg);
+            border-radius: 22px;
+            padding: 45px;
+
+            border: 1px solid var(--teal-light);
+        }
+
+        .mobility-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .mobility-box > p {
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .mobility-examples {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .example {
+            background: white;
+            padding: 17px;
+            border-radius: 10px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .example strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .example span {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           AUTONOMIA DA DECISÃO
+           ========================================================= */
+
+        .principle {
+            background: var(--graphite);
+            color: white;
+            padding: 85px 24px;
+            text-align: center;
+        }
+
+        .principle-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .principle-label {
+            color: var(--teal-light);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .principle h2 {
+            font-size: 39px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .principle h2 span {
+            color: var(--teal);
+        }
+
+        .principle p {
+            color: #CBD5E1;
+            font-size: 17px;
+        }
+
+        /* =========================================================
+           EMPRESAS
+           ========================================================= */
+
+        .companies {
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .companies-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .companies h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .companies h2 span {
+            color: var(--teal-dark);
+        }
+
+        .companies p {
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 28px;
+        }
+
+        /* =========================================================
+           RODAPÉ
+           ========================================================= */
+
+        footer {
+            background: var(--graphite);
+            color: white;
+            padding: 30px 24px;
+        }
+
+        .footer-content {
+            max-width: 1180px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+        }
+
+        .footer-brand span {
+            color: var(--teal);
+        }
+
+        .footer-text {
+            color: #CBD5E1;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        /* =========================================================
+           RESPONSIVO
+           ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .menu {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thinking-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .off-content {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .mobility-examples {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 43px;
+            }
+
+            .statement h2,
+            .companies h2 {
+                font-size: 30px;
+            }
+
+            .thinking-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mobility-examples {
+                grid-template-columns: 1fr;
+            }
+
+            .mobility-box {
+                padding: 28px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-text {
+                text-align: left;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         CABEÇALHO
+         ========================================================= -->
+
+    <header>
+
+        <nav class="nav">
+
+            <div class="brand">
+
+                <img src="images/diamante-oficial.png" class="diamond" alt="FormNex">
+
+                <div class="brand-name">
+                    Form<span>Nex</span>
+                </div>
+
+            </div>
+
+            <div class="menu">
+
+                <a href="#como-pensamos">Como pensamos</a>
+
+                <a href="#oportunidades">Oportunidades</a>
+
+                <a href="#empresas">Empresas</a>
+
+            </div>
+
+            <button class="menu-button">
+                ☰
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+
+                    <h1>
+                        Menos procura.<br>
+                        <span>Mais compatibilidade.</span>
+                    </h1>
+
+                    <p>
+                        A FormNex aproxima pessoas e oportunidades
+                        a partir de capacidades, experiências,
+                        evidências e contexto.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#oportunidades"
+                           class="btn btn-primary">
+                            Encontrar oportunidades
+                        </a>
+
+                        <a href="#empresas"
+                           class="btn btn-secondary">
+                            Encontrar profissionais
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXEMPLO DE INTELIGÊNCIA -->
+
+                <div class="intelligence-card">
+
+                    <div class="card-label">
+                        Exemplo de oportunidade
+                    </div>
+
+                    <div class="job-title">
+                        Auxiliar de Produção
+                    </div>
+
+                    <div class="company">
+                        Indústria Alfa
+                    </div>
+
+                    <div class="compatibility">
+
+                        <div>
+                            <small>
+                                Compatibilidade
+                            </small>
+                        </div>
+
+                        <strong>
+                            94%
+                        </strong>
+
+                    </div>
+
+                    <div class="mobility">
+
+                        <div class="mobility-item">
+                            <strong>8 km</strong>
+                            <span>distância</span>
+                        </div>
+
+                        <div class="mobility-item">
+                            <strong>26 min</strong>
+                            <span>deslocamento</span>
+                        </div>
+
+                        <div class="mobility-item">
+                            <strong>Ônibus</strong>
+                            <span>transporte</span>
+                        </div>
+
+                    </div>
+
+                    <a href="#oportunidades"
+                       class="job-button">
+                        Ver oportunidade
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE CENTRAL
+             ===================================================== -->
+
+        <section class="statement">
+
+            <div class="statement-content">
+
+                <h2>
+                    A FormNex não procura apenas
+                    <span>vagas.</span>
+                </h2>
+
+                <p>
+                    Ela busca compreender pessoas, capacidades,
+                    experiências e oportunidades para aproximar
+                    aquilo que pode fazer sentido para os dois lados.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DOIS CAMINHOS
+             ===================================================== -->
+
+        <section class="paths" id="oportunidades">
+
+            <div class="section-title">
+
+                <h2>
+                    Por onde você quer começar?
+                </h2>
+
+                <p>
+                    A FormNex foi pensada para aproximar
+                    profissionais e empresas.
+                </p>
+
+            </div>
+
+
+            <div class="path-grid">
+
+
+                <div class="path-card">
+
+                    <div class="path-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Quero encontrar uma oportunidade
+                    </h3>
+
+                    <p>
+                        Encontre oportunidades compatíveis
+                        com suas capacidades, experiências,
+                        preferências e possibilidades de deslocamento.
+                    </p>
+
+                    <a href="#" class="path-link">
+                        Encontrar oportunidades →
+                    </a>
+
+                </div>
+
+
+                <div class="path-card">
+
+                    <div class="path-icon">
+                        🏢
+                    </div>
+
+                    <h3>
+                        Quero encontrar um profissional
+                    </h3>
+
+                    <p>
+                        Encontre pessoas a partir das capacidades
+                        necessárias para sua oportunidade.
+                    </p>
+
+                    <a href="#" class="path-link">
+                        Encontrar profissionais →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMO PENSAMOS
+             ===================================================== -->
+
+        <section class="thinking" id="como-pensamos">
+
+            <div class="section-title">
+
+                <h2>
+                    Como pensamos
+                </h2>
+
+                <p>
+                    A FormNex transforma informações em
+                    inteligência para apoiar decisões.
+                </p>
+
+            </div>
+
+
+            <div class="thinking-grid">
+
+
+                <div class="thinking-card">
+
+                    <div class="thinking-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Capacidade
+                    </h3>
+
+                    <p>
+                        O que uma pessoa sabe fazer
+                        e é capaz de realizar.
+                    </p>
+
+                </div>
+
+
+                <div class="thinking-card">
+
+                    <div class="thinking-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Evidência
+                    </h3>
+
+                    <p>
+                        Elementos que ajudam a demonstrar
+                        aquilo que a pessoa sabe fazer.
+                    </p>
+
+                </div>
+
+
+                <div class="thinking-card">
+
+                    <div class="thinking-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Conhecimento
+                    </h3>
+
+                    <p>
+                        Informações organizadas para
+                        gerar compreensão.
+                    </p>
+
+                </div>
+
+
+                <div class="thinking-card">
+
+                    <div class="thinking-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Decisão
+                    </h3>
+
+                    <p>
+                        Inteligência para apoiar pessoas
+                        nas escolhas que precisam fazer.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VIVÊNCIA OFF
+             ===================================================== -->
+
+        <section class="off-section">
+
+            <div class="off-content">
+
+                <div>
+
+                    <div class="off-badge">
+                        VIVÊNCIA OFF
+                    </div>
+
+                    <h2>
+                        Experiência também
+                        pode existir <span>fora do emprego formal.</span>
+                    </h2>
+
+                    <p>
+                        A FormNex considera experiências práticas
+                        que muitas vezes não aparecem em um currículo tradicional.
+                    </p>
+
+                    <p>
+                        O importante não é apenas onde a experiência
+                        aconteceu, mas o que a pessoa aprendeu e
+                        demonstrou fazendo.
+                    </p>
+
+                </div>
+
+
+                <div class="off-list">
+
+                    <div class="off-item">
+
+                        <strong>
+                            Trabalho independente
+                        </strong>
+
+                        <span>
+                            Serviços realizados por conta própria.
+                        </span>
+
+                    </div>
+
+
+                    <div class="off-item">
+
+                        <strong>
+                            Negócio familiar
+                        </strong>
+
+                        <span>
+                            Participação prática em atividades
+                            de empresas ou negócios da família.
+                        </span>
+
+                    </div>
+
+
+                    <div class="off-item">
+
+                        <strong>
+                            Projetos pessoais
+                        </strong>
+
+                        <span>
+                            Projetos que permitiram desenvolver
+                            capacidades na prática.
+                        </span>
+
+                    </div>
+
+
+                    <div class="off-item">
+
+                        <strong>
+                            Outras vivências
+                        </strong>
+
+                        <span>
+                            Atividades temporárias, comunitárias
+                            ou experiências que geraram capacidades.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DESLOCAMENTO
+             ===================================================== -->
+
+        <section class="mobility-section">
+
+            <div class="mobility-box">
+
+                <h2>
+                    Deslocamento também é informação.
+                </h2>
+
+                <p>
+                    A distância sozinha não conta toda a história.
+                    Por isso, a FormNex considera tempo de deslocamento,
+                    distância e meio de transporte para ajudar a compreender
+                    a viabilidade da oportunidade.
+                </p>
+
+
+                <div class="mobility-examples">
+
+                    <div class="example">
+                        <strong>🚶 A pé</strong>
+                        <span>Tempo estimado</span>
+                    </div>
+
+                    <div class="example">
+                        <strong>🚲 Bicicleta</strong>
+                        <span>Tempo estimado</span>
+                    </div>
+
+                    <div class="example">
+                        <strong>🚌 Transporte público</strong>
+                        <span>Tempo estimado</span>
+                    </div>
+
+                    <div class="example">
+                        <strong>🏍️ Motocicleta</strong>
+                        <span>Tempo estimado</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PRINCÍPIO DA AUTONOMIA DA DECISÃO
+             ===================================================== -->
+
+        <section class="principle">
+
+            <div class="principle-content">
+
+                <div class="principle-label">
+                    Princípio da Autonomia da Decisão
+                </div>
+
+                <h2>
+                    A inteligência da FormNex
+                    deve apoiar decisões,
+                    <span>nunca sequestrá-las.</span>
+                </h2>
+
+                <p>
+                    A FormNex pode identificar compatibilidades,
+                    apresentar evidências, calcular deslocamentos
+                    e destacar oportunidades relevantes.
+                    A decisão final pertence às pessoas envolvidas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EMPRESAS
+             ===================================================== -->
+
+        <section class="companies" id="empresas">
+
+            <div class="companies-content">
+
+                <h2>
+                    Aqui você encontra
+                    <span>o profissional que precisa.</span>
+                </h2>
+
+                <p>
+                    Menos procura. Mais compatibilidade.
+                    Encontre profissionais a partir das capacidades
+                    necessárias para sua oportunidade.
+                </p>
+
+                <a href="#"
+                   class="btn btn-primary">
+                    Encontrar profissionais
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         RODAPÉ
+         ========================================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                Form<span>Nex</span>
+            </div>
+
+            <div class="footer-text">
+                Capacidade → Evidência → Conhecimento → Decisão
+                <br>
+                Menos procura. Mais compatibilidade.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

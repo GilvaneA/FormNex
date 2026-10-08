@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FormNex — Painel de Validação</title>
+
+    <style>
+        :root {
+            --verde: #0F766E;
+            --verde-claro: #14BBA6;
+            --verde-suave: #F0FDFA;
+            --grafite: #1F2937;
+            --cinza: #64748B;
+            --cinza-claro: #E2E8F0;
+            --branco: #FFFFFF;
+            --fundo: #F8FAFC;
+            --sucesso: #15803D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fundo);
+            color: var(--grafite);
+            line-height: 1.5;
+        }
+
+        header {
+            background: var(--branco);
+            border-bottom: 1px solid var(--cinza-claro);
+            padding: 18px 24px;
+        }
+
+        .cabecalho {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .marca {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .marca span {
+            color: var(--verde-claro);
+        }
+
+        .status {
+            background: #DCFCE7;
+            color: var(--sucesso);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 24px 60px;
+        }
+
+        .introducao {
+            margin-bottom: 32px;
+        }
+
+        .introducao pequeno {
+            display: block;
+            color: var(--verde);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .introducao h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .introducao p {
+            color: var(--cinza);
+            max-width: 800px;
+        }
+
+        .titulo-secao {
+            font-size: 21px;
+            margin: 32px 0 16px;
+        }
+
+        .cartoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .cartao {
+            background: var(--branco);
+            border: 1px solid var(--cinza-claro);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+        }
+
+        .rotulo {
+            color: var(--cinza);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .numero {
+            color: var(--verde);
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .observacao {
+            color: var(--cinza);
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .painel {
+            background: var(--branco);
+            border: 1px solid var(--cinza-claro);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .linha {
+            display: grid;
+            grid-template-columns: 1fr 90px;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .linha:last-child {
+            margin-bottom: 0;
+        }
+
+        .nome-linha {
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .barra-fundo {
+            height: 9px;
+            background: var(--cinza-claro);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .barra {
+            height: 100%;
+            background: var(--verde-claro);
+            border-radius: inherit;
+        }
+
+        .valor-linha {
+            text-align: right;
+            font-weight: 800;
+            color: var(--verde);
+        }
+
+        .origens {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .origem {
+            background: var(--branco);
+            border: 1px solid var(--cinza-claro);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .origem strong {
+            display: block;
+            font-size: 26px;
+            color: var(--verde);
+            margin-top: 7px;
+        }
+
+        .origem span {
+            color: var(--cinza);
+            font-size: 13px;
+        }
+
+        .informacao {
+            margin-top: 28px;
+            padding: 22px;
+            background: var(--verde-suave);
+            border: 1px solid #99F6E4;
+            border-radius: 16px;
+        }
+
+        .informacao strong {
+            color: var(--verde);
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: var(--cinza);
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .cartoes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .origens {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cartoes {
+                grid-template-columns: 1fr;
+            }
+
+            .origens {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .introducao h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="cabecalho">
+
+        <div class="marca">
+            Form<span>Nex</span>
+        </div>
+
+        <div class="status">
+            Painel de Validação
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="introducao">
+
+        <small>Validação FormNex</small>
+
+        <h1>
+            O que está acontecendo dentro do FormNex?
+        </h1>
+
+        <p>
+            Este painel acompanha o teste prático do FormNex:
+            empresas, vagas, visitantes, candidatos e candidaturas.
+        </p>
+
+    </section>
+
+
+    <h2 class="titulo-secao">
+        Indicadores principais
+    </h2>
+
+    <section class="cartoes">
+
+        <div class="cartao">
+            <div class="rotulo">
+                Visitantes
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Pessoas que chegaram ao FormNex
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Vagas publicadas
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Oportunidades reais
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Candidatos
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Pessoas cadastradas
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Candidaturas
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Candidaturas realizadas
+            </div>
+        </div>
+
+    </section>
+
+
+    <h2 class="titulo-secao">
+        Caminho do usuário
+    </h2>
+
+    <section class="painel">
+
+        <div class="linha">
+
+            <div>
+                <div class="nome-linha">
+                    Visitou o FormNex
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="valor-linha">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="linha">
+
+            <div>
+                <div class="nome-linha">
+                    Visualizou uma vaga
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="valor-linha">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="linha">
+
+            <div>
+                <div class="nome-linha">
+                    Iniciou cadastro
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="valor-linha">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="linha">
+
+            <div>
+                <div class="nome-linha">
+                    Concluiu cadastro
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="valor-linha">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="linha">
+
+            <div>
+                <div class="nome-linha">
+                    Realizou candidatura
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="valor-linha">
+                0
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <h2 class="titulo-secao">
+        De onde as pessoas estão vindo?
+    </h2>
+
+    <section class="origens">
+
+        <div class="origem">
+            <span>Jornal</span>
+            <strong>0</strong>
+        </div>
+
+        <div class="origem">
+            <span>Instagram</span>
+            <strong>0</strong>
+        </div>
+
+        <div class="origem">
+            <span>Facebook</span>
+            <strong>0</strong>
+        </div>
+
+        <div class="origem">
+            <span>Acesso direto</span>
+            <strong>0</strong>
+        </div>
+
+    </section>
+
+
+    <h2 class="titulo-secao">
+        Empresas
+    </h2>
+
+    <section class="cartoes">
+
+        <div class="cartao">
+            <div class="rotulo">
+                Empresas convidadas
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Empresas que receberam o convite
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Empresas cadastradas
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Empresas que entraram no FormNex
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Empresas com vagas
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Empresas que publicaram
+            </div>
+        </div>
+
+
+        <div class="cartao">
+            <div class="rotulo">
+                Empresas que receberam candidatos
+            </div>
+
+            <div class="numero">
+                0
+            </div>
+
+            <div class="observacao">
+                Resultado do teste
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="informacao">
+
+        <strong>Importante</strong>
+
+        <p>
+            Este é o painel inicial de acompanhamento.
+            Os números serão ligados aos dados reais do FormNex
+            e aos acessos, origem e comportamento dos usuários.
+        </p>
+
+    </div>
+
+</main>
+
+<footer>
+    FormNex © 2026 — Painel de Validação
+</footer>
+
+</body>
+</html>
