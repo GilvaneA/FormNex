@@ -79,15 +79,15 @@
 
         /* DIAMANTE OFICIAL DA FORMNEX */
       
-.diamond {
-    width: 52px;
-    height: 52px;
+    .diamond {
+    width: 64px;
+    height: 64px;
     object-fit: contain;
     display: block;
 }
 
         .brand-name {
-            font-size: 29px;
+    font-size: 34px;
             font-weight: 800;
             letter-spacing: -1.2px;
         }
@@ -630,11 +630,20 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
+        
+@media (max-width: 550px) {
+    .brand .diamond {
+        width: 48px;
+        height: 48px;
+    }
 
-        @media (max-width: 550px) {
-            .hero {
-                padding-top: 60px;
-            }
+    .brand-name {
+        font-size: 27px;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
 
             .hero-text h1 {
                 font-size: 43px;
