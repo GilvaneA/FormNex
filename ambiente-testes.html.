@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambiente de Testes | FormNex</title>
+  <style>
+    :root {
+      --verde: #0F766E;
+      --verde-claro: #14BBA6;
+      --fundo: #F0FDFA;
+      --grafite: #1F2937;
+      --cinza: #64748B;
+      --branco: #FFFFFF;
+      --borda: #DDE7E2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--grafite);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--branco);
+      padding: 22px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .marca {
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--verde);
+    }
+
+    .marca span { color: var(--verde-claro); }
+
+    main { padding-top: 42px; padding-bottom: 48px; }
+
+    .etiqueta {
+      color: var(--verde);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    h1 { font-size: 36px; line-height: 1.2; }
+
+    .intro {
+      color: var(--cinza);
+      max-width: 720px;
+      font-size: 17px;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .cartao {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .cartao h2 { margin-top: 0; font-size: 21px; }
+
+    .cartao p { color: var(--cinza); }
+
+    .botao {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 11px 16px;
+      border-radius: 9px;
+      background: var(--verde);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .aviso {
+      margin-top: 24px;
+      padding: 18px;
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      color: var(--cinza);
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .grade { grid-template-columns: 1fr; }
+      h1 { font-size: 29px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="marca">Form<span>Nex</span></div>
+      <div>Ambiente de Testes</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="etiqueta">Validação prática</div>
+    <h1>Vamos construir uma conexão melhor entre pessoas e empresas.</h1>
+
+    <p class="intro">
+      Este ambiente reúne protótipos da FormNex para avaliar a experiência
+      dos profissionais, as necessidades das empresas e a utilidade da
+      análise de compatibilidade.
+    </p>
+
+    <div class="grade">
+      <section class="cartao">
+        <h2>1. Profissional</h2>
+        <p>
+          Explore o perfil profissional, as experiências, os conhecimentos
+          e os exemplos práticos de capacidades.
+        </p>
+        <a class="botao" href="perfil-profissional.html">
+          Testar perfil
+        </a>
+      </section>
+
+      <section class="cartao">
+        <h2>2. Empresa</h2>
+        <p>
+          Experimente descrever uma oportunidade, suas atividades e os
+          requisitos necessários e desejáveis.
+        </p>
+        <a class="botao" href="cadastro-vaga.html">
+          Testar oportunidade
+        </a>
+      </section>
+
+      <section class="cartao">
+        <h2>3. Compatibilidade</h2>
+        <p>
+          Examine a comparação demonstrativa entre requisitos da vaga
+          e informações do perfil profissional.
+        </p>
+        <a class="botao" href="comparacao-perfil.html">
+          Testar compatibilidade
+        </a>
+      </section>
+
+      <section class="cartao">
+        <h2>4. Avaliação</h2>
+        <p>
+          Registre suas observações nas fichas de avaliação fornecidas
+          pela equipe responsável pelo teste.
+        </p>
+        <p>
+          As fichas serão disponibilizadas aos participantes convidados.
+        </p>
+      </section>
+    </div>
+
+    <div class="aviso">
+      <strong>Importante:</strong> este ambiente está em validação.
+      Os protótipos são demonstrativos e ainda não realizam cadastros
+      em um servidor nem publicam vagas reais. As comparações não
+      representam decisões definitivas de contratação. Utilize dados
+      fictícios durante os testes e não insira informações pessoais
+      reais nesta versão.
+    </div>
+  </main>
+
+  <footer>
+    FormNex © 2026 — Ambiente de Testes
+  </footer>
+</body>
+</html>
