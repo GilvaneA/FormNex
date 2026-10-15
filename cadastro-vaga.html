@@ -1,69 +1,546 @@
-FN
-FormNex
-Menos procura. Mais compatibilidade.
-Cadastre uma oportunidade
-Informe os detalhes da oportunidade para que os profissionais compreendam a vaga e a FormNex possa organizar os requisitos para análise de compatibilidade.
 
-▣
-Informações da vaga
-Título da vaga *
-Operador de Produção
-Área profissional *
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormNex — Cadastro de oportunidades</title>
+<style>
+:root {
+  --teal: #0f766e;
+  --mint: #e0f2f1;
+  --ink: #1f2937;
+  --muted: #64748b;
+  --line: #dce7e5;
+  --bg: #f5f8f8;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+header {
+  min-height: 74px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--teal);
+}
+.mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--teal);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+.tag { font-size: 15px; color: var(--muted); font-weight: 500; }
+.account { color: var(--muted); font-size: 14px; }
 
-Produção industrial
-Tipo de contratação
+.shell {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: calc(100vh - 74px);
+}
+aside {
+  background: white;
+  border-right: 1px solid var(--line);
+  padding: 18px 12px;
+}
+.company {
+  padding: 12px;
+  background: #f0fdfa;
+  border-radius: 10px;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.nav {
+  padding: 12px;
+  border-radius: 9px;
+  margin: 4px 0;
+  color: #475569;
+  font-size: 14px;
+}
+.nav.active {
+  background: var(--mint);
+  color: var(--teal);
+  font-weight: 800;
+}
+main {
+  min-width: 0;
+  width: 100%;
+  padding: 26px;
+}
+h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+  letter-spacing: -.4px;
+}
+.intro {
+  max-width: 900px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.formpanel { min-width: 0; }
+.panel {
+  min-width: 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.panelhead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.panelhead h2 { font-size: 18px; margin: 0; }
+.icon {
+  height: 34px;
+  width: 34px;
+  flex: 0 0 34px;
+  border-radius: 10px;
+  background: var(--mint);
+  color: var(--teal);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.field { min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 15px;
+  background: white;
+  color: var(--ink);
+}
+.field textarea { min-height: 92px; resize: vertical; }
+.field small {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+.checkrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+}
+.checkrow input { margin-top: 4px; accent-color: var(--teal); }
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.btn {
+  border: 1px solid var(--teal);
+  border-radius: 9px;
+  padding: 11px 14px;
+  background: white;
+  color: var(--teal);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn.primary { background: var(--teal); color: white; }
+.btn:hover { filter: brightness(.96); }
+.preview { min-width: 0; }
+.preview-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.preview h3 { font-size: 21px; margin: 0 0 8px; overflow-wrap: anywhere; }
+.pill {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 5px 8px 0;
+}
+.preview p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.preview ul {
+  font-size: 14px;
+  color: #475569;
+  padding-left: 20px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.rule { height: 1px; background: var(--line); margin: 14px 0; }
+.notice {
+  padding: 13px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+.success {
+  display: none;
+  padding: 13px;
+  border: 1px solid #86efac;
+  background: #f0fdf4;
+  color: #166534;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 14px;
+}
+.required { color: #b91c1c; }
 
-CLT
-Cidade *
-Marechal Cândido Rondon - PR
-Local de trabalho
+@media (max-width: 1000px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  aside { display: none; }
+  main { padding: 20px; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .preview { position: static; }
+}
+@media (max-width: 600px) {
+  header { padding: 12px 16px; }
+  .brand { font-size: 22px; }
+  .tag { font-size: 13px; }
+  .account { display: none; }
+  main { padding: 14px; }
+  h1 { font-size: 24px; }
+  .panel { padding: 15px; }
+  .fields { grid-template-columns: minmax(0, 1fr); }
+  .field.full { grid-column: auto; }
+  .actions .btn { width: 100%; }
+}
+@media print {
+  header, aside, .formpanel, .actions { display: none !important; }
+  body { background: white; }
+  .shell { display: block; min-height: 0; }
+  main { padding: 0; }
+  .grid { display: block; }
+  .preview { display: block; }
+  .panel { border: 0; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="mark">FN</div>
+    <div>
+      FormNex
+      <div class="tag">Menos procura. Mais compatibilidade.</div>
+    </div>
+  </div>
+  <div class="account">Cadastro de oportunidades · Ambiente de testes</div>
+</header>
 
-Presencial
-Horário / turno
-Ex.: Segunda a sexta, 08h às 17h
-Salário ou faixa salarial
-Ex.: R$ 2.200,00 ou a combinar
-Principais atividades *
-Executar atividades operacionais conforme as orientações da equipe e os procedimentos da empresa.
-Benefícios
-Ex.: vale-alimentação, transporte, plano de saúde
-✓
-Requisitos da vaga
-Requisitos necessários *
-Atenção às instruções
+<div class="shell">
+  <aside>
+    <div class="company">▣ &nbsp; Empresa Exemplo<br>
+      <span style="font-weight:500">Área da empresa · Demonstração</span>
+    </div>
+    <div class="nav">▥ &nbsp; Painel</div>
+    <div class="nav active">⊕ &nbsp; Publicar vaga</div>
+    <div class="nav">♙ &nbsp; Candidatos</div>
+    <div class="nav">▱ &nbsp; Minhas vagas</div>
+    <div class="nav">⇄ &nbsp; Comparar perfis</div>
+    <div class="nav">▤ &nbsp; Relatórios</div>
+    <div class="nav">⚙ &nbsp; Configurações</div>
+  </aside>
+
+  <main>
+    <h1>Cadastre uma oportunidade</h1>
+    <p class="intro">Informe os detalhes da oportunidade para que os profissionais compreendam a vaga e a FormNex possa organizar os requisitos para análise de compatibilidade.</p>
+
+    <div class="grid">
+      <div class="formpanel">
+        <form id="jobForm">
+          <div class="panel">
+            <div class="panelhead"><div class="icon">▣</div><h2>Informações da vaga</h2></div>
+            <div class="fields">
+              <div class="field full">
+                <label for="title">Título da vaga <span class="required">*</span></label>
+                <input id="title" required value="Operador de Produção" placeholder="Ex.: Operador de Produção">
+              </div>
+              <div class="field">
+                <label for="area">Área profissional <span class="required">*</span></label>
+                <select id="area" required>
+                  <option>Produção industrial</option><option>Administrativo</option>
+                  <option>Comercial e vendas</option><option>Atendimento ao cliente</option>
+                  <option>Logística</option><option>Manutenção</option>
+                  <option>Tecnologia</option><option>Outra</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="contract">Tipo de contratação</label>
+                <select id="contract">
+                  <option>CLT</option><option>Temporário</option><option>Estágio</option>
+                  <option>Aprendiz</option><option>Prestação de serviços</option><option>A combinar</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="city">Cidade <span class="required">*</span></label>
+                <input id="city" required value="Marechal Cândido Rondon - PR">
+              </div>
+              <div class="field">
+                <label for="workplace">Local de trabalho</label>
+                <select id="workplace">
+                  <option>Presencial</option><option>Híbrido</option>
+                  <option>Remoto</option><option>A combinar</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="hours">Horário / turno</label>
+                <input id="hours" placeholder="Ex.: Segunda a sexta, 08h às 17h">
+              </div>
+              <div class="field">
+                <label for="salary">Salário ou faixa salarial</label>
+                <input id="salary" placeholder="Ex.: R$ 2.200,00 ou a combinar">
+              </div>
+              <div class="field full">
+                <label for="description">Principais atividades <span class="required">*</span></label>
+                <textarea id="description" required>Executar atividades operacionais conforme as orientações da equipe e os procedimentos da empresa.</textarea>
+              </div>
+              <div class="field full">
+                <label for="benefits">Benefícios</label>
+                <input id="benefits" placeholder="Ex.: vale-alimentação, transporte, plano de saúde">
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panelhead"><div class="icon">✓</div><h2>Requisitos da vaga</h2></div>
+            <div class="fields">
+              <div class="field full">
+                <label for="must">Requisitos necessários <span class="required">*</span></label>
+                <textarea id="must" required>Atenção às instruções
 Organização
-Disponibilidade para o horário informado
-Digite um requisito por linha. Seja claro e evite exigências que não sejam necessárias ao trabalho.
-Requisitos desejáveis
-Experiência industrial
-Requisitos desejáveis são diferenciais, não devem ser tratados automaticamente como eliminatórios.
-Como a pessoa pode demonstrar essas capacidades?
-Experiências operacionais anteriores e exemplos de atividades realizadas.
-◎
-Antes de publicar
+Disponibilidade para o horário informado</textarea>
+                <small>Digite um requisito por linha. Seja claro e evite exigências que não sejam necessárias ao trabalho.</small>
+              </div>
+              <div class="field full">
+                <label for="nice">Requisitos desejáveis</label>
+                <textarea id="nice">Experiência industrial</textarea>
+                <small>Requisitos desejáveis são diferenciais, não devem ser tratados automaticamente como eliminatórios.</small>
+              </div>
+              <div class="field full">
+                <label for="evidence">Como a pessoa pode demonstrar essas capacidades?</label>
+                <textarea id="evidence" placeholder="Ex.: experiência anterior, curso, atividade prática ou exemplo de trabalho.">Experiências operacionais anteriores e exemplos de atividades realizadas.</textarea>
+              </div>
+            </div>
+          </div>
 
-Confirmo que as informações são corretas e que os requisitos estão relacionados às atividades da vaga.
-Salvar vaga de demonstração
-Imprimir prévia
-Restaurar exemplo
-Prévia da vaga · atualização ao digitar
-Operador de Produção
-Produção industrialCLT
-⌖ Marechal Cândido Rondon - PR · Presencial
+          <div class="panel">
+            <div class="panelhead"><div class="icon">◎</div><h2>Antes de publicar</h2></div>
+            <label class="checkrow">
+              <input id="confirm" type="checkbox" required>
+              <span>Confirmo que as informações são corretas e que os requisitos estão relacionados às atividades da vaga.</span>
+            </label>
+            <div class="actions">
+              <button type="submit" class="btn primary">Salvar vaga de demonstração</button>
+              <button type="button" class="btn" onclick="window.print()">Imprimir prévia</button>
+              <button type="button" class="btn" onclick="resetForm()">Restaurar exemplo</button>
+            </div>
+            <div class="success" id="success" role="status"></div>
+          </div>
+        </form>
+      </div>
 
-◷ Horário a combinar
+      <div class="preview">
+        <div class="panel">
+          <div class="preview-label">Prévia da vaga · atualização ao digitar</div>
+          <h3 id="pTitle">Operador de Produção</h3>
+          <span class="pill" id="pArea">Produção industrial</span>
+          <span class="pill" id="pContract">CLT</span>
+          <p id="pLocation"></p>
+          <p id="pHours"></p>
+          <p id="pSalary"></p>
+          <div class="rule"></div>
+          <strong>Principais atividades</strong>
+          <p id="pDescription"></p>
+          <strong>Requisitos necessários</strong>
+          <ul id="pMust"></ul>
+          <strong>Diferenciais desejáveis</strong>
+          <ul id="pNice"></ul>
+          <div class="rule"></div>
+          <p id="pBenefits"></p>
+          <div class="notice"><strong>Importante:</strong> esta é uma demonstração local. A vaga fica guardada somente neste navegador e neste dispositivo. Ela não é enviada para um servidor, não fica disponível para outras pessoas e não é publicada na internet.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
 
-Salário a combinar
+<script>
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "formnex_vaga_demonstracao_v1";
+const fields = [
+  "title", "area", "contract", "city", "workplace", "hours",
+  "salary", "description", "must", "nice", "evidence", "benefits"
+];
 
-Principais atividades
-Executar atividades operacionais conforme as orientações da equipe e os procedimentos da empresa.
+const exemplo = {
+  title: "Operador de Produção",
+  area: "Produção industrial",
+  contract: "CLT",
+  city: "Marechal Cândido Rondon - PR",
+  workplace: "Presencial",
+  hours: "",
+  salary: "",
+  description: "Executar atividades operacionais conforme as orientações da equipe e os procedimentos da empresa.",
+  must: "Atenção às instruções\nOrganização\nDisponibilidade para o horário informado",
+  nice: "Experiência industrial",
+  evidence: "Experiências operacionais anteriores e exemplos de atividades realizadas.",
+  benefits: ""
+};
 
-Requisitos necessários
-Atenção às instruções
-Organização
-Disponibilidade para o horário informado
-Diferenciais desejáveis
-Experiência industrial
-Benefícios não informados.
+function list(value) {
+  return value.split("\n").map(item => item.trim()).filter(Boolean);
+}
 
-Importante: esta é uma demonstração local. A vaga fica guardada somente neste navegador e neste dispositivo. Ela não é enviada para um servidor, não fica disponível para outras pessoas e não é publicada na internet.
+function safe(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;",
+    '"': "&quot;", "'": "&#39;"
+  })[char]);
+}
+
+function refresh() {
+  $("pTitle").textContent = $("title").value || "Título da vaga";
+  $("pArea").textContent = $("area").value;
+  $("pContract").textContent = $("contract").value;
+  $("pLocation").textContent =
+    "⌖ " + ($("city").value || "Cidade não informada") +
+    " · " + $("workplace").value;
+  $("pHours").textContent = "◷ " + ($("hours").value || "Horário a combinar");
+  $("pSalary").textContent = $("salary").value || "Salário a combinar";
+  $("pDescription").textContent = $("description").value || "Atividades não informadas.";
+  $("pMust").innerHTML = list($("must").value)
+    .map(item => "<li>" + safe(item) + "</li>").join("") || "<li>Não informado</li>";
+  $("pNice").innerHTML = list($("nice").value)
+    .map(item => "<li>" + safe(item) + "</li>").join("") || "<li>Nenhum requisito desejável informado.</li>";
+  $("pBenefits").textContent = $("benefits").value
+    ? "Benefícios: " + $("benefits").value
+    : "Benefícios não informados.";
+}
+
+function getFormData() {
+  const data = {};
+  fields.forEach(id => data[id] = $(id).value);
+  return data;
+}
+
+function applyFormData(data) {
+  fields.forEach(id => {
+    if (data[id] !== undefined) $(id).value = data[id];
+  });
+  refresh();
+}
+
+function showMessage(message) {
+  $("success").textContent = message;
+  $("success").style.display = "block";
+}
+
+fields.forEach(id => $(id).addEventListener("input", refresh));
+fields.forEach(id => $(id).addEventListener("change", refresh));
+
+$("jobForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!$("confirm").checked) {
+    $("confirm").focus();
+    showMessage("Marque a confirmação antes de salvar a demonstração.");
+    return;
+  }
+  refresh();
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getFormData()));
+    showMessage("✓ Demonstração salva neste navegador. Você poderá recuperar os dados neste mesmo dispositivo. A vaga não foi publicada na internet.");
+  } catch (error) {
+    showMessage("Não foi possível salvar neste navegador. Verifique as configurações de armazenamento e tente novamente.");
+  }
+});
+
+function resetForm() {
+  applyFormData(exemplo);
+  $("confirm").checked = false;
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {}
+  showMessage("Exemplo restaurado. A demonstração salva anteriormente foi removida deste navegador.");
+}
+
+try {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    applyFormData(JSON.parse(saved));
+    showMessage("✓ Dados de uma demonstração anterior foram recuperados deste navegador. Confira as informações antes de continuar.");
+  }
+} catch (error) {
+  console.warn("Não foi possível recuperar a demonstração salva.");
+}
+refresh();
+</script>
+</body>
+</html>
