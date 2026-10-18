@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>La Vaga — Perfil profissional</title>
+<title>FormNex — Perfil profissional</title>
 <style>
 :root{--teal:#0f766e;--mint:#e0f2f1;--ink:#1f2937;--muted:#64748b;--line:#dce7e5;--bg:#f5f8f8;--white:#fff;--blue:#eff6ff;--green:#dcfce7}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
@@ -56,7 +56,14 @@ main{width:100%;max-width:1250px;padding:28px;margin:auto}.crumb{font-size:16px;
 </div></div>
 <div class="panel"><div class="panelhead"><div class="icon">▤</div><h2>Revisão e privacidade</h2></div><label class="check"><input type="checkbox" id="consent" required><span>Confirmo que as informações são minhas e autorizo que este protótipo as utilize somente para montar esta prévia local.</span></label><div class="actions"><button type="submit" class="btn primary">Atualizar meu perfil</button><button type="button" class="btn" onclick="window.print()">Imprimir / salvar PDF</button><button type="button" class="btn" onclick="resetProfile()">Restaurar exemplo</button></div><div class="success" id="success">✓ Perfil demonstrativo atualizado nesta página. Nenhum dado foi enviado ou salvo em um servidor.</div></div>
 </form></div>
-<div class="preview"><div class="panel"><div class="label">Prévia do perfil profissional</div><div class="profiletop"><div class="avatar" id="initials">CE</div><div><h3 id="pName">Candidato de Exemplo</h3><div class="sub" id="pArea">Produção industrial</div></div></div><span class="pill" id="pEducation">Ensino médio completo</span><span class="pill" id="pCity">Marechal Cândido Rondon - PR</span><div class="progress"><span id="bar"></span></div><div class="sub" id="completion">Perfil preenchido: 0%</div><div class="rule"></div><h4>Apresentação</h4><p id="pSummary"></p><h4>Experiências e atividades</h4><p id="pExperience"></p><p id="pActivities"></p><h4>Conhecimentos e habilidades</h4><div id="pSkills"></div><p id="pOther"></p><h4>Evidências práticas</h4><p id="pEvidence"></p><h4>Disponibilidade</h4><p id="pSchedule"></p><p id="pMobility"></p><div class="notice"><strong>Transparência:</strong> o perfil organiza informações declaradas pela pessoa. Habilidades não devem ser tratadas como comprovadas apenas por terem sido selecionadas; evidências e validação podem ser necessárias conforme a vaga.</div></div></div>
+<div class="preview">
+<div class="panel">
+  <div class="label">Histórico de alterações</div>
+  <p class="muted">Registros locais das alterações salvas neste navegador.</p>
+  <div id="historyList"><p class="muted">Nenhuma alteração salva ainda.</p></div>
+  <div class="actions"><button type="button" class="btn" id="clearHistory">Limpar histórico local</button></div>
+</div>
+<div class="panel"><div class="label">Prévia do perfil profissional</div><div class="profiletop"><div class="avatar" id="initials">CE</div><div><h3 id="pName">Candidato de Exemplo</h3><div class="sub" id="pArea">Produção industrial</div></div></div><span class="pill" id="pEducation">Ensino médio completo</span><span class="pill" id="pCity">Marechal Cândido Rondon - PR</span><div class="progress"><span id="bar"></span></div><div class="sub" id="completion">Perfil preenchido: 0%</div><div class="rule"></div><h4>Apresentação</h4><p id="pSummary"></p><h4>Experiências e atividades</h4><p id="pExperience"></p><p id="pActivities"></p><h4>Conhecimentos e habilidades</h4><div id="pSkills"></div><p id="pOther"></p><h4>Evidências práticas</h4><p id="pEvidence"></p><h4>Disponibilidade</h4><p id="pSchedule"></p><p id="pMobility"></p><div class="notice"><strong>Transparência:</strong> o perfil organiza informações declaradas pela pessoa. Habilidades não devem ser tratadas como comprovadas apenas por terem sido selecionadas; evidências e validação podem ser necessárias conforme a vaga.</div></div></div>
 </div></main></div>
 <script>
 const $=id=>document.getElementById(id);
@@ -69,6 +76,59 @@ $("pSummary").textContent=$("summary").value||"Apresentação não informada.";$
 const skills=selectedSkills();$("pSkills").innerHTML=skills.map(s=>'<span class="pill">'+safe(s)+'</span>').join("")||'<span class="muted">Nenhuma habilidade selecionada.</span>';$("pOther").textContent=$("otherSkills").value?"Outros: "+$("otherSkills").value:"";$("pEvidence").textContent=$("evidence").value||"Nenhum exemplo informado.";$("pSchedule").textContent="Horário: "+$("schedule").value;$("pMobility").textContent="Deslocamento: "+$("mobility").value;
 const ids=["name","city","summary","activities","evidence"];let filled=ids.filter(id=>$(id).value.trim()).length+skills.length+($("otherSkills").value.trim()?1:0);let total=ids.length+8+1;let pct=Math.round(filled/total*100);$("bar").style.width=pct+"%";$("completion").textContent="Preenchimento ilustrativo: "+pct+"%";
 }
+const PROFILE_KEY="formnex_perfil_profissional_v1";
+const HISTORY_KEY="formnex_historico_perfil_v1";
+function collectProfile(){
+  const data={};
+  Object.keys(defaults).forEach(id=>data[id]=$(id).value);
+  data.skills=selectedSkills();
+  return data;
+}
+function applyProfile(data){
+  if(!data)return;
+  Object.keys(defaults).forEach(id=>{if(data[id]!==undefined)$(id).value=data[id]});
+  document.querySelectorAll('#skills input').forEach(x=>x.checked=Array.isArray(data.skills)&&data.skills.includes(x.value));
+  refresh();
+}
+function getHistory(){
+  try{return JSON.parse(localStorage.getItem(HISTORY_KEY)||"[]")}catch(e){return []}
+}
+function renderHistory(){
+  const history=getHistory(), target=$("historyList");
+  if(!history.length){target.innerHTML='<p class="muted">Nenhuma alteração salva ainda.</p>';return}
+  target.innerHTML=history.slice().reverse().map(item=>'<div style="border-top:1px solid var(--line);padding:12px 0"><strong>'+safe(item.action)+'</strong><div class="sub">'+safe(item.dateTime)+'</div><div class="sub">Perfil: '+safe(item.name||"Não informado")+'</div></div>').join("");
+}
+function saveProfile(){
+  const data=collectProfile();
+  const now=new Date();
+  const dateTime=now.toLocaleDateString("pt-BR")+" às "+now.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  try{
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(data));
+    const history=getHistory();
+    history.push({action:"Perfil profissional salvo/atualizado",dateTime:dateTime,iso:now.toISOString(),name:data.name});
+    localStorage.setItem(HISTORY_KEY,JSON.stringify(history.slice(-100)));
+    renderHistory();
+    $("success").textContent="✓ Perfil salvo neste navegador em "+dateTime+". O registro não foi enviado a um servidor.";
+    $("success").style.display="block";
+    $("success").scrollIntoView({behavior:"smooth",block:"nearest"});
+  }catch(err){
+    $("success").textContent="Não foi possível salvar neste navegador. Verifique as configurações de armazenamento.";
+    $("success").style.display="block";
+  }
+}
 function resetProfile(){Object.entries(defaults).forEach(([id,val])=>$(id).value=val);document.querySelectorAll('#skills input').forEach(x=>x.checked=["Organização","Seguir instruções"].includes(x.value));$("consent").checked=false;$("success").style.display="none";refresh()}
-document.querySelectorAll("input,select,textarea").forEach(el=>el.addEventListener("input",refresh));$("profileForm").addEventListener("submit",e=>{e.preventDefault();refresh();$("success").style.display="block";$("success").scrollIntoView({behavior:"smooth",block:"nearest"})});refresh();
+document.querySelectorAll("input,select,textarea").forEach(el=>el.addEventListener("input",refresh));
+$("profileForm").addEventListener("submit",e=>{e.preventDefault();refresh();saveProfile()});
+$("clearHistory").addEventListener("click",()=>{
+  if(confirm("Deseja apagar o histórico de alterações salvo neste navegador?")){
+    try{localStorage.removeItem(HISTORY_KEY)}catch(e){}
+    renderHistory();
+  }
+});
+try{
+  const saved=localStorage.getItem(PROFILE_KEY);
+  if(saved)applyProfile(JSON.parse(saved));
+}catch(e){}
+renderHistory();
+refresh();
 </script></body></html>
