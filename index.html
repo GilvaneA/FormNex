@@ -600,6 +600,107 @@
             text-align: right;
         }
 
+
+        /* Alternância de tema claro/escuro */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 13px;
+            border: 1px solid var(--teal);
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--teal-dark);
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .theme-toggle:hover { background: var(--teal-bg); }
+        body, header, .hero, .intelligence-card, .paths, .path-card,
+        .thinking-card, .off-section, .off-item, .mobility-box, .example,
+        .statement, .companies {
+            transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+        body[data-theme="dark"] {
+            --graphite: #E5F1F0;
+            --gray: #B2C3C5;
+            --gray-light: #35474A;
+            --white: #172326;
+            --teal-bg: #1D3435;
+            background: #10191C;
+            color: #E5F1F0;
+        }
+        body[data-theme="dark"] header {
+            background: rgba(18, 29, 32, .97);
+            border-bottom-color: #35474A;
+        }
+        body[data-theme="dark"] .hero {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(20, 187, 166, .13), transparent 30%),
+                linear-gradient(180deg, #172729 0%, #10191C 100%);
+        }
+        body[data-theme="dark"] .intelligence-card,
+        body[data-theme="dark"] .path-card,
+        body[data-theme="dark"] .thinking-card,
+        body[data-theme="dark"] .off-item,
+        body[data-theme="dark"] .example {
+            background: #1A292D;
+            border-color: #35474A;
+            color: #E5F1F0;
+        }
+        body[data-theme="dark"] .off-section {
+            background: #131F22;
+        }
+        body[data-theme="dark"] .mobility-box {
+            background: #1D3435;
+            border-color: #355B58;
+        }
+        body[data-theme="dark"] .statement,
+        body[data-theme="dark"] .thinking,
+        body[data-theme="dark"] .mobility-section,
+        body[data-theme="dark"] .companies {
+            background: #10191C;
+        }
+        body[data-theme="dark"] .paths {
+            background: #142124;
+        }
+        body[data-theme="dark"] .compatibility {
+            background: #243D3D;
+        }
+        body[data-theme="dark"] .mobility-item {
+            border-color: #35474A;
+        }
+        body[data-theme="dark"] .btn-secondary {
+            background: #1A292D;
+            color: #66DCCB;
+            border-color: #269F92;
+        }
+        body[data-theme="dark"] .btn-secondary:hover {
+            background: #243D3D;
+        }
+        body[data-theme="dark"] .theme-toggle {
+            background: #1A292D;
+            color: #99F6E4;
+            border-color: #269F92;
+        }
+        body[data-theme="dark"] .theme-toggle:hover {
+            background: #243D3D;
+        }
+        body[data-theme="dark"] .principle,
+        body[data-theme="dark"] footer {
+            background: #0B1215;
+        }
+        @media (max-width: 850px) {
+            .theme-toggle { margin-left: auto; }
+        }
+        @media (max-width: 550px) {
+            .theme-toggle { padding: 9px 10px; font-size: 12px; }
+            .theme-toggle span { display: none; }
+        }
+
         @media (max-width: 850px) {
             .menu {
                 display: none;
@@ -684,7 +785,7 @@
 <header>
     <nav class="nav">
         <div class="brand">
-            <img src="images/diamante-formnex-oficial.png" class="diamond" alt="Diamante FormNex">
+            <img src="images/diamante-formnex-oficial.png" class="diamond" alt="Diamante FormNex" onerror="if (!this.dataset.tentouOutraPasta) { this.dataset.tentouOutraPasta = 'sim'; this.src = 'imagens/diamante-formnex-oficial.png'; } else { this.style.display = 'none'; }">
             <div class="brand-name">Form<span>Nex</span></div>
         </div>
 
@@ -694,6 +795,7 @@
             <a href="#empresas">Empresas</a>
         </div>
 
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" title="Alternar entre modo claro e escuro">🌙 <span>Modo escuro</span></button>
         <button class="menu-button" aria-label="Abrir menu">☰</button>
     </nav>
 </header>
@@ -1090,6 +1192,41 @@
 
     </div>
 </footer>
+
+
+<script>
+(function () {
+    const chaveTema = "formnex_tema";
+    const botao = document.getElementById("themeToggle");
+    const corpo = document.body;
+
+    function aplicarTema(tema) {
+        const escuro = tema === "dark";
+        corpo.setAttribute("data-theme", escuro ? "dark" : "light");
+        botao.innerHTML = escuro ? "☀️ <span>Modo claro</span>" : "🌙 <span>Modo escuro</span>";
+        botao.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
+        botao.setAttribute("title", escuro ? "Mudar para modo claro" : "Mudar para modo escuro");
+    }
+
+    let temaGuardado = "light";
+    try {
+        temaGuardado = localStorage.getItem(chaveTema) || "light";
+    } catch (erro) {
+        temaGuardado = "light";
+    }
+    aplicarTema(temaGuardado);
+
+    botao.addEventListener("click", function () {
+        const novoTema = corpo.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        aplicarTema(novoTema);
+        try {
+            localStorage.setItem(chaveTema, novoTema);
+        } catch (erro) {
+            /* A alternância continua funcionando mesmo se o navegador bloquear o armazenamento. */
+        }
+    });
+})();
+</script>
 
 </body>
 </html>
