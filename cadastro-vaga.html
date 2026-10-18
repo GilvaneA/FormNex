@@ -429,12 +429,19 @@ Disponibilidade para o horário informado</textarea>
         </div>
       </div>
     </div>
+  <section class="history-panel" aria-labelledby="historyTitle" style="max-width:1100px;margin:24px auto;padding:20px;background:#fff;border:1px solid var(--line);border-radius:14px;">
+    <h2 id="historyTitle" style="margin-top:0">Histórico de alterações</h2>
+    <p style="color:var(--muted)">Registro local das ações realizadas neste navegador. Não identifica automaticamente a pessoa que fez a alteração e não é compartilhado com outros dispositivos.</p>
+    <ol id="historyList" style="padding-left:22px"></ol>
+    <button type="button" id="clearHistory" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer">Limpar histórico local</button>
+  </section>
   </main>
 </div>
 
 <script>
 const $ = id => document.getElementById(id);
 const STORAGE_KEY = "formnex_vaga_demonstracao_v1";
+const HISTORY_KEY = "formnex_historico_oportunidades_v1";
 const fields = [
   "title", "area", "contract", "city", "workplace", "hours",
   "salary", "description", "must", "nice", "evidence", "benefits"
@@ -515,21 +522,71 @@ $("jobForm").addEventListener("submit", event => {
   }
   refresh();
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(getFormData()));
-    showMessage("✓ Demonstração salva neste navegador. Você poderá recuperar os dados neste mesmo dispositivo. A vaga não foi publicada na internet.");
+    const data = getFormData();
+    const previous = localStorage.getItem(STORAGE_KEY);
+    const action = previous ? "Oportunidade atualizada" : "Oportunidade cadastrada";
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    addHistory(action, data);
+    showMessage("✓ Demonstração salva neste navegador com data e horário no histórico. A vaga não foi publicada na internet.");
   } catch (error) {
     showMessage("Não foi possível salvar neste navegador. Verifique as configurações de armazenamento e tente novamente.");
   }
 });
 
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
+  catch (error) { return []; }
+}
+
+function addHistory(action, data) {
+  const history = getHistory();
+  history.unshift({
+    action,
+    title: data.title || "Oportunidade sem título",
+    date: new Date().toLocaleDateString("pt-BR"),
+    time: new Date().toLocaleTimeString("pt-BR"),
+    timestamp: new Date().toISOString()
+  });
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 100)));
+    renderHistory();
+  } catch (error) {
+    console.warn("Não foi possível registrar o histórico local.");
+  }
+}
+
+function renderHistory() {
+  const list = $("historyList");
+  if (!list) return;
+  const history = getHistory();
+  list.innerHTML = "";
+  if (!history.length) {
+    const item = document.createElement("li");
+    item.textContent = "Nenhuma alteração registrada ainda.";
+    list.appendChild(item);
+    return;
+  }
+  history.forEach(record => {
+    const item = document.createElement("li");
+    item.style.marginBottom = "10px";
+    item.textContent = `${record.date} às ${record.time} — ${record.action}: ${record.title}`;
+    list.appendChild(item);
+  });
+}
+
 function resetForm() {
+  // Restaura apenas os campos visíveis; não apaga o registro salvo nem o histórico.
   applyFormData(exemplo);
   $("confirm").checked = false;
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch (error) {}
-  showMessage("Exemplo restaurado. A demonstração salva anteriormente foi removida deste navegador.");
+  showMessage("Exemplo restaurado nos campos. O cadastro salvo e o histórico foram preservados.");
 }
+
+$("clearHistory").addEventListener("click", () => {
+  if (!confirm("Deseja limpar o histórico local de alterações? O cadastro salvo será mantido.")) return;
+  try { localStorage.removeItem(HISTORY_KEY); } catch (error) {}
+  renderHistory();
+  showMessage("Histórico local limpo. O cadastro salvo foi mantido.");
+});
 
 try {
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -541,6 +598,7 @@ try {
   console.warn("Não foi possível recuperar a demonstração salva.");
 }
 refresh();
+renderHistory();
 </script>
 </body>
 </html>
