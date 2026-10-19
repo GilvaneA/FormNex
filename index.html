@@ -76,25 +76,20 @@
             align-items: center;
             gap: 12px;
         }
-
-        /* DIAMANTE OFICIAL DA FORMNEX */
-
-        .diamond {
-    width: 78px;
-    height: 78px;
-    object-fit: contain;
-    display: block;
-}
-
+        /* Logotipo completo FormNex */
+        .brand-logo {
+            display: block;
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
         .brand-name {
-    font-size: 40px;
+            font-size: 40px;
             font-weight: 800;
             letter-spacing: -1.2px;
         }
-
-        .brand-name span {
-            color: var(--teal);
-        }
+        .brand-name span { color: var(--teal); }
 
         .menu {
             display: flex;
@@ -810,16 +805,12 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
 @media (max-width: 550px) {
-    .brand .diamond {
-        width: 54px;
-        height: 54px;
+    .brand-logo {
+        width: 48px;
+        height: 48px;
     }
-
-    .brand-name {
-        font-size: 30px;
-    }
+    .brand-name { font-size: 30px; }
 
     .hero {
         padding-top: 60px;
@@ -863,7 +854,7 @@
 <header>
     <nav class="nav">
         <div class="brand">
-            <img src="imagens/formnex-simbolo-novo.png" class="diamond" alt="Símbolo FormNex" onerror="this.onerror=null; this.src='images/formnex-simbolo-novo.png';">
+            <img src="imagens/diamante-formnex-oficial.png" class="brand-logo" alt="Diamante FormNex" onerror="this.onerror=null; this.src='images/diamante-formnex-oficial.png';">
             <div class="brand-name">Form<span>Nex</span></div>
         </div>
 
