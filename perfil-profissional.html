@@ -26,7 +26,7 @@ main{width:100%;max-width:1250px;padding:28px;margin:auto}.crumb{font-size:16px;
 </header>
 
 <div class="shell"><aside><div class="user">♙ &nbsp; Área do candidato<br><span style="font-size:16px;font-weight:500">Perfil profissional</span></div><div class="nav">⌂ &nbsp; Meu painel</div><div class="nav active">♙ &nbsp; Meu perfil</div><div class="nav">⌕ &nbsp; Buscar vagas</div><div class="nav">▤ &nbsp; Minhas candidaturas</div><div class="nav">⚙ &nbsp; Configurações</div></aside>
-<main><div class="crumb">Área do candidato › Meu perfil profissional</div><h1>Conte o que você sabe fazer</h1><p class="intro">Monte seu perfil profissional além do currículo: registre experiências, conhecimentos, habilidades e exemplos do que você já realizou.</p>
+<main><div class="crumb">Área do candidato › Meu perfil profissional</div><h1>Conte o que você sabe fazer</h1><p class="intro">Monte seu perfil além do currículo: registre cursos, experiências profissionais e internacionais, idiomas, projetos, conhecimentos e evidências. Neste protótipo, as informações ficam salvas somente neste navegador.</p>
 <div class="layout"><div class="formpanel">
 <form id="profileForm">
 <div class="panel"><div class="panelhead"><div class="icon">♙</div><h2>Informações básicas</h2></div><div class="fields">
@@ -96,7 +96,7 @@ main{width:100%;max-width:1250px;padding:28px;margin:auto}.crumb{font-size:16px;
   <div id="historyList"><p class="muted">Nenhuma alteração salva ainda.</p></div>
   <div class="actions"><button type="button" class="btn" id="clearHistory">Limpar histórico local</button></div>
 </div>
-<div class="panel"><div class="label">Prévia do perfil profissional</div><div class="profiletop"><div class="avatar" id="initials">CE</div><div><h3 id="pName">Candidato de Exemplo</h3><div class="sub" id="pArea">Produção industrial</div></div></div><span class="pill" id="pEducation">Ensino médio completo</span><span class="pill" id="pCity">Marechal Cândido Rondon - PR</span><div class="progress"><span id="bar"></span></div><div class="sub" id="completion">Perfil preenchido: 0%</div><div class="rule"></div><h4>Apresentação</h4><p id="pSummary"></p><h4>Experiências e atividades</h4><p id="pExperience"></p><p id="pActivities"></p><h4>Conhecimentos e habilidades</h4><div id="pSkills"></div><p id="pOther"></p><h4>Evidências práticas</h4><p id="pEvidence"></p><h4>Disponibilidade</h4><p id="pSchedule"></p><p id="pMobility"></p><h4>Formação e cursos</h4><div id="pCourses"></div><h4>Experiências profissionais detalhadas</h4><div id="pJobs"></div><h4>Experiências internacionais</h4><div id="pInternational"></div><h4>Idiomas</h4><div id="pLanguages"></div><h4>Projetos e vivências práticas</h4><div id="pProjects"></div><div class="notice"><strong>Transparência:</strong> o perfil organiza informações declaradas pela pessoa. Habilidades não devem ser tratadas como comprovadas apenas por terem sido selecionadas; evidências e validação podem ser necessárias conforme a vaga.</div></div></div>
+<div class="panel"><div class="label">Prévia do perfil profissional</div><div class="profiletop"><div class="avatar" id="initials">CE</div><div><h3 id="pName">Candidato de Exemplo</h3><div class="sub" id="pArea">Produção industrial</div></div></div><span class="pill" id="pEducation">Ensino médio completo</span><span class="pill" id="pCity">Marechal Cândido Rondon - PR</span><div class="progress"><span id="bar"></span></div><div class="sub" id="completion">Perfil preenchido: 0%</div><div class="rule"></div><h4>Apresentação</h4><p id="pSummary"></p><h4>Experiências e atividades</h4><p id="pExperience"></p><p id="pActivities"></p><h4>Conhecimentos e habilidades</h4><div id="pSkills"></div><p id="pOther"></p><h4>Evidências práticas</h4><p id="pEvidence"></p><h4>Disponibilidade</h4><p id="pSchedule"></p><p id="pMobility"></p><h4>Formação e cursos</h4><div id="pCourses"></div><h4>Experiências profissionais detalhadas</h4><div id="pJobs"></div><h4>Experiências internacionais</h4><div id="pInternational"></div><h4>Idiomas</h4><div id="pLanguages"></div><h4>Projetos e vivências práticas</h4><div id="pProjects"></div><div class="notice"><strong>Transparência:</strong> as informações são declaradas pela pessoa e ficam neste navegador. Preencher um campo ou mencionar uma habilidade não significa que ela foi verificada. A FormNex deve distinguir informação declarada, documento apresentado e verificação realizada por pessoa autorizada.</div></div></div>
 </div></main></div>
 <script>
 const $=id=>document.getElementById(id);
@@ -107,7 +107,14 @@ function refresh(){
 const name=$("name").value.trim()||"Candidato";$("pName").textContent=name;$("initials").textContent=name.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();$("pArea").textContent=$("area").value;$("pEducation").textContent=$("education").value;$("pCity").textContent=$("city").value||"Cidade não informada";
 $("pSummary").textContent=$("summary").value||"Apresentação não informada.";$("pExperience").textContent=$("experience").value+" · "+$("years").value;$("pActivities").textContent=$("activities").value||"Atividades não informadas.";
 const skills=selectedSkills();$("pSkills").innerHTML=skills.map(s=>'<span class="pill">'+safe(s)+'</span>').join("")||'<span class="muted">Nenhuma habilidade selecionada.</span>';$("pOther").textContent=$("otherSkills").value?"Outros: "+$("otherSkills").value:"";$("pEvidence").textContent=$("evidence").value||"Nenhum exemplo informado.";$("pSchedule").textContent="Horário: "+$("schedule").value;$("pMobility").textContent="Deslocamento: "+$("mobility").value;
-const ids=["name","city","summary","activities","evidence"];let filled=ids.filter(id=>$(id).value.trim()).length+skills.length+($("otherSkills").value.trim()?1:0);let total=ids.length+8+1;let pct=Math.round(filled/total*100);$("bar").style.width=pct+"%";$("completion").textContent="Preenchimento ilustrativo: "+pct+"%";
+const baseFields=["name","city","summary","activities","evidence","otherSkills"];
+const baseFilled=baseFields.filter(id=>$(id).value.trim()).length + skills.length;
+const repeatCounts=Object.keys(repeaterConfig).reduce((sum,type)=>sum+repeaterData[type].filter(item=>Object.values(item).some(v=>String(v||"").trim())).length,0);
+const repeatTotal=Object.keys(repeaterConfig).reduce((sum,type)=>sum+repeaterData[type].length,0);
+const totalPossible=baseFields.length+8+Math.max(5,repeatTotal);
+const pct=Math.min(100,Math.round((baseFilled+repeatCounts)/totalPossible*100));
+$("bar").style.width=pct+"%";
+$("completion").textContent="Preenchimento indicativo: "+pct+"% · "+repeatTotal+" registro(s) detalhado(s)";
 const summary=(type,keys)=>repeaterData[type].map((item,i)=>{
  const parts=keys.map(k=>item[k]).filter(v=>v&&String(v).trim());
  return parts.length?'<p><strong>'+safe(parts[0])+'</strong><br>'+parts.slice(1).map(safe).join(' · ')+'</p>':'';
@@ -117,6 +124,11 @@ $("pJobs").innerHTML=summary("jobs",["role","company","period","activities","ski
 $("pInternational").innerHTML=summary("international",["country","kind","period","activities","learning"]);
 $("pLanguages").innerHTML=summary("languages",["language","comprehension","speaking","reading","writing","certificate"]);
 $("pProjects").innerHTML=summary("projects",["name","period","context","description","evidence"]);
+$("pCourses").setAttribute("aria-live","polite");
+$("pJobs").setAttribute("aria-live","polite");
+$("pInternational").setAttribute("aria-live","polite");
+$("pLanguages").setAttribute("aria-live","polite");
+$("pProjects").setAttribute("aria-live","polite");
 
 }
 
@@ -180,7 +192,7 @@ function getHistory(){
 function renderHistory(){
   const history=getHistory(), target=$("historyList");
   if(!history.length){target.innerHTML='<p class="muted">Nenhuma alteração salva ainda.</p>';return}
-  target.innerHTML=history.slice().reverse().map(item=>'<div style="border-top:1px solid var(--line);padding:12px 0"><strong>'+safe(item.action)+'</strong><div class="sub">'+safe(item.dateTime)+'</div><div class="sub">Perfil: '+safe(item.name||"Não informado")+'</div></div>').join("");
+  target.innerHTML=history.slice().reverse().map(item=>'<div style="border-top:1px solid var(--line);padding:12px 0"><strong>'+safe(item.action)+'</strong><div class="sub">'+safe(item.dateTime)+'</div><div class="sub">Perfil: '+safe(item.name||"Não informado")+'</div>'+(item.resumo?'<div class="sub">'+safe(item.resumo)+'</div>':'')+'</div>').join("");
 }
 function saveProfile(){
   const data=collectProfile();
@@ -189,7 +201,20 @@ function saveProfile(){
   try{
     localStorage.setItem(PROFILE_KEY,JSON.stringify(data));
     const history=getHistory();
-    history.push({action:"Perfil profissional salvo/atualizado",dateTime:dateTime,iso:now.toISOString(),name:data.name});
+    const counts = {
+      cursos: data.courses.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
+      experiencias: data.jobs.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
+      internacionais: data.international.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
+      idiomas: data.languages.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
+      projetos: data.projects.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length
+    };
+    history.push({
+      action:"Perfil profissional salvo/atualizado",
+      dateTime:dateTime,
+      iso:now.toISOString(),
+      name:data.name,
+      resumo: counts.cursos+" curso(s), "+counts.experiencias+" experiência(s), "+counts.internacionais+" internacional(is), "+counts.idiomas+" idioma(s), "+counts.projetos+" projeto(s)"
+    });
     localStorage.setItem(HISTORY_KEY,JSON.stringify(history.slice(-100)));
     renderHistory();
     $("success").textContent="✓ Perfil salvo neste navegador em "+dateTime+". O registro não foi enviado a um servidor.";
