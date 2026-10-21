@@ -1,243 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FormNex — Perfil profissional</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormNex — Inteligência de compatibilidade</title>
 <style>
-:root{--teal:#0f766e;--mint:#e0f2f1;--ink:#1f2937;--muted:#64748b;--line:#dce7e5;--bg:#f5f8f8;--white:#fff;--blue:#eff6ff;--green:#dcfce7}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
-header{height:74px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;gap:12px}.brand{display:flex;align-items:center;gap:11px;font-size:27px;font-weight:800;color:var(--teal)}.mark{height:40px;width:40px;border-radius:12px;background:var(--teal);color:white;display:grid;place-items:center;font-size:16px}.tag{font-size:16px;color:var(--muted);font-weight:500}.account{font-size:16px;color:#475569}
-.shell{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 74px)}aside{background:white;border-right:1px solid var(--line);padding:20px 13px}.user{padding:12px;background:#f0fdfa;border-radius:10px;color:var(--teal);font-weight:700;font-size:16px;margin-bottom:18px}.nav{padding:12px;border-radius:9px;margin:4px 0;color:#475569;font-size:16px}.nav.active{background:var(--mint);color:var(--teal);font-weight:800}
-main{width:100%;max-width:1250px;padding:28px;margin:auto}.crumb{font-size:16px;color:var(--muted);margin-bottom:12px}h1{font-size:28px;margin:0 0 8px;letter-spacing:-.5px}h2{font-size:18px;margin:0}.intro{color:var(--muted);line-height:1.5;margin-bottom:22px}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:18px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}.panelhead{display:flex;align-items:center;gap:10px;margin-bottom:18px}.icon{height:34px;width:34px;border-radius:10px;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-weight:900;font-size:18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field.full{grid-column:1/-1}.field label{display:block;font-size:16px;font-weight:800;color:#475569;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:11px 12px;font:inherit;font-size:16px;background:white;color:var(--ink)}.field textarea{min-height:80px;resize:vertical}.field small{display:block;font-size:16px;color:var(--muted);margin-top:5px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:9px}.check{display:flex;gap:9px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:9px;font-size:16px;color:#475569;line-height:1.4}.check input{accent-color:var(--teal);margin-top:2px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:1px solid var(--teal);border-radius:9px;padding:11px 15px;background:white;color:var(--teal);font-weight:800;cursor:pointer}.btn.primary{background:var(--teal);color:white}.btn:hover{filter:brightness(.97)}.preview{position:sticky;top:18px}.label{font-size:16px;text-transform:uppercase;letter-spacing:.7px;font-weight:800;color:var(--teal);margin-bottom:12px}.profiletop{display:flex;align-items:center;gap:13px;margin-bottom:14px}.avatar{width:58px;height:58px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-size:20px;font-weight:900}.profiletop h3{margin:0 0 4px;font-size:20px}.sub{font-size:16px;color:var(--muted)}.pill{display:inline-block;padding:5px 9px;background:#f1f5f9;color:#475569;border-radius:99px;font-size:16px;font-weight:700;margin:0 5px 8px 0}.preview h4{font-size:16px;margin:16px 0 7px}.preview p,.preview li{font-size:16px;color:#475569;line-height:1.55}.preview ul{padding-left:19px;margin:4px 0}.rule{height:1px;background:var(--line);margin:14px 0}.notice{padding:13px;background:var(--blue);border:1px solid #bfdbfe;color:#1e40af;border-radius:10px;font-size:16px;line-height:1.5;margin-top:14px}.success{display:none;padding:13px;border:1px solid #86efac;background:#f0fdf4;color:#166534;border-radius:10px;font-size:16px;margin-top:14px}.toast{font-size:16px;color:var(--muted);margin-top:10px}.req{color:#b91c1c}.progress{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:10px 0 6px}.progress span{display:block;height:100%;width:0;background:var(--teal);transition:width .2s}.muted{color:var(--muted)}@media(max-width:900px){.shell{grid-template-columns:1fr}aside{display:none}main{padding:16px}.layout{grid-template-columns:1fr}.preview{position:static}.fields,.checks{grid-template-columns:1fr}.field.full{grid-column:auto}header{padding:0 16px}.account{display:none}h1{font-size:24px}}@media print{header,aside,.formpanel,.actions{display:none!important}.shell{display:block}.layout{display:block}main{padding:0}.preview{position:static}}
+:root{--teal:#0f766e;--teal2:#14b8a6;--ink:#1f2937;--muted:#64748b;--line:#dce7e5;--bg:#f5f8f8;--white:#fff;--green:#dcfce7;--greenInk:#166534;--amber:#fef3c7;--amberInk:#92400e;--gray:#e2e8f0;--grayInk:#334155;--blue:#eff6ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}header{height:76px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;gap:16px;position:sticky;top:0;z-index:2}.brand{display:flex;align-items:center;gap:12px;color:var(--teal);font-weight:800;font-size:28px}.brandmark{width:40px;height:40px;border-radius:12px;background:var(--teal);color:white;display:grid;place-items:center;font-size:20px}.tagline{font-size:11px;color:var(--muted);font-weight:500}.header-right{font-size:13px;color:#475569}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 76px)}aside{background:white;border-right:1px solid var(--line);padding:22px 14px}.company{padding:10px;border-radius:12px;background:#f0fdfa;color:var(--teal);font-weight:700;margin-bottom:18px}.nav{padding:11px 12px;border-radius:9px;margin:4px 0;font-size:14px;color:#475569}.nav.active{background:#dff5f1;color:var(--teal);font-weight:700}main{padding:28px;max-width:1500px;width:100%;margin:auto}.topline{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:20px}.crumb{font-size:13px;color:var(--muted);margin-bottom:12px}h1{font-size:28px;margin:0 0 8px;letter-spacing:-.5px}p{margin:0;color:var(--muted);line-height:1.5}.back{border:1px solid var(--line);background:white;border-radius:9px;padding:10px 14px;color:var(--ink);font-weight:600;white-space:nowrap}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.card.vaga{background:linear-gradient(120deg,#f0fdfa,#fff)}.card.person{background:linear-gradient(120deg,#eff6ff,#fff)}.card-title{font-size:13px;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}.person .card-title{color:#2563eb}h2{font-size:20px;margin:0 0 10px}.detail{font-size:14px;color:#475569;margin:8px 0}.section{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}.sectionhead{display:flex;align-items:center;gap:12px;margin-bottom:6px}.sectionhead .symbol{width:36px;height:36px;border-radius:10px;background:var(--teal);color:white;display:grid;place-items:center;font-size:20px}.sectionhead h2{margin:0}.hint{font-size:13px;color:var(--muted);margin:0 0 16px 48px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:780px}th{background:#f1f5f9;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:#475569}th,td{padding:13px 12px;border:1px solid #e2e8f0;vertical-align:top;font-size:13px;line-height:1.45}td:first-child{font-weight:700;width:20%}td:nth-child(2){width:31%}td:nth-child(3){width:16%}.status{display:inline-block;border-radius:8px;padding:7px 9px;font-size:12px;font-weight:800;white-space:nowrap}.att{background:var(--green);color:var(--greenInk)}.par{background:var(--amber);color:var(--amberInk)}.non{background:var(--gray);color:var(--grayInk)}.lower{display:grid;grid-template-columns:1fr 1fr;gap:16px}.lower .section{margin-bottom:0}.strength{background:#faf5ff;border-color:#e9d5ff}.attention{background:#fff7ed;border-color:#fed7aa}.lower h3{font-size:15px;margin:0 0 10px}.lower ul{padding-left:20px;margin:0;color:#475569;font-size:13px;line-height:1.7}.important{margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:15px;display:flex;gap:12px;font-size:13px;color:#1e40af;line-height:1.5}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:1px solid var(--teal);border-radius:9px;padding:10px 14px;background:white;color:var(--teal);font-weight:700;cursor:pointer}.btn.primary{background:var(--teal);color:white}.btn:hover{filter:brightness(.97)}.editgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#475569}.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit;font-size:13px;background:white}.field textarea{min-height:78px;resize:vertical}.editnote{font-size:12px;color:var(--muted);margin-top:12px}.toast{display:none;padding:10px;border-radius:8px;background:#dcfce7;color:#166534;font-size:13px;margin-top:10px}@media(max-width:900px){.layout{grid-template-columns:1fr}aside{display:none}main{padding:16px}.cards,.lower,.editgrid{grid-template-columns:1fr}.topline{display:block}.back{margin-top:14px}header{padding:0 16px}.header-right{display:none}h1{font-size:24px}}@media print{header,aside,.back,.actions,.editpanel{display:none!important}.layout{display:block}main{padding:0;max-width:none}.section,.card{break-inside:avoid}.cards{grid-template-columns:1fr 1fr}body{background:white}}
 
-.repeat-list{display:grid;gap:12px}.repeat-item{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fbfefd}.repeat-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;font-weight:800;color:var(--teal)}.repeat-item .fields{gap:12px}.btn.small{padding:7px 10px;font-size:14px}.section-help{font-size:14px;color:var(--muted);line-height:1.5;margin:-6px 0 14px}.evidence-status{font-size:14px;color:var(--muted);line-height:1.5;margin-top:8px}
-</style></head>
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.summary-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.summary-card span{display:block;color:var(--muted);font-size:13px}
+.summary-card strong{display:block;font-size:28px;margin-top:6px;color:var(--teal)}
+.history-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+#historyList{font-size:13px;color:var(--muted);line-height:1.5}
+@media(max-width:720px){.summary-grid{grid-template-columns:1fr}.summary-card{padding:12px}}
+</style>
+</head>
 <body>
-
 <header>
-  <div class="brand">
-    <div class="mark">FN</div>
-    <div>
-      FormNex
-      <div class="tag">Menos procura. Mais compatibilidade.</div>
+  <div class="brand"><div class="brandmark">LV</div><div>FormNex<div class="tagline">Conectando pessoas a oportunidades.</div></div></div>
+  <div class="header-right">DEMONSTRAÇÃO · DADOS FICTÍCIOS</div>
+</header>
+<div class="layout">
+<aside>
+  <div class="company">▣ &nbsp; Empresa Exemplo</div>
+  <div class="nav">▥ &nbsp; Painel</div><div class="nav">⊕ &nbsp; Publicar vaga</div><div class="nav active">♙ &nbsp; Candidatos</div><div class="nav">▱ &nbsp; Minhas vagas</div><div class="nav">⇄ &nbsp; Comparar perfis</div><div class="nav">▤ &nbsp; Relatórios</div><div class="nav">⚙ &nbsp; Configurações</div>
+</aside>
+<main>
+  <div class="topline">
+    <div><div class="crumb">Candidatos › Comparação de perfil</div><h1>Inteligência de compatibilidade</h1><p>Relacione os requisitos da oportunidade às informações disponíveis no perfil. A análise apoia a avaliação; não toma a decisão pela empresa.</p></div>
+    <button class="back" onclick="window.print()">Imprimir / salvar PDF</button>
+  </div>
+  <div class="cards">
+    <div class="card vaga"><div class="card-title">▣ &nbsp; Vaga</div><h2 id="showRole">Operador de Produção</h2><div class="detail">⌖ &nbsp; Local: não especificado no exemplo</div><div class="detail">◷ &nbsp; Horário: informado pela empresa</div><div class="detail">▦ &nbsp; Setor: Produção industrial</div></div>
+    <div class="card person"><div class="card-title">♙ &nbsp; Perfil profissional</div><h2 id="showCandidate">Candidato fictício</h2><div class="detail">▣ &nbsp; Experiência em atividades operacionais</div><div class="detail">✓ &nbsp; Organização mencionada no perfil</div><div class="detail">▤ &nbsp; Disponibilidade de horário: não informada</div></div>
+  </div>
+  <div class="summary-grid" aria-live="polite">
+    <div class="summary-card"><span>Com informação relacionada</span><strong id="countAttended">0</strong></div>
+    <div class="summary-card"><span>Precisa de confirmação</span><strong id="countPartial">0</strong></div>
+    <div class="summary-card"><span>Sem evidência suficiente</span><strong id="countMissing">0</strong></div>
+  </div>
+  <div class="section">
+    <div class="sectionhead"><div class="symbol">✓</div><h2>Análise dos requisitos</h2></div>
+    <p class="hint">Cada situação deve ser sustentada pelas informações disponíveis, sem presumir competências ausentes.</p>
+    <div class="tablewrap"><table><thead><tr><th>Requisito da vaga</th><th>Evidências no perfil</th><th>Situação</th><th>Observações</th></tr></thead><tbody id="results"></tbody></table></div>
+    <div class="actions"><button class="btn primary" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Editar dados do exemplo</button><button class="btn" onclick="window.print()">Imprimir comparação</button><button class="btn" onclick="resetDemo()">Restaurar exemplo</button></div>
+  </div>
+  <div class="lower">
+    <div class="section strength"><h3>✓ &nbsp; Pontos sustentados pelo perfil</h3><ul id="strengths"></ul></div>
+    <div class="section attention"><h3>⚠ &nbsp; Pontos que precisam de confirmação</h3><ul id="attention"></ul></div>
+  </div>
+  <div class="important"><strong>ⓘ Importante</strong><span>Esta comparação utiliza apenas as informações fornecidas no exemplo. “Sem evidência suficiente” significa que o perfil não trouxe informação bastante; isso não significa ausência da capacidade. “Informação relacionada” também não significa competência verificada. A empresa deve confirmar informações relevantes e tomar a decisão final de forma responsável.</span></div>
+  <div class="section editpanel" id="editor" style="margin-top:16px">
+    <div class="sectionhead"><div class="symbol">✎</div><h2>Editar o exemplo</h2></div>
+    <p class="hint">Altere os campos para testar a tela. Os resultados são atualizados localmente neste navegador.</p>
+    <div class="editgrid">
+      <div class="field"><label for="role">Nome da vaga</label><input id="role" value="Operador de Produção"></div>
+      <div class="field"><label for="candidate">Nome demonstrativo</label><input id="candidate" value="Candidato fictício"></div>
+      <div class="field"><label for="requirements">Requisitos (um por linha)</label><textarea id="requirements">Atenção às instruções
+Organização
+Disponibilidade para o horário informado
+Experiência industrial desejável</textarea></div>
+      <div class="field"><label for="profile">Informações do perfil</label><textarea id="profile">Experiência em atividades operacionais
+Organização
+Capacidade de seguir instruções
+Experiência industrial ainda não comprovada
+Disponibilidade de horário não informada</textarea></div>
+    </div>
+    <div class="actions"><button class="btn primary" onclick="updateDemo()">Atualizar comparação</button></div>
+    <div class="editnote">Nota do protótipo: esta demonstração usa regras simples por palavras-chave para ajudar a testar a interface. Não é um motor de seleção validado nem deve ser usado para decidir contratações reais.</div>
+    <div class="toast" id="toast">Exemplo atualizado.</div>
+  <div class="section" id="historyPanel">
+    <div class="sectionhead"><div class="symbol">◷</div><h2>Histórico desta comparação</h2></div>
+    <p class="hint">Registros guardados somente neste navegador, com data e hora. Não são enviados a um servidor.</p>
+    <div id="historyList">Nenhuma comparação salva ainda.</div>
+    <div class="history-actions">
+      <button class="btn primary" type="button" onclick="saveComparison()">Salvar registro da comparação</button>
+      <button class="btn" type="button" onclick="clearComparisonHistory()">Limpar histórico local</button>
+      <button class="btn" type="button" onclick="exportComparison()">Exportar comparação (.txt)</button>
     </div>
   </div>
-  <div class="account">Perfil profissional · Ambiente de testes</div>
-</header>
-
-<div class="shell"><aside><div class="user">♙ &nbsp; Área do candidato<br><span style="font-size:16px;font-weight:500">Perfil profissional</span></div><div class="nav">⌂ &nbsp; Meu painel</div><div class="nav active">♙ &nbsp; Meu perfil</div><div class="nav">⌕ &nbsp; Buscar vagas</div><div class="nav">▤ &nbsp; Minhas candidaturas</div><div class="nav">⚙ &nbsp; Configurações</div></aside>
-<main><div class="crumb">Área do candidato › Meu perfil profissional</div><h1>Conte o que você sabe fazer</h1><p class="intro">Monte seu perfil além do currículo: registre cursos, experiências profissionais e internacionais, idiomas, projetos, conhecimentos e evidências. Neste protótipo, as informações ficam salvas somente neste navegador.</p>
-<div class="layout"><div class="formpanel">
-<form id="profileForm">
-<div class="panel"><div class="panelhead"><div class="icon">♙</div><h2>Informações básicas</h2></div><div class="fields">
-<div class="field"><label for="name">Nome demonstrativo <span class="req">*</span></label><input id="name" required value="Candidato de Exemplo" placeholder="Seu nome"></div>
-<div class="field"><label for="city">Cidade / região</label><input id="city" value="Marechal Cândido Rondon - PR"></div>
-<div class="field"><label for="education">Escolaridade</label><select id="education"><option>Ensino médio completo</option><option>Ensino fundamental</option><option>Ensino fundamental completo</option><option>Ensino médio incompleto</option><option>Curso técnico</option><option>Ensino superior em andamento</option><option>Ensino superior completo</option><option>Prefiro não informar</option></select></div>
-<div class="field"><label for="area">Área de interesse</label><select id="area"><option>Produção industrial</option><option>Administrativo</option><option>Comercial e vendas</option><option>Atendimento ao cliente</option><option>Logística</option><option>Manutenção</option><option>Tecnologia</option><option>Primeira oportunidade</option><option>Outra</option></select></div>
-<div class="field full"><label for="summary">Apresentação profissional</label><textarea id="summary" placeholder="Conte brevemente sobre você e o tipo de trabalho que procura.">Pessoa organizada, com experiência em atividades operacionais e capacidade de seguir orientações de trabalho.</textarea></div>
-</div></div>
-<div class="panel"><div class="panelhead"><div class="icon">▣</div><h2>Experiências</h2></div><div class="fields">
-<div class="field"><label for="experience">Experiência profissional</label><select id="experience"><option>Tenho experiência profissional</option><option>Busco minha primeira oportunidade</option><option>Tenho experiência informal ou autônoma</option><option>Tenho vivência prática, estágio ou voluntariado</option></select></div>
-<div class="field"><label for="years">Tempo de experiência</label><select id="years"><option>Até 1 ano</option><option>De 1 a 3 anos</option><option>Mais de 3 anos</option><option>Sem experiência formal</option><option>Prefiro detalhar na entrevista</option></select></div>
-<div class="field full"><label for="activities">Atividades que já realizou</label><textarea id="activities">Atividades operacionais; organização do local de trabalho; seguir instruções e procedimentos.</textarea><small>Inclua também experiências informais, projetos, trabalho autônomo ou atividades práticas relevantes.</small></div>
-</div></div>
-<div class="panel"><div class="panelhead"><div class="icon">✓</div><h2>Conhecimentos e habilidades</h2></div><div class="field full"><label>Selecione os itens que representam seu perfil</label><div class="checks" id="skills">
-<label class="check"><input type="checkbox" value="Organização" checked> Organização</label>
-<label class="check"><input type="checkbox" value="Seguir instruções" checked> Seguir instruções</label>
-<label class="check"><input type="checkbox" value="Trabalho em equipe"> Trabalho em equipe</label>
-<label class="check"><input type="checkbox" value="Atendimento ao cliente"> Atendimento ao cliente</label>
-<label class="check"><input type="checkbox" value="Operação de máquinas"> Operação de máquinas</label>
-<label class="check"><input type="checkbox" value="Informática básica"> Informática básica</label>
-<label class="check"><input type="checkbox" value="Comunicação"> Comunicação</label>
-<label class="check"><input type="checkbox" value="Resolução de problemas"> Resolução de problemas</label>
-</div></div><div class="field full" style="margin-top:15px"><label for="otherSkills">Outros conhecimentos</label><input id="otherSkills" placeholder="Ex.: estoque, Excel, manutenção, atendimento"></div></div>
-<div class="panel"><div class="panelhead"><div class="icon">◎</div><h2>Evidências e disponibilidade</h2></div><div class="fields">
-<div class="field full"><label for="evidence">Exemplo que demonstra o que você sabe fazer</label><textarea id="evidence" placeholder="Conte uma situação, tarefa ou resultado.">Em atividades operacionais, seguia orientações da equipe e mantinha o local de trabalho organizado.</textarea><small>Não é necessário anexar documentos pessoais neste protótipo. Um exemplo concreto já ajuda a explicar a experiência.</small></div>
-<div class="field"><label for="schedule">Disponibilidade de horário</label><select id="schedule"><option>Horário comercial</option><option>Turnos alternados</option><option>Noturno</option><option>Fins de semana</option><option>A combinar</option><option>Ainda não informada</option></select></div>
-<div class="field"><label for="mobility">Deslocamento</label><select id="mobility"><option>Até 30 minutos</option><option>Até 45 minutos</option><option>Até 60 minutos</option><option>Sem limite definido</option><option>A combinar</option></select></div>
-</div></div>
-
-<div class="panel">
- <div class="panelhead"><div class="icon">▣</div><h2>Formação e cursos</h2></div>
- <p class="section-help">Registre todos os cursos que desejar, inclusive cursos livres, técnicos, profissionalizantes e especializações. Não é necessário ter certificado para descrever uma formação.</p>
- <div id="coursesList" class="repeat-list"></div>
- <div class="actions"><button type="button" class="btn" onclick="addEntry('courses')">+ Adicionar curso</button></div>
+  </div>
+</main>
 </div>
-<div class="panel">
- <div class="panelhead"><div class="icon">▤</div><h2>Experiências profissionais</h2></div>
- <p class="section-help">Inclua empregos formais, trabalho autônomo, atividades familiares, sazonais ou informais. Descreva o que realmente realizou.</p>
- <div id="jobsList" class="repeat-list"></div>
- <div class="actions"><button type="button" class="btn" onclick="addEntry('jobs')">+ Adicionar experiência</button></div>
-</div>
-<div class="panel">
- <div class="panelhead"><div class="icon">◎</div><h2>Experiências internacionais</h2></div>
- <p class="section-help">Registre trabalho, estudo, intercâmbio, voluntariado ou projetos realizados em outros países. Se nunca teve uma experiência internacional, pode deixar em branco.</p>
- <div id="internationalList" class="repeat-list"></div>
- <div class="actions"><button type="button" class="btn" onclick="addEntry('international')">+ Adicionar experiência internacional</button></div>
-</div>
-<div class="panel">
- <div class="panelhead"><div class="icon">文</div><h2>Idiomas</h2></div>
- <p class="section-help">Informe seu nível de compreensão, fala, leitura e escrita. Seja fiel ao seu conhecimento atual; certificados são opcionais.</p>
- <div id="languagesList" class="repeat-list"></div>
- <div class="actions"><button type="button" class="btn" onclick="addEntry('languages')">+ Adicionar idioma</button></div>
-</div>
-<div class="panel">
- <div class="panelhead"><div class="icon">✦</div><h2>Projetos e vivências práticas</h2></div>
- <p class="section-help">Projetos pessoais, voluntariado, atividades rurais, trabalhos por conta própria, cuidados, iniciativas comunitárias e outras experiências também podem revelar capacidades.</p>
- <div id="projectsList" class="repeat-list"></div>
- <div class="actions"><button type="button" class="btn" onclick="addEntry('projects')">+ Adicionar projeto ou vivência</button></div>
-</div>
-<div class="panel"><div class="panelhead"><div class="icon">▤</div><h2>Revisão e privacidade</h2></div><label class="check"><input type="checkbox" id="consent" required><span>Confirmo que as informações são minhas e autorizo que este protótipo as utilize somente para montar esta prévia local.</span></label><div class="actions"><button type="submit" class="btn primary">Atualizar meu perfil</button><button type="button" class="btn" onclick="window.print()">Imprimir / salvar PDF</button><button type="button" class="btn" onclick="resetProfile()">Restaurar exemplo</button></div><div class="success" id="success">✓ Perfil demonstrativo atualizado nesta página. Nenhum dado foi enviado ou salvo em um servidor.</div></div>
-</form></div>
-<div class="preview">
-<div class="panel">
-  <div class="label">Histórico de alterações</div>
-  <p class="muted">Registros locais das alterações salvas neste navegador.</p>
-  <div id="historyList"><p class="muted">Nenhuma alteração salva ainda.</p></div>
-  <div class="actions"><button type="button" class="btn" id="clearHistory">Limpar histórico local</button></div>
-</div>
-<div class="panel"><div class="label">Prévia do perfil profissional</div><div class="profiletop"><div class="avatar" id="initials">CE</div><div><h3 id="pName">Candidato de Exemplo</h3><div class="sub" id="pArea">Produção industrial</div></div></div><span class="pill" id="pEducation">Ensino médio completo</span><span class="pill" id="pCity">Marechal Cândido Rondon - PR</span><div class="progress"><span id="bar"></span></div><div class="sub" id="completion">Perfil preenchido: 0%</div><div class="rule"></div><h4>Apresentação</h4><p id="pSummary"></p><h4>Experiências e atividades</h4><p id="pExperience"></p><p id="pActivities"></p><h4>Conhecimentos e habilidades</h4><div id="pSkills"></div><p id="pOther"></p><h4>Evidências práticas</h4><p id="pEvidence"></p><h4>Disponibilidade</h4><p id="pSchedule"></p><p id="pMobility"></p><h4>Formação e cursos</h4><div id="pCourses"></div><h4>Experiências profissionais detalhadas</h4><div id="pJobs"></div><h4>Experiências internacionais</h4><div id="pInternational"></div><h4>Idiomas</h4><div id="pLanguages"></div><h4>Projetos e vivências práticas</h4><div id="pProjects"></div><div class="notice"><strong>Transparência:</strong> as informações são declaradas pela pessoa e ficam neste navegador. Preencher um campo ou mencionar uma habilidade não significa que ela foi verificada. A FormNex deve distinguir informação declarada, documento apresentado e verificação realizada por pessoa autorizada.</div></div></div>
-</div></main></div>
 <script>
-const $=id=>document.getElementById(id);
-const defaults={name:"Candidato de Exemplo",city:"Marechal Cândido Rondon - PR",education:"Ensino médio completo",area:"Produção industrial",summary:"Pessoa organizada, com experiência em atividades operacionais e capacidade de seguir orientações de trabalho.",experience:"Tenho experiência profissional",years:"Até 1 ano",activities:"Atividades operacionais; organização do local de trabalho; seguir instruções e procedimentos.",otherSkills:"",evidence:"Em atividades operacionais, seguia orientações da equipe e mantinha o local de trabalho organizado.",schedule:"Horário comercial",mobility:"Até 30 minutos"};
-function safe(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function selectedSkills(){return [...document.querySelectorAll('#skills input:checked')].map(x=>x.value)}
-function refresh(){
-const name=$("name").value.trim()||"Candidato";$("pName").textContent=name;$("initials").textContent=name.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();$("pArea").textContent=$("area").value;$("pEducation").textContent=$("education").value;$("pCity").textContent=$("city").value||"Cidade não informada";
-$("pSummary").textContent=$("summary").value||"Apresentação não informada.";$("pExperience").textContent=$("experience").value+" · "+$("years").value;$("pActivities").textContent=$("activities").value||"Atividades não informadas.";
-const skills=selectedSkills();$("pSkills").innerHTML=skills.map(s=>'<span class="pill">'+safe(s)+'</span>').join("")||'<span class="muted">Nenhuma habilidade selecionada.</span>';$("pOther").textContent=$("otherSkills").value?"Outros: "+$("otherSkills").value:"";$("pEvidence").textContent=$("evidence").value||"Nenhum exemplo informado.";$("pSchedule").textContent="Horário: "+$("schedule").value;$("pMobility").textContent="Deslocamento: "+$("mobility").value;
-const baseFields=["name","city","summary","activities","evidence","otherSkills"];
-const baseFilled=baseFields.filter(id=>$(id).value.trim()).length + skills.length;
-const repeatCounts=Object.keys(repeaterConfig).reduce((sum,type)=>sum+repeaterData[type].filter(item=>Object.values(item).some(v=>String(v||"").trim())).length,0);
-const repeatTotal=Object.keys(repeaterConfig).reduce((sum,type)=>sum+repeaterData[type].length,0);
-const totalPossible=baseFields.length+8+Math.max(5,repeatTotal);
-const pct=Math.min(100,Math.round((baseFilled+repeatCounts)/totalPossible*100));
-$("bar").style.width=pct+"%";
-$("completion").textContent="Preenchimento indicativo: "+pct+"% · "+repeatTotal+" registro(s) detalhado(s)";
-const summary=(type,keys)=>repeaterData[type].map((item,i)=>{
- const parts=keys.map(k=>item[k]).filter(v=>v&&String(v).trim());
- return parts.length?'<p><strong>'+safe(parts[0])+'</strong><br>'+parts.slice(1).map(safe).join(' · ')+'</p>':'';
-}).join("")||'<p class="muted">Nenhum registro adicionado.</p>';
-$("pCourses").innerHTML=summary("courses",["name","institution","type","period","hours","certificate"]);
-$("pJobs").innerHTML=summary("jobs",["role","company","period","activities","skills"]);
-$("pInternational").innerHTML=summary("international",["country","kind","period","activities","learning"]);
-$("pLanguages").innerHTML=summary("languages",["language","comprehension","speaking","reading","writing","certificate"]);
-$("pProjects").innerHTML=summary("projects",["name","period","context","description","evidence"]);
-$("pCourses").setAttribute("aria-live","polite");
-$("pJobs").setAttribute("aria-live","polite");
-$("pInternational").setAttribute("aria-live","polite");
-$("pLanguages").setAttribute("aria-live","polite");
-$("pProjects").setAttribute("aria-live","polite");
-
+const initial={role:"Operador de Produção",candidate:"Candidato fictício",requirements:"Atenção às instruções\nOrganização\nDisponibilidade para o horário informado\nExperiência industrial desejável",profile:"Experiência em atividades operacionais\nOrganização\nCapacidade de seguir instruções\nExperiência industrial ainda não comprovada\nDisponibilidade de horário não informada"};
+function classify(req, profile){
+ const p=profile.toLowerCase(), r=req.toLowerCase();
+ if(r.includes("disponibilidade") || r.includes("horário") || r.includes("horario")){
+   if(/disponibilidade.{0,35}(confirmada|sim|disponível|disponivel|compatível|compativel)/i.test(p) || /horário.{0,25}(confirmado|compatível|compativel)/i.test(p)) return {status:"Informação relacionada",cls:"att",evidence:"Disponibilidade/horário informado como confirmado.",note:"Confirmar se o horário corresponde ao turno real da vaga."};
+   if(/não informad|nao informad|não consta|nao consta|a confirmar|parcial/i.test(p)) return {status:"Precisa confirmar",cls:"par",evidence:"A disponibilidade não está confirmada no perfil.",note:"Perguntar ao candidato se pode cumprir o horário informado."};
+   if(/disponibilidade|horário|horario/i.test(p)) return {status:"Precisa confirmar",cls:"par",evidence:"Há menção ao tema, mas não há confirmação clara.",note:"Confirmar diretamente com o candidato."};
+ }
+ if(r.includes("organiza")){
+   if(/organiza/i.test(p)) return {status:"Informação relacionada",cls:"att",evidence:"Organização mencionada no perfil.",note:"A informação consta no perfil; pode ser explorada na entrevista."};
+ }
+ if(r.includes("instru") || r.includes("atenção")){
+   if(/seguir instruç|seguir instruc|atenção às instru|atencao as instru/i.test(p)) return {status:"Informação relacionada",cls:"att",evidence:"Capacidade de seguir instruções mencionada.",note:"Confirmar com exemplos concretos de atividades anteriores."};
+ }
+ if(r.includes("industrial") || r.includes("experiência") || r.includes("experiencia")){
+   if(/não comprovad|nao comprovad|não há evidência|nao ha evidencia|ainda não|ainda nao/i.test(p)) return {status:"Sem evidência suficiente",cls:"non",evidence:"O perfil não comprova experiência industrial específica.",note:"A experiência é desejável; verificar se é critério obrigatório ou diferencial."};
+   if(/experiência industrial|experiencia industrial/i.test(p)) return {status:"Informação relacionada",cls:"att",evidence:"Experiência industrial indicada no perfil.",note:"Confirmar período, atividades e contexto da experiência."};
+   if(/atividades operacionais/i.test(p)) return {status:"Precisa confirmar",cls:"par",evidence:"Experiência operacional indicada, sem evidência específica de indústria.",note:"Pedir exemplos das atividades realizadas."};
+ }
+ const tokens=r.split(/\s+/).filter(x=>x.length>4);
+ const matched=tokens.some(t=>p.includes(t));
+ return matched?{status:"Precisa confirmar",cls:"par",evidence:"Há informação relacionada, mas precisa de confirmação.",note:"Validar a informação com o candidato."}:{status:"Sem evidência suficiente",cls:"non",evidence:"Não foi encontrada evidência explícita no perfil.",note:"Ausência de informação não significa ausência da capacidade."};
 }
 
-const repeaterConfig={
- courses:{list:"coursesList",title:"Curso",fields:[["name","Curso / formação","text"],["institution","Instituição","text"],["type","Tipo","select",["Curso livre","Profissionalizante","Técnico","Graduação","Pós-graduação","Especialização","Outro"]],["period","Período ou ano","text"],["hours","Carga horária","text"],["certificate","Certificado","select",["Não informado","Sim","Não","Em andamento"]]]},
- jobs:{list:"jobsList",title:"Experiência",fields:[["role","Cargo / atividade","text"],["company","Empresa / organização","text"],["period","Período","text"],["current","Ainda trabalho aqui?","select",["Não","Sim"]],["activities","O que fazia / responsabilidades","textarea"],["skills","Conhecimentos desenvolvidos","textarea"]]},
- international:{list:"internationalList",title:"Experiência internacional",fields:[["country","País","text"],["kind","Tipo de experiência","select",["Trabalho","Estudo","Intercâmbio","Voluntariado","Projeto","Viagem com vivência cultural","Outro"]],["period","Período","text"],["activities","Atividades realizadas","textarea"],["learning","Aprendizados / habilidades","textarea"]]},
- languages:{list:"languagesList",title:"Idioma",fields:[["language","Idioma","text"],["comprehension","Compreensão","select",["Iniciante","Básico","Intermediário","Avançado","Fluente","Não informado"]],["speaking","Fala","select",["Iniciante","Básico","Intermediário","Avançado","Fluente","Não informado"]],["reading","Leitura","select",["Iniciante","Básico","Intermediário","Avançado","Fluente","Não informado"]],["writing","Escrita","select",["Iniciante","Básico","Intermediário","Avançado","Fluente","Não informado"]],["certificate","Certificado (opcional)","text"]]},
- projects:{list:"projectsList",title:"Projeto / vivência",fields:[["name","Nome ou tipo de atividade","text"],["period","Período","text"],["context","Onde / em qual contexto","text"],["description","O que realizou","textarea"],["evidence","Exemplo ou resultado","textarea"]]}
-};
-const repeaterData={courses:[],jobs:[],international:[],languages:[],projects:[]};
-function renderRepeater(type,items){
- const cfg=repeaterConfig[type],root=$(cfg.list);root.replaceChildren();
- repeaterData[type]=Array.isArray(items)?items.map(x=>({...x})):[];
- repeaterData[type].forEach((item,index)=>{
-  const card=document.createElement("div");card.className="repeat-item";
-  const heading=document.createElement("div");heading.className="repeat-title";
-  const label=document.createElement("span");label.textContent=cfg.title+" "+(index+1);
-  const remove=document.createElement("button");remove.type="button";remove.className="btn small";remove.textContent="Remover";
-  remove.setAttribute("aria-label","Remover "+cfg.title+" "+(index+1));
-  remove.addEventListener("click",()=>{repeaterData[type].splice(index,1);renderRepeater(type,repeaterData[type]);refresh()});
-  heading.append(label,remove);card.append(heading);
-  const fields=document.createElement("div");fields.className="fields";
-  cfg.fields.forEach(([key,title,kind,options])=>{
-   const wrap=document.createElement("div");wrap.className="field"+(kind==="textarea"?" full":"");
-   const lab=document.createElement("label");lab.textContent=title;
-   const el=kind==="textarea"?document.createElement("textarea"):kind==="select"?document.createElement("select"):document.createElement("input");
-   if(kind==="select"){options.forEach(opt=>{const o=document.createElement("option");o.textContent=opt;o.value=opt;el.append(o)})}
-   else if(kind==="input"){el.type="text"} else if(kind==="text"){el.type="text"}
-   el.value=item[key]||"";el.dataset.repeatType=type;el.dataset.repeatIndex=index;el.dataset.repeatField=key;
-   el.addEventListener("input",()=>{repeaterData[type][index][key]=el.value;refresh()});
-   el.addEventListener("change",()=>{repeaterData[type][index][key]=el.value;refresh()});
-   wrap.append(lab,el);fields.append(wrap);
-  });
-  card.append(fields);root.append(card);
- });
-}
-function addEntry(type){repeaterData[type].push({});renderRepeater(type,repeaterData[type]);const root=$(repeaterConfig[type].list);root.lastElementChild?.scrollIntoView({behavior:"smooth",block:"nearest"});refresh()}
-function collectRepeaters(){const out={};Object.keys(repeaterConfig).forEach(type=>{out[type]=repeaterData[type].map(x=>({...x}))});return out}
-function applyRepeaters(data){Object.keys(repeaterConfig).forEach(type=>renderRepeater(type,data&&Array.isArray(data[type])?data[type]:[]))}
-
-const PROFILE_KEY="formnex_perfil_profissional_v1";
-const HISTORY_KEY="formnex_historico_perfil_v1";
-function collectProfile(){
-  const data={};
-  Object.keys(defaults).forEach(id=>data[id]=$(id).value);
-  data.skills=selectedSkills();
-  Object.assign(data,collectRepeaters());
-  return data;
-}
-function applyProfile(data){
-  if(!data)return;
-  Object.keys(defaults).forEach(id=>{if(data[id]!==undefined)$(id).value=data[id]});
-  document.querySelectorAll('#skills input').forEach(x=>x.checked=Array.isArray(data.skills)&&data.skills.includes(x.value));
-  applyRepeaters(data);
-  refresh();
-}
-function getHistory(){
-  try{return JSON.parse(localStorage.getItem(HISTORY_KEY)||"[]")}catch(e){return []}
+const HISTORY_KEY = "formnex_historico_comparacao_v2";
+function readHistory(){
+  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
+  catch(e) { return []; }
 }
 function renderHistory(){
-  const history=getHistory(), target=$("historyList");
-  if(!history.length){target.innerHTML='<p class="muted">Nenhuma alteração salva ainda.</p>';return}
-  target.innerHTML=history.slice().reverse().map(item=>'<div style="border-top:1px solid var(--line);padding:12px 0"><strong>'+safe(item.action)+'</strong><div class="sub">'+safe(item.dateTime)+'</div><div class="sub">Perfil: '+safe(item.name||"Não informado")+'</div>'+(item.resumo?'<div class="sub">'+safe(item.resumo)+'</div>':'')+'</div>').join("");
+  const target = document.getElementById("historyList");
+  const items = readHistory().slice().reverse();
+  if(!items.length){ target.textContent = "Nenhuma comparação salva ainda."; return; }
+  target.innerHTML = items.map(item =>
+    '<div style="border-top:1px solid var(--line);padding:10px 0"><strong>'+esc(item.role)+'</strong><br>'+
+    'Perfil: '+esc(item.candidate)+'<br>'+esc(item.dateTime)+'<br>'+
+    'Informações relacionadas: '+item.related+' · A confirmar: '+item.partial+' · Sem evidência: '+item.missing+'</div>'
+  ).join("");
 }
-function saveProfile(){
-  const data=collectProfile();
-  const now=new Date();
-  const dateTime=now.toLocaleDateString("pt-BR")+" às "+now.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+function saveComparison(){
+  render();
+  const counts = {
+    related: Number(document.getElementById("countAttended").textContent || 0),
+    partial: Number(document.getElementById("countPartial").textContent || 0),
+    missing: Number(document.getElementById("countMissing").textContent || 0)
+  };
+  const now = new Date();
+  const item = {
+    role: document.getElementById("role").value.trim() || "Vaga sem título",
+    candidate: document.getElementById("candidate").value.trim() || "Perfil sem identificação",
+    dateTime: now.toLocaleDateString("pt-BR")+" às "+now.toLocaleTimeString("pt-BR"),
+    iso: now.toISOString(), related: counts.related, partial: counts.partial, missing: counts.missing
+  };
   try{
-    localStorage.setItem(PROFILE_KEY,JSON.stringify(data));
-    const history=getHistory();
-    const counts = {
-      cursos: data.courses.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
-      experiencias: data.jobs.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
-      internacionais: data.international.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
-      idiomas: data.languages.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length,
-      projetos: data.projects.filter(x=>Object.values(x).some(v=>String(v||"").trim())).length
-    };
-    history.push({
-      action:"Perfil profissional salvo/atualizado",
-      dateTime:dateTime,
-      iso:now.toISOString(),
-      name:data.name,
-      resumo: counts.cursos+" curso(s), "+counts.experiencias+" experiência(s), "+counts.internacionais+" internacional(is), "+counts.idiomas+" idioma(s), "+counts.projetos+" projeto(s)"
-    });
-    localStorage.setItem(HISTORY_KEY,JSON.stringify(history.slice(-100)));
+    const items=readHistory(); items.push(item);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(-100)));
     renderHistory();
-    $("success").textContent="✓ Perfil salvo neste navegador em "+dateTime+". O registro não foi enviado a um servidor.";
-    $("success").style.display="block";
-    $("success").scrollIntoView({behavior:"smooth",block:"nearest"});
-  }catch(err){
-    $("success").textContent="Não foi possível salvar neste navegador. Verifique as configurações de armazenamento.";
-    $("success").style.display="block";
-  }
+    alert("Registro salvo neste navegador.");
+  }catch(e){ alert("Não foi possível salvar o histórico neste navegador."); }
 }
-function resetProfile(){if(!confirm("Restaurar os campos de exemplo? Os registros já salvos no histórico não serão apagados."))return;Object.entries(defaults).forEach(([id,val])=>$(id).value=val);document.querySelectorAll('#skills input').forEach(x=>x.checked=["Organização","Seguir instruções"].includes(x.value));applyRepeaters({});$("consent").checked=false;$("success").style.display="none";refresh()}
-document.querySelectorAll("input,select,textarea").forEach(el=>el.addEventListener("input",refresh));
-$("profileForm").addEventListener("submit",e=>{e.preventDefault();refresh();saveProfile()});
-$("clearHistory").addEventListener("click",()=>{
-  if(confirm("Deseja apagar o histórico de alterações salvo neste navegador?")){
-    try{localStorage.removeItem(HISTORY_KEY)}catch(e){}
-    renderHistory();
-  }
-});
-try{
-  const saved=localStorage.getItem(PROFILE_KEY);
-  if(saved)applyProfile(JSON.parse(saved));
-}catch(e){}
+function clearComparisonHistory(){
+  if(!confirm("Apagar o histórico local desta comparação?")) return;
+  localStorage.removeItem(HISTORY_KEY); renderHistory();
+}
+function exportComparison(){
+  render();
+  const textOut = [
+    "FormNex — Inteligência de compatibilidade",
+    "Oportunidade: "+(document.getElementById("role").value.trim() || "Vaga sem título"),
+    "Perfil: "+(document.getElementById("candidate").value.trim() || "Perfil sem identificação"),
+    "Data: "+new Date().toLocaleString("pt-BR"),
+    "",
+    "Requisitos:",
+    ...document.getElementById("requirements").value.split("\n").filter(x=>x.trim()).map(x=>"- "+x),
+    "",
+    "Informações do perfil:",
+    document.getElementById("profile").value,
+    "",
+    "Esta análise é ilustrativa e não substitui a avaliação humana."
+  ].join("\n");
+  const blob = new Blob([textOut], {type:"text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a"); a.href=url; a.download="formnex-comparacao.txt"; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function render(){
+ const role=document.getElementById("role").value.trim()||"Vaga sem título";
+ const candidate=document.getElementById("candidate").value.trim()||"Candidato fictício";
+ const profile=document.getElementById("profile").value.trim();
+ const reqs=document.getElementById("requirements").value.split("\n").map(x=>x.trim()).filter(Boolean);
+ document.getElementById("showRole").textContent=role;
+ document.getElementById("showCandidate").textContent=candidate;
+ const rows=reqs.map(req=>({req,...classify(req,profile)}));
+ document.getElementById("countAttended").textContent=rows.filter(x=>x.status==="Informação relacionada").length;
+ document.getElementById("countPartial").textContent=rows.filter(x=>x.status==="Precisa confirmar").length;
+ document.getElementById("countMissing").textContent=rows.filter(x=>x.status==="Sem evidência suficiente").length;
+ document.getElementById("results").innerHTML=rows.map(x=>`<tr><td>${esc(x.req)}</td><td>${esc(x.evidence)}</td><td><span class="status ${x.cls}">${esc(x.status)}</span></td><td>${esc(x.note)}</td></tr>`).join("");
+ const good=rows.filter(x=>x.status==="Informação relacionada");
+ const needs=rows.filter(x=>x.status!=="Informação relacionada");
+ document.getElementById("strengths").innerHTML=(good.length?good.map(x=>`<li>${esc(x.req)} — informação encontrada no perfil.</li>`):["Nenhum requisito tem informação relacionada suficiente no perfil atual."].map(esc).map(x=>`<li>${x}</li>`)).join("");
+ document.getElementById("attention").innerHTML=(needs.length?needs.map(x=>`<li>${esc(x.req)} — ${esc(x.status.toLowerCase())}.</li>`):["Nenhum ponto pendente identificado nesta comparação ilustrativa."].map(esc).map(x=>`<li>${x}</li>`)).join("");
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function updateDemo(){render();const t=document.getElementById("toast");t.style.display="block";setTimeout(()=>t.style.display="none",2600);}
+function resetDemo(){Object.entries(initial).forEach(([k,v])=>{const id={role:"role",candidate:"candidate",requirements:"requirements",profile:"profile"}[k];document.getElementById(id).value=v;});updateDemo();}
+render();
 renderHistory();
-refresh();
-</script></body></html>
+</script>
+</body>
+</html>
