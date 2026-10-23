@@ -84,7 +84,7 @@
             height: 70px;
             object-fit: contain;
             object-position: left center;
-            flex: 0 1 auto;
+            flex: 0 0 auto;
         }
         .brand-name {
             font-size: 40px;
@@ -715,7 +715,9 @@
         }
         .partners-window {
             overflow: hidden;
-            width: 100%;
+            width: calc(100% - 48px);
+            max-width: 1180px;
+            margin: 0 auto;
             -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
         }
