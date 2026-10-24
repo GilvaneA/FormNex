@@ -63,6 +63,7 @@
         }
 
         .nav {
+            position: relative;
             max-width: 1180px;
             margin: auto;
             padding: 12px 24px;
@@ -832,8 +833,40 @@
                 display: none;
             }
 
+            .menu.is-open {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 16px;
+                right: 16px;
+                z-index: 200;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin: 0;
+                padding: 8px;
+                background: var(--white);
+                border: 1px solid var(--gray-light);
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .menu.is-open a {
+                display: block;
+                padding: 12px 14px;
+                font-size: 17px;
+                border-radius: 8px;
+            }
+
+            .menu.is-open a:hover {
+                background: var(--teal-bg);
+            }
+
             .menu-button {
                 display: block;
+                color: var(--graphite);
+                padding: 4px 8px;
+                border-radius: 8px;
             }
 
             .hero-content {
@@ -952,14 +985,14 @@
             </div>
         </div>
 
-        <div class="menu">
+        <div class="menu" id="mainMenu">
             <a href="#como-pensamos">Como pensamos</a>
             <a href="#oportunidades">Oportunidades</a>
             <a href="#empresas">Empresas</a>
         </div>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" title="Alternar entre modo claro e escuro">🌙 <span>Modo escuro</span></button>
-        <button class="menu-button" aria-label="Abrir menu">☰</button>
+        <button class="menu-button" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="mainMenu" aria-expanded="false">☰</button>
     </nav>
 </header>
 
@@ -1090,7 +1123,7 @@
                 preferências e possibilidades de deslocamento.
             </p>
 
-            <a href="#" class="path-link">
+            <a href="#oportunidades" class="path-link">
                 Encontrar oportunidades →
             </a>
         </div>
@@ -1105,7 +1138,7 @@
                 necessárias para sua oportunidade.
             </p>
 
-            <a href="#" class="path-link">
+            <a href="#empresas" class="path-link">
                 Encontrar profissionais →
             </a>
         </div>
@@ -1356,7 +1389,7 @@
             necessárias para sua oportunidade.
         </p>
 
-        <a href="#" class="btn btn-primary">
+        <a href="#ambiente-testes" class="btn btn-primary">
             Encontrar profissionais
         </a>
 
@@ -1391,8 +1424,6 @@
     function aplicarTema(tema) {
         const escuro = tema === "dark";
         corpo.setAttribute("data-theme", escuro ? "dark" : "light");
-        const logo = document.querySelector(".brand-logo");
-        if (logo) logo.src = escuro ? logo.dataset.logoDark : logo.dataset.logoLight;
         botao.innerHTML = escuro ? "☀️ <span>Modo claro</span>" : "🌙 <span>Modo escuro</span>";
         botao.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
         botao.setAttribute("title", escuro ? "Mudar para modo claro" : "Mudar para modo escuro");
@@ -1414,6 +1445,35 @@
         } catch (erro) {
             /* A alternância continua funcionando mesmo se o navegador bloquear o armazenamento. */
         }
+    });
+
+    const menu = document.getElementById("mainMenu");
+    const menuToggle = document.getElementById("menuToggle");
+
+    function fecharMenu() {
+        menu.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+        menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const aberto = menu.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", aberto ? "true" : "false");
+        menuToggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+        menuToggle.textContent = aberto ? "✕" : "☰";
+    });
+
+    menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", fecharMenu);
+    });
+
+    document.addEventListener("keydown", function (evento) {
+        if (evento.key === "Escape") fecharMenu();
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 850) fecharMenu();
     });
 })();
 </script>
