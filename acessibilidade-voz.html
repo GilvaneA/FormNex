@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Protótipo FormNex de cadastro acessível de capacidades por voz.">
+<title>FormNex | Acessibilidade por voz</title>
+<style>
+:root{--teal-dark:#0f766e;--teal:#14bba6;--teal-light:#99f6e4;--ink:#172b36;--muted:#64748b;--bg:#f5faf9;--card:#fff;--border:#d9e6e3;--success:#16794b;--warning:#8a5a00;--shadow:0 12px 32px rgba(15,118,110,.09)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:var(--card);border-bottom:1px solid var(--border);padding:16px 22px}
+.nav{max-width:980px;margin:auto;display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--teal-dark),var(--teal));display:grid;place-items:center;color:white;font-weight:900;font-size:19px}
+.brand{font-size:25px;font-weight:800;letter-spacing:-1px}.brand span{color:var(--teal-dark)}.tag{font-size:12px;color:var(--muted);margin-top:-3px}
+main{max-width:800px;margin:32px auto;padding:0 18px 50px}
+.eyebrow{color:var(--teal-dark);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.12;margin:8px 0 12px;letter-spacing:-1px}
+.lead{color:var(--muted);font-size:17px;max-width:680px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:24px 0}
+.step{padding:10px 8px;border:1px solid var(--border);border-radius:12px;background:var(--card);font-size:12px;color:var(--muted);text-align:center}
+.step b{display:block;margin:auto auto 5px;width:26px;height:26px;border-radius:50%;background:#e0f5f1;color:var(--teal-dark);line-height:26px}
+.step.active{border-color:var(--teal);box-shadow:0 0 0 2px rgba(20,187,166,.12);color:var(--ink)}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(18px,4vw,30px);box-shadow:var(--shadow)}
+.panel h2{margin:0 0 8px;font-size:23px}.muted{color:var(--muted)}
+.tip{background:#eefaf7;border-left:4px solid var(--teal);padding:12px 14px;border-radius:8px;margin:18px 0;font-size:14px}
+textarea{display:block;width:100%;min-height:150px;border:1px solid #b9ceca;border-radius:12px;padding:14px;font:inherit;resize:vertical;color:var(--ink);background:var(--card)}
+textarea:focus,button:focus-visible{outline:3px solid rgba(20,187,166,.4);outline-offset:2px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+button{border:0;border-radius:10px;padding:12px 17px;font:inherit;font-weight:700;cursor:pointer}
+.primary{background:var(--teal-dark);color:white}.secondary{background:white;border:1px solid var(--teal-dark);color:var(--teal-dark)}button:disabled{opacity:.55;cursor:not-allowed}
+.status{font-size:14px;margin-top:10px;min-height:22px}.status[aria-live]{color:var(--muted)}
+.hidden{display:none!important}
+.skill-list{display:grid;gap:10px;margin:18px 0}
+.skill{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);padding:12px;border-radius:10px}
+.skill input{width:18px;height:18px;margin-top:4px;accent-color:var(--teal-dark)}
+.skill label{flex:1}.pill{display:inline-block;border-radius:20px;background:#fff2cc;color:#7a5000;padding:3px 9px;font-size:12px;font-weight:700}
+.notice{border:1px solid #e6d3a3;background:#fff9e8;color:#624b13;padding:13px;border-radius:10px;font-size:14px;margin:16px 0}
+.result{background:#f0faf7;border:1px solid #c5e9df;padding:16px;border-radius:12px;margin-top:16px}
+.result h3{margin:0 0 8px}.result ul{padding-left:20px;margin:8px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
+@media(max-width:540px){.steps{grid-template-columns:repeat(2,1fr)}.actions button{flex:1 1 100%}.brand{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav" aria-label="Identidade FormNex">
+    <div class="mark" aria-hidden="true">FN</div>
+    <div><div class="brand">Form<span>Nex</span></div><div class="tag">Talento reconhecido. Potencial conectado.</div></div>
+  </div>
+</header>
+<main>
+  <div class="eyebrow">Protótipo demonstrativo</div>
+  <h1>Conte o que você sabe fazer.</h1>
+  <p class="lead">Fale com suas próprias palavras. A FormNex ajuda a organizar sua experiência em capacidades que você poderá revisar antes de salvar no perfil.</p>
+
+  <div class="steps" aria-label="Etapas do cadastro">
+    <div class="step active" id="step1"><b>1</b>Falar</div>
+    <div class="step" id="step2"><b>2</b>Organizar</div>
+    <div class="step" id="step3"><b>3</b>Confirmar</div>
+    <div class="step" id="step4"><b>4</b>Registrar</div>
+  </div>
+
+  <section class="panel" id="capture">
+    <h2>1. Vamos começar pela sua experiência</h2>
+    <p class="muted">Você pode gravar sua fala se o navegador oferecer esse recurso, ou escrever no campo abaixo. Não precisa usar palavras técnicas.</p>
+    <div class="tip"><strong>Exemplo:</strong> “Trabalhei na produção, operava máquinas, limpava os equipamentos e conferia se os produtos estavam corretos.”</div>
+    <label for="story"><strong>Conte o que você já fez no trabalho ou na prática</strong></label>
+    <textarea id="story" placeholder="Toque no microfone para falar ou escreva aqui..." autocomplete="off"></textarea>
+    <div class="actions">
+      <button class="primary" id="micBtn" type="button">🎙️ Começar a falar</button>
+      <button class="secondary" id="stopBtn" type="button" disabled>Parar gravação</button>
+      <button class="secondary" id="organizeBtn" type="button">Organizar minha experiência</button>
+    </div>
+    <div class="status" id="voiceStatus" role="status" aria-live="polite">O áudio é processado pelo recurso de reconhecimento de voz do navegador, quando disponível. Este protótipo não envia sua fala a um servidor FormNex.</div>
+  </section>
+
+  <section class="panel hidden" id="review" style="margin-top:18px">
+    <h2>2. Veja o que conseguimos organizar</h2>
+    <p class="muted">Confira o relato e as sugestões. Elas são hipóteses baseadas no texto, não uma avaliação definitiva das suas capacidades.</p>
+    <label for="cleanStory"><strong>Seu relato organizado (você pode editar)</strong></label>
+    <textarea id="cleanStory" style="min-height:100px"></textarea>
+    <h3>Possíveis capacidades identificadas</h3>
+    <p class="muted">Marque apenas as que representam sua experiência.</p>
+    <div class="skill-list" id="skills"></div>
+    <div class="notice"><strong>Importante:</strong> confirmar uma capacidade aqui significa que você declara ter essa experiência. Não significa que ela já foi comprovada por documento, referência ou avaliação prática.</div>
+    <div class="actions">
+      <button class="primary" id="confirmBtn" type="button">Confirmar capacidades selecionadas</button>
+      <button class="secondary" id="backBtn" type="button">Voltar e corrigir</button>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="done" style="margin-top:18px">
+    <h2>3. Seu resumo de capacidades</h2>
+    <p>Você confirmou as informações abaixo. Neste protótipo, elas ficam apenas nesta página; não foram enviadas nem salvas em uma conta.</p>
+    <div class="result" id="summary"></div>
+    <div class="notice"><strong>Status das informações:</strong> declaradas pelo profissional — ainda não verificadas. A FormNex deverá registrar a origem e eventuais evidências separadamente.</div>
+    <div class="actions">
+      <button class="primary" id="downloadBtn" type="button">Baixar meu resumo (.txt)</button>
+      <button class="secondary" id="restartBtn" type="button">Começar novamente</button>
+    </div>
+  </section>
+</main>
+<footer>FormNex · Protótipo de acessibilidade por voz · Demonstração local, sem cadastro ou envio para servidor.</footer>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const story = $('story'), cleanStory = $('cleanStory');
+  const capture = $('capture'), review = $('review'), done = $('done');
+  const micBtn = $('micBtn'), stopBtn = $('stopBtn'), voiceStatus = $('voiceStatus');
+  let recognition = null, finalTranscript = '', chosenSkills = [];
+
+  const step = (n) => {
+    [1,2,3,4].forEach(i => $('step'+i).classList.toggle('active', i === n));
+  };
+  const show = (section) => {
+    [capture, review, done].forEach(s => s.classList.add('hidden'));
+    section.classList.remove('hidden');
+  };
+  const makeRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) return null;
+    const r = new SpeechRecognition();
+    r.lang = 'pt-BR'; r.continuous = true; r.interimResults = true;
+    r.onresult = (event) => {
+      let interim = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const text = event.results[i][0].transcript;
+        if (event.results[i].isFinal) finalTranscript += text + ' ';
+        else interim += text;
+      }
+      story.value = (finalTranscript + interim).trim();
+    };
+    r.onerror = (event) => { voiceStatus.textContent = 'Não foi possível reconhecer a fala (' + event.error + '). Você pode escrever no campo de texto.'; };
+    r.onend = () => { micBtn.disabled = false; stopBtn.disabled = true; voiceStatus.textContent = 'Gravação encerrada. Revise o texto reconhecido antes de continuar.'; };
+    return r;
+  };
+  micBtn.addEventListener('click', () => {
+    if (!recognition) recognition = makeRecognition();
+    if (!recognition) {
+      voiceStatus.textContent = 'Este navegador não oferece reconhecimento de voz aqui. Você pode escrever no campo de texto ou experimentar um navegador compatível.';
+      story.focus(); return;
+    }
+    try {
+      finalTranscript = story.value ? story.value.trim() + ' ' : '';
+      recognition.start();
+      micBtn.disabled = true; stopBtn.disabled = false;
+      voiceStatus.textContent = 'Ouvindo… fale naturalmente. Ao terminar, toque em “Parar gravação”.';
+    } catch (e) {
+      voiceStatus.textContent = 'O microfone já pode estar ativo. Termine a gravação atual ou recarregue a página para tentar novamente.';
+    }
+  });
+  stopBtn.addEventListener('click', () => { if (recognition) recognition.stop(); });
+
+  function inferSkills(text) {
+    const t = text.toLocaleLowerCase('pt-BR');
+    const rules = [
+      ['Operação de máquinas e equipamentos', /\b(maquin|equipament|operava|operar|máquina|trator|empilhadeira)\w*/i],
+      ['Rotinas de produção', /\b(produção|produzia|fábrica|linha de produção|montagem)\b/i],
+      ['Limpeza e organização do ambiente de trabalho', /\b(limp|higien|organiza|limpeza|asseio)\w*/i],
+      ['Inspeção e conferência de produtos', /\b(confer|verific|inspec|qualidade|defeito|produto correto)\w*/i],
+      ['Atendimento ao cliente', /\b(cliente|atend|venda|vendedor)\w*/i],
+      ['Estoque e movimentação de materiais', /\b(estoque|armazen|separação|separava|mercadoria|expedição)\w*/i],
+      ['Trabalho em equipe', /\b(equipe|colegas|junto com|em grupo)\b/i],
+      ['Manutenção básica', /\b(manuten|consert|repar|lubrific)\w*/i],
+      ['Segurança no trabalho', /\b(segurança|EPI|proteção|risco)\b/i],
+      ['Atividades agrícolas', /\b(lavoura|plantio|colheita|agric|gado|ordenha)\w*/i]
+    ];
+    const found = rules.filter(([label, re]) => re.test(t)).map(([label]) => label);
+    if (!found.length && text.trim().length > 12) found.push('Experiência prática relatada (precisa ser detalhada)');
+    return found;
+  }
+  $('organizeBtn').addEventListener('click', () => {
+    const text = story.value.trim();
+    if (text.length < 8) {
+      voiceStatus.textContent = 'Conte um pouco mais sobre sua experiência antes de continuar.';
+      story.focus(); return;
+    }
+    cleanStory.value = text.replace(/\s+/g, ' ').trim();
+    const skills = inferSkills(text);
+    $('skills').innerHTML = '';
+    skills.forEach((skill, i) => {
+      const row = document.createElement('div'); row.className = 'skill';
+      const input = document.createElement('input'); input.type = 'checkbox'; input.id = 'skill'+i; input.value = skill; input.checked = true;
+      const label = document.createElement('label'); label.htmlFor = input.id; label.textContent = skill;
+      row.append(input, label); $('skills').appendChild(row);
+    });
+    show(review); step(2); $('step3').classList.add('active');
+    review.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  $('backBtn').addEventListener('click', () => { story.value = cleanStory.value; show(capture); step(1); capture.scrollIntoView({behavior:'smooth'}); });
+  $('confirmBtn').addEventListener('click', () => {
+    chosenSkills = [...$('skills').querySelectorAll('input:checked')].map(i => i.value);
+    if (!chosenSkills.length) { alert('Selecione pelo menos uma capacidade ou volte para editar o relato.'); return; }
+    const box = $('summary'); box.replaceChildren();
+    const p = document.createElement('p'); p.textContent = 'Relato confirmado: ' + cleanStory.value; box.appendChild(p);
+    const h = document.createElement('h3'); h.textContent = 'Capacidades declaradas'; box.appendChild(h);
+    const ul = document.createElement('ul'); chosenSkills.forEach(s => { const li = document.createElement('li'); li.textContent = s; ul.appendChild(li); }); box.appendChild(ul);
+    show(done); step(4); $('step3').classList.add('active'); done.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  $('downloadBtn').addEventListener('click', () => {
+    const text = 'FormNex — Resumo de capacidades\\n\\nRelato confirmado:\\n' + cleanStory.value + '\\n\\nCapacidades declaradas (não verificadas):\\n- ' + chosenSkills.join('\\n- ') + '\\n\\nEste documento registra uma declaração do profissional; não constitui certificação ou comprovação independente.';
+    const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'resumo-capacidades-formnex.txt'; a.click(); URL.revokeObjectURL(url);
+  });
+  $('restartBtn').addEventListener('click', () => {
+    story.value=''; cleanStory.value=''; $('skills').replaceChildren(); $('summary').replaceChildren();
+    finalTranscript=''; chosenSkills=[]; show(capture); step(1); capture.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
