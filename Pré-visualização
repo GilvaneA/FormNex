@@ -900,6 +900,10 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
+@media (max-width: 850px) {
+    .mobility-examples { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 550px) {
     .brand-main { gap: 5px; }
     .brand-symbol { width: 62px; height: 48px; max-width: 20vw; }
@@ -978,6 +982,12 @@
             }
         }
     
+        /* Foco visível para navegação por teclado */
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 3px;
+        }
+
         /* Privacidade: consentimento para analytics opcional */
         .privacy-banner {
             position: fixed;
@@ -1215,7 +1225,7 @@
                 Revise as capacidades sugeridas e confirme as informações.
             </p>
 
-            <a href="acessibilidade-voz.html" class="path-link">
+            <a href="Acessibilidade-voz.html" class="path-link">
                 Experimentar cadastro por voz →
             </a>
         </div>
@@ -1490,7 +1500,7 @@
             <br>
             Menos procura. Mais compatibilidade.
             <br>
-            <a href="#privacidade" id="privacyFooterLink" style="color: inherit; text-decoration: underline;">Privacidade e dados</a>
+            <a href="#privacyBanner" id="privacyFooterLink" style="color: inherit; text-decoration: underline;">Privacidade e dados</a>
         </div>
 
     </div>
