@@ -830,6 +830,10 @@
         }
 
         @media (max-width: 850px) {
+            .nav {
+                position: relative;
+            }
+
             .menu {
                 display: none;
             }
@@ -859,8 +863,20 @@
                 border-radius: 8px;
             }
 
-            .menu.is-open a:hover {
+            .menu.is-open a:hover,
+            .menu.is-open a:focus-visible {
                 background: var(--teal-bg);
+                outline: none;
+            }
+
+            body[data-theme="dark"] .menu.is-open {
+                background: #172326;
+                border-color: #35474A;
+            }
+
+            body[data-theme="dark"] .menu.is-open a:hover,
+            body[data-theme="dark"] .menu.is-open a:focus-visible {
+                background: #243D3D;
             }
 
             .menu-button {
