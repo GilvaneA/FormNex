@@ -402,7 +402,7 @@ Disponibilidade para o horário informado</textarea>
               <button type="button" class="btn" onclick="window.print()">Imprimir prévia</button>
               <button type="button" class="btn" onclick="resetForm()">Restaurar exemplo</button>
             </div>
-            <div class="success" id="success" role="status"></div>
+            <div class="success" id="success" role="status" aria-live="polite"></div>
           </div>
         </form>
       </div>
@@ -421,6 +421,8 @@ Disponibilidade para o horário informado</textarea>
           <p id="pDescription"></p>
           <strong>Requisitos necessários</strong>
           <ul id="pMust"></ul>
+          <strong>Como demonstrar as capacidades</strong>
+          <p id="pEvidence"></p>
           <strong>Diferenciais desejáveis</strong>
           <ul id="pNice"></ul>
           <div class="rule"></div>
@@ -483,6 +485,7 @@ function refresh() {
   $("pHours").textContent = "◷ " + ($("hours").value || "Horário a combinar");
   $("pSalary").textContent = $("salary").value || "Salário a combinar";
   $("pDescription").textContent = $("description").value || "Atividades não informadas.";
+  $("pEvidence").textContent = $("evidence").value || "Não informado.";
   $("pMust").innerHTML = list($("must").value)
     .map(item => "<li>" + safe(item) + "</li>").join("") || "<li>Não informado</li>";
   $("pNice").innerHTML = list($("nice").value)
@@ -534,8 +537,12 @@ $("jobForm").addEventListener("submit", event => {
 });
 
 function getHistory() {
-  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
-  catch (error) { return []; }
+  try {
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    return Array.isArray(history) ? history : [];
+  } catch (error) {
+    return [];
+  }
 }
 
 function addHistory(action, data) {
@@ -591,8 +598,11 @@ $("clearHistory").addEventListener("click", () => {
 try {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
-    applyFormData(JSON.parse(saved));
-    showMessage("✓ Dados de uma demonstração anterior foram recuperados deste navegador. Confira as informações antes de continuar.");
+    const parsed = JSON.parse(saved);
+    if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+      applyFormData(parsed);
+      showMessage("✓ Dados de uma demonstração anterior foram recuperados deste navegador. Confira as informações antes de continuar.");
+    }
   }
 } catch (error) {
   console.warn("Não foi possível recuperar a demonstração salva.");
