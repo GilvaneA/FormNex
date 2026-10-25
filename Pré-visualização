@@ -1530,6 +1530,7 @@
     function aplicarTema(tema) {
         const escuro = tema === "dark";
         corpo.setAttribute("data-theme", escuro ? "dark" : "light");
+        if (!botao) return;
         botao.innerHTML = escuro ? "☀️ <span>Modo claro</span>" : "🌙 <span>Modo escuro</span>";
         botao.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
         botao.setAttribute("title", escuro ? "Mudar para modo claro" : "Mudar para modo escuro");
@@ -1543,15 +1544,17 @@
     }
     aplicarTema(temaGuardado);
 
-    botao.addEventListener("click", function () {
-        const novoTema = corpo.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        aplicarTema(novoTema);
-        try {
-            localStorage.setItem(chaveTema, novoTema);
-        } catch (erro) {
-            /* A alternância continua funcionando mesmo se o navegador bloquear o armazenamento. */
-        }
-    });
+    if (botao) {
+        botao.addEventListener("click", function () {
+            const novoTema = corpo.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            aplicarTema(novoTema);
+            try {
+                localStorage.setItem(chaveTema, novoTema);
+            } catch (erro) {
+                /* A alternância continua funcionando mesmo se o navegador bloquear o armazenamento. */
+            }
+        });
+    }
 
     const menu = document.getElementById("mainMenu");
     const menuToggle = document.getElementById("menuToggle");
