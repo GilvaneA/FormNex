@@ -1537,7 +1537,8 @@
 
     let temaGuardado = "light";
     try {
-        temaGuardado = localStorage.getItem(chaveTema) || "light";
+        const temaSalvo = localStorage.getItem(chaveTema);
+        temaGuardado = temaSalvo === "dark" ? "dark" : "light";
     } catch (erro) {
         temaGuardado = "light";
     }
