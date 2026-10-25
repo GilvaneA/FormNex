@@ -68,7 +68,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
     <textarea id="story" placeholder="Toque no microfone para falar ou escreva aqui..." autocomplete="off"></textarea>
     <div class="actions">
       <button class="primary" id="micBtn" type="button">🎙️ Começar a falar</button>
-      <button class="secondary" id="stopBtn" type="button" disabled>Parar gravação</button>
+      <button class="secondary" id="stopBtn" type="button" disabled>Parar reconhecimento</button>
       <button class="secondary" id="organizeBtn" type="button">Organizar minha experiência</button>
     </div>
     <div class="status" id="voiceStatus" role="status" aria-live="polite">O reconhecimento depende do navegador, da conexão e da permissão do microfone. Este protótipo não envia a fala a um servidor FormNex nem salva áudio.</div>
@@ -111,7 +111,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
   let isListening = false;
 
   const step = (n) => {
-    [1,2,3,4].forEach(i => $('step'+i).classList.toggle('active', i === n));
+    [1,2,3,4].forEach(i => $('step'+i).classList.toggle('active', i <= n));
   };
   const show = (section) => {
     [capture, review, done].forEach(s => s.classList.add('hidden'));
@@ -144,7 +144,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
     r.interimResults = true;
     r.onstart = () => {
       setListening(true);
-      voiceStatus.textContent = 'Microfone ativo. Fale naturalmente. Quando terminar, toque em “Parar gravação”.';
+      voiceStatus.textContent = 'Microfone ativo. Fale naturalmente. Quando terminar, toque em “Parar reconhecimento”.';
     };
     r.onresult = (event) => {
       interimTranscript = '';
@@ -238,7 +238,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
       const label = document.createElement('label'); label.htmlFor = input.id; label.textContent = skill;
       row.append(input, label); $('skills').appendChild(row);
     });
-    show(review); step(2); $('step3').classList.add('active');
+    show(review); step(2);
     review.scrollIntoView({behavior:'smooth', block:'start'});
   });
   $('backBtn').addEventListener('click', () => { story.value = cleanStory.value; show(capture); step(1); capture.scrollIntoView({behavior:'smooth'}); });
@@ -249,10 +249,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
     const p = document.createElement('p'); p.textContent = 'Relato confirmado: ' + cleanStory.value; box.appendChild(p);
     const h = document.createElement('h3'); h.textContent = 'Capacidades declaradas'; box.appendChild(h);
     const ul = document.createElement('ul'); chosenSkills.forEach(s => { const li = document.createElement('li'); li.textContent = s; ul.appendChild(li); }); box.appendChild(ul);
-    show(done); step(4); $('step3').classList.add('active'); done.scrollIntoView({behavior:'smooth',block:'start'});
+    show(done); step(4); done.scrollIntoView({behavior:'smooth',block:'start'});
   });
   $('downloadBtn').addEventListener('click', () => {
-    const text = 'FormNex — Resumo de capacidades\\n\\nRelato confirmado:\\n' + cleanStory.value + '\\n\\nCapacidades declaradas (não verificadas):\\n- ' + chosenSkills.join('\\n- ') + '\\n\\nEste documento registra uma declaração do profissional; não constitui certificação ou comprovação independente.';
+    const text = 'FormNex — Resumo de capacidades\n\nRelato confirmado:\n' + cleanStory.value + '\n\nCapacidades declaradas (não verificadas):\n- ' + chosenSkills.join('\n- ') + '\n\nEste documento registra uma declaração do profissional; não constitui certificação ou comprovação independente.';
     const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
     const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'resumo-capacidades-formnex.txt'; a.click(); URL.revokeObjectURL(url);
   });
