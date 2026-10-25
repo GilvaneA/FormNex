@@ -30,7 +30,7 @@
 <main>
   <div class="topline">
     <div><div class="crumb">Candidatos › Comparação de perfil</div><h1>Comparação de perfil com a vaga</h1><p>Veja as evidências relacionadas aos requisitos. A análise apoia a avaliação, mas a decisão final é da empresa.</p></div>
-    <button class="back" onclick="window.print()">Imprimir / salvar PDF</button>
+    <button type="button" class="back" onclick="window.print()">Imprimir / salvar PDF</button>
   </div>
   <div class="cards">
     <div class="card vaga"><div class="card-title">▣ &nbsp; Vaga</div><h2 id="showRole">Operador de Produção</h2><div class="detail">⌖ &nbsp; Local: não especificado no exemplo</div><div class="detail">◷ &nbsp; Horário: informado pela empresa</div><div class="detail">▦ &nbsp; Setor: Produção industrial</div></div>
@@ -45,7 +45,7 @@
     <div class="sectionhead"><div class="symbol">✓</div><h2>Análise dos requisitos</h2></div>
     <p class="hint">A comparação identifica relações entre os textos; não certifica competências. Use [OBRIGATÓRIO] ou [DESEJÁVEL] no início de cada requisito para diferenciá-los.</p>
     <div class="tablewrap"><table><thead><tr><th>Requisito da vaga</th><th>Evidências no perfil</th><th>Situação</th><th>Observações</th></tr></thead><tbody id="results"></tbody></table></div>
-    <div class="actions"><button class="btn primary" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Editar dados do exemplo</button><button class="btn" onclick="loadSavedData()">Carregar dados salvos</button><button class="btn" onclick="saveComparison()">Registrar comparação</button><button class="btn" onclick="window.print()">Imprimir comparação</button><button class="btn" onclick="resetDemo()">Restaurar exemplo</button></div>
+    <div class="actions"><button type="button" class="btn primary" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Editar dados do exemplo</button><button type="button" class="btn" onclick="loadSavedData()">Carregar dados salvos</button><button type="button" class="btn" onclick="saveComparison()">Registrar comparação</button><button type="button" class="btn" onclick="window.print()">Imprimir comparação</button><button type="button" class="btn" onclick="resetDemo()">Restaurar exemplo</button></div>
   </div>
   <div class="lower">
     <div class="section strength"><h3>✓ &nbsp; Pontos sustentados pelo perfil</h3><ul id="strengths"></ul></div>
@@ -68,9 +68,14 @@ Capacidade de seguir instruções
 Experiência industrial ainda não comprovada
 Disponibilidade de horário não informada</textarea></div>
     </div>
-    <div class="actions"><button class="btn primary" onclick="updateDemo()">Atualizar comparação</button><button class="btn" onclick="loadSavedData()">Carregar dados salvos do perfil e da vaga</button><button class="btn" onclick="saveComparison()">Registrar comparação no histórico</button></div>
+    <div class="actions"><button type="button" class="btn primary" onclick="updateDemo()">Atualizar comparação</button><button type="button" class="btn" onclick="loadSavedData()">Carregar dados salvos do perfil e da vaga</button><button type="button" class="btn" onclick="saveComparison()">Registrar comparação no histórico</button></div>
     <div class="editnote">Nota do protótipo: esta demonstração usa regras simples por palavras-chave para ajudar a testar a interface. Não é um motor de seleção validado nem deve ser usado para decidir contratações reais.</div>
     <div class="toast" id="toast">Exemplo atualizado.</div>
+  </div>
+
+  <div class="important" style="margin-top:16px">
+    <strong>ℹ️ Limite do protótipo</strong>
+    <span>Este arquivo funciona como uma demonstração independente. O histórico e os dados carregados dependem do armazenamento deste navegador e não são compartilhados com outras pessoas nem ligados automaticamente às vagas ou perfis reais da FormNex.</span>
   </div>
   <div class="section" id="historySection">
     <div class="sectionhead"><div class="symbol">↺</div><h2>Histórico de comparações</h2></div>
@@ -79,7 +84,7 @@ Disponibilidade de horário não informada</textarea></div>
       <thead><tr><th>Data e horário</th><th>Vaga</th><th>Perfil</th><th>Resumo</th><th>Ação</th></tr></thead>
       <tbody id="historyRows"><tr><td colspan="5">Nenhuma comparação registrada ainda.</td></tr></tbody>
     </table></div>
-    <div class="actions"><button class="btn" onclick="exportHistory()">Exportar histórico (.json)</button><button class="btn" onclick="clearHistory()">Limpar histórico local</button></div>
+    <div class="actions"><button type="button" class="btn" onclick="exportHistory()">Exportar histórico (.json)</button><button type="button" class="btn" onclick="clearHistory()">Limpar histórico local</button></div>
     <div class="editnote">O histórico registra quando a comparação foi salva; não comprova a veracidade das informações. Para histórico centralizado e identificação de quem realizou a ação, será necessário um servidor com autenticação.</div>
   </div>
 </main>
@@ -125,14 +130,14 @@ function render(){
  document.getElementById("strengths").innerHTML=(good.length?good.map(x=>`<li>${esc(x.req)} — ${esc(x.status.toLowerCase())}; validar a evidência.</li>`):["Nenhuma relação identificada com as informações atuais."].map(esc).map(x=>`<li>${x}</li>`)).join("");
  document.getElementById("attention").innerHTML=(needs.length?needs.map(x=>`<li>${esc(x.req)} — ${esc(x.note)}</li>`):["Confirme as evidências antes de utilizar esta análise."].map(esc).map(x=>`<li>${x}</li>`)).join("");
 }
-function updateDemo(){render();const t=document.getElementById("toast");t.textContent="Comparação atualizada. Ainda não foi registrada no histórico.";t.style.display="block";setTimeout(()=>t.style.display="none",2600)}
+function updateDemo(){render();const t=document.getElementById("toast");if(!t)return;t.textContent="Comparação atualizada. Ainda não foi registrada no histórico.";t.style.display="block";setTimeout(()=>{t.style.display="none"},2600)}
 function resetDemo(){Object.entries(initial).forEach(([k,v])=>{document.getElementById(k).value=v});updateDemo()}
 function getHistory(){try{return JSON.parse(localStorage.getItem(HISTORY_KEY)||"[]")}catch(e){return []}}
 function renderHistory(){const rows=getHistory(),tbody=document.getElementById("historyRows");if(!rows.length){tbody.innerHTML='<tr><td colspan="5">Nenhuma comparação registrada ainda.</td></tr>';return}tbody.innerHTML=rows.map((x,i)=>`<tr><td>${esc(x.when)}</td><td>${esc(x.role)}</td><td>${esc(x.candidate)}</td><td>${esc(x.summary)}</td><td><button class="btn" type="button" onclick="restoreHistory(${i})">Ver dados</button></td></tr>`).join("")}
 function saveComparison(){
  render();const results=currentRows(),now=new Date();
  const record={id:(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(now.getTime()),timestamp:now.toISOString(),when:now.toLocaleDateString("pt-BR")+" às "+now.toLocaleTimeString("pt-BR"),role:document.getElementById("role").value.trim()||"Vaga sem título",candidate:document.getElementById("candidate").value.trim()||"Perfil demonstrativo",requirements:document.getElementById("requirements").value,profile:document.getElementById("profile").value,summary:`${results.filter(x=>x.status==="Correspondência textual").length} correspondência(s); ${results.filter(x=>x.status==="Relação possível").length} relação(ões) possível(is); ${results.filter(x=>x.status==="Evidência insuficiente").length} sem evidência suficiente.`,result:results};
- try{const h=getHistory();h.unshift(record);localStorage.setItem(HISTORY_KEY,JSON.stringify(h.slice(0,100)));renderHistory();const t=document.getElementById("toast");t.textContent="Comparação registrada no histórico local.";t.style.display="block";setTimeout(()=>t.style.display="none",2600)}catch(e){alert("Não foi possível salvar o histórico. Verifique o espaço disponível no navegador.")}
+ try{const h=getHistory();h.unshift(record);localStorage.setItem(HISTORY_KEY,JSON.stringify(h.slice(0,100)));renderHistory();const t=document.getElementById("toast");if(t){t.textContent="Comparação registrada no histórico local deste navegador.";t.style.display="block";setTimeout(()=>{t.style.display="none"},2600)}}catch(e){alert("Não foi possível salvar o histórico. Verifique o espaço disponível no navegador.")}
 }
 function restoreHistory(index){const x=getHistory()[index];if(!x)return;document.getElementById("role").value=x.role||"";document.getElementById("candidate").value=x.candidate||"";document.getElementById("requirements").value=x.requirements||"";document.getElementById("profile").value=x.profile||"";render();document.getElementById("editor").scrollIntoView({behavior:"smooth"})}
 function clearHistory(){if(!confirm("Deseja apagar o histórico de comparações deste navegador? Esta ação não pode ser desfeita."))return;localStorage.removeItem(HISTORY_KEY);renderHistory()}
