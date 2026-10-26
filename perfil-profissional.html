@@ -3,106 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FormNex — Comparação de perfil</title>
+<title>FormNex — Perfil profissional</title>
 <style>
-:root{--teal:#0f766e;--teal2:#14b8a6;--ink:#1f2937;--muted:#64748b;--line:#dce7e5;--bg:#f5f8f8;--white:#fff;--green:#dcfce7;--greenInk:#166534;--amber:#fef3c7;--amberInk:#92400e;--gray:#e2e8f0;--grayInk:#334155;--blue:#eff6ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}header{height:76px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;gap:16px;position:sticky;top:0;z-index:2}.brand{display:flex;align-items:center;gap:12px;color:var(--teal);font-weight:800;font-size:28px}.brandmark{width:40px;height:40px;border-radius:12px;background:var(--teal);color:white;display:grid;place-items:center;font-size:20px}.tagline{font-size:11px;color:var(--muted);font-weight:500}.header-right{font-size:13px;color:#475569}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 76px)}aside{background:white;border-right:1px solid var(--line);padding:22px 14px}.company{padding:10px;border-radius:12px;background:#f0fdfa;color:var(--teal);font-weight:700;margin-bottom:18px}.nav{padding:11px 12px;border-radius:9px;margin:4px 0;font-size:14px;color:#475569}.nav.active{background:#dff5f1;color:var(--teal);font-weight:700}main{padding:28px;max-width:1500px;width:100%;margin:auto}.topline{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:20px}.crumb{font-size:13px;color:var(--muted);margin-bottom:12px}h1{font-size:28px;margin:0 0 8px;letter-spacing:-.5px}p{margin:0;color:var(--muted);line-height:1.5}.back{border:1px solid var(--line);background:white;border-radius:9px;padding:10px 14px;color:var(--ink);font-weight:600;white-space:nowrap}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.card.vaga{background:linear-gradient(120deg,#f0fdfa,#fff)}.card.person{background:linear-gradient(120deg,#eff6ff,#fff)}.card-title{font-size:13px;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}.person .card-title{color:#2563eb}h2{font-size:20px;margin:0 0 10px}.detail{font-size:14px;color:#475569;margin:8px 0}.section{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}.sectionhead{display:flex;align-items:center;gap:12px;margin-bottom:6px}.sectionhead .symbol{width:36px;height:36px;border-radius:10px;background:var(--teal);color:white;display:grid;place-items:center;font-size:20px}.sectionhead h2{margin:0}.hint{font-size:13px;color:var(--muted);margin:0 0 16px 48px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:780px}th{background:#f1f5f9;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:#475569}th,td{padding:13px 12px;border:1px solid #e2e8f0;vertical-align:top;font-size:13px;line-height:1.45}td:first-child{font-weight:700;width:20%}td:nth-child(2){width:31%}td:nth-child(3){width:16%}.status{display:inline-block;border-radius:8px;padding:7px 9px;font-size:12px;font-weight:800;white-space:nowrap}.att{background:var(--green);color:var(--greenInk)}.par{background:var(--amber);color:var(--amberInk)}.non{background:var(--gray);color:var(--grayInk)}.lower{display:grid;grid-template-columns:1fr 1fr;gap:16px}.lower .section{margin-bottom:0}.strength{background:#faf5ff;border-color:#e9d5ff}.attention{background:#fff7ed;border-color:#fed7aa}.lower h3{font-size:15px;margin:0 0 10px}.lower ul{padding-left:20px;margin:0;color:#475569;font-size:13px;line-height:1.7}.important{margin-top:16px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:15px;display:flex;gap:12px;font-size:13px;color:#1e40af;line-height:1.5}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:1px solid var(--teal);border-radius:9px;padding:10px 14px;background:white;color:var(--teal);font-weight:700;cursor:pointer}.btn.primary{background:var(--teal);color:white}.btn:hover{filter:brightness(.97)}.editgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#475569}.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font:inherit;font-size:13px;background:white}.field textarea{min-height:78px;resize:vertical}.editnote{font-size:12px;color:var(--muted);margin-top:12px}.toast{display:none;padding:10px;border-radius:8px;background:#dcfce7;color:#166534;font-size:13px;margin-top:10px}@media(max-width:900px){.layout{grid-template-columns:1fr}aside{display:none}main{padding:16px}.cards,.lower,.editgrid{grid-template-columns:1fr}.topline{display:block}.back{margin-top:14px}header{padding:0 16px}.header-right{display:none}h1{font-size:24px}}@media print{header,aside,.back,.actions,.editpanel{display:none!important}.layout{display:block}main{padding:0;max-width:none}.section,.card{break-inside:avoid}.cards{grid-template-columns:1fr 1fr}body{background:white}}
+:root{--teal:#0f766e;--teal2:#14b8a6;--ink:#1f2937;--muted:#64748b;--line:#dce7e5;--bg:#f5f8f8;--white:#fff;--green:#dcfce7;--greenInk:#166534;--blue:#eff6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+header{min-height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--teal);font-weight:800;font-size:27px}
+.brandmark{width:40px;height:40px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:19px}
+.tagline{font-size:11px;color:var(--muted);font-weight:500}
+.header-right{font-size:12px;color:#475569}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 76px)}
+aside{background:#fff;border-right:1px solid var(--line);padding:22px 14px}
+.company{padding:10px;border-radius:12px;background:#f0fdfa;color:var(--teal);font-weight:700;margin-bottom:18px}
+.nav{padding:11px 12px;border-radius:9px;margin:4px 0;font-size:14px;color:#475569}
+.nav.active{background:#dff5f1;color:var(--teal);font-weight:700}
+main{padding:28px;max-width:1200px;width:100%;margin:auto}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:12px}
+h1{font-size:28px;margin:0 0 8px;letter-spacing:-.5px}
+p{margin:0;color:var(--muted);line-height:1.5}
+.intro{margin-bottom:20px}
+.notice{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 16px;margin:18px 0 20px;color:#1e40af;font-size:13px;line-height:1.5}
+.section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+.sectionhead{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.symbol{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:19px;flex-shrink:0}
+h2{font-size:19px;margin:0}
+.hint{font-size:13px;color:var(--muted);margin:0 0 18px 48px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#475569}
+.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5e1;border-radius:8px;padding:11px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.field textarea{min-height:92px;resize:vertical}
+.full{grid-column:1/-1}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{border:1px solid var(--teal);border-radius:9px;padding:10px 14px;background:#fff;color:var(--teal);font-weight:700;cursor:pointer}
+.btn.primary{background:var(--teal);color:#fff}
+.btn:hover{filter:brightness(.97)}
+.status{display:none;padding:11px 13px;border-radius:8px;background:var(--green);color:var(--greenInk);font-size:13px;margin-top:12px}
+.small{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:4px 0 24px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}aside{display:none}main{padding:16px}.grid{grid-template-columns:1fr}.full{grid-column:auto}header{padding:14px 16px}.header-right{display:none}h1{font-size:24px}.hint{margin-left:0}}
+@media print{header,aside,.actions,.notice,footer{display:none!important}.layout{display:block}main{padding:0;max-width:none}.section{break-inside:avoid}}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand"><div class="brandmark">FN</div><div>FormNex<div class="tagline">Conectando pessoas a oportunidades.</div></div></div>
-  <div class="header-right">DEMONSTRAÇÃO · DADOS FICTÍCIOS</div>
+  <div class="brand"><div class="brandmark">FN</div><div>FormNex<div class="tagline">Menos procura. Mais compatibilidade.</div></div></div>
+  <div class="header-right">DEMONSTRAÇÃO · DADOS DE EXEMPLO</div>
 </header>
 <div class="layout">
-<aside>
-  <div class="company">▣ &nbsp; Empresa Exemplo</div>
-  <div class="nav">▥ &nbsp; Painel</div><div class="nav">⊕ &nbsp; Publicar vaga</div><div class="nav active">♙ &nbsp; Candidatos</div><div class="nav">▱ &nbsp; Minhas vagas</div><div class="nav">⇄ &nbsp; Comparar perfis</div><div class="nav">▤ &nbsp; Relatórios</div><div class="nav">⚙ &nbsp; Configurações</div>
-</aside>
-<main>
-  <div class="topline">
-    <div><div class="crumb">Candidatos › Comparação de perfil</div><h1>Comparação de perfil com a vaga</h1><p>Veja as evidências relacionadas aos requisitos. A análise apoia a avaliação, mas a decisão final é da empresa.</p></div>
-    <button class="back" type="button" onclick="window.print()">Imprimir / salvar PDF</button>
-  </div>
-  <div class="cards">
-    <div class="card vaga"><div class="card-title">▣ &nbsp; Vaga</div><h2 id="showRole">Operador de Produção</h2><div class="detail">⌖ &nbsp; Local: não especificado no exemplo</div><div class="detail">◷ &nbsp; Horário: informado pela empresa</div><div class="detail">▦ &nbsp; Setor: Produção industrial</div></div>
-    <div class="card person"><div class="card-title">♙ &nbsp; Perfil profissional</div><h2 id="showCandidate">Candidato fictício</h2><div class="detail">▣ &nbsp; Experiência em atividades operacionais</div><div class="detail">✓ &nbsp; Organização mencionada no perfil</div><div class="detail">▤ &nbsp; Disponibilidade de horário: não informada</div></div>
-  </div>
-  <div class="section">
-    <div class="sectionhead"><div class="symbol">✓</div><h2>Análise dos requisitos</h2></div>
-    <p class="hint">Cada situação deve ser sustentada pelas informações disponíveis, sem presumir competências ausentes.</p>
-    <div class="tablewrap"><table><thead><tr><th>Requisito da vaga</th><th>Evidências no perfil</th><th>Situação</th><th>Observações</th></tr></thead><tbody id="results"></tbody></table></div>
-    <div class="actions"><button class="btn primary" type="button" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Editar dados do exemplo</button><button class="btn" type="button" onclick="window.print()">Imprimir comparação</button><button class="btn" type="button" onclick="resetDemo()">Restaurar exemplo</button></div>
-  </div>
-  <div class="lower">
-    <div class="section strength"><h3>✓ &nbsp; Pontos sustentados pelo perfil</h3><ul id="strengths"></ul></div>
-    <div class="section attention"><h3>⚠ &nbsp; Pontos que precisam de confirmação</h3><ul id="attention"></ul></div>
-  </div>
-  <div class="important"><strong>ⓘ Importante</strong><span>Esta comparação utiliza apenas as informações fornecidas no exemplo. “Não comprovado” significa ausência de evidência suficiente no perfil, não ausência da capacidade. A empresa deve confirmar informações relevantes e tomar a decisão final de forma responsável.</span></div>
-  <div class="section editpanel" id="editor" style="margin-top:16px">
-    <div class="sectionhead"><div class="symbol">✎</div><h2>Editar o exemplo</h2></div>
-    <p class="hint">Altere os campos para testar a tela. Os resultados são atualizados localmente neste navegador.</p>
-    <div class="editgrid">
-      <div class="field"><label for="role">Nome da vaga</label><input id="role" value="Operador de Produção"></div>
-      <div class="field"><label for="candidate">Nome demonstrativo</label><input id="candidate" value="Candidato fictício"></div>
-      <div class="field"><label for="requirements">Requisitos (um por linha)</label><textarea id="requirements">Atenção às instruções
-Organização
-Disponibilidade para o horário informado
-Experiência industrial desejável</textarea></div>
-      <div class="field"><label for="profile">Informações do perfil</label><textarea id="profile">Experiência em atividades operacionais
-Organização
-Capacidade de seguir instruções
-Experiência industrial ainda não comprovada
-Disponibilidade de horário não informada</textarea></div>
+  <aside>
+    <div class="company">♙ &nbsp; Área profissional</div>
+    <div class="nav">▥ &nbsp; Início</div>
+    <div class="nav active">♙ &nbsp; Meu perfil</div>
+    <div class="nav">▤ &nbsp; Minhas capacidades</div>
+    <div class="nav">⇄ &nbsp; Oportunidades</div>
+  </aside>
+  <main>
+    <div class="crumb">Área profissional › Meu perfil</div>
+    <div class="intro">
+      <h1>Construa seu perfil profissional</h1>
+      <p>Registre experiências, capacidades e evidências para apresentar melhor o que você sabe fazer.</p>
     </div>
-    <div class="actions"><button class="btn primary" type="button" onclick="updateDemo()">Atualizar comparação</button></div>
-    <div class="editnote">Nota do protótipo: esta demonstração usa regras simples por palavras-chave para ajudar a testar a interface. Não é um motor de seleção validado nem deve ser usado para decidir contratações reais.</div>
-    <div class="toast" id="toast">Exemplo atualizado.</div>
-  </div>
-</main>
+    <div class="notice"><strong>Autonomia e transparência:</strong> este protótipo guarda os dados somente neste navegador. Eles não são enviados à internet nem a uma base central. Use dados fictícios durante os testes.</div>
+
+    <form id="profileForm">
+      <section class="section">
+        <div class="sectionhead"><div class="symbol">1</div><h2>Informações básicas</h2></div>
+        <p class="hint">Preencha somente as informações que deseja incluir no seu perfil de demonstração.</p>
+        <div class="grid">
+          <div class="field"><label for="nome">Nome para exibição</label><input id="nome" name="nome" placeholder="Ex.: Maria da Silva" autocomplete="name"></div>
+          <div class="field"><label for="cidade">Cidade / região</label><input id="cidade" name="cidade" placeholder="Ex.: Marechal Cândido Rondon"></div>
+          <div class="field"><label for="area">Área de interesse</label><input id="area" name="area" placeholder="Ex.: Produção industrial"></div>
+          <div class="field"><label for="disponibilidade">Disponibilidade</label><select id="disponibilidade" name="disponibilidade"><option value="">Selecione uma opção</option><option>Comercial</option><option>Turno da manhã</option><option>Turno da tarde</option><option>Turno da noite</option><option>Escala / turnos variados</option><option>A combinar</option></select></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead"><div class="symbol">2</div><h2>Experiências e conhecimentos</h2></div>
+        <p class="hint">Descreva atividades realizadas, responsabilidades e conhecimentos adquiridos. Não precisa usar palavras difíceis.</p>
+        <div class="grid">
+          <div class="field full"><label for="experiencias">Experiências profissionais</label><textarea id="experiencias" name="experiencias" placeholder="Ex.: trabalhei na linha de produção, conferia materiais e organizava o posto de trabalho."></textarea></div>
+          <div class="field"><label for="capacidades">Capacidades e competências (uma por linha)</label><textarea id="capacidades" name="capacidades" placeholder="Organização&#10;Atenção às instruções&#10;Trabalho em equipe"></textarea></div>
+          <div class="field"><label for="conhecimentos">Cursos, treinamentos e conhecimentos</label><textarea id="conhecimentos" name="conhecimentos" placeholder="Ex.: treinamento de segurança, informática básica..."></textarea></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead"><div class="symbol">3</div><h2>Evidências das capacidades</h2></div>
+        <p class="hint">Conte um exemplo concreto que ajude a demonstrar cada capacidade. A evidência pode ser uma atividade realizada, um curso ou uma situação vivida.</p>
+        <div class="grid">
+          <div class="field full"><label for="evidencias">Exemplos e evidências</label><textarea id="evidencias" name="evidencias" placeholder="Ex.: seguia o procedimento de conferência e avisava a liderança quando encontrava divergências."></textarea></div>
+          <div class="field full"><label for="objetivo">Que tipo de oportunidade procura?</label><textarea id="objetivo" name="objetivo" placeholder="Ex.: operador de produção, auxiliar de logística ou primeira oportunidade na indústria."></textarea></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead"><div class="symbol">✓</div><h2>Resumo do perfil</h2></div>
+        <p class="hint">O resumo é montado com as informações que você preencheu. Revise antes de imprimir ou exportar.</p>
+        <div id="summary" style="border:1px solid var(--line);border-radius:10px;padding:16px;background:#fbfdfd;white-space:pre-wrap;line-height:1.6;font-size:14px">Preencha os campos para visualizar seu resumo profissional.</div>
+        <div class="actions">
+          <button class="btn primary" type="button" id="saveBtn">Salvar neste navegador</button>
+          <button class="btn" type="button" id="summaryBtn">Atualizar resumo</button>
+          <button class="btn" type="button" id="exportBtn">Baixar resumo (.txt)</button>
+          <button class="btn" type="button" id="printBtn">Imprimir / salvar PDF</button>
+          <button class="btn" type="button" id="clearBtn">Limpar formulário</button>
+        </div>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <div class="small">Importante: salvar neste navegador não envia o perfil para empresas nem publica uma candidatura. A integração com uma base central será definida numa etapa futura.</div>
+      </section>
+    </form>
+    <footer>FormNex · Capacidade → Evidência → Conhecimento → Decisão</footer>
+  </main>
 </div>
 <script>
-const initial={role:"Operador de Produção",candidate:"Candidato fictício",requirements:"Atenção às instruções\nOrganização\nDisponibilidade para o horário informado\nExperiência industrial desejável",profile:"Experiência em atividades operacionais\nOrganização\nCapacidade de seguir instruções\nExperiência industrial ainda não comprovada\nDisponibilidade de horário não informada"};
-function classify(req, profile){
- const p=profile.toLowerCase(), r=req.toLowerCase();
- if(r.includes("disponibilidade") || r.includes("horário") || r.includes("horario")){
-   if(/disponibilidade.{0,35}(confirmada|sim|disponível|disponivel|compatível|compativel)/i.test(p) || /horário.{0,25}(confirmado|compatível|compativel)/i.test(p)) return {status:"Atendido",cls:"att",evidence:"Disponibilidade/horário informado como confirmado.",note:"Confirmar se o horário corresponde ao turno real da vaga."};
-   if(/não informad|nao informad|não consta|nao consta|a confirmar|parcial/i.test(p)) return {status:"Parcial",cls:"par",evidence:"A disponibilidade não está confirmada no perfil.",note:"Perguntar ao candidato se pode cumprir o horário informado."};
-   if(/disponibilidade|horário|horario/i.test(p)) return {status:"Parcial",cls:"par",evidence:"Há menção ao tema, mas não há confirmação clara.",note:"Confirmar diretamente com o candidato."};
- }
- if(r.includes("organiza")){
-   if(/organiza/i.test(p)) return {status:"Atendido",cls:"att",evidence:"Organização mencionada no perfil.",note:"A informação consta no perfil; pode ser explorada na entrevista."};
- }
- if(r.includes("instru") || r.includes("atenção")){
-   if(/seguir instruç|seguir instruc|atenção às instru|atencao as instru/i.test(p)) return {status:"Atendido",cls:"att",evidence:"Capacidade de seguir instruções mencionada.",note:"Confirmar com exemplos concretos de atividades anteriores."};
- }
- if(r.includes("industrial") || r.includes("experiência") || r.includes("experiencia")){
-   if(/não comprovad|nao comprovad|não há evidência|nao ha evidencia|ainda não|ainda nao/i.test(p)) return {status:"Não comprovado",cls:"non",evidence:"O perfil não comprova experiência industrial específica.",note:"A experiência é desejável; verificar se é critério obrigatório ou diferencial."};
-   if(/experiência industrial|experiencia industrial/i.test(p)) return {status:"Atendido",cls:"att",evidence:"Experiência industrial indicada no perfil.",note:"Confirmar período, atividades e contexto da experiência."};
-   if(/atividades operacionais/i.test(p)) return {status:"Parcial",cls:"par",evidence:"Experiência operacional indicada, sem evidência específica de indústria.",note:"Pedir exemplos das atividades realizadas."};
- }
- const tokens=r.split(/\s+/).filter(x=>x.length>4);
- const matched=tokens.some(t=>p.includes(t));
- return matched?{status:"Parcial",cls:"par",evidence:"Há informação relacionada, mas precisa de confirmação.",note:"Validar a informação com o candidato."}:{status:"Não comprovado",cls:"non",evidence:"Não foi encontrada evidência explícita no perfil.",note:"Ausência de informação não significa ausência da capacidade."};
-}
-function render(){
- const role=document.getElementById("role").value.trim()||"Vaga sem título";
- const candidate=document.getElementById("candidate").value.trim()||"Candidato fictício";
- const profile=document.getElementById("profile").value.trim();
- const reqs=document.getElementById("requirements").value.split("\n").map(x=>x.trim()).filter(Boolean);
- document.getElementById("showRole").textContent=role;
- document.getElementById("showCandidate").textContent=candidate;
- const rows=reqs.map(req=>({req,...classify(req,profile)}));
- document.getElementById("results").innerHTML=rows.map(x=>`<tr><td>${esc(x.req)}</td><td>${esc(x.evidence)}</td><td><span class="status ${x.cls}">${esc(x.status)}</span></td><td>${esc(x.note)}</td></tr>`).join("");
- const good=rows.filter(x=>x.status==="Atendido");
- const needs=rows.filter(x=>x.status!=="Atendido");
- document.getElementById("strengths").innerHTML=(good.length?good.map(x=>`<li>${esc(x.req)} — informação encontrada no perfil.</li>`):["Nenhum requisito foi marcado como atendido com as informações atuais."].map(esc).map(x=>`<li>${x}</li>`)).join("");
- document.getElementById("attention").innerHTML=(needs.length?needs.map(x=>`<li>${esc(x.req)} — ${esc(x.status.toLowerCase())}.</li>`):["Nenhum ponto pendente identificado nesta comparação."].map(esc).map(x=>`<li>${x}</li>`)).join("");
-}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function updateDemo(){render();const t=document.getElementById("toast");t.style.display="block";setTimeout(()=>t.style.display="none",2600);}
-function resetDemo(){Object.entries(initial).forEach(([k,v])=>{const id={role:"role",candidate:"candidate",requirements:"requirements",profile:"profile"}[k];document.getElementById(id).value=v;});updateDemo();}
-render();
+(function(){
+  const STORAGE_KEY = "formnex_perfil_profissional_v1";
+  const form = document.getElementById("profileForm");
+  const fields = ["nome","cidade","area","disponibilidade","experiencias","capacidades","conhecimentos","evidencias","objetivo"];
+  const status = document.getElementById("status");
+  function values(){
+    const out = {};
+    fields.forEach(id => out[id] = document.getElementById(id).value.trim());
+    return out;
+  }
+  function makeSummary(v){
+    const lines = [];
+    lines.push(v.nome || "Nome não informado");
+    if(v.cidade) lines.push("Cidade / região: " + v.cidade);
+    if(v.area) lines.push("Área de interesse: " + v.area);
+    if(v.disponibilidade) lines.push("Disponibilidade: " + v.disponibilidade);
+    lines.push("");
+    lines.push("EXPERIÊNCIAS PROFISSIONAIS");
+    lines.push(v.experiencias || "Não informado.");
+    lines.push("");
+    lines.push("CAPACIDADES E COMPETÊNCIAS");
+    lines.push(v.capacidades || "Não informado.");
+    lines.push("");
+    lines.push("CURSOS, TREINAMENTOS E CONHECIMENTOS");
+    lines.push(v.conhecimentos || "Não informado.");
+    lines.push("");
+    lines.push("EVIDÊNCIAS");
+    lines.push(v.evidencias || "Não informado.");
+    lines.push("");
+    lines.push("OPORTUNIDADES DE INTERESSE");
+    lines.push(v.objetivo || "Não informado.");
+    lines.push("");
+    lines.push("Este perfil reúne informações fornecidas pela própria pessoa. As capacidades e experiências devem ser avaliadas com contexto e evidências; ausência de informação não significa ausência de capacidade.");
+    return lines.join("\n");
+  }
+  function updateSummary(){document.getElementById("summary").textContent = makeSummary(values());}
+  function show(message){status.textContent=message;status.style.display="block";}
+  function save(){
+    try{
+      const v=values();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({...v, atualizadoEm:new Date().toISOString()}));
+      updateSummary();
+      show("Perfil salvo neste navegador. Ele ainda não foi enviado nem publicado na internet.");
+    }catch(e){show("Não foi possível salvar neste navegador. Verifique as configurações de armazenamento.");}
+  }
+  function load(){
+    try{
+      const raw=localStorage.getItem(STORAGE_KEY);
+      if(!raw) return;
+      const v=JSON.parse(raw);
+      fields.forEach(id=>{if(typeof v[id]==="string") document.getElementById(id).value=v[id];});
+      updateSummary();
+    }catch(e){/* Mantém o formulário utilizável mesmo se houver dados inválidos. */}
+  }
+  document.getElementById("saveBtn").addEventListener("click",save);
+  document.getElementById("summaryBtn").addEventListener("click",()=>{updateSummary();show("Resumo atualizado.");});
+  document.getElementById("exportBtn").addEventListener("click",()=>{
+    const blob=new Blob([makeSummary(values())],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob);const a=document.createElement("a");
+    a.href=url;a.download="perfil-profissional-formnex.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+    show("Resumo preparado para baixar como arquivo de texto.");
+  });
+  document.getElementById("printBtn").addEventListener("click",()=>{updateSummary();window.print();});
+  document.getElementById("clearBtn").addEventListener("click",()=>{
+    if(!confirm("Limpar os campos do formulário? Os dados já salvos neste navegador não serão apagados automaticamente.")) return;
+    form.reset();updateSummary();show("Campos limpos. Para apagar também o perfil salvo, use as configurações do navegador.");
+  });
+  fields.forEach(id=>document.getElementById(id).addEventListener("input",updateSummary));
+  load();updateSummary();
+})();
 </script>
 </body>
 </html>
