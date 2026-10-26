@@ -40,6 +40,14 @@ h2{font-size:19px;margin:0}
 .btn:hover{filter:brightness(.97)}
 .status{display:none;padding:12px 14px;border-radius:8px;background:var(--green);color:var(--greenInk);font-size:15px;margin-top:12px}
 .small{font-size:14px;color:#475569;line-height:1.6;margin-top:12px}
+.journey-progress{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:18px 0}
+.progress-top{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--ink);margin-bottom:10px}
+.progress-track{height:9px;border-radius:999px;background:#e2e8f0;overflow:hidden}
+#progressFill{height:100%;width:25%;background:var(--teal2);border-radius:999px;transition:width .2s ease}
+.journey-caption{font-size:14px;margin-top:10px}
+.journey-step[hidden]{display:none!important}
+.journey-controls{justify-content:space-between;margin:0 0 18px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
 @media(max-width:850px){.layout{grid-template-columns:1fr}aside{display:none}main{padding:16px}.grid{grid-template-columns:1fr}.full{grid-column:auto}header{padding:14px 16px}.header-right{display:none}h1{font-size:24px}.hint{margin-left:0}}
 @media print{header,aside,.actions,.notice,footer{display:none!important}.layout{display:block}main{padding:0;max-width:none}.section{break-inside:avoid}}
@@ -66,8 +74,14 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
     </div>
     <div class="notice"><strong>Autonomia e transparência:</strong> este protótipo guarda os dados somente neste navegador. Eles não são enviados à internet nem a uma base central. Use dados fictícios durante os testes.</div>
 
+    <div class="journey-progress" aria-live="polite">
+      <div class="progress-top"><strong id="stepLabel">Etapa 1 de 4</strong><span id="stepName">Informações básicas</span></div>
+      <div class="progress-track"><div id="progressFill"></div></div>
+      <p class="journey-caption">Você pode avançar no seu ritmo. Não precisa ter todas as respostas agora.</p>
+    </div>
+
     <form id="profileForm">
-      <section class="section">
+      <section class="section journey-step" data-step="0">
         <div class="sectionhead"><div class="symbol">1</div><h2>Informações básicas</h2></div>
         <p class="hint">Preencha somente as informações que deseja incluir no seu perfil de demonstração.</p>
         <div class="grid">
@@ -78,7 +92,7 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
         </div>
       </section>
 
-      <section class="section">
+      <section class="section journey-step" data-step="1" hidden>
         <div class="sectionhead"><div class="symbol">2</div><h2>Experiências e conhecimentos</h2></div>
         <p class="hint">Descreva atividades realizadas, responsabilidades e conhecimentos adquiridos. Não precisa usar palavras difíceis.</p>
         <div class="grid">
@@ -88,7 +102,7 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
         </div>
       </section>
 
-      <section class="section">
+      <section class="section journey-step" data-step="2" hidden>
         <div class="sectionhead"><div class="symbol">3</div><h2>Evidências das capacidades</h2></div>
         <p class="hint">Conte um exemplo concreto que ajude a demonstrar cada capacidade. A evidência pode ser uma atividade realizada, um curso ou uma situação vivida.</p>
         <div class="grid">
@@ -97,7 +111,7 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
         </div>
       </section>
 
-      <section class="section">
+      <section class="section journey-step" data-step="3" hidden>
         <div class="sectionhead"><div class="symbol">✓</div><h2>Resumo do perfil</h2></div>
         <p class="hint">O resumo é montado com as informações que você preencheu. Revise antes de imprimir ou exportar.</p>
         <div id="summary" style="border:1px solid var(--line);border-radius:10px;padding:16px;background:#fbfdfd;white-space:pre-wrap;line-height:1.6;font-size:16px">Preencha os campos para visualizar seu resumo profissional.</div>
@@ -111,6 +125,10 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
         <div id="status" class="status" role="status" aria-live="polite"></div>
         <div class="small">Importante: salvar neste navegador não envia o perfil para empresas nem publica uma candidatura. A integração com uma base central será definida numa etapa futura.</div>
       </section>
+      <div class="actions journey-controls">
+        <button class="btn" type="button" id="prevStep" disabled>← Etapa anterior</button>
+        <button class="btn primary" type="button" id="nextStep">Próxima etapa →</button>
+      </div>
     </form>
     <footer>FormNex · Capacidade → Evidência → Conhecimento → Decisão</footer>
   </main>
@@ -121,6 +139,19 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
   const form = document.getElementById("profileForm");
   const fields = ["nome","cidade","area","disponibilidade","experiencias","capacidades","conhecimentos","evidencias","objetivo"];
   const status = document.getElementById("status");
+  const steps = Array.from(document.querySelectorAll(".journey-step"));
+  const stepNames = ["Informações básicas","Experiências e conhecimentos","Evidências das capacidades","Revisão do perfil"];
+  let currentStep = 0;
+  function showStep(index){
+    currentStep = Math.max(0, Math.min(index, steps.length - 1));
+    steps.forEach((step,i)=>{step.hidden = i !== currentStep;});
+    document.getElementById("stepLabel").textContent = "Etapa " + (currentStep + 1) + " de " + steps.length;
+    document.getElementById("stepName").textContent = stepNames[currentStep];
+    document.getElementById("progressFill").style.width = ((currentStep + 1) / steps.length * 100) + "%";
+    document.getElementById("prevStep").disabled = currentStep === 0;
+    document.getElementById("nextStep").textContent = currentStep === steps.length - 1 ? "Voltar ao início ↑" : "Próxima etapa →";
+    if(currentStep === steps.length - 1) updateSummary();
+  }
   function values(){
     const out = {};
     fields.forEach(id => out[id] = document.getElementById(id).value.trim());
@@ -184,7 +215,12 @@ footer{text-align:center;color:#475569;font-size:14px;padding:4px 0 24px}
     form.reset();updateSummary();show("Campos limpos. Para apagar também o perfil salvo, use as configurações do navegador.");
   });
   fields.forEach(id=>document.getElementById(id).addEventListener("input",updateSummary));
-  load();updateSummary();
+  document.getElementById("prevStep").addEventListener("click",()=>showStep(currentStep-1));
+  document.getElementById("nextStep").addEventListener("click",()=>{
+    if(currentStep === steps.length - 1) showStep(0);
+    else showStep(currentStep+1);
+  });
+  load();updateSummary();showStep(0);
 })();
 </script>
 </body>
