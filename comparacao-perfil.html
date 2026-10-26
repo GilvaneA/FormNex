@@ -146,7 +146,27 @@ function loadSavedData(){
  let loaded=[];const profileKeys=["formnex_perfil_profissional_v1"],vacancyKeys=["formnex_vaga_demonstracao_v1"];
  function read(keys){for(const key of keys){try{const value=localStorage.getItem(key);if(value)return JSON.parse(value)}catch(e){}}return null}
  const profile=read(profileKeys),vacancy=read(vacancyKeys);
- if(profile){const name=profile.name||profile.nome||profile.fullName||"";const skills=Array.isArray(profile.skills)?profile.skills.join(", "):profile.skills;const parts=[profile.area,profile.education,profile.summary,profile.experience,profile.years?profile.years+" anos de experiência":"",profile.activities,skills,profile.otherSkills,profile.evidence,profile.schedule,profile.mobility].filter(Boolean);if(name)document.getElementById("candidate").value=name;if(parts.length)document.getElementById("profile").value=parts.join("\n");loaded.push("perfil")}
+ if(profile){
+  const name=profile.nome||profile.name||profile.fullName||"";
+  const skills=Array.isArray(profile.skills)?profile.skills.join(", "):profile.skills;
+  const parts=[
+    profile.cidade ? "Cidade/região: "+profile.cidade : "",
+    profile.area ? "Área de interesse: "+profile.area : "",
+    profile.disponibilidade ? "Disponibilidade: "+profile.disponibilidade : "",
+    profile.experiencias ? "Experiências profissionais:\n"+profile.experiencias : "",
+    profile.capacidades ? "Capacidades e competências:\n"+profile.capacidades : "",
+    profile.conhecimentos ? "Cursos, treinamentos e conhecimentos:\n"+profile.conhecimentos : "",
+    profile.evidencias ? "Evidências:\n"+profile.evidencias : "",
+    profile.objetivo ? "Oportunidades de interesse:\n"+profile.objetivo : "",
+    profile.education,profile.summary,profile.experience,
+    profile.years ? profile.years+" anos de experiência" : "",
+    profile.activities,skills,profile.otherSkills,profile.evidence,
+    profile.schedule,profile.mobility
+  ].filter(Boolean);
+  if(name)document.getElementById("candidate").value=name;
+  if(parts.length)document.getElementById("profile").value=parts.join("\n");
+  loaded.push("perfil")
+}
  if(vacancy){const title=vacancy.title||vacancy.role||vacancy.titulo;if(title)document.getElementById("role").value=title;const must=String(vacancy.must||"").split("\n").filter(Boolean).map(x=>"[OBRIGATÓRIO] "+x),nice=String(vacancy.nice||"").split("\n").filter(Boolean).map(x=>"[DESEJÁVEL] "+x);if(must.length||nice.length)document.getElementById("requirements").value=[...must,...nice].join("\n");loaded.push("oportunidade")}
  render();const t=document.getElementById("toast");t.textContent=loaded.length?"Carregados: "+loaded.join(" e ")+". Confira os campos antes de registrar.":"Não encontrei dados salvos com as chaves esperadas neste navegador.";t.style.display="block";setTimeout(()=>t.style.display="none",3500)
 }
