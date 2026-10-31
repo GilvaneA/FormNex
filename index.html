@@ -1366,14 +1366,17 @@
 
 
 
-        /* Padronização visual: textos explicativos distribuídos nos quadros */
+        /* Padronização de leitura: textos ocupam a largura do quadro
+           sem esticar os espaços entre as palavras. */
         p {
-            text-align: justify;
-            text-justify: inter-word;
+            width: 100%;
+            max-width: none;
+            text-align: left;
             text-align-last: left;
+            overflow-wrap: break-word;
         }
 
-        /* Garante a mesma leitura nos principais cartões e painéis da FormNex */
+        /* Mantém os textos dos cartões alinhados e com espaçamento natural. */
         .path-card p,
         .thinking-card p,
         .company-card p,
@@ -1385,86 +1388,10 @@
         .card p {
             width: 100%;
             max-width: none;
-            text-align: justify;
-            text-justify: inter-word;
-            text-align-last: left;
-        }
-
-
-        /* Correção de alinhamento: protótipo e diretório de empresas */
-        .path-grid {
-            width: 100%;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: stretch;
-        }
-
-        .path-card {
-            min-width: 0;
-            height: 100%;
-        }
-
-        .companies-content {
-            width: 100%;
-            max-width: 1180px !important;
-        }
-
-        .company-directory {
-            width: 100%;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: stretch;
-        }
-
-        .company-card {
-            min-width: 0;
-            height: 100%;
-            overflow-wrap: anywhere;
-        }
-
-        .company-card-top > div {
-            min-width: 0;
-        }
-
-        .company-card .company-location {
             text-align: left;
             text-align-last: left;
-        }
-
-        .company-card-bottom {
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 900px) {
-            .path-grid,
-            .company-directory {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .path-card:last-child {
-                grid-column: 1 / -1;
-                width: min(100%, calc((100% - 25px) / 2));
-                justify-self: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .path-grid,
-            .company-directory {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .path-card:last-child {
-                grid-column: auto;
-                width: 100%;
-            }
-
-            .companies {
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-
-            .companies-content {
-                min-width: 0;
-            }
+            overflow-wrap: break-word;
+            word-spacing: normal;
         }
 
 </style>
