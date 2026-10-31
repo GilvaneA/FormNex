@@ -1158,6 +1158,119 @@
             .privacy-actions button, .privacy-actions a { flex: 1 1 auto; text-align: center; }
         }
 
+    
+        /* Responsividade: alinhamento consistente do quadro de oportunidade */
+        .hero-content,
+        .hero-text,
+        .intelligence-card {
+            min-width: 0;
+        }
+
+        .intelligence-card {
+            width: 100%;
+            max-width: 100%;
+            justify-self: stretch;
+            align-self: center;
+        }
+
+        .mobility {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .mobility-item {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        @media (min-width: 851px) and (max-width: 1100px) {
+            .hero-content {
+                gap: 30px;
+            }
+
+            .intelligence-card {
+                padding: 24px;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(36px, 4.2vw, 48px);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .hero-content {
+                width: 100%;
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-text,
+            .intelligence-card {
+                width: 100%;
+                max-width: 680px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .intelligence-card {
+                justify-self: center;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .intelligence-card {
+                padding: 20px;
+                border-radius: 18px;
+            }
+
+            .card-label {
+                font-size: 13px;
+                letter-spacing: .7px;
+            }
+
+            .job-title {
+                font-size: clamp(20px, 5.5vw, 24px);
+                overflow-wrap: anywhere;
+            }
+
+            .compatibility {
+                gap: 10px;
+                padding: 12px 14px;
+            }
+
+            .compatibility strong {
+                font-size: 22px;
+                flex: 0 0 auto;
+            }
+
+            .mobility {
+                gap: 8px;
+            }
+
+            .mobility-item {
+                padding: 10px 6px;
+            }
+
+            .mobility-item strong,
+            .mobility-item span {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .mobility {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .mobility-item {
+                text-align: left;
+                padding: 10px 12px;
+            }
+        }
+
     </style>
 </head>
 
