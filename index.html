@@ -1351,6 +1351,45 @@
             .audience-option .btn { width: 100%; text-align: center; }
             .hero-audience-first .intelligence-card { padding: 22px 18px; }
         }
+
+        /* Distribui o texto por toda a largura do quadro de deslocamento */
+        .mobility-box h2 {
+            width: 100%;
+            max-width: none;
+        }
+
+        .mobility-box > p {
+            width: 100%;
+            max-width: none;
+            text-align: left;
+        }
+
+
+
+        /* Padronização visual: textos explicativos distribuídos nos quadros */
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+            text-align-last: left;
+        }
+
+        /* Garante a mesma leitura nos principais cartões e painéis da FormNex */
+        .path-card p,
+        .thinking-card p,
+        .company-card p,
+        .off-item p,
+        .mobility-box > p,
+        .example p,
+        .intelligence-card p,
+        .audience-option p,
+        .card p {
+            width: 100%;
+            max-width: none;
+            text-align: justify;
+            text-justify: inter-word;
+            text-align-last: left;
+        }
+
 </style>
 </head>
 
