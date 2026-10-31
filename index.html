@@ -405,6 +405,37 @@
             text-decoration: none;
         }
 
+        /* Apresentação específica para empresas e recrutadores */
+        .recruiter-intro { padding: 72px 24px; background: #FFFFFF; }
+        .recruiter-intro-content {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+            gap: 42px; align-items: center;
+        }
+        .recruiter-eyebrow {
+            display: inline-block; margin-bottom: 12px; color: var(--teal-dark);
+            font-size: 12px; font-weight: 800; letter-spacing: 1.2px;
+        }
+        .recruiter-intro h2 {
+            margin-bottom: 16px; font-size: clamp(28px, 3.2vw, 40px);
+            line-height: 1.15; color: var(--graphite);
+        }
+        .recruiter-intro h2 span { color: var(--teal-dark); }
+        .recruiter-intro-copy p {
+            max-width: 650px; margin-bottom: 22px; color: var(--gray); font-size: 17px;
+        }
+        .recruiter-intro-link { color: var(--teal-dark); font-weight: 800; text-decoration: none; }
+        .recruiter-intro-link:hover { text-decoration: underline; }
+        .recruiter-benefits { display: grid; gap: 12px; }
+        .recruiter-benefit {
+            display: flex; align-items: flex-start; gap: 14px; padding: 17px 18px;
+            border: 1px solid rgba(20, 187, 166, .2); border-radius: 13px; background: var(--teal-bg);
+        }
+        .recruiter-benefit strong { flex: 0 0 34px; color: var(--teal-dark); font-size: 17px; }
+        .recruiter-benefit span { color: var(--graphite); font-weight: 600; }
+        body[data-theme="dark"] .recruiter-intro { background: #10191C; }
+        body[data-theme="dark"] .recruiter-benefit { background: #1D3435; border-color: #355B58; }
+
         .thinking {
             padding: 80px 24px;
         }
@@ -943,9 +974,15 @@
         }
 
         @media (max-width: 850px) {
+            .recruiter-intro-content { grid-template-columns: 1fr; gap: 26px; }
+
             .theme-toggle { margin-left: auto; }
         }
         @media (max-width: 550px) {
+            .recruiter-intro { padding: 52px 16px; }
+            .recruiter-intro-copy p { font-size: 16px; }
+            .recruiter-benefit { padding: 14px; }
+
             .theme-toggle { padding: 9px 10px; font-size: 12px; }
             .theme-toggle span { display: none; }
         }
@@ -1337,19 +1374,13 @@
             </h1>
 
             <p>
-                A FormNex aproxima pessoas e oportunidades
-                a partir de capacidades, experiências,
-                evidências e contexto.
+                A FormNex aproxima profissionais e empresas por meio de
+                capacidades, experiências, evidências e compatibilidade.
+                Mais clareza para quem procura uma oportunidade e para quem precisa encontrar talentos.
             </p>
-
-            <div class="hero-buttons">
-                <a href="#perfil-profissional-demo" class="btn btn-primary">
-                    Encontrar oportunidades
-                </a>
-
-                <a href="#comparacao-demo" class="btn btn-secondary">
-                    Encontrar profissionais
-                </a>
+            <div class="hero-buttons" aria-label="Escolha seu acesso à FormNex">
+                <a class="btn btn-primary" href="#perfil-profissional-demo">Sou profissional</a>
+                <a class="btn btn-secondary" href="#comparacao-demo">Sou recrutador</a>
             </div>
         </div>
 
@@ -1462,6 +1493,26 @@
             </a>
         </div>
 
+    </div>
+</section>
+
+<section class="recruiter-intro" aria-labelledby="recruiterIntroTitle">
+    <div class="recruiter-intro-content">
+        <div class="recruiter-intro-copy">
+            <span class="recruiter-eyebrow">PARA EMPRESAS E RECRUTADORES</span>
+            <h2 id="recruiterIntroTitle">Encontre mais do que currículos. <span>Encontre capacidades.</span></h2>
+            <p>
+                A FormNex ajuda a organizar informações sobre experiências, capacidades
+                e evidências dos profissionais, relacionando esses elementos aos requisitos
+                das oportunidades para apoiar a análise do recrutador.
+            </p>
+            <a class="recruiter-intro-link" href="#comparacao-demo">Conhecer a demonstração de compatibilidade →</a>
+        </div>
+        <div class="recruiter-benefits" aria-label="Benefícios para recrutadores">
+            <div class="recruiter-benefit"><strong>01</strong><span>Visualize capacidades relacionadas à oportunidade.</span></div>
+            <div class="recruiter-benefit"><strong>02</strong><span>Considere experiências e evidências disponíveis.</span></div>
+            <div class="recruiter-benefit"><strong>03</strong><span>Tenha informações organizadas para apoiar sua decisão.</span></div>
+        </div>
     </div>
 </section>
 
