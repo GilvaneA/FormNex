@@ -1366,17 +1366,14 @@
 
 
 
-        /* Padronização de leitura: textos ocupam a largura do quadro
-           sem esticar os espaços entre as palavras. */
+        /* Padronização visual: textos explicativos distribuídos nos quadros */
         p {
-            width: 100%;
-            max-width: none;
-            text-align: left;
+            text-align: justify;
+            text-justify: inter-word;
             text-align-last: left;
-            overflow-wrap: break-word;
         }
 
-        /* Mantém os textos dos cartões alinhados e com espaçamento natural. */
+        /* Garante a mesma leitura nos principais cartões e painéis da FormNex */
         .path-card p,
         .thinking-card p,
         .company-card p,
@@ -1388,10 +1385,154 @@
         .card p {
             width: 100%;
             max-width: none;
-            text-align: left;
+            text-align: justify;
+            text-justify: inter-word;
             text-align-last: left;
+        }
+
+
+
+        /* Alinhamento consistente dos textos e cartões em toda a página */
+        p {
+            text-align: left;
+            text-align-last: auto;
+            text-justify: auto;
             overflow-wrap: break-word;
-            word-spacing: normal;
+        }
+
+        /* Faixa de empresas parceiras */
+        .partners-heading {
+            width: min(100% - 32px, 1180px);
+            margin: 0 auto 18px;
+            text-align: center;
+        }
+        .partners-heading h2,
+        .partners-heading p {
+            width: 100%;
+            max-width: none;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .partners-window {
+            max-width: 1180px;
+        }
+        .partner-placeholder {
+            text-align: center;
+            align-items: center;
+        }
+        .partner-placeholder strong,
+        .partner-placeholder span {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Protótipo: três cartões com o mesmo alinhamento interno */
+        .path-grid {
+            width: min(100%, 1100px);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+        }
+        .path-card {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .path-card h3,
+        .path-card p,
+        .path-card .path-link {
+            width: 100%;
+            max-width: none;
+            text-align: left;
+        }
+        .path-card p {
+            flex: 1 1 auto;
+            margin-bottom: 22px;
+        }
+        .section-title,
+        .section-title h2,
+        .section-title > p {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-title > p {
+            width: 100%;
+            max-width: 760px;
+        }
+        .prototype-notice {
+            text-align: center !important;
+        }
+
+        /* Diretório de empresas: largura e alinhamento uniformes */
+        .companies-content {
+            width: min(100%, 1100px);
+            max-width: 1100px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .companies-content > h2,
+        .companies-content > p {
+            width: 100%;
+            max-width: none;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .company-directory {
+            width: 100%;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+        }
+        .company-card {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .company-card-top {
+            width: 100%;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        .company-card-top > div {
+            min-width: 0;
+            flex: 1 1 auto;
+            text-align: left;
+        }
+        .company-card h3,
+        .company-card .company-location {
+            width: 100%;
+            text-align: left;
+            overflow-wrap: break-word;
+        }
+        .company-card-bottom {
+            width: 100%;
+            text-align: left;
+        }
+        .companies-content > p:last-child {
+            text-align: center;
+        }
+
+        @media (min-width: 641px) and (max-width: 900px) {
+            .path-grid,
+            .company-directory {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 640px) {
+            .path-grid,
+            .company-directory {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .path-card { padding: 24px 20px; }
+            .companies-content { width: 100%; }
+            .companies-content > h2,
+            .companies-content > p { padding-left: 4px; padding-right: 4px; }
         }
 
 </style>
