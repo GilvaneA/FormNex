@@ -507,7 +507,7 @@
         }
 
         .mobility-box {
-            max-width: 1000px;
+            max-width: 1150px;
             margin: auto;
             background: var(--teal-bg);
             border-radius: 22px;
@@ -528,25 +528,36 @@
 
         .mobility-examples {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+            align-items: stretch;
         }
 
         .example {
             background: white;
-            padding: 17px;
+            padding: 16px 13px;
             border-radius: 10px;
             border: 1px solid var(--gray-light);
+            min-height: 116px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 7px;
         }
 
         .example strong {
-            display: block;
-            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 26px;
+            font-size: 15px;
+            line-height: 1.25;
         }
 
         .example span {
             color: var(--gray);
-            font-size: 16px;
+            font-size: 15px;
+            line-height: 1.35;
         }
 
         .principle {
@@ -1057,7 +1068,7 @@
             }
 
             .mobility-examples {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .mobility-box {
@@ -1293,8 +1304,9 @@
         .audience-intro { color: var(--gray); font-size: 17px; margin-bottom: 22px; }
         .audience-options {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            align-items: stretch;
         }
         .audience-option {
             background: rgba(255,255,255,.94);
@@ -1304,21 +1316,38 @@
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            text-align: left;
+            min-height: 225px;
         }
-        .audience-icon { font-size: 27px; margin-bottom: 8px; }
-        .audience-option h2 { font-size: 22px; margin-bottom: 7px; color: var(--graphite); }
-        .audience-option p { color: var(--gray); font-size: 15px; max-width: 420px; margin-bottom: 18px; }
+        .audience-icon {
+            font-size: 27px;
+            margin-bottom: 12px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--teal-light);
+            border-radius: 11px;
+        }
+        .audience-option h2 { font-size: 19px; line-height: 1.3; margin-bottom: 8px; color: var(--graphite); }
+        .audience-option p { color: var(--gray); font-size: 14px; line-height: 1.5; max-width: 420px; margin-bottom: 18px; }
         .audience-option .btn { margin-top: auto; }
         .hero-audience-first .intelligence-card {
             width: 100%;
             max-width: 760px;
             margin: 0 auto;
         }
+        @media (min-width: 641px) and (max-width: 900px) {
+            .audience-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .mobility-examples { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+
         @media (max-width: 640px) {
             .hero-audience-first { padding: 36px 16px 44px; }
             .audience-options { grid-template-columns: 1fr; gap: 14px; }
-            .audience-option { padding: 20px 16px; }
+            .audience-option { padding: 20px 16px; min-height: 0; }
             .audience-option .btn { width: 100%; text-align: center; }
             .hero-audience-first .intelligence-card { padding: 22px 18px; }
         }
@@ -1342,7 +1371,7 @@
 
         <div class="menu" id="mainMenu">
             <a href="#como-pensamos">Como pensamos</a>
-            <a href="#oportunidades">Oportunidades</a>
+            <a href="#perfil-profissional-demo">Oportunidades</a>
             <a href="#empresas">Empresas</a>
         </div>
 
@@ -1398,6 +1427,13 @@
                     <p>Encontre oportunidades compatíveis com suas capacidades e experiências.</p>
                     <a href="#perfil-profissional-demo" class="btn btn-secondary">Encontrar oportunidades</a>
                 </article>
+
+                <article class="audience-option">
+                    <div class="audience-icon" aria-hidden="true">🎙️</div>
+                    <h2>Quero cadastrar minhas capacidades por voz</h2>
+                    <p>Conte sua experiência com suas próprias palavras. Revise as capacidades sugeridas e confirme suas informações.</p>
+                    <a href="Acessibilidade-voz.html" class="btn btn-secondary">Experimentar cadastro por voz</a>
+                </article>
             </div>
         </div>
 
@@ -1446,66 +1482,7 @@
     </div>
 </section>
 
-<section class="paths" id="oportunidades">
-    <div class="section-title">
-        <h2>Por onde você quer começar?</h2>
 
-        <p>
-            A FormNex foi pensada para aproximar
-            profissionais e empresas.
-        </p>
-    </div>
-
-    <div class="path-grid">
-
-        <div class="path-card">
-            <div class="path-icon">👤</div>
-
-            <h3>Quero encontrar uma oportunidade</h3>
-
-            <p>
-                Encontre oportunidades compatíveis
-                com suas capacidades, experiências,
-                preferências e possibilidades de deslocamento.
-            </p>
-
-            <a href="#perfil-profissional-demo" class="path-link">
-                Criar perfil profissional →
-            </a>
-        </div>
-
-        <div class="path-card">
-            <div class="path-icon">🏢</div>
-
-            <h3>Quero encontrar um profissional</h3>
-
-            <p>
-                Encontre pessoas a partir das capacidades
-                necessárias para sua oportunidade.
-            </p>
-
-            <a href="#comparacao-demo" class="path-link">
-                Explorar compatibilidade →
-            </a>
-        </div>
-
-        <div class="path-card">
-            <div class="path-icon">🎙️</div>
-
-            <h3>Cadastre suas capacidades por voz</h3>
-
-            <p>
-                Conte sua experiência com suas próprias palavras.
-                Revise as capacidades sugeridas e confirme as informações.
-            </p>
-
-            <a href="Acessibilidade-voz.html" class="path-link">
-                Experimentar cadastro por voz →
-            </a>
-        </div>
-
-    </div>
-</section>
 
 <section class="thinking" id="como-pensamos">
     <div class="section-title">
