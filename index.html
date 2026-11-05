@@ -1716,6 +1716,32 @@
 .art-network b{position:absolute;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#174655;border:1px solid #65d8c9;color:#c7fff5;box-shadow:0 0 18px rgba(65,207,190,.18)}
 .art-network b:nth-child(1){left:12%;top:24%}.art-network b:nth-child(2){left:43%;top:43%}.art-network b:nth-child(3){right:12%;top:18%}.art-network b:nth-child(4){right:23%;bottom:9%}
 
+
+
+        /* Ajuste fino do cabeçalho: manter a navegação em uma única linha */
+        @media (min-width: 851px) {
+            .nav {
+                max-width: 1280px;
+                gap: 18px;
+            }
+            .brand {
+                flex: 0 0 auto;
+            }
+            .menu {
+                flex: 1 1 auto;
+                justify-content: center;
+                gap: clamp(14px, 1.7vw, 24px);
+                margin: 0 10px;
+                min-width: 0;
+            }
+            .menu a {
+                white-space: nowrap;
+                font-size: clamp(16px, 1.45vw, 19px);
+            }
+            .theme-toggle {
+                flex: 0 0 auto;
+            }
+        }
 </style>
 </head>
 
