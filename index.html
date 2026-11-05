@@ -1653,6 +1653,48 @@
  .partner-invite a { white-space:normal; }
 }
 
+
+/* Painéis visuais de destaque — FormNex */
+.feature-showcase {
+  padding: 76px 24px;
+  background: linear-gradient(180deg,#071522 0%,#102B38 100%);
+  color: #EAF7F6;
+}
+.feature-showcase-inner { max-width:1180px; margin:0 auto; }
+.feature-showcase-heading { max-width:760px; margin:0 auto 32px; text-align:center; }
+.feature-showcase-heading .eyebrow { color:#66DCCB; font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
+.feature-showcase-heading h2 { color:#F4FBFA; font-size:clamp(28px,3.5vw,39px); line-height:1.15; margin:12px 0; }
+.feature-showcase-heading p { color:#B6C9CF; text-align:center; }
+.feature-showcase-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.feature-visual-card {
+  min-height:345px; padding:21px; border-radius:20px; overflow:hidden; position:relative;
+  border:1px solid rgba(115,207,199,.23);
+  background:linear-gradient(145deg,rgba(24,58,72,.98),rgba(10,26,40,.98));
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+.feature-visual-card:after {
+  content:""; position:absolute; width:190px; height:190px; border-radius:50%;
+  right:-80px; top:-85px; background:rgba(42,205,183,.10); filter:blur(2px);
+}
+.visual-card-head { display:flex; justify-content:space-between; align-items:center; gap:10px; position:relative; z-index:1; }
+.visual-card-head span:first-child { color:#83E4D7; font-size:10px; letter-spacing:1px; font-weight:800; }
+.visual-live { color:#B6F6E9; background:rgba(20,187,166,.13); border:1px solid rgba(91,226,207,.2); border-radius:999px; padding:5px 8px; font-size:9px; font-weight:800; }
+.visual-card-title { position:relative; z-index:1; margin:17px 0 5px; color:#F4FBFA; font-size:20px; }
+.visual-card-copy { position:relative; z-index:1; color:#AFC5CB; font-size:12px; line-height:1.5; min-height:38px; }
+.visual-art { height:145px; margin:17px 0 14px; border-radius:14px; position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(6,19,31,.9),rgba(21,67,77,.7)); border:1px solid rgba(129,204,197,.16); }
+.art-path { position:absolute; left:10%; right:10%; top:50%; height:2px; background:linear-gradient(90deg,#3D9F9B,#6BE4D2); box-shadow:0 0 12px rgba(78,219,200,.5); }
+.art-node { position:absolute; top:calc(50% - 22px); width:44px; height:44px; border-radius:13px; display:grid; place-items:center; background:#163B49; border:1px solid #4CCFBD; color:#A7F5E9; box-shadow:0 0 20px rgba(42,205,183,.15); font-size:18px; }
+.art-node.n1 {left:7%}.art-node.n2 {left:37%}.art-node.n3 {left:67%}.art-node.n4 {right:5%}
+.art-orbit {position:absolute; width:95px;height:95px;border:1px solid rgba(82,220,204,.23);border-radius:50%;left:calc(50% - 47px);top:25px}
+.art-core {position:absolute;left:calc(50% - 25px);top:48px;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#1A8F87,#174C61);color:#E7FFFA;font-size:21px;box-shadow:0 0 25px rgba(43,213,190,.24)}
+.art-bars {position:absolute;inset:18px 20px;display:flex;align-items:end;gap:10px}
+.art-bars i {display:block;flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#5FE0CD,#1A827F);box-shadow:0 0 12px rgba(60,210,190,.12)}
+.art-bars i:nth-child(1){height:34%}.art-bars i:nth-child(2){height:58%}.art-bars i:nth-child(3){height:46%}.art-bars i:nth-child(4){height:83%}.art-bars i:nth-child(5){height:68%}.art-bars i:nth-child(6){height:100%}
+.visual-card-foot { display:flex; align-items:center; justify-content:space-between; gap:8px; color:#8FAEB6; font-size:10px; position:relative; z-index:1; }
+.visual-card-foot strong { color:#7DE6D7; font-size:10px; letter-spacing:.4px; }
+@media(max-width:850px){.feature-showcase-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.feature-showcase{padding:56px 16px}.feature-showcase-grid{grid-template-columns:1fr}.feature-visual-card{min-height:320px}}
+
 </style>
 </head>
 
@@ -2016,6 +2058,46 @@
     </p>
 </section>
     
+
+
+<section class="feature-showcase" id="destaques-formnex">
+ <div class="feature-showcase-inner">
+  <div class="feature-showcase-heading">
+   <span class="eyebrow">FormNex · Inteligência em movimento</span>
+   <h2>Capacidades que se conectam a novas possibilidades.</h2>
+   <p>Uma visão visual do que a plataforma está construindo para profissionais e empresas.</p>
+  </div>
+  <div class="feature-showcase-grid">
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>01 · DESENVOLVIMENTO</span><span class="visual-live">EM EVOLUÇÃO</span></div>
+    <h3 class="visual-card-title">Mapa de Evolução</h3>
+    <p class="visual-card-copy">Caminhos profissionais conectados a capacidades, experiências e conhecimentos.</p>
+    <div class="visual-art" aria-hidden="true">
+     <div class="art-path"></div><div class="art-node n1">◈</div><div class="art-node n2">⚙</div><div class="art-node n3">✦</div><div class="art-node n4">♙</div>
+    </div>
+    <div class="visual-card-foot"><span>Possibilidades profissionais</span><strong>EXPLORAR CAMINHOS ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>02 · INTELIGÊNCIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">DNA Profissional</h3>
+    <p class="visual-card-copy">Um retrato organizado de capacidades, evidências e conhecimentos de cada pessoa.</p>
+    <div class="visual-art" aria-hidden="true">
+     <div class="art-orbit"></div><div class="art-core">✧</div>
+    </div>
+    <div class="visual-card-foot"><span>Capacidade + Evidência</span><strong>CONHECER O PERFIL ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>03 · VISÃO EMPRESARIAL</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Inteligência de Talentos</h3>
+    <p class="visual-card-copy">Informações para compreender capacidades disponíveis e necessidades das equipes.</p>
+    <div class="visual-art" aria-hidden="true">
+     <div class="art-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="visual-card-foot"><span>Dados para apoiar decisões</span><strong>VISÃO EMPRESARIAL ↗</strong></div>
+   </article>
+  </div>
+ </div>
+</section>
 
 <section class="evolution-section" id="evolucao-profissional">
   <div class="evolution-wrap">
