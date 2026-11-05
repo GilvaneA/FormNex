@@ -1566,6 +1566,93 @@
             .partners-window { width: calc(100% - 32px); }
             .partners-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
         }
+
+/* FORMNEX — Ecossistema de Inteligência e Mapa de Evolução */
+.evolution-section {
+    padding: 88px 24px;
+    color: #EAF4F5;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(20,187,166,.18), transparent 28%),
+      radial-gradient(circle at 90% 90%, rgba(37,99,235,.15), transparent 30%),
+      linear-gradient(135deg,#0B1724 0%,#102633 52%,#101B2B 100%);
+}
+.evolution-wrap { max-width: 1180px; margin: 0 auto; }
+.evolution-kicker {
+    display:inline-flex; align-items:center; gap:8px; padding:7px 12px;
+    border:1px solid rgba(83,220,201,.35); border-radius:999px;
+    color:#80E8D9; background:rgba(20,187,166,.09);
+    font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+}
+.evolution-heading { max-width:800px; margin:18px auto 38px; text-align:center; }
+.evolution-heading h2 { color:#F4FAFA; font-size:clamp(30px,4vw,44px); line-height:1.12; margin:14px 0; }
+.evolution-heading h2 span { color:#4EDBC8; }
+.evolution-heading p { color:#B8C9D0; font-size:16px; text-align:center; }
+.evolution-layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr); gap:20px; align-items:stretch; }
+.evolution-map, .evolution-detail {
+    border:1px solid rgba(148,190,199,.2); border-radius:20px;
+    background:rgba(13,29,42,.82); box-shadow:0 18px 55px rgba(0,0,0,.2);
+}
+.evolution-map { padding:25px; overflow:hidden; }
+.evolution-map-top { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:24px; }
+.evolution-map-top strong { color:#EAF4F5; font-size:15px; }
+.evolution-map-top span { color:#8FAAB2; font-size:12px; }
+.career-tree { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; align-items:center; position:relative; }
+.career-node {
+    min-height:132px; border:1px solid #31515C; border-radius:15px;
+    padding:15px 12px; color:#DDEBED; background:linear-gradient(160deg,#1A3542,#142936);
+    cursor:pointer; text-align:left; transition:.2s; position:relative; z-index:1;
+}
+.career-node:hover, .career-node:focus-visible { border-color:#4EDBC8; transform:translateY(-3px); outline:none; box-shadow:0 10px 28px rgba(20,187,166,.13); }
+.career-node[aria-pressed="true"] { border:2px solid #4EDBC8; background:linear-gradient(160deg,#174B4D,#183544); box-shadow:0 0 0 3px rgba(78,219,200,.1); }
+.career-node .node-step { color:#70DCCD; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:10px; }
+.career-node strong { display:block; color:#F5FBFB; font-size:14px; line-height:1.3; margin-bottom:7px; }
+.career-node small { color:#A9C0C6; font-size:11px; line-height:1.35; display:block; }
+.career-node .node-state { display:inline-block; margin-top:10px; color:#8FE6D9; font-size:10px; font-weight:700; }
+.evolution-detail { padding:25px; }
+.detail-label { color:#71DCCB; text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:1px; }
+.evolution-detail h3 { color:#F4FAFA; font-size:23px; line-height:1.2; margin:10px 0; }
+.evolution-detail p { color:#B7C9CF; font-size:13px; line-height:1.55; }
+.detail-block { margin-top:20px; padding-top:16px; border-top:1px solid rgba(148,190,199,.16); }
+.detail-block h4 { color:#DCEBED; font-size:12px; margin-bottom:10px; }
+.skill-chips { display:flex; flex-wrap:wrap; gap:7px; }
+.skill-chip { padding:6px 9px; border-radius:8px; color:#B9F5EB; background:rgba(20,187,166,.12); border:1px solid rgba(78,219,200,.2); font-size:11px; }
+.gap-list { list-style:none; display:grid; gap:8px; }
+.gap-list li { color:#C2D1D5; font-size:12px; display:flex; gap:8px; align-items:flex-start; }
+.gap-list li:before { content:"＋"; color:#69DCCB; font-weight:800; }
+.evolution-footnote { margin-top:18px; color:#8FAAB2; font-size:11px; line-height:1.5; }
+.evolution-bottom { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:22px; }
+.evolution-bottom p { color:#AFC2C8; font-size:12px; margin:0; }
+.evolution-cta { display:inline-block; padding:12px 17px; border-radius:10px; background:#16A995; color:white; text-decoration:none; font-size:13px; font-weight:800; }
+.evolution-cta:hover { background:#0F887D; }
+.ecosystem-section { padding:78px 24px; background:#F5FAF9; }
+.ecosystem-wrap { max-width:1180px; margin:auto; }
+.ecosystem-heading { text-align:center; max-width:760px; margin:0 auto 34px; }
+.ecosystem-heading h2 { color:#172B36; font-size:clamp(28px,3.5vw,38px); line-height:1.15; margin-bottom:12px; }
+.ecosystem-heading p { color:#64748B; text-align:center; }
+.ecosystem-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.ecosystem-card { background:white; border:1px solid #DCEAE7; border-radius:16px; padding:20px; min-height:176px; box-shadow:0 7px 22px rgba(15,118,110,.05); }
+.ecosystem-card .eco-icon { font-size:23px; margin-bottom:12px; }
+.ecosystem-card h3 { color:#173B40; font-size:16px; margin-bottom:7px; }
+.ecosystem-card p { color:#64748B; font-size:12px; line-height:1.5; margin-bottom:12px; }
+.eco-status { display:inline-block; padding:5px 8px; border-radius:7px; color:#7A5A16; background:#FFF4D6; font-size:10px; font-weight:800; }
+.partner-invite { margin-top:28px; padding:26px; border-radius:18px; color:#EAF7F5; background:linear-gradient(120deg,#0F766E,#123B4A); display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.partner-invite h3 { font-size:21px; margin-bottom:6px; }
+.partner-invite p { color:#D1E8E5; font-size:13px; max-width:690px; }
+.partner-invite a { white-space:nowrap; background:white; color:#0F766E; padding:12px 16px; border-radius:9px; text-decoration:none; font-weight:800; font-size:13px; }
+@media(max-width:900px) {
+ .evolution-layout { grid-template-columns:1fr; }
+ .ecosystem-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:640px) {
+ .evolution-section,.ecosystem-section { padding:58px 16px; }
+ .evolution-map,.evolution-detail { padding:18px; }
+ .career-tree { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .career-node { min-height:120px; }
+ .ecosystem-grid { grid-template-columns:1fr; }
+ .partner-invite { align-items:flex-start; flex-direction:column; }
+ .partner-invite a { white-space:normal; }
+}
+
 </style>
 </head>
 
@@ -1587,6 +1674,7 @@
         <div class="menu" id="mainMenu">
             <a href="#como-pensamos">Como pensamos</a>
             <a href="#perfil-profissional-demo">Oportunidades</a>
+            <a href="#evolucao-profissional">Evolução profissional</a>
             <a href="#empresas">Empresas</a>
         </div>
 
@@ -1928,6 +2016,84 @@
     </p>
 </section>
     
+
+<section class="evolution-section" id="evolucao-profissional">
+  <div class="evolution-wrap">
+    <div class="evolution-heading">
+      <span class="evolution-kicker">✦ Inteligência aplicada ao desenvolvimento</span>
+      <h2>Seu próximo passo profissional pode ter <span>mais de um caminho.</span></h2>
+      <p>A FormNex conecta capacidades já demonstradas, conhecimentos a desenvolver e possibilidades reais de evolução. Explore um exemplo interativo.</p>
+    </div>
+    <div class="evolution-layout">
+      <div class="evolution-map">
+        <div class="evolution-map-top">
+          <strong>Mapa de Evolução Profissional</strong>
+          <span>EXEMPLO DEMONSTRATIVO · PRODUÇÃO</span>
+        </div>
+        <div class="career-tree" id="careerTree" aria-label="Caminhos demonstrativos de evolução profissional">
+          <button class="career-node" type="button" data-role="auxiliar" aria-pressed="true">
+            <span class="node-step">Ponto de partida</span><strong>Auxiliar de Produção</strong><small>Rotinas, organização e apoio operacional</small><span class="node-state">● Perfil atual do exemplo</span>
+          </button>
+          <button class="career-node" type="button" data-role="operador" aria-pressed="false">
+            <span class="node-step">Próxima possibilidade</span><strong>Operador de Produção</strong><small>Operação de máquinas e controle de processo</small><span class="node-state">↗ Evolução possível</span>
+          </button>
+          <button class="career-node" type="button" data-role="especializado" aria-pressed="false">
+            <span class="node-step">Especialização</span><strong>Operador Especializado</strong><small>Setup, qualidade e solução de desvios</small><span class="node-state">↗ Evolução possível</span>
+          </button>
+          <button class="career-node" type="button" data-role="lider" aria-pressed="false">
+            <span class="node-step">Liderança</span><strong>Líder de Produção</strong><small>Orientação de equipe e indicadores</small><span class="node-state">↗ Outra possibilidade</span>
+          </button>
+        </div>
+        <div class="evolution-footnote">As conexões são ilustrativas. Caminhos, requisitos e critérios devem ser construídos e validados com cada empresa, considerando suas atividades e oportunidades.</div>
+      </div>
+      <aside class="evolution-detail" aria-live="polite">
+        <span class="detail-label">Detalhes do caminho</span>
+        <h3 id="roleTitle">Auxiliar de Produção</h3>
+        <p id="roleDescription">Atuação de apoio às rotinas produtivas, organização do ambiente e cumprimento de procedimentos.</p>
+        <div class="detail-block">
+          <h4>Capacidades relacionadas</h4>
+          <div class="skill-chips" id="roleSkills"><span class="skill-chip">Organização</span><span class="skill-chip">Atenção</span><span class="skill-chip">Trabalho em equipe</span></div>
+        </div>
+        <div class="detail-block">
+          <h4>O que pode ser desenvolvido</h4>
+          <ul class="gap-list" id="roleGaps"><li>Conhecer procedimentos e padrões da operação</li><li>Registrar atividades e ocorrências</li><li>Demonstrar segurança na execução das rotinas</li></ul>
+        </div>
+        <div class="detail-block">
+          <h4>Possíveis evidências</h4>
+          <p id="roleEvidence">Registros de atividades, orientações concluídas e demonstração prática acompanhada.</p>
+        </div>
+      </aside>
+    </div>
+    <div class="evolution-bottom">
+      <p>Inteligência para ampliar possibilidades. A decisão continua sendo das pessoas.</p>
+      <a class="evolution-cta" href="#parceria-validacao">Quero validar com minha empresa →</a>
+    </div>
+  </div>
+</section>
+
+<section class="ecosystem-section" id="ecossistema-formnex">
+  <div class="ecosystem-wrap">
+    <div class="ecosystem-heading">
+      <h2>Um ecossistema conectado de capacidades e oportunidades</h2>
+      <p>Estas são as frentes que estamos desenvolvendo para ampliar a experiência de profissionais e empresas.</p>
+    </div>
+    <div class="ecosystem-grid">
+      <article class="ecosystem-card"><div class="eco-icon">🧬</div><h3>DNA Profissional</h3><p>Organização visual de capacidades, experiências, conhecimentos e interesses.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">🗂️</div><h3>Portfólio de Evidências</h3><p>Histórico de experiências, certificados, registros e demonstrações práticas.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">🎯</div><h3>Compatibilidade Explicada</h3><p>Critérios atendidos, evidências disponíveis, lacunas e pontos ainda desconhecidos.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">🎙️</div><h3>Currículo por Áudio</h3><p>Construção assistida de currículo a partir de relatos por áudio, inclusive via WhatsApp.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">📡</div><h3>Busca Ativa de Talentos</h3><p>Convocação de pessoas compatíveis para oportunidades urgentes, com consentimento prévio.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">🧭</div><h3>Mapa de Oportunidades</h3><p>Descoberta de oportunidades atuais e possibilidades relacionadas ao perfil.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">📊</div><h3>Inteligência Empresarial</h3><p>Visão de vagas, capacidades disponíveis, movimentações e indicadores do processo.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+      <article class="ecosystem-card"><div class="eco-icon">🔭</div><h3>Simulador de Possibilidades</h3><p>Exploração de cenários de desenvolvimento, sem prometer resultados ou decisões automáticas.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
+    </div>
+    <div class="partner-invite" id="parceria-validacao">
+      <div><h3>Ajude a construir a próxima etapa da FormNex.</h3><p>Estamos buscando empresas parceiras para compartilhar desafios reais, validar funcionalidades e experimentar novas formas de reconhecer capacidades e conectar pessoas a oportunidades. A participação será construída em conjunto, com transparência sobre o que já funciona e o que está em desenvolvimento.</p></div>
+      <a href="mailto:contato@formnex.com.br?subject=Quero%20ser%20empresa%20parceira%20de%20valida%C3%A7%C3%A3o%20FormNex">Quero ser parceiro de validação</a>
+    </div>
+  </div>
+</section>
+
 <section class="companies" id="empresas">
     <div class="companies-content" style="max-width: 1000px;">
 
@@ -2241,6 +2407,75 @@
         more.textContent = "Mostrar menos";
         banner.scrollIntoView({ behavior: "smooth", block: "end" });
     });
+})();
+</script>
+
+
+<script>
+(function () {
+  const dados = {
+    auxiliar: {
+      titulo: "Auxiliar de Produção",
+      descricao: "Atuação de apoio às rotinas produtivas, organização do ambiente e cumprimento de procedimentos.",
+      capacidades: ["Organização", "Atenção", "Trabalho em equipe"],
+      lacunas: ["Conhecer procedimentos e padrões da operação", "Registrar atividades e ocorrências", "Demonstrar segurança na execução das rotinas"],
+      evidencias: "Registros de atividades, orientações concluídas e demonstração prática acompanhada."
+    },
+    operador: {
+      titulo: "Operador de Produção",
+      descricao: "Operação de equipamentos e acompanhamento das etapas do processo produtivo, conforme padrões da empresa.",
+      capacidades: ["Organização", "Atenção", "Rotina operacional", "Segurança"],
+      lacunas: ["Conhecimento dos equipamentos específicos", "Leitura de parâmetros e controles", "Identificação e comunicação de desvios"],
+      evidencias: "Treinamento prático registrado, checklist de operação e avaliação acompanhada por profissional responsável."
+    },
+    especializado: {
+      titulo: "Operador Especializado",
+      descricao: "Atuação com maior domínio técnico do processo, ajustes operacionais e apoio à qualidade.",
+      capacidades: ["Operação", "Controle de processo", "Resolução de problemas"],
+      lacunas: ["Procedimentos de setup", "Análise de qualidade", "Tratamento de ocorrências e melhoria contínua"],
+      evidencias: "Registros de setup, resultados de qualidade e situações resolvidas com acompanhamento."
+    },
+    lider: {
+      titulo: "Líder de Produção",
+      descricao: "Apoio à organização da equipe, distribuição das atividades e acompanhamento dos resultados operacionais.",
+      capacidades: ["Conhecimento do processo", "Comunicação", "Organização"],
+      lacunas: ["Orientação de pessoas", "Acompanhamento de indicadores", "Comunicação e gestão de prioridades"],
+      evidencias: "Experiências de orientação de equipe, participação em rotinas de indicadores e feedback estruturado."
+    }
+  };
+  const tree = document.getElementById("careerTree");
+  if (!tree) return;
+  const title = document.getElementById("roleTitle");
+  const description = document.getElementById("roleDescription");
+  const skills = document.getElementById("roleSkills");
+  const gaps = document.getElementById("roleGaps");
+  const evidence = document.getElementById("roleEvidence");
+
+  tree.querySelectorAll("[data-role]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const item = dados[button.dataset.role];
+      if (!item) return;
+      tree.querySelectorAll("[data-role]").forEach(function (node) {
+        node.setAttribute("aria-pressed", node === button ? "true" : "false");
+      });
+      title.textContent = item.titulo;
+      description.textContent = item.descricao;
+      skills.replaceChildren();
+      item.capacidades.forEach(function (skill) {
+        const chip = document.createElement("span");
+        chip.className = "skill-chip";
+        chip.textContent = skill;
+        skills.appendChild(chip);
+      });
+      gaps.replaceChildren();
+      item.lacunas.forEach(function (gap) {
+        const li = document.createElement("li");
+        li.textContent = gap;
+        gaps.appendChild(li);
+      });
+      evidence.textContent = item.evidencias;
+    });
+  });
 })();
 </script>
 
