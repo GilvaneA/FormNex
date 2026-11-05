@@ -1596,7 +1596,7 @@
 .evolution-map-top { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:24px; }
 .evolution-map-top strong { color:#EAF4F5; font-size:15px; }
 .evolution-map-top span { color:#8FAAB2; font-size:12px; }
-.career-tree { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; align-items:center; position:relative; }
+.career-tree { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; align-items:stretch; position:relative; }
 .career-node {
     min-height:132px; border:1px solid #31515C; border-radius:15px;
     padding:15px 12px; color:#DDEBED; background:linear-gradient(160deg,#1A3542,#142936);
@@ -1694,6 +1694,27 @@
 .visual-card-foot strong { color:#7DE6D7; font-size:10px; letter-spacing:.4px; }
 @media(max-width:850px){.feature-showcase-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:580px){.feature-showcase{padding:56px 16px}.feature-showcase-grid{grid-template-columns:1fr}.feature-visual-card{min-height:320px}}
+
+
+/* Artes complementares dos novos quadros */
+.art-wave {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:7px;padding:20px}
+.art-wave i {width:7px;border-radius:8px;background:linear-gradient(180deg,#8AF1E2,#218F8C);box-shadow:0 0 12px rgba(80,220,200,.28)}
+.art-wave i:nth-child(1),.art-wave i:nth-child(9){height:20%}.art-wave i:nth-child(2),.art-wave i:nth-child(8){height:38%}.art-wave i:nth-child(3),.art-wave i:nth-child(7){height:58%}.art-wave i:nth-child(4),.art-wave i:nth-child(6){height:82%}.art-wave i:nth-child(5){height:100%}
+.art-docs {position:absolute;inset:0;display:grid;place-items:center}
+.art-doc {position:absolute;width:112px;height:94px;border:1px solid rgba(120,225,210,.45);border-radius:10px;background:linear-gradient(145deg,#1b5260,#102c3c);box-shadow:0 10px 25px #061521;padding:15px}
+.art-doc:before {content:"";display:block;width:28px;height:25px;border:2px solid #7de6d7;border-radius:6px;margin-bottom:9px}
+.art-doc:after {content:"";display:block;height:4px;width:75%;background:#70cfc4;border-radius:5px;box-shadow:0 9px 0 rgba(112,207,196,.45),0 18px 0 rgba(112,207,196,.25)}
+.art-doc.d1{transform:translate(-23px,-9px) rotate(-10deg)}.art-doc.d2{transform:translate(24px,8px) rotate(8deg)}
+.art-radar {position:absolute;width:116px;height:116px;left:calc(50% - 58px);top:14px;border:1px solid rgba(100,224,207,.55);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 20px,rgba(100,224,207,.18) 21px 22px)}
+.art-radar:before,.art-radar:after{content:"";position:absolute;background:rgba(100,224,207,.3)}.art-radar:before{width:100%;height:1px;top:50%}.art-radar:after{height:100%;width:1px;left:50%}
+.art-radar-dot{position:absolute;left:63%;top:28%;width:13px;height:13px;border-radius:50%;background:#8af1e2;box-shadow:0 0 18px #54d7c4}
+.art-chat {position:absolute;left:12%;top:26px;width:76%;height:88px;border:1px solid rgba(116,220,207,.38);border-radius:15px;background:rgba(21,66,77,.8);padding:14px}
+.art-chat:before{content:"";display:block;width:65%;height:7px;border-radius:8px;background:#73d9ca;box-shadow:0 17px 0 rgba(115,217,202,.55),0 34px 0 rgba(115,217,202,.28)}
+.art-chat:after{content:"✓";position:absolute;right:14px;bottom:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#1c958a;color:#eafffa;font-weight:900}
+.art-network {position:absolute;inset:0}
+.art-network:before{content:"";position:absolute;left:18%;right:18%;top:50%;height:1px;background:#4fc7b8;transform:rotate(-18deg);box-shadow:0 0 12px #4fc7b8}
+.art-network b{position:absolute;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#174655;border:1px solid #65d8c9;color:#c7fff5;box-shadow:0 0 18px rgba(65,207,190,.18)}
+.art-network b:nth-child(1){left:12%;top:24%}.art-network b:nth-child(2){left:43%;top:43%}.art-network b:nth-child(3){right:12%;top:18%}.art-network b:nth-child(4){right:23%;bottom:9%}
 
 </style>
 </head>
@@ -2095,6 +2116,48 @@
     </div>
     <div class="visual-card-foot"><span>Dados para apoiar decisões</span><strong>VISÃO EMPRESARIAL ↗</strong></div>
    </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>04 · ACESSO E AUTONOMIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Currículo por Áudio</h3>
+    <p class="visual-card-copy">A pessoa conta sua trajetória com a própria voz e acompanha a organização das informações.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="visual-card-foot"><span>Voz transformada em perfil</span><strong>CONTAR MINHA HISTÓRIA ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>05 · EVIDÊNCIAS</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Portfólio de Evidências</h3>
+    <p class="visual-card-copy">Experiências, certificados e registros que ajudam a demonstrar capacidades.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-docs"><div class="art-doc d1"></div><div class="art-doc d2"></div></div></div>
+    <div class="visual-card-foot"><span>Conhecimento com contexto</span><strong>REUNIR EVIDÊNCIAS ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>06 · OPORTUNIDADES</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Mapa de Oportunidades</h3>
+    <p class="visual-card-copy">Encontre oportunidades atuais e explore caminhos relacionados às suas capacidades.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-radar"><span class="art-radar-dot"></span></div></div>
+    <div class="visual-card-foot"><span>Possibilidades em descoberta</span><strong>EXPLORAR OPORTUNIDADES ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>07 · CONEXÃO</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Busca Ativa de Talentos</h3>
+    <p class="visual-card-copy">Aproxima profissionais de vagas urgentes, respeitando consentimento e escolha.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-chat"></div></div>
+    <div class="visual-card-foot"><span>Contato com autorização</span><strong>CONECTAR PESSOAS ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>08 · INTELIGÊNCIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Compatibilidade Explicada</h3>
+    <p class="visual-card-copy">Entenda critérios atendidos, evidências, lacunas e pontos que ainda precisam ser conhecidos.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-network"><b>✓</b><b>◈</b><b>＋</b><b>?</b></div></div>
+    <div class="visual-card-foot"><span>Critérios transparentes</span><strong>ENTENDER A CONEXÃO ↗</strong></div>
+   </article>
+   <article class="feature-visual-card">
+    <div class="visual-card-head"><span>09 · DESENVOLVIMENTO</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
+    <h3 class="visual-card-title">Simulador de Possibilidades</h3>
+    <p class="visual-card-copy">Explore como novas capacidades podem ampliar caminhos profissionais, sem promessas automáticas.</p>
+    <div class="visual-art" aria-hidden="true"><div class="art-path"></div><div class="art-node n1">＋</div><div class="art-node n2">✦</div><div class="art-node n3">↗</div><div class="art-node n4">◎</div></div>
+    <div class="visual-card-foot"><span>Cenários para refletir</span><strong>SIMULAR CAMINHOS ↗</strong></div>
+   </article>
   </div>
  </div>
 </section>
@@ -2104,37 +2167,31 @@
     <div class="evolution-heading">
       <span class="evolution-kicker">✦ Inteligência aplicada ao desenvolvimento</span>
       <h2>Seu próximo passo profissional pode ter <span>mais de um caminho.</span></h2>
-      <p>A FormNex conecta capacidades já demonstradas, conhecimentos a desenvolver e possibilidades reais de evolução. Explore um exemplo interativo.</p>
+      <p>A função inicial é apenas o ponto de partida. A pessoa pode descobrir novos interesses, estudar, se qualificar e construir uma trajetória em uma área completamente diferente. O que orienta essa evolução são suas escolhas, capacidades desenvolvidas e os requisitos de cada formação e profissão.</p>
     </div>
     <div class="evolution-layout">
       <div class="evolution-map">
         <div class="evolution-map-top">
           <strong>Mapa de Evolução Profissional</strong>
-          <span>EXEMPLO DEMONSTRATIVO · PRODUÇÃO</span>
+          <span>UM EXEMPLO · UMA MUDANÇA DE ÁREA PELA APRENDIZAGEM</span>
         </div>
-        <div class="career-tree" id="careerTree" aria-label="Caminhos demonstrativos de evolução profissional">
+        <div class="career-tree" id="careerTree" aria-label="Exemplo de trajetória profissional: Auxiliar de Produção, Eletromecânico, Técnico em Automação e Engenheiro Mecatrônico">
           <button class="career-node" type="button" data-role="auxiliar" aria-pressed="true">
-            <span class="node-step">Ponto de partida</span><strong>Auxiliar de Produção</strong><small>Rotinas, organização e apoio operacional</small><span class="node-state">● Perfil atual do exemplo</span>
+            <span class="node-step">Ponto de partida</span><strong>Auxiliar de Produção</strong><small>Experiência inicial no ambiente de trabalho</small><span class="node-state">● Onde a trajetória começa</span>
           </button>
-          <button class="career-node" type="button" data-role="operador" aria-pressed="false">
-            <span class="node-step">Próxima possibilidade</span><strong>Operador de Produção</strong><small>Operação de máquinas e controle de processo</small><span class="node-state">↗ Evolução possível</span>
+          <button class="career-node" type="button" data-role="eletromecanico" aria-pressed="false">
+            <span class="node-step">Nova área · qualificação</span><strong>Eletromecânico</strong><small>Aprendizagem e prática em sistemas elétricos e mecânicos</small><span class="node-state">✦ Mudança de campo profissional</span>
           </button>
-          <button class="career-node" type="button" data-role="especializado" aria-pressed="false">
-            <span class="node-step">Especialização</span><strong>Operador Especializado</strong><small>Setup, qualidade e solução de desvios</small><span class="node-state">↗ Evolução possível</span>
+          <button class="career-node" type="button" data-role="automacao" aria-pressed="false">
+            <span class="node-step">Formação técnica</span><strong>Técnico em Automação</strong><small>Estudo de sensores, controles e sistemas automatizados</small><span class="node-state">↗ Novos conhecimentos e competências</span>
           </button>
-          <button class="career-node" type="button" data-role="lider" aria-pressed="false">
-            <span class="node-step">Liderança</span><strong>Líder de Produção</strong><small>Orientação de equipe e indicadores</small><span class="node-state">↗ Outra possibilidade</span>
+          <button class="career-node" type="button" data-role="engenheiro_mecatronico" aria-pressed="false">
+            <span class="node-step">Ensino superior</span><strong>Engenheiro Mecatrônico</strong><small>Formação em engenharia e integração de tecnologias</small><span class="node-state">✦ Um horizonte construído ao longo do tempo</span>
           </button>
         </div>
-        <div class="evolution-footnote">As conexões são ilustrativas. Caminhos, requisitos e critérios devem ser construídos e validados com cada empresa, considerando suas atividades e oportunidades.</div>
-      </div>
-      <aside class="evolution-detail" aria-live="polite">
-        <span class="detail-label">Detalhes do caminho</span>
-        <h3 id="roleTitle">Auxiliar de Produção</h3>
-        <p id="roleDescription">Atuação de apoio às rotinas produtivas, organização do ambiente e cumprimento de procedimentos.</p>
-        <div class="detail-block">
-          <h4>Capacidades relacionadas</h4>
-          <div class="skill-chips" id="roleSkills"><span class="skill-chip">Organização</span><span class="skill-chip">Atenção</span><span class="skill-chip">Trabalho em equipe</span></div>
+        <div class="evolution-footnote" style="margin-top:14px; padding:16px 18px; border:1px solid rgba(78,219,200,.28); border-radius:14px; background:rgba(20,187,166,.08); color:#D5E8E9;">
+          <strong style="display:block; color:#70E5D5; margin-bottom:6px;">A profissão de hoje não define até onde alguém pode chegar.</strong>
+          Este exemplo mostra uma pessoa que começa como Auxiliar de Produção e, por meio de interesse, estudo, qualificação e experiência, pode construir um caminho até outra área e uma formação de nível superior. As etapas são ilustrativas: cada percurso é individual e depende dos requisitos reais de formação, prática e atuação profissional.
         </div>
         <div class="detail-block">
           <h4>O que pode ser desenvolvido</h4>
@@ -2155,20 +2212,6 @@
 
 <section class="ecosystem-section" id="ecossistema-formnex">
   <div class="ecosystem-wrap">
-    <div class="ecosystem-heading">
-      <h2>Um ecossistema conectado de capacidades e oportunidades</h2>
-      <p>Estas são as frentes que estamos desenvolvendo para ampliar a experiência de profissionais e empresas.</p>
-    </div>
-    <div class="ecosystem-grid">
-      <article class="ecosystem-card"><div class="eco-icon">🧬</div><h3>DNA Profissional</h3><p>Organização visual de capacidades, experiências, conhecimentos e interesses.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">🗂️</div><h3>Portfólio de Evidências</h3><p>Histórico de experiências, certificados, registros e demonstrações práticas.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">🎯</div><h3>Compatibilidade Explicada</h3><p>Critérios atendidos, evidências disponíveis, lacunas e pontos ainda desconhecidos.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">🎙️</div><h3>Currículo por Áudio</h3><p>Construção assistida de currículo a partir de relatos por áudio, inclusive via WhatsApp.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">📡</div><h3>Busca Ativa de Talentos</h3><p>Convocação de pessoas compatíveis para oportunidades urgentes, com consentimento prévio.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">🧭</div><h3>Mapa de Oportunidades</h3><p>Descoberta de oportunidades atuais e possibilidades relacionadas ao perfil.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">📊</div><h3>Inteligência Empresarial</h3><p>Visão de vagas, capacidades disponíveis, movimentações e indicadores do processo.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-      <article class="ecosystem-card"><div class="eco-icon">🔭</div><h3>Simulador de Possibilidades</h3><p>Exploração de cenários de desenvolvimento, sem prometer resultados ou decisões automáticas.</p><span class="eco-status">EM DESENVOLVIMENTO</span></article>
-    </div>
     <div class="partner-invite" id="parceria-validacao">
       <div><h3>Ajude a construir a próxima etapa da FormNex.</h3><p>Estamos buscando empresas parceiras para compartilhar desafios reais, validar funcionalidades e experimentar novas formas de reconhecer capacidades e conectar pessoas a oportunidades. A participação será construída em conjunto, com transparência sobre o que já funciona e o que está em desenvolvimento.</p></div>
       <a href="mailto:contato@formnex.com.br?subject=Quero%20ser%20empresa%20parceira%20de%20valida%C3%A7%C3%A3o%20FormNex">Quero ser parceiro de validação</a>
@@ -2496,34 +2539,10 @@
 <script>
 (function () {
   const dados = {
-    auxiliar: {
-      titulo: "Auxiliar de Produção",
-      descricao: "Atuação de apoio às rotinas produtivas, organização do ambiente e cumprimento de procedimentos.",
-      capacidades: ["Organização", "Atenção", "Trabalho em equipe"],
-      lacunas: ["Conhecer procedimentos e padrões da operação", "Registrar atividades e ocorrências", "Demonstrar segurança na execução das rotinas"],
-      evidencias: "Registros de atividades, orientações concluídas e demonstração prática acompanhada."
-    },
-    operador: {
-      titulo: "Operador de Produção",
-      descricao: "Operação de equipamentos e acompanhamento das etapas do processo produtivo, conforme padrões da empresa.",
-      capacidades: ["Organização", "Atenção", "Rotina operacional", "Segurança"],
-      lacunas: ["Conhecimento dos equipamentos específicos", "Leitura de parâmetros e controles", "Identificação e comunicação de desvios"],
-      evidencias: "Treinamento prático registrado, checklist de operação e avaliação acompanhada por profissional responsável."
-    },
-    especializado: {
-      titulo: "Operador Especializado",
-      descricao: "Atuação com maior domínio técnico do processo, ajustes operacionais e apoio à qualidade.",
-      capacidades: ["Operação", "Controle de processo", "Resolução de problemas"],
-      lacunas: ["Procedimentos de setup", "Análise de qualidade", "Tratamento de ocorrências e melhoria contínua"],
-      evidencias: "Registros de setup, resultados de qualidade e situações resolvidas com acompanhamento."
-    },
-    lider: {
-      titulo: "Líder de Produção",
-      descricao: "Apoio à organização da equipe, distribuição das atividades e acompanhamento dos resultados operacionais.",
-      capacidades: ["Conhecimento do processo", "Comunicação", "Organização"],
-      lacunas: ["Orientação de pessoas", "Acompanhamento de indicadores", "Comunicação e gestão de prioridades"],
-      evidencias: "Experiências de orientação de equipe, participação em rotinas de indicadores e feedback estruturado."
-    }
+    auxiliar: { titulo:"Auxiliar de Produção", descricao:"Este é apenas o ponto de partida do exemplo. A vivência no trabalho pode despertar novos interesses e ajudar a pessoa a reconhecer capacidades que poderá desenvolver em outras áreas.", capacidades:["Organização","Atenção","Trabalho em equipe","Aprendizagem na prática"], lacunas:["Identificar interesses e áreas que deseja conhecer","Reconhecer capacidades já demonstradas no trabalho","Explorar oportunidades de estudo e qualificação"], evidencias:"Relatos de atividades, experiências práticas, registros de aprendizagem e feedbacks." },
+    eletromecanico: { titulo:"Eletromecânico", descricao:"Uma mudança para uma área técnica diferente da função inicial, construída por meio de formação, prática e desenvolvimento de conhecimentos em sistemas eletromecânicos.", capacidades:["Raciocínio lógico","Resolução de problemas","Atenção a detalhes","Segurança no trabalho"], lacunas:["Buscar formação profissional compatível em eletromecânica","Desenvolver leitura de diagramas e fundamentos elétricos e mecânicos","Praticar manutenção com orientação e segurança"], evidencias:"Certificados de qualificação, projetos práticos, avaliações e experiência supervisionada." },
+    automacao: { titulo:"Técnico em Automação", descricao:"A trajetória avança para tecnologia e automação. A pessoa amplia sua formação para trabalhar com sensores, controles e sistemas automatizados.", capacidades:["Raciocínio lógico","Interesse por tecnologia","Análise de falhas","Aprendizagem contínua"], lacunas:["Concluir formação técnica em Automação ou área compatível","Estudar eletrônica, comandos, sensores e controladores","Desenvolver projetos e práticas na área"], evidencias:"Diploma ou certificado técnico, projetos de automação, atividades práticas e portfólio." },
+    engenheiro_mecatronico: { titulo:"Engenheiro Mecatrônico", descricao:"Um horizonte de formação superior que integra mecânica, eletrônica, computação e controle. Não é uma promoção automática: exige percurso acadêmico, dedicação e desenvolvimento técnico ao longo do tempo.", capacidades:["Raciocínio analítico","Pensamento sistêmico","Resolução de problemas complexos","Projetos e inovação"], lacunas:["Ingressar e concluir graduação em Engenharia Mecatrônica ou curso que habilite à atuação pretendida","Desenvolver fundamentos de matemática, física, mecânica, eletrônica e programação","Construir experiência por projetos e atividades práticas"], evidencias:"Histórico acadêmico, diploma, projetos, estágios e registros profissionais quando aplicáveis." }
   };
   const tree = document.getElementById("careerTree");
   if (!tree) return;
