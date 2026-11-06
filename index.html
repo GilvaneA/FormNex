@@ -2097,6 +2097,18 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 }
 .audience-secondary-link:hover,.audience-secondary-link:focus-visible{color:#0b554f}
 
+ 
+/* Impulsionador de Aptidões — perguntas essenciais */
+.radar-question-intro{margin:18px 0 10px;padding:13px 14px;border-left:3px solid #14bba6;background:#f0fdfa;border-radius:8px;display:flex;flex-direction:column;gap:5px}
+.radar-question-intro strong{font-size:13px;color:#0f514b}
+.radar-question-intro span{font-size:11px;line-height:1.45;color:#54716c}
+.radar-question-groups{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:12px 0 18px}
+.radar-question-group{min-width:0;border:1px solid #d8e9e5;border-radius:11px;padding:12px;background:#fbfefd;display:flex;flex-direction:column;gap:7px}
+.radar-question-group legend{padding:0 5px;font-size:12px;font-weight:800;color:#0f766e}
+.radar-question-group label{font-size:11px;line-height:1.4;color:#385653;margin-top:4px}
+.radar-question-group select{width:100%;border:1px solid #cbded8;border-radius:7px;padding:9px 8px;background:#fff;color:#385653;font-size:11px}
+.radar-question-group select:focus{outline:2px solid #14bba6;outline-offset:1px}
+@media(max-width:620px){.radar-question-groups{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -2400,8 +2412,8 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   <div class="radar-wrap">
     <div class="radar-heading">
       <span class="radar-kicker">Evolução 01 · Inteligência de Potencial Humano</span>
-      <h2>Descubra capacidades que podem abrir novos caminhos.</h2>
-      <p>Reconheça o que você já faz, conte um pouco das suas experiências e explore possibilidades que talvez ainda não tenha considerado.</p>
+      <h2>Impulsionador de Aptidões</h2>
+      <p>Reconheça o que você já faz, descubra aptidões que podem estar presentes nas suas vivências e explore o que gostaria de desenvolver.</p>
     </div>
 
     <div class="radar-panel">
@@ -2420,6 +2432,68 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
           <label class="radar-option"><input type="checkbox" name="capacidade" value="Tecnologia"><span>Interesse por tecnologia e ferramentas</span></label>
           <label class="radar-option"><input type="checkbox" name="capacidade" value="Planejamento"><span>Planejamento e definição de prioridades</span></label>
           <label class="radar-option"><input type="checkbox" name="capacidade" value="Cuidado e apoio"><span>Cuidado, apoio e orientação a pessoas</span></label>
+        </div>
+
+        <div class="radar-question-intro">
+          <strong>Vamos conhecer um pouco mais sobre você?</strong>
+          <span>Responda no seu ritmo. Não existe resposta certa ou errada. Você pode pular qualquer pergunta.</span>
+        </div>
+        <div class="radar-question-groups">
+          <fieldset class="radar-question-group">
+            <legend>Raciocínio e resolução de problemas</legend>
+            <label for="aptQ1">Quando aparece um problema, você costuma tentar descobrir o que causou?</label>
+            <select id="aptQ1" name="aptitude" data-aptitude="Investigação e resolução de problemas">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+            <label for="aptQ2">Você gosta de encontrar maneiras diferentes ou mais simples de realizar uma tarefa?</label>
+            <select id="aptQ2" name="aptitude" data-aptitude="Melhoria e criatividade prática">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+          </fieldset>
+          <fieldset class="radar-question-group">
+            <legend>Relacionamento e comunicação</legend>
+            <label for="aptQ3">As pessoas costumam procurar você para pedir ajuda, explicações ou orientação?</label>
+            <select id="aptQ3" name="aptitude" data-aptitude="Apoio e orientação a pessoas">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+            <label for="aptQ4">Você consegue explicar uma tarefa ou ensinar algo que aprendeu a outra pessoa?</label>
+            <select id="aptQ4" name="aptitude" data-aptitude="Comunicação e compartilhamento de conhecimento">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+          </fieldset>
+          <fieldset class="radar-question-group">
+            <legend>Organização e execução</legend>
+            <label for="aptQ5">Você costuma organizar o que precisa fazer antes de começar?</label>
+            <select id="aptQ5" name="aptitude" data-aptitude="Planejamento e organização">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+            <label for="aptQ6">Você gosta de conferir se uma tarefa foi realizada corretamente?</label>
+            <select id="aptQ6" name="aptitude" data-aptitude="Atenção e controle de qualidade">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+          </fieldset>
+          <fieldset class="radar-question-group">
+            <legend>Iniciativa e aprendizagem</legend>
+            <label for="aptQ7">Você já tomou a iniciativa de começar ou melhorar alguma atividade sem alguém pedir?</label>
+            <select id="aptQ7" name="aptitude" data-aptitude="Iniciativa e autonomia">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+            <label for="aptQ8">Quando não sabe fazer algo, você procura aprender e tenta colocar em prática?</label>
+            <select id="aptQ8" name="aptitude" data-aptitude="Aprendizagem e adaptação">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, frequentemente</option><option value="as_vezes">Às vezes</option><option value="desenvolver">Quero desenvolver isso</option><option value="nao">Ainda não me identifico</option>
+            </select>
+          </fieldset>
+          <fieldset class="radar-question-group">
+            <legend>Interesses e desenvolvimento</legend>
+            <label for="aptQ9">Você gostaria de experimentar uma atividade diferente daquelas que já realizou?</label>
+            <select id="aptQ9" name="aptitude" data-aptitude="Exploração de novas atividades">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, tenho vontade</option><option value="as_vezes">Talvez, dependendo da oportunidade</option><option value="desenvolver">Quero descobrir possibilidades</option><option value="nao">No momento, não</option>
+            </select>
+            <label for="aptQ10">Existe alguma habilidade que você gostaria de aprender ou aperfeiçoar?</label>
+            <select id="aptQ10" name="aptitude" data-aptitude="Interesse em desenvolvimento">
+              <option value="">Escolha uma resposta (opcional)</option><option value="frequentemente">Sim, já tenho uma ideia</option><option value="as_vezes">Tenho algumas curiosidades</option><option value="desenvolver">Quero ajuda para descobrir</option><option value="nao">Ainda não pensei nisso</option>
+            </select>
+          </fieldset>
         </div>
 
         <label class="radar-field" for="radarExperience">
@@ -2445,6 +2519,9 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
         <div class="radar-output" id="radarOutput" aria-live="polite">
           <div class="radar-result-label">Capacidades que você reconheceu</div>
           <div class="radar-chips" id="radarChips"></div>
+          <div class="radar-result-label">Possíveis aptidões reveladas pelas respostas</div>
+          <div class="radar-chips" id="radarAptitudeChips"></div>
+          <p class="radar-help" id="radarAptitudeNote" style="color:#D3E3E6;">As respostas podem indicar interesses e comportamentos para explorar. Elas não comprovam uma competência.</p>
           <div class="radar-result-label">Possibilidades para explorar</div>
           <ul class="radar-suggestions" id="radarSuggestions"></ul>
           <div class="radar-result-label">Seu próximo passo</div>
@@ -2509,7 +2586,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 <style>
 /* FORMNEX PRESENÇA — módulo integrado */
 .presence-section{padding:76px 5%;background:linear-gradient(180deg,#f0fdfa 0%,#ffffff 100%);color:#183b3a}
-.presence-wrap{max-width:1180px;margin:0 auto}
+.presence-wrap{max-width:1180px;margin:0 auto}\n.presence-section .presence-kicker{display:flex;width:max-content;max-width:100%;margin:0 auto}\n.presence-section h2{text-align:center}\n.presence-section .presence-lead{margin-left:auto;margin-right:auto;text-align:center}
 .presence-kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid #b8e5dc;border-radius:30px;background:#fff;color:#0f766e;font-size:12px;font-weight:800;letter-spacing:.04em}
 .presence-section h2{font-size:clamp(28px,4vw,42px);line-height:1.12;color:#164e49;margin:18px 0 12px}
 .presence-lead{max-width:790px;color:#536b68;line-height:1.65;font-size:16px}
@@ -3049,6 +3126,8 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   const empty = document.getElementById('radarEmpty');
   const output = document.getElementById('radarOutput');
   const chips = document.getElementById('radarChips');
+  const aptitudeChips = document.getElementById('radarAptitudeChips');
+  const aptitudeNote = document.getElementById('radarAptitudeNote');
   const suggestions = document.getElementById('radarSuggestions');
   const nextStep = document.getElementById('radarNextStep');
   const status = document.getElementById('radarStatus');
@@ -3071,8 +3150,14 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     const selecionadas = Array.from(form.querySelectorAll('input[name="capacidade"]:checked')).map(input => input.value);
-    if (selecionadas.length === 0) {
-      status.textContent = 'Selecione pelo menos uma capacidade para continuar.';
+    const respostasAptidao = Array.from(form.querySelectorAll('select[name="aptitude"]'))
+      .filter(select => select.value)
+      .map(select => ({ aptidao: select.dataset.aptitude, resposta: select.value }));
+    const experiencia = document.getElementById('radarExperience').value.trim();
+    const interesse = document.getElementById('radarInterest').value.trim();
+
+    if (selecionadas.length === 0 && respostasAptidao.length === 0 && !experiencia && !interesse) {
+      status.textContent = 'Escolha uma capacidade, responda a uma pergunta ou conte uma experiência para começar.';
       output.classList.remove('is-visible');
       empty.hidden = false;
       return;
@@ -3090,8 +3175,27 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     const encontrados = caminhos.filter(caminho => caminho.grupo.some(nome => selecionadas.includes(nome)));
     encontrados.forEach(caminho => suggestions.appendChild(criarItem(caminho.texto)));
 
-    const experiencia = document.getElementById('radarExperience').value.trim();
-    const interesse = document.getElementById('radarInterest').value.trim();
+    aptitudeChips.replaceChildren();
+    const indicios = respostasAptidao.filter(item => item.resposta === 'frequentemente' || item.resposta === 'as_vezes');
+    const interessesDesenvolvimento = respostasAptidao.filter(item => item.resposta === 'desenvolver');
+    const aptidoesUnicas = [...new Set(indicios.map(item => item.aptidao))];
+    aptidoesUnicas.forEach(function(nome){
+      const chip=document.createElement('span');
+      chip.className='radar-chip';
+      chip.textContent=nome;
+      aptitudeChips.appendChild(chip);
+    });
+    if (aptidoesUnicas.length === 0) {
+      const p=document.createElement('span');
+      p.style.cssText='color:#D3E3E6;font-size:12px;';
+      p.textContent='Ainda não há indícios selecionados. Você pode explorar mais perguntas ou contar uma experiência.';
+      aptitudeChips.appendChild(p);
+    }
+    const desenvolver = interessesDesenvolvimento.map(item => item.aptidao);
+    aptitudeNote.textContent = desenvolver.length
+      ? 'Você demonstrou vontade de desenvolver: ' + [...new Set(desenvolver)].join(', ') + '. Isso representa um interesse declarado, não uma competência comprovada.'
+      : 'As respostas indicam comportamentos ou interesses que você reconhece em si. São pistas para reflexão, não comprovação de competência.';
+
     let proximo = 'Escolha uma das possibilidades acima e procure uma experiência, conversa ou atividade prática que ajude a conhecê-la melhor.';
     if (interesse) {
       proximo = 'Você mencionou interesse em: “' + interesse + '”. Pesquise os conhecimentos e as qualificações necessários e procure uma pequena experiência para conhecer essa área.';
@@ -3101,7 +3205,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     nextStep.textContent = proximo;
     empty.hidden = true;
     output.classList.add('is-visible');
-    status.textContent = 'Radar atualizado com suas respostas.';
+    status.textContent = 'Impulsionador atualizado com suas respostas. Revise as possibilidades sugeridas.';
   });
 
   form.addEventListener('reset', function () {
@@ -3109,6 +3213,8 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
       output.classList.remove('is-visible');
       empty.hidden = false;
       chips.replaceChildren();
+      aptitudeChips.replaceChildren();
+      aptitudeNote.textContent = 'As respostas podem indicar interesses e comportamentos para explorar. Elas não comprovam uma competência.';
       suggestions.replaceChildren();
       status.textContent = 'Respostas limpas. Você pode começar novamente.';
     }, 0);
