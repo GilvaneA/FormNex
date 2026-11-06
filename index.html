@@ -1932,6 +1932,112 @@ button, input, textarea, select {
     }
 }
 
+
+/* EVOLUÇÃO 02 — TRADUTOR DE EXPERIÊNCIAS */
+.experience-section {
+    padding: 76px 24px;
+    background: linear-gradient(180deg,#FFFFFF 0%,#F0FDFA 100%);
+}
+.experience-wrap { max-width:1080px; margin:0 auto; }
+.experience-heading { max-width:760px; margin:0 auto 30px; text-align:center; }
+.experience-kicker {
+    display:inline-block; padding:6px 11px; border-radius:999px;
+    color:#0F766E; background:#D8F7F0; font-size:11px;
+    font-weight:800; letter-spacing:1px; text-transform:uppercase;
+}
+.experience-heading h2 {
+    margin:14px 0 10px; color:#173B40;
+    font-size:clamp(29px,4vw,40px); line-height:1.15;
+}
+.experience-heading p { color:#64748B; font-size:16px; text-align:center; }
+.experience-panel {
+    display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:20px; align-items:stretch;
+}
+.experience-form,.experience-result {
+    min-width:0; padding:25px; border:1px solid #DCEAE7;
+    border-radius:18px; background:#FFFFFF;
+    box-shadow:0 10px 30px rgba(15,118,110,.07);
+}
+.experience-form h3,.experience-result h3 {
+    color:#173B40; font-size:20px; margin-bottom:7px;
+}
+.experience-help { color:#64748B; font-size:13px; margin-bottom:18px; }
+.experience-field { display:block; color:#263D42; font-size:13px; font-weight:700; }
+.experience-field span { display:block; margin-bottom:8px; }
+.experience-field textarea {
+    display:block; width:100%; min-height:190px; padding:13px;
+    border:1px solid #CBD5E1; border-radius:11px; color:#1F2937;
+    background:#FFFFFF; font:inherit; font-size:14px; line-height:1.55;
+    resize:vertical;
+}
+.experience-field textarea:focus {
+    outline:2px solid rgba(20,187,166,.25); border-color:#0F766E;
+}
+.experience-examples { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.experience-example {
+    border:1px solid #B8E7DE; border-radius:999px; padding:7px 10px;
+    color:#0F766E; background:#F0FDFA; font:inherit; font-size:11px;
+    font-weight:700; cursor:pointer;
+}
+.experience-example:hover { background:#D8F7F0; }
+.experience-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:17px; }
+.experience-button {
+    border:0; border-radius:10px; padding:12px 17px; background:#0F766E;
+    color:#FFFFFF; font:inherit; font-size:14px; font-weight:800; cursor:pointer;
+}
+.experience-button:hover { background:#0B5D57; }
+.experience-button.secondary { background:#FFFFFF; color:#0F766E; border:1px solid #14BBA6; }
+.experience-status { min-height:20px; margin-top:10px; color:#0F766E; font-size:12px; font-weight:700; }
+.experience-result {
+    color:#EAF4F5; background:linear-gradient(160deg,#12313C,#102633);
+    border-color:#31515C;
+}
+.experience-result h3 { color:#F4FAFA; }
+.experience-result .experience-help { color:#B8C9D0; }
+.experience-empty {
+    padding:18px; border:1px dashed rgba(143,170,178,.45);
+    border-radius:12px; color:#B8C9D0; font-size:13px; line-height:1.55;
+}
+.experience-output { display:none; }
+.experience-output.is-visible { display:block; }
+.experience-result-label {
+    color:#70DCCD; font-size:11px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase; margin:18px 0 8px;
+}
+.experience-chips { display:flex; flex-wrap:wrap; gap:7px; }
+.experience-chip {
+    padding:7px 9px; border-radius:8px; border:1px solid rgba(78,219,200,.25);
+    background:rgba(20,187,166,.12); color:#C8FFF5; font-size:12px;
+}
+.experience-questions { margin:0; padding-left:18px; color:#D3E3E6; font-size:13px; display:grid; gap:8px; }
+.experience-note {
+    margin-top:18px; padding-top:13px; border-top:1px solid rgba(148,190,199,.2);
+    color:#AFC2C8; font-size:11px; line-height:1.5;
+}
+.experience-confirm {
+    display:flex; gap:9px; align-items:flex-start; margin-top:16px;
+    color:#D3E3E6; font-size:12px; line-height:1.45;
+}
+.experience-confirm input { margin-top:3px; accent-color:#4EDBC8; }
+body[data-theme="dark"] .experience-section { background:#10191C; }
+body[data-theme="dark"] .experience-form { background:#1A292D; border-color:#35474A; }
+body[data-theme="dark"] .experience-form h3,
+body[data-theme="dark"] .experience-field { color:#E5F1F0; }
+body[data-theme="dark"] .experience-help { color:#B2C3C5; }
+body[data-theme="dark"] .experience-field textarea { background:#172326; color:#E5F1F0; border-color:#53676A; }
+body[data-theme="dark"] .experience-example { background:#172326; color:#99F6E4; border-color:#355B58; }
+body[data-theme="dark"] .experience-button.secondary { background:#1A292D; color:#99F6E4; }
+body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; }
+@media(max-width:800px) { .experience-panel { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:550px) {
+    .experience-section { padding:56px 16px; }
+    .experience-form,.experience-result { padding:18px; }
+    .experience-actions { flex-direction:column; }
+    .experience-actions .experience-button { width:100%; }
+    .experience-field textarea { min-height:165px; }
+}
+
 </style>
 </head>
 
@@ -2441,6 +2547,55 @@ button, input, textarea, select {
   </div>
 </section>
 
+
+<section class="experience-section" id="tradutor-experiencias">
+  <div class="experience-wrap">
+    <div class="experience-heading">
+      <span class="experience-kicker">Evolução 02 · Experiências que revelam capacidades</span>
+      <h2>Conte o que você já viveu. <span style="color:#0F766E;">Descubra o que isso revela.</span></h2>
+      <p>Uma experiência profissional, uma atividade em família, um trabalho informal ou uma tarefa do dia a dia podem revelar conhecimentos e capacidades. Comece contando com suas próprias palavras.</p>
+    </div>
+
+    <div class="experience-panel">
+      <form class="experience-form" id="experienceForm">
+        <h3>Vamos traduzir sua experiência?</h3>
+        <p class="experience-help">Não precisa escrever bonito nem usar palavras técnicas. Conte o que você fazia, como fazia e que resultado buscava.</p>
+        <label class="experience-field" for="experienceStory">
+          <span>Conte uma atividade que você já realizou</span>
+          <textarea id="experienceStory" maxlength="1200" required placeholder="Exemplo: Eu trabalhava em uma propriedade rural. Organizava os horários da coleta, conferia a quantidade de leite e conversava com os fornecedores quando havia algum problema..."></textarea>
+        </label>
+        <div class="experience-examples" aria-label="Exemplos para começar">
+          <button class="experience-example" type="button" data-example="Eu atendia clientes, explicava os produtos e ajudava a encontrar uma solução quando tinham dúvidas.">Atendimento a clientes</button>
+          <button class="experience-example" type="button" data-example="Eu organizava tarefas, conferia materiais e acompanhava os prazos para que o trabalho fosse concluído.">Organização de tarefas</button>
+          <button class="experience-example" type="button" data-example="Eu ajudava a resolver problemas durante o trabalho, observando o que aconteceu e procurando uma solução.">Resolução de problemas</button>
+        </div>
+        <div class="experience-actions">
+          <button class="experience-button" type="submit">Identificar capacidades possíveis</button>
+          <button class="experience-button secondary" type="reset">Limpar relato</button>
+        </div>
+        <p class="experience-status" id="experienceStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="experience-result" aria-labelledby="experienceResultTitle">
+        <h3 id="experienceResultTitle">O que sua experiência pode revelar?</h3>
+        <p class="experience-help">As sugestões são pontos de partida para reflexão, não conclusões sobre você.</p>
+        <div class="experience-empty" id="experienceEmpty">Escreva um relato e selecione “Identificar capacidades possíveis”. A FormNex apresentará pistas para você analisar e confirmar.</div>
+        <div class="experience-output" id="experienceOutput" aria-live="polite">
+          <div class="experience-result-label">Capacidades possíveis identificadas</div>
+          <div class="experience-chips" id="experienceChips"></div>
+          <div class="experience-result-label">Vamos entender melhor?</div>
+          <ul class="experience-questions" id="experienceQuestions"></ul>
+          <label class="experience-confirm">
+            <input type="checkbox" id="experienceConfirm">
+            <span>Revisei as sugestões e confirmo que elas representam atividades que realmente realizei. Sei que isso ainda não equivale a uma validação independente.</span>
+          </label>
+          <div class="experience-note">Esta demonstração utiliza correspondências locais de palavras e expressões, sem inteligência artificial conectada. As sugestões precisam ser revisadas por você. Nenhum relato é enviado ou armazenado nesta demonstração.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <section class="evolution-section" id="evolucao-profissional">
   <div class="evolution-wrap">
     <div class="evolution-heading">
@@ -2927,6 +3082,107 @@ button, input, textarea, select {
       chips.replaceChildren();
       suggestions.replaceChildren();
       status.textContent = 'Respostas limpas. Você pode começar novamente.';
+    }, 0);
+  });
+})();
+</script>
+
+
+<script>
+/* Evolução 02 — Tradutor de Experiências.
+   Protótipo local por palavras-chave: não é IA conectada e não envia dados. */
+(function () {
+  const form = document.getElementById('experienceForm');
+  if (!form) return;
+
+  const story = document.getElementById('experienceStory');
+  const status = document.getElementById('experienceStatus');
+  const empty = document.getElementById('experienceEmpty');
+  const output = document.getElementById('experienceOutput');
+  const chips = document.getElementById('experienceChips');
+  const questions = document.getElementById('experienceQuestions');
+  const confirm = document.getElementById('experienceConfirm');
+
+  const pistas = [
+    { termos: ['cliente','clientes','atendia','atendimento','fornecedor','fornecedores','conversava','comunicava'], capacidade: 'Comunicação e relacionamento', pergunta: 'Com quem você precisava se comunicar e como adaptava sua conversa a cada situação?' },
+    { termos: ['organiza','organizar','organizado','horário','agenda','planejava','planejar','prioridade','prazo','prazos'], capacidade: 'Organização e planejamento', pergunta: 'Como você organizava as tarefas, os horários ou as prioridades?' },
+    { termos: ['conferia','conferir','conferência','verificava','verificar','quantidade','estoque','controle','registrava','registro'], capacidade: 'Conferência e controle de informações', pergunta: 'O que você conferia ou registrava? Como percebia quando havia uma diferença?' },
+    { termos: ['problema','problemas','resolver','resolvia','solução','solucionar','consertar','ajustava','imprevisto'], capacidade: 'Resolução de problemas', pergunta: 'Conte um problema concreto que apareceu e o que você fez para lidar com ele.' },
+    { termos: ['equipe','colegas','ajudava','ajudar','apoio','junto','colaborava','colaboração'], capacidade: 'Colaboração e trabalho em equipe', pergunta: 'Como era sua participação no trabalho com outras pessoas?' },
+    { termos: ['venda','vendas','vender','negociava','negociação','preço','produto','oferecia'], capacidade: 'Atendimento comercial e negociação', pergunta: 'Você apresentava produtos, negociava condições ou acompanhava o cliente? Dê um exemplo.' },
+    { termos: ['máquina','máquinas','equipamento','equipamentos','manutenção','operava','operação','produção','produzia'], capacidade: 'Atuação operacional e uso de equipamentos', pergunta: 'Quais equipamentos ou etapas da operação você utilizava ou acompanhava?' },
+    { termos: ['aprendi','aprender','aprendia','ensinava','treinava','treinamento','instrução'], capacidade: 'Aprendizagem prática e compartilhamento de conhecimento', pergunta: 'O que precisou aprender para realizar a atividade? Como aprendeu?' },
+    { termos: ['entrega','entregava','rota','transportava','entregas','coleta','coletava','motorista'], capacidade: 'Acompanhamento de entregas e logística', pergunta: 'Como você acompanhava prazos, trajetos, entregas ou coletas?' },
+    { termos: ['dinheiro','caixa','pagamento','pagava','recebia','conta','financeiro','valor'], capacidade: 'Atenção a valores e rotinas financeiras', pergunta: 'Que valores ou movimentações você precisava conferir? Como evitava erros?' }
+  ];
+
+  function normalizar(texto) {
+    return texto.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  document.querySelectorAll('.experience-example').forEach(function (button) {
+    button.addEventListener('click', function () {
+      story.value = button.dataset.example || '';
+      story.focus();
+      status.textContent = 'Exemplo inserido. Você pode adaptar o texto à sua experiência.';
+    });
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const relato = normalizar(story.value.trim());
+    if (relato.length < 25) {
+      status.textContent = 'Conte um pouco mais: descreva a atividade e como você a realizava.';
+      story.focus();
+      return;
+    }
+
+    const encontradas = pistas.filter(function (item) {
+      return item.termos.some(function (termo) {
+        return relato.includes(normalizar(termo));
+      });
+    }).slice(0, 6);
+
+    chips.replaceChildren();
+    questions.replaceChildren();
+
+    if (!encontradas.length) {
+      const chip = document.createElement('span');
+      chip.className = 'experience-chip';
+      chip.textContent = 'Experiência a explorar';
+      chips.appendChild(chip);
+      const li = document.createElement('li');
+      li.textContent = 'Quais etapas você realizava, quais ferramentas utilizava e que resultado precisava alcançar?';
+      questions.appendChild(li);
+      const li2 = document.createElement('li');
+      li2.textContent = 'Você pode descrever uma situação em que precisou tomar uma iniciativa ou resolver algo inesperado?';
+      questions.appendChild(li2);
+    } else {
+      encontradas.forEach(function (item) {
+        const chip = document.createElement('span');
+        chip.className = 'experience-chip';
+        chip.textContent = item.capacidade;
+        chips.appendChild(chip);
+        const li = document.createElement('li');
+        li.textContent = item.pergunta;
+        questions.appendChild(li);
+      });
+    }
+
+    confirm.checked = false;
+    empty.hidden = true;
+    output.classList.add('is-visible');
+    status.textContent = 'Sugestões preparadas. Leia, revise e confirme somente o que corresponde à sua experiência.';
+  });
+
+  form.addEventListener('reset', function () {
+    window.setTimeout(function () {
+      output.classList.remove('is-visible');
+      empty.hidden = false;
+      chips.replaceChildren();
+      questions.replaceChildren();
+      confirm.checked = false;
+      status.textContent = 'Relato limpo. Você pode começar novamente.';
     }, 0);
   });
 })();
