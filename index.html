@@ -1791,6 +1791,147 @@ body[data-theme="dark"] .radar-kicker { background:#1D3435; color:#99F6E4; }
 @media(max-width:800px) { .radar-panel { grid-template-columns:1fr; } }
 @media(max-width:550px) { .radar-section { padding:56px 16px; } .radar-form,.radar-result { padding:18px; } .radar-options { grid-template-columns:1fr; } .radar-actions .radar-button { width:100%; } }
 
+
+/* REVISÃO RESPONSIVA GERAL — FormNex
+   O mapa de evolução e seu painel explicativo ficam empilhados,
+   evitando textos espremidos na lateral em telas largas ou estreitas. */
+.evolution-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+}
+.evolution-map,
+.evolution-detail {
+    width: 100%;
+    min-width: 0;
+}
+.evolution-detail {
+    margin-top: 0;
+}
+.evolution-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.evolution-bottom p {
+    width: 100%;
+}
+.evolution-cta {
+    align-self: flex-start;
+}
+.radar-panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.radar-form,
+.radar-result,
+.feature-visual-card,
+.ecosystem-card,
+.path-card,
+.company-card {
+    min-width: 0;
+}
+img, video, iframe, canvas, svg {
+    max-width: 100%;
+}
+button, input, textarea, select {
+    max-width: 100%;
+}
+@media (max-width: 900px) {
+    .evolution-section,
+    .ecosystem-section,
+    .radar-section,
+    .feature-showcase {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .evolution-layout,
+    .radar-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .ecosystem-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .feature-showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 640px) {
+    .evolution-section,
+    .ecosystem-section,
+    .radar-section,
+    .feature-showcase {
+        padding: 48px 16px;
+    }
+    .evolution-map,
+    .evolution-detail,
+    .radar-form,
+    .radar-result {
+        padding: 17px;
+    }
+    .evolution-map-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .career-tree {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .career-node {
+        min-height: 0;
+    }
+    .ecosystem-grid,
+    .feature-showcase-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .partner-invite {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .partner-invite a,
+    .evolution-cta {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+    }
+    .radar-options {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .radar-actions {
+        flex-direction: column;
+    }
+    .radar-actions .radar-button {
+        width: 100%;
+    }
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .footer-text {
+        text-align: left;
+    }
+}
+@media (max-width: 380px) {
+    .hero,
+    .statement,
+    .paths,
+    .thinking,
+    .off-section,
+    .mobility-section,
+    .companies {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .evolution-map,
+    .evolution-detail,
+    .radar-form,
+    .radar-result {
+        padding: 14px;
+    }
+    .career-node strong {
+        overflow-wrap: anywhere;
+    }
+    .mobility {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 </style>
 </head>
 
