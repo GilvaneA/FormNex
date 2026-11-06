@@ -1596,7 +1596,7 @@
 .evolution-map-top { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:24px; }
 .evolution-map-top strong { color:#EAF4F5; font-size:15px; }
 .evolution-map-top span { color:#8FAAB2; font-size:12px; }
-.career-tree { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; align-items:stretch; position:relative; }
+.career-tree { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; align-items:stretch; position:relative; }
 .career-node {
     min-height:132px; border:1px solid #31515C; border-radius:15px;
     padding:15px 12px; color:#DDEBED; background:linear-gradient(160deg,#1A3542,#142936);
@@ -2201,15 +2201,12 @@
           <strong>Mapa de Evolução Profissional</strong>
           <span>UM EXEMPLO · UMA MUDANÇA DE ÁREA PELA APRENDIZAGEM</span>
         </div>
-        <div class="career-tree" id="careerTree" aria-label="Exemplo de trajetória profissional: Auxiliar de Produção, Eletromecânico, Técnico em Automação e Engenheiro Mecatrônico">
+        <div class="career-tree" id="careerTree" aria-label="Exemplo de trajetória profissional: Auxiliar de Produção, Eletromecânico e Engenheiro Mecatrônico">
           <button class="career-node" type="button" data-role="auxiliar" aria-pressed="true">
             <span class="node-step">Ponto de partida</span><strong>Auxiliar de Produção</strong><small>Experiência inicial no ambiente de trabalho</small><span class="node-state">● Onde a trajetória começa</span>
           </button>
           <button class="career-node" type="button" data-role="eletromecanico" aria-pressed="false">
             <span class="node-step">Nova área · qualificação</span><strong>Eletromecânico</strong><small>Aprendizagem e prática em sistemas elétricos e mecânicos</small><span class="node-state">✦ Mudança de campo profissional</span>
-          </button>
-          <button class="career-node" type="button" data-role="automacao" aria-pressed="false">
-            <span class="node-step">Formação técnica</span><strong>Técnico em Automação</strong><small>Estudo de sensores, controles e sistemas automatizados</small><span class="node-state">↗ Novos conhecimentos e competências</span>
           </button>
           <button class="career-node" type="button" data-role="engenheiro_mecatronico" aria-pressed="false">
             <span class="node-step">Ensino superior</span><strong>Engenheiro Mecatrônico</strong><small>Formação em engenharia e integração de tecnologias</small><span class="node-state">✦ Um horizonte construído ao longo do tempo</span>
@@ -2567,7 +2564,6 @@
   const dados = {
     auxiliar: { titulo:"Auxiliar de Produção", descricao:"Este é apenas o ponto de partida do exemplo. A vivência no trabalho pode despertar novos interesses e ajudar a pessoa a reconhecer capacidades que poderá desenvolver em outras áreas.", capacidades:["Organização","Atenção","Trabalho em equipe","Aprendizagem na prática"], lacunas:["Identificar interesses e áreas que deseja conhecer","Reconhecer capacidades já demonstradas no trabalho","Explorar oportunidades de estudo e qualificação"], evidencias:"Relatos de atividades, experiências práticas, registros de aprendizagem e feedbacks." },
     eletromecanico: { titulo:"Eletromecânico", descricao:"Uma mudança para uma área técnica diferente da função inicial, construída por meio de formação, prática e desenvolvimento de conhecimentos em sistemas eletromecânicos.", capacidades:["Raciocínio lógico","Resolução de problemas","Atenção a detalhes","Segurança no trabalho"], lacunas:["Buscar formação profissional compatível em eletromecânica","Desenvolver leitura de diagramas e fundamentos elétricos e mecânicos","Praticar manutenção com orientação e segurança"], evidencias:"Certificados de qualificação, projetos práticos, avaliações e experiência supervisionada." },
-    automacao: { titulo:"Técnico em Automação", descricao:"A trajetória avança para tecnologia e automação. A pessoa amplia sua formação para trabalhar com sensores, controles e sistemas automatizados.", capacidades:["Raciocínio lógico","Interesse por tecnologia","Análise de falhas","Aprendizagem contínua"], lacunas:["Concluir formação técnica em Automação ou área compatível","Estudar eletrônica, comandos, sensores e controladores","Desenvolver projetos e práticas na área"], evidencias:"Diploma ou certificado técnico, projetos de automação, atividades práticas e portfólio." },
     engenheiro_mecatronico: { titulo:"Engenheiro Mecatrônico", descricao:"Um horizonte de formação superior que integra mecânica, eletrônica, computação e controle. Não é uma promoção automática: exige percurso acadêmico, dedicação e desenvolvimento técnico ao longo do tempo.", capacidades:["Raciocínio analítico","Pensamento sistêmico","Resolução de problemas complexos","Projetos e inovação"], lacunas:["Ingressar e concluir graduação em Engenharia Mecatrônica ou curso que habilite à atuação pretendida","Desenvolver fundamentos de matemática, física, mecânica, eletrônica e programação","Construir experiência por projetos e atividades práticas"], evidencias:"Histórico acadêmico, diploma, projetos, estágios e registros profissionais quando aplicáveis." }
   };
   const tree = document.getElementById("careerTree");
