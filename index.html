@@ -2126,6 +2126,92 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     .theme-toggle { margin-left: auto; }
 }
 
+
+/* CORREÇÃO DEFINITIVA DO CABEÇALHO — evita sobreposição em larguras intermediárias */
+@media (min-width: 1381px) {
+  .nav {
+    width: 100%;
+    max-width: 1320px;
+    display: grid !important;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: center;
+    column-gap: 24px;
+    padding: 12px 24px;
+  }
+  .brand, .brand-lockup { flex: 0 0 auto; min-width: max-content; }
+  .menu {
+    display: flex !important;
+    min-width: 0;
+    margin: 0 !important;
+    justify-content: flex-end;
+    gap: clamp(12px, 1.15vw, 20px);
+    flex-wrap: nowrap;
+  }
+  .menu a {
+    white-space: nowrap;
+    font-size: clamp(14px, 1.12vw, 17px) !important;
+  }
+  .theme-toggle { justify-self: end; }
+  .menu-button { display: none !important; }
+}
+@media (max-width: 1380px) {
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) max-content max-content;
+    align-items: center;
+    column-gap: 12px;
+    padding: 10px 22px;
+    position: relative;
+  }
+  .brand { min-width: 0; flex: 1 1 auto; }
+  .brand-lockup { min-width: 0; max-width: 100%; }
+  .brand-symbol { width: 66px; height: 54px; max-width: none; }
+  .brand-wordmark { font-size: 32px; }
+  .brand-tagline { margin-left: 76px; font-size: 10px; }
+  .menu { display: none !important; }
+  .menu.is-open {
+    display: flex !important;
+    position: absolute !important;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    z-index: 300;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0 !important;
+    padding: 8px;
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  .menu.is-open a {
+    display: block;
+    padding: 12px 14px;
+    font-size: 16px !important;
+    white-space: normal;
+  }
+  .theme-toggle { justify-self: end; margin: 0 !important; }
+  .menu-button {
+    display: block !important;
+    justify-self: end;
+    color: var(--graphite);
+    padding: 5px 9px;
+    border-radius: 8px;
+    flex: 0 0 auto;
+  }
+}
+@media (max-width: 550px) {
+  .nav { padding: 9px 12px; column-gap: 7px; }
+  .brand-symbol { width: 48px; height: 42px; }
+  .brand-wordmark { font-size: clamp(23px, 6vw, 29px); }
+  .brand-tagline { margin-left: 53px; font-size: 8px; white-space: normal; }
+  .theme-toggle { padding: 8px 9px; font-size: 11px; }
+}
+
 </style>
 </head>
 
