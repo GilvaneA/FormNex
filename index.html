@@ -1742,6 +1742,55 @@
                 flex: 0 0 auto;
             }
         }
+
+
+/* EVOLUÇÃO 01 — RADAR DE POTENCIAL */
+.radar-section { padding:78px 24px; background:linear-gradient(180deg,#F0FDFA 0%,#FFFFFF 100%); }
+.radar-wrap { max-width:1080px; margin:0 auto; }
+.radar-heading { max-width:760px; margin:0 auto 30px; text-align:center; }
+.radar-kicker { display:inline-block; padding:6px 11px; border-radius:999px; color:#0F766E; background:#D8F7F0; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+.radar-heading h2 { margin:14px 0 10px; color:#173B40; font-size:clamp(29px,4vw,40px); line-height:1.15; }
+.radar-heading p { color:#64748B; font-size:16px; text-align:center; }
+.radar-panel { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr); gap:20px; align-items:start; }
+.radar-form,.radar-result { background:#FFFFFF; border:1px solid #DCEAE7; border-radius:18px; padding:25px; box-shadow:0 10px 30px rgba(15,118,110,.07); min-width:0; }
+.radar-form h3,.radar-result h3 { color:#173B40; font-size:20px; margin-bottom:7px; }
+.radar-help { color:#64748B; font-size:13px; margin-bottom:18px; }
+.radar-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.radar-option { display:flex; align-items:flex-start; gap:9px; padding:12px; border:1px solid #DCEAE7; border-radius:11px; background:#FBFEFD; color:#263D42; font-size:13px; cursor:pointer; }
+.radar-option:has(input:checked) { border-color:#14BBA6; background:#E9FAF6; box-shadow:0 0 0 2px rgba(20,187,166,.10); }
+.radar-option input { accent-color:#0F766E; margin-top:3px; flex:0 0 auto; }
+.radar-field { display:block; margin-top:17px; color:#263D42; font-size:13px; font-weight:700; }
+.radar-field span { display:block; margin-bottom:7px; }
+.radar-field textarea { width:100%; min-height:76px; padding:11px 12px; border:1px solid #CBD5E1; border-radius:10px; color:#1F2937; background:#FFFFFF; font:inherit; font-size:13px; resize:vertical; }
+.radar-field textarea:focus { outline:2px solid rgba(20,187,166,.25); border-color:#0F766E; }
+.radar-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.radar-button { border:0; border-radius:10px; padding:12px 17px; background:#0F766E; color:#FFFFFF; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
+.radar-button:hover { background:#0B5D57; }
+.radar-button.secondary { background:#FFFFFF; color:#0F766E; border:1px solid #14BBA6; }
+.radar-result { min-height:100%; background:linear-gradient(160deg,#12313C,#102633); border-color:#31515C; color:#EAF4F5; }
+.radar-result h3 { color:#F4FAFA; }
+.radar-result .radar-help { color:#B8C9D0; }
+.radar-empty { padding:18px; border:1px dashed rgba(143,170,178,.45); border-radius:12px; color:#B8C9D0; font-size:13px; }
+.radar-output { display:none; }
+.radar-output.is-visible { display:block; }
+.radar-result-label { color:#70DCCD; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin:18px 0 8px; }
+.radar-chips { display:flex; flex-wrap:wrap; gap:7px; }
+.radar-chip { padding:6px 9px; border-radius:8px; border:1px solid rgba(78,219,200,.25); background:rgba(20,187,166,.12); color:#C8FFF5; font-size:12px; }
+.radar-suggestions { margin:0; padding-left:18px; color:#D3E3E6; font-size:13px; display:grid; gap:7px; }
+.radar-disclaimer { margin-top:18px; padding-top:13px; border-top:1px solid rgba(148,190,199,.2); color:#AFC2C8; font-size:11px; line-height:1.5; }
+.radar-status { min-height:20px; margin-top:10px; color:#0F766E; font-size:12px; font-weight:700; }
+body[data-theme="dark"] .radar-section { background:#10191C; }
+body[data-theme="dark"] .radar-form { background:#1A292D; border-color:#35474A; }
+body[data-theme="dark"] .radar-form h3,body[data-theme="dark"] .radar-field { color:#E5F1F0; }
+body[data-theme="dark"] .radar-help { color:#B2C3C5; }
+body[data-theme="dark"] .radar-option { background:#172326; border-color:#35474A; color:#E5F1F0; }
+body[data-theme="dark"] .radar-option:has(input:checked) { background:#1D3435; border-color:#269F92; }
+body[data-theme="dark"] .radar-field textarea { background:#172326; color:#E5F1F0; border-color:#53676A; }
+body[data-theme="dark"] .radar-button.secondary { background:#1A292D; color:#99F6E4; }
+body[data-theme="dark"] .radar-kicker { background:#1D3435; color:#99F6E4; }
+@media(max-width:800px) { .radar-panel { grid-template-columns:1fr; } }
+@media(max-width:550px) { .radar-section { padding:56px 16px; } .radar-form,.radar-result { padding:18px; } .radar-options { grid-template-columns:1fr; } .radar-actions .radar-button { width:100%; } }
+
 </style>
 </head>
 
@@ -1763,6 +1812,7 @@
         <div class="menu" id="mainMenu">
             <a href="#como-pensamos">Como pensamos</a>
             <a href="#perfil-profissional-demo">Oportunidades</a>
+            <a href="#radar-potencial">Radar de Potencial</a>
             <a href="#evolucao-profissional">Evolução profissional</a>
             <a href="#empresas">Empresas</a>
         </div>
@@ -2188,6 +2238,68 @@
  </div>
 </section>
 
+
+
+<section class="radar-section" id="radar-potencial">
+  <div class="radar-wrap">
+    <div class="radar-heading">
+      <span class="radar-kicker">Evolução 01 · Inteligência de Potencial Humano</span>
+      <h2>Descubra capacidades que podem abrir novos caminhos.</h2>
+      <p>Reconheça o que você já faz, conte um pouco das suas experiências e explore possibilidades que talvez ainda não tenha considerado.</p>
+    </div>
+
+    <div class="radar-panel">
+      <form class="radar-form" id="radarForm">
+        <h3>Vamos conhecer seu potencial?</h3>
+        <p class="radar-help">Marque as capacidades que fazem parte da sua experiência. Não precisa ter certificado para começar a reconhecê-las.</p>
+
+        <div class="radar-options" aria-label="Selecione capacidades que reconhece em si">
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Organização"><span>Organização de tarefas e rotinas</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Atenção aos detalhes"><span>Atenção aos detalhes e conferência</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Comunicação"><span>Comunicação e relacionamento</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Negociação"><span>Negociação e resolução de acordos</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Resolução de problemas"><span>Resolução de problemas</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Aprendizagem prática"><span>Aprendizagem na prática</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Trabalho em equipe"><span>Colaboração e trabalho em equipe</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Tecnologia"><span>Interesse por tecnologia e ferramentas</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Planejamento"><span>Planejamento e definição de prioridades</span></label>
+          <label class="radar-option"><input type="checkbox" name="capacidade" value="Cuidado e apoio"><span>Cuidado, apoio e orientação a pessoas</span></label>
+        </div>
+
+        <label class="radar-field" for="radarExperience">
+          <span>Que atividade ou tarefa você costuma realizar bem? (opcional)</span>
+          <textarea id="radarExperience" maxlength="500" placeholder="Conte com suas palavras, mesmo que seja uma atividade simples..."></textarea>
+        </label>
+        <label class="radar-field" for="radarInterest">
+          <span>Existe alguma área ou atividade que gostaria de aprender? (opcional)</span>
+          <textarea id="radarInterest" maxlength="300" placeholder="Pode ser algo diferente do que você faz hoje..."></textarea>
+        </label>
+
+        <div class="radar-actions">
+          <button class="radar-button" type="submit">Explorar meu potencial</button>
+          <button class="radar-button secondary" type="reset">Limpar respostas</button>
+        </div>
+        <p class="radar-status" id="radarStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="radar-result" aria-labelledby="radarResultTitle">
+        <h3 id="radarResultTitle">Seu Radar de Potencial</h3>
+        <p class="radar-help">Um primeiro exercício de autoconhecimento profissional.</p>
+        <div class="radar-empty" id="radarEmpty">Selecione algumas capacidades e clique em “Explorar meu potencial” para visualizar possibilidades de desenvolvimento.</div>
+        <div class="radar-output" id="radarOutput" aria-live="polite">
+          <div class="radar-result-label">Capacidades que você reconheceu</div>
+          <div class="radar-chips" id="radarChips"></div>
+          <div class="radar-result-label">Possibilidades para explorar</div>
+          <ul class="radar-suggestions" id="radarSuggestions"></ul>
+          <div class="radar-result-label">Seu próximo passo</div>
+          <p id="radarNextStep" style="color:#D3E3E6;font-size:13px;"></p>
+          <div class="radar-disclaimer">Este resultado é uma reflexão inicial baseada nas opções selecionadas por você. Não é uma avaliação profissional, diagnóstico de competência ou decisão automatizada. As possibilidades precisam ser exploradas e, quando necessário, demonstradas por experiências e evidências. Suas respostas não são enviadas nem armazenadas por esta demonstração.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <section class="evolution-section" id="evolucao-profissional">
   <div class="evolution-wrap">
     <div class="evolution-heading">
@@ -2598,6 +2710,83 @@
       });
       evidence.textContent = item.evidencias;
     });
+  });
+})();
+</script>
+
+
+
+<script>
+/* Radar de Potencial — demonstração guiada local, sem envio ou armazenamento de respostas. */
+(function () {
+  const form = document.getElementById('radarForm');
+  if (!form) return;
+  const empty = document.getElementById('radarEmpty');
+  const output = document.getElementById('radarOutput');
+  const chips = document.getElementById('radarChips');
+  const suggestions = document.getElementById('radarSuggestions');
+  const nextStep = document.getElementById('radarNextStep');
+  const status = document.getElementById('radarStatus');
+
+  const caminhos = [
+    { grupo: ['Organização','Planejamento'], texto: 'Organização de processos, planejamento de rotinas e apoio administrativo.' },
+    { grupo: ['Atenção aos detalhes'], texto: 'Conferência, controle de qualidade, estoque e atividades que exigem precisão.' },
+    { grupo: ['Comunicação','Negociação'], texto: 'Atendimento, relacionamento com clientes, vendas e suporte.' },
+    { grupo: ['Resolução de problemas','Aprendizagem prática'], texto: 'Operações, manutenção, melhoria de processos e atividades técnicas que exigem investigação.' },
+    { grupo: ['Trabalho em equipe','Cuidado e apoio'], texto: 'Atividades colaborativas, orientação, atendimento e apoio a equipes ou pessoas.' },
+    { grupo: ['Tecnologia'], texto: 'Exploração de ferramentas digitais, sistemas, tecnologia e aprendizagem técnica.' }
+  ];
+
+  function criarItem(texto) {
+    const li = document.createElement('li');
+    li.textContent = texto;
+    return li;
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const selecionadas = Array.from(form.querySelectorAll('input[name="capacidade"]:checked')).map(input => input.value);
+    if (selecionadas.length === 0) {
+      status.textContent = 'Selecione pelo menos uma capacidade para continuar.';
+      output.classList.remove('is-visible');
+      empty.hidden = false;
+      return;
+    }
+
+    chips.replaceChildren();
+    selecionadas.forEach(function (nome) {
+      const chip = document.createElement('span');
+      chip.className = 'radar-chip';
+      chip.textContent = nome;
+      chips.appendChild(chip);
+    });
+
+    suggestions.replaceChildren();
+    const encontrados = caminhos.filter(caminho => caminho.grupo.some(nome => selecionadas.includes(nome)));
+    encontrados.forEach(caminho => suggestions.appendChild(criarItem(caminho.texto)));
+
+    const experiencia = document.getElementById('radarExperience').value.trim();
+    const interesse = document.getElementById('radarInterest').value.trim();
+    let proximo = 'Escolha uma das possibilidades acima e procure uma experiência, conversa ou atividade prática que ajude a conhecê-la melhor.';
+    if (interesse) {
+      proximo = 'Você mencionou interesse em: “' + interesse + '”. Pesquise os conhecimentos e as qualificações necessários e procure uma pequena experiência para conhecer essa área.';
+    } else if (experiencia) {
+      proximo = 'Use a atividade que você relatou como ponto de partida: descreva como a realiza, quais problemas resolve e que resultado consegue demonstrar.';
+    }
+    nextStep.textContent = proximo;
+    empty.hidden = true;
+    output.classList.add('is-visible');
+    status.textContent = 'Radar atualizado com suas respostas.';
+  });
+
+  form.addEventListener('reset', function () {
+    window.setTimeout(function () {
+      output.classList.remove('is-visible');
+      empty.hidden = false;
+      chips.replaceChildren();
+      suggestions.replaceChildren();
+      status.textContent = 'Respostas limpas. Você pode começar novamente.';
+    }, 0);
   });
 })();
 </script>
