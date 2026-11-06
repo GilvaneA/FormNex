@@ -2128,7 +2128,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 
 
 /* CORREÇÃO DEFINITIVA DO CABEÇALHO — evita sobreposição em larguras intermediárias */
-@media (min-width: 1381px) {
+@media (min-width: 1101px) {
   .nav {
     width: 100%;
     max-width: 1320px;
@@ -2154,7 +2154,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   .theme-toggle { justify-self: end; }
   .menu-button { display: none !important; }
 }
-@media (max-width: 1380px) {
+@media (max-width: 1100px) {
   .nav {
     width: 100%;
     max-width: 100%;
@@ -2210,6 +2210,89 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   .brand-wordmark { font-size: clamp(23px, 6vw, 29px); }
   .brand-tagline { margin-left: 53px; font-size: 8px; white-space: normal; }
   .theme-toggle { padding: 8px 9px; font-size: 11px; }
+}
+
+
+/* ACABAMENTO VISUAL DOS CARTÕES INICIAIS — preserva textos, destinos e funcionalidades */
+.hero-audience-first .audience-options {
+    gap: 20px;
+    align-items: stretch;
+}
+.hero-audience-first .audience-option {
+    background: #FFFFFF !important;
+    border: 1px solid #D8ECE7 !important;
+    border-radius: 17px !important;
+    padding: 25px 24px !important;
+    box-shadow: 0 8px 24px rgba(15, 75, 68, .08) !important;
+    color: #243B3D !important;
+    min-height: 258px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.hero-audience-first .audience-option:hover {
+    transform: translateY(-3px);
+    border-color: #9ADDD1 !important;
+    box-shadow: 0 13px 30px rgba(15, 75, 68, .12) !important;
+}
+.hero-audience-first .audience-option .audience-icon {
+    background: #DDF8F2 !important;
+    color: #0F766E !important;
+    border-radius: 11px;
+    margin-bottom: 15px;
+}
+.hero-audience-first .audience-option h2 {
+    color: #173B40 !important;
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 9px;
+}
+.hero-audience-first .audience-option p {
+    color: #52686A !important;
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0 0 20px;
+    text-align: left;
+}
+.hero-audience-first .audience-option .btn {
+    background: #0F766E !important;
+    color: #FFFFFF !important;
+    border: 1px solid #0F766E !important;
+    border-radius: 9px;
+    padding: 13px 17px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: none;
+}
+.hero-audience-first .audience-option .btn:hover {
+    background: #0B5D57 !important;
+    border-color: #0B5D57 !important;
+}
+.hero-audience-first .audience-secondary-link {
+    color: #0F766E !important;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15,118,110,.35);
+    padding-bottom: 2px;
+}
+.hero-audience-first .audience-secondary-link:hover {
+    color: #0B5D57 !important;
+    border-color: #0B5D57;
+}
+/* Os cartões mantêm contraste e aparência aprovados também no modo escuro. */
+body[data-theme="dark"] .hero-audience-first .audience-option {
+    background: #FFFFFF !important;
+    color: #243B3D !important;
+    border-color: #D8ECE7 !important;
+}
+body[data-theme="dark"] .hero-audience-first .audience-option h2 { color: #173B40 !important; }
+body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A !important; }
+
+@media (max-width: 1100px) {
+    .hero-audience-first .audience-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .hero-audience-first .audience-options { grid-template-columns: 1fr; }
+    .hero-audience-first .audience-option { min-height: 0; padding: 21px 18px !important; }
 }
 
 </style>
