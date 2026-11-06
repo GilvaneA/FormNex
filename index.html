@@ -2295,6 +2295,379 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
     .hero-audience-first .audience-option { min-height: 0; padding: 21px 18px !important; }
 }
 
+
+/* CABEÇALHO — quatro caminhos principais, marca mais presente e distribuição equilibrada */
+@media (min-width: 1101px) {
+  .nav {
+    width: 100%;
+    max-width: 1320px;
+    display: grid !important;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: center;
+    column-gap: 25px;
+    padding: 12px 24px;
+  }
+  .brand { min-width: max-content; flex: 0 0 auto; }
+  .brand-lockup { width: max-content; max-width: none; }
+  .brand-main { gap: 10px; }
+  .brand-symbol { width: 80px; height: 62px; max-width: none; }
+  .brand-wordmark {
+    font-size: clamp(40px, 3.2vw, 44px) !important;
+    letter-spacing: -1.5px;
+    line-height: 1.04;
+  }
+  .brand-tagline {
+    margin: 4px 0 0 90px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .menu {
+    display: flex !important;
+    min-width: 0;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: clamp(12px, 1.35vw, 22px);
+    margin: 0 !important;
+  }
+  .menu a {
+    white-space: nowrap;
+    font-size: clamp(15px, 1.18vw, 17px) !important;
+    text-align: center;
+  }
+  .theme-toggle { justify-self: end; margin: 0 !important; white-space: nowrap; }
+  .menu-button { display: none !important; }
+}
+@media (max-width: 1100px) {
+  .brand-wordmark { font-size: clamp(32px, 4vw, 40px) !important; }
+}
+@media (max-width: 550px) {
+  .brand-wordmark { font-size: clamp(25px, 6.8vw, 31px) !important; }
+  .brand-tagline { margin-left: 59px; }
+}
+
+
+
+/* Marca FormNex: largura visual do nome enquadrada com a frase institucional */
+@media (min-width: 1101px) {
+  .brand-lockup { width: max-content; }
+  .brand-main { gap: 10px; }
+  .brand-symbol { width: 80px; height: 62px; }
+  .brand-wordmark {
+    font-size: clamp(58px, 5.2vw, 70px) !important;
+    line-height: .98 !important;
+    letter-spacing: -2.2px !important;
+    font-weight: 800 !important;
+  }
+  .brand-tagline {
+    margin: 5px 0 0 90px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 1100px) {
+  .brand-symbol { width: 66px; height: 54px; }
+  .brand-wordmark {
+    font-size: clamp(36px, 4.7vw, 52px) !important;
+    line-height: 1 !important;
+    letter-spacing: -1.5px !important;
+    font-weight: 800 !important;
+  }
+  .brand-tagline {
+    margin: 4px 0 0 76px !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 550px) {
+  .brand-symbol { width: 48px; height: 42px; }
+  .brand-wordmark {
+    font-size: clamp(54px, 16.5vw, 58px) !important;
+    line-height: 1 !important;
+    letter-spacing: -1.2px !important;
+  }
+  .brand-tagline {
+    margin: 3px 0 0 55px !important;
+    font-size: 9px !important;
+    white-space: normal !important;
+    max-width: calc(100vw - 70px) !important;
+  }
+}
+
+
+
+/* Assinatura FormNex: frase alinhada exatamente à coluna do nome */
+.brand-lockup {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+.brand-main {
+  display: flex !important;
+  align-items: center !important;
+}
+.brand-wordmark {
+  display: block !important;
+  white-space: nowrap !important;
+}
+.brand-tagline {
+  display: block !important;
+  box-sizing: border-box !important;
+  align-self: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 4px 0 0 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 8px !important;
+  line-height: 1.25 !important;
+}
+/* O bloco lockup passa a ter a largura do nome; a frase acompanha essa largura. */
+.brand-lockup {
+  width: max-content !important;
+}
+.brand-main {
+  width: max-content !important;
+}
+.brand-tagline {
+  width: calc(100% - 90px) !important;
+  margin-left: 90px !important;
+}
+@media (max-width: 1100px) {
+  .brand-tagline {
+    width: calc(100% - 76px) !important;
+    margin-left: 76px !important;
+    font-size: 8px !important;
+  }
+}
+@media (max-width: 550px) {
+  .brand-tagline {
+    width: calc(100% - 58px) !important;
+    max-width: calc(100% - 58px) !important;
+    margin-left: 58px !important;
+    font-size: 7px !important;
+    letter-spacing: -.1px !important;
+  }
+}
+
+
+/* Assinatura FormNex: nome e frase maiores, alinhados na mesma coluna e mais próximos */
+.brand-lockup {
+  display: grid !important;
+  grid-template-columns: max-content max-content !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 10px !important;
+  row-gap: 0 !important;
+  align-items: center !important;
+  width: max-content !important;
+}
+.brand-main {
+  display: contents !important;
+}
+.brand-symbol {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  align-self: center !important;
+}
+.brand-wordmark {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  display: block !important;
+  white-space: nowrap !important;
+  font-size: 64px !important;
+  line-height: .98 !important;
+  letter-spacing: -2px !important;
+  font-weight: 800 !important;
+}
+.brand-tagline {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1px 0 0 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+@media (max-width: 1100px) {
+  .brand-wordmark {
+    font-size: 48px !important;
+    letter-spacing: -1.5px !important;
+  }
+  .brand-tagline {
+    font-size: 10px !important;
+  }
+}
+@media (max-width: 550px) {
+  .brand-wordmark {
+    font-size: 43px !important;
+    letter-spacing: -1.2px !important;
+  }
+  .brand-tagline {
+    font-size: 9px !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Ajuste responsivo final: frase acompanha a largura visual de FormNex */
+@media (max-width: 550px) {
+  .brand-tagline {
+    font-size: 9.5px !important;
+    letter-spacing: 0 !important;
+    line-height: 1.15 !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* Ajuste óptico no responsivo: a frase ocupa a mesma largura visual do nome */
+@media (max-width: 550px) {
+  .brand-tagline {
+    width: 105% !important;
+    max-width: 105% !important;
+    margin-left: -2.5% !important;
+    margin-top: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 9.5px !important;
+    letter-spacing: 0 !important;
+    line-height: 1.15 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* RESPONSIVO REAL DA ASSINATURA: símbolo, nome e frase em colunas consistentes */
+@media (max-width: 550px) {
+  .nav { width: 100%; max-width: 100%; padding: 8px 10px !important; }
+  .brand { width: 100%; min-width: 0 !important; }
+  .brand-lockup {
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 7px !important;
+    row-gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+  }
+  .brand-main { display: contents !important; }
+  .brand-symbol {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px !important;
+    object-fit: contain !important;
+    align-self: center !important;
+  }
+  .brand-wordmark {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    font-size: clamp(30px, 12vw, 34px) !important;
+    line-height: 1 !important;
+    letter-spacing: -1.1px !important;
+    white-space: nowrap !important;
+  }
+  .brand-tagline {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 1px 0 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    font-size: clamp(7px, 2.8vw, 8px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* Cabeçalho mobile reconstruído: logo visível + nome + frase dentro da largura disponível */
+@media (max-width: 550px) {
+  .nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) max-content max-content !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 7px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .brand {
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  .brand-lockup {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 1px !important;
+  }
+  .brand-main {
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    align-items: center !important;
+    column-gap: 5px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .brand-symbol {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    object-fit: contain !important;
+  }
+  .brand-wordmark {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    font-size: clamp(27px, 10vw, 32px) !important;
+    line-height: 1 !important;
+    letter-spacing: -1.25px !important;
+    white-space: nowrap !important;
+  }
+  .brand-tagline {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 0 0 43px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    font-size: clamp(6.5px, 2.55vw, 7.5px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -.1px !important;
+    white-space: nowrap !important;
+  }
+  .theme-toggle { margin: 0 !important; padding: 7px !important; font-size: 10px !important; }
+  .menu-button { margin: 0 !important; padding: 4px !important; }
+}
+
 </style>
 </head>
 
@@ -2318,7 +2691,6 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
             <a href="#empresas">Oportunidades</a>
             <a href="#radar-potencial">Radar de Potencial</a>
           <a href="#formnex-presenca">Presença via WhatsApp</a>
-            <a href="#evolucao-profissional">Evolução profissional</a>
             </div>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" title="Alternar entre modo claro e escuro">🌙 <span>Modo escuro</span></button>
