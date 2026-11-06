@@ -961,7 +961,7 @@
             .theme-toggle span { display: none; }
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 1180px) {
             .nav {
                 position: relative;
             }
@@ -2109,6 +2109,23 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 .radar-question-group select{width:100%;border:1px solid #cbded8;border-radius:7px;padding:9px 8px;background:#fff;color:#385653;font-size:11px}
 .radar-question-group select:focus{outline:2px solid #14bba6;outline-offset:1px}
 @media(max-width:620px){.radar-question-groups{grid-template-columns:1fr}}
+
+/* Cabeçalho compacto: evita sobreposição entre marca, navegação e controles */
+@media (min-width: 851px) and (max-width: 1180px) {
+    .nav { max-width: 100%; padding: 12px 22px; gap: 14px; }
+    .brand { flex: 0 1 auto; }
+    .brand-symbol { width: 66px; height: 54px; max-width: none; }
+    .brand-wordmark { font-size: 32px; }
+    .brand-tagline { margin-left: 76px; font-size: 10px; }
+    .theme-toggle { margin-left: auto; }
+    .menu-button { display: block; color: var(--graphite); padding: 5px 9px; border-radius: 8px; flex: 0 0 auto; }
+}
+@media (max-width: 850px) {
+    .nav { gap: 10px; padding-left: 16px; padding-right: 16px; }
+    .brand { flex: 1 1 auto; }
+    .theme-toggle { margin-left: auto; }
+}
+
 </style>
 </head>
 
