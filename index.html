@@ -2084,6 +2084,19 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     .formnex-whatsapp:hover { transform: none; }
 }
 
+
+/* Ajustes de navegação: ações secundárias sem criar novos cartões */
+.audience-secondary-link{
+    display:inline-block;
+    margin-top:11px;
+    color:#0f766e;
+    font-size:13px;
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+}
+.audience-secondary-link:hover,.audience-secondary-link:focus-visible{color:#0b554f}
+
 </style>
 </head>
 
@@ -2104,12 +2117,11 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 
         <div class="menu" id="mainMenu">
             <a href="#como-pensamos">Como pensamos</a>
-            <a href="#perfil-profissional-demo">Oportunidades</a>
+            <a href="#empresas">Oportunidades</a>
             <a href="#radar-potencial">Radar de Potencial</a>
           <a href="#formnex-presenca">Presença via WhatsApp</a>
             <a href="#evolucao-profissional">Evolução profissional</a>
-            <a href="#empresas">Empresas</a>
-        </div>
+            </div>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar modo escuro" title="Alternar entre modo claro e escuro">🌙 <span>Modo escuro</span></button>
         <button class="menu-button" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="mainMenu" aria-expanded="false">☰</button>
@@ -2119,26 +2131,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
 <main>
 
 
-<section class="partners" aria-label="Empresas parceiras">
-    <div class="partners-heading">
-        <h2>Conheça as empresas parceiras da FormNex</h2>
-        <p>Empresas que se conectam a pessoas, capacidades e oportunidades.</p>
-    </div>
-    <div class="partners-window" aria-label="Espaços para marcas de empresas parceiras">
-        <div class="partners-track">
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-            <div class="partner-placeholder"><strong>Logo da empresa</strong><span>Espaço demonstrativo</span></div>
-        </div>
-    </div>
-</section>
+
 
 <section class="hero hero-audience-first">
     <div class="hero-content">
@@ -2150,22 +2143,24 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
                 <article class="audience-option">
                     <div class="audience-icon" aria-hidden="true">🏢</div>
                     <h2>Sou empresa</h2>
-                    <p>Encontre profissionais com as capacidades que sua empresa precisa.</p>
-                    <a href="#comparacao-demo" class="btn btn-primary">Encontrar profissionais</a>
+                    <p>Apresente sua necessidade, cadastre uma oportunidade e conheça profissionais com capacidades compatíveis.</p>
+                    <a href="cadastro-vaga.html" class="btn btn-primary">Cadastrar oportunidade</a>
+                    <a href="comparacao-perfil.html" class="audience-secondary-link">Comparar perfil e vaga</a>
                 </article>
 
                 <article class="audience-option">
                     <div class="audience-icon" aria-hidden="true">👤</div>
                     <h2>Sou profissional</h2>
-                    <p>Encontre oportunidades compatíveis com suas capacidades e experiências.</p>
-                    <a href="#perfil-profissional-demo" class="btn btn-secondary">Encontrar oportunidades</a>
+                    <p>Construa seu perfil, apresente suas capacidades e encontre oportunidades compatíveis.</p>
+                    <a href="perfil-profissional.html" class="btn btn-secondary">Criar meu perfil</a>
+                    <a href="#empresas" class="audience-secondary-link">Ver oportunidades</a>
                 </article>
 
                 <article class="audience-option">
                     <div class="audience-icon" aria-hidden="true">🎙️</div>
                     <h2>Quero cadastrar minhas capacidades por voz</h2>
                     <p>Conte sua experiência com suas próprias palavras. Revise as capacidades sugeridas e confirme suas informações.</p>
-                    <a href="Acessibilidade-voz.html" class="btn btn-secondary">Experimentar cadastro por voz</a>
+                    <a href="#formnex-presenca" class="btn btn-secondary">Experimentar FormNex Presença</a>
                 </article>
             </div>
         </div>
@@ -2195,7 +2190,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
                 </div>
             </div>
 
-            <a href="#ambiente-testes" class="job-button">Conhecer o protótipo</a>
+            <a href="#radar-potencial" class="job-button">Explorar o Radar de Potencial</a>
         </div>
     </div>
 </section>
@@ -2272,7 +2267,7 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     <div class="off-content">
 
         <div>
-            <div class="off-badge">VIVÊNCIA OFF</div>
+            <div class="off-badge">VIVÊNCIAS PROFISSIONAIS</div>
 
             <h2>
                 Experiência também pode existir
@@ -2393,144 +2388,11 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
     </div>
 </section>
 
-<section class="paths" id="ambiente-testes">
-    <div class="section-title">
-        <h2>Conheça o protótipo FormNex</h2>
-        <p>
-            Explore as primeiras funcionalidades e veja como
-            estamos aproximando profissionais e oportunidades.
-        </p>
-        <p class="prototype-notice" role="note">
-            Protótipo demonstrativo: os formulários e resultados podem estar em desenvolvimento.
-        </p>
-    </div>
 
-    <div class="path-grid">
-        <div class="path-card" id="perfil-profissional-demo">
-            <div class="path-icon">👤</div>
-            <h3>Perfil Profissional</h3>
-            <p>
-                Registre informações sobre capacidades,
-                experiências e conhecimentos profissionais.
-            </p>
-            <a href="perfil-profissional.html" class="path-link">
-                Abrir perfil profissional →
-            </a>
-        </div>
-
-        <div class="path-card">
-            <div class="path-icon">🏢</div>
-            <h3>Cadastro de Vagas</h3>
-            <p>
-                Explore o formulário de cadastro de uma
-                oportunidade profissional.
-            </p>
-            <a href="cadastro-vaga.html" class="path-link">
-                Abrir cadastro de vagas →
-            </a>
-        </div>
-
-        <div class="path-card" id="comparacao-demo">
-            <div class="path-icon">🔎</div>
-            <h3>Compatibilidade</h3>
-            <p>
-                Compare as informações de um perfil profissional
-                com os requisitos de uma oportunidade.
-            </p>
-            <a href="comparacao-perfil.html" class="path-link">
-                Comparar perfil e vaga →
-            </a>
-        </div>
-    </div>
-
-    <p style="text-align:center; color:#64748B; margin-top:24px; font-size:14px;">
-        Ambiente de demonstração. Os resultados de compatibilidade
-        são preliminares e não substituem a avaliação humana.
-    </p>
-</section>
     
 
 
-<section class="feature-showcase" id="destaques-formnex">
- <div class="feature-showcase-inner">
-  <div class="feature-showcase-heading">
-   <span class="eyebrow">FormNex · Inteligência em movimento</span>
-   <h2>Capacidades que se conectam a novas possibilidades.</h2>
-   <p>Uma visão visual do que a plataforma está construindo para profissionais e empresas.</p>
-  </div>
-  <div class="feature-showcase-grid">
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>01 · DESENVOLVIMENTO</span><span class="visual-live">EM EVOLUÇÃO</span></div>
-    <h3 class="visual-card-title">Mapa de Evolução</h3>
-    <p class="visual-card-copy">Caminhos profissionais conectados a capacidades, experiências e conhecimentos.</p>
-    <div class="visual-art" aria-hidden="true">
-     <div class="art-path"></div><div class="art-node n1">◈</div><div class="art-node n2">⚙</div><div class="art-node n3">✦</div><div class="art-node n4">♙</div>
-    </div>
-    <div class="visual-card-foot"><span>Possibilidades profissionais</span><strong>EXPLORAR CAMINHOS ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>02 · INTELIGÊNCIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">DNA Profissional</h3>
-    <p class="visual-card-copy">Um retrato organizado de capacidades, evidências e conhecimentos de cada pessoa.</p>
-    <div class="visual-art" aria-hidden="true">
-     <div class="art-orbit"></div><div class="art-core">✧</div>
-    </div>
-    <div class="visual-card-foot"><span>Capacidade + Evidência</span><strong>CONHECER O PERFIL ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>03 · VISÃO EMPRESARIAL</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Inteligência de Talentos</h3>
-    <p class="visual-card-copy">Informações para compreender capacidades disponíveis e necessidades das equipes.</p>
-    <div class="visual-art" aria-hidden="true">
-     <div class="art-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    </div>
-    <div class="visual-card-foot"><span>Dados para apoiar decisões</span><strong>VISÃO EMPRESARIAL ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>04 · ACESSO E AUTONOMIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Currículo por Áudio</h3>
-    <p class="visual-card-copy">A pessoa conta sua trajetória com a própria voz e acompanha a organização das informações.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-    <div class="visual-card-foot"><span>Voz transformada em perfil</span><strong>CONTAR MINHA HISTÓRIA ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>05 · EVIDÊNCIAS</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Portfólio de Evidências</h3>
-    <p class="visual-card-copy">Experiências, certificados e registros que ajudam a demonstrar capacidades.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-docs"><div class="art-doc d1"></div><div class="art-doc d2"></div></div></div>
-    <div class="visual-card-foot"><span>Conhecimento com contexto</span><strong>REUNIR EVIDÊNCIAS ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>06 · OPORTUNIDADES</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Mapa de Oportunidades</h3>
-    <p class="visual-card-copy">Encontre oportunidades atuais e explore caminhos relacionados às suas capacidades.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-radar"><span class="art-radar-dot"></span></div></div>
-    <div class="visual-card-foot"><span>Possibilidades em descoberta</span><strong>EXPLORAR OPORTUNIDADES ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>07 · CONEXÃO</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Busca Ativa de Talentos</h3>
-    <p class="visual-card-copy">Aproxima profissionais de vagas urgentes, respeitando consentimento e escolha.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-chat"></div></div>
-    <div class="visual-card-foot"><span>Contato com autorização</span><strong>CONECTAR PESSOAS ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>08 · INTELIGÊNCIA</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Compatibilidade Explicada</h3>
-    <p class="visual-card-copy">Entenda critérios atendidos, evidências, lacunas e pontos que ainda precisam ser conhecidos.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-network"><b>✓</b><b>◈</b><b>＋</b><b>?</b></div></div>
-    <div class="visual-card-foot"><span>Critérios transparentes</span><strong>ENTENDER A CONEXÃO ↗</strong></div>
-   </article>
-   <article class="feature-visual-card">
-    <div class="visual-card-head"><span>09 · DESENVOLVIMENTO</span><span class="visual-live">EM DESENVOLVIMENTO</span></div>
-    <h3 class="visual-card-title">Simulador de Possibilidades</h3>
-    <p class="visual-card-copy">Explore como novas capacidades podem ampliar caminhos profissionais, sem promessas automáticas.</p>
-    <div class="visual-art" aria-hidden="true"><div class="art-path"></div><div class="art-node n1">＋</div><div class="art-node n2">✦</div><div class="art-node n3">↗</div><div class="art-node n4">◎</div></div>
-    <div class="visual-card-foot"><span>Cenários para refletir</span><strong>SIMULAR CAMINHOS ↗</strong></div>
-   </article>
-  </div>
- </div>
-</section>
+
 
 
 
@@ -2682,10 +2544,10 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
   <div class="presence-wrap">
     <span class="presence-kicker">✦ EVOLUÇÃO FORMNEX · PRESENÇA</span>
     <h2>Seu currículo começa com uma conversa.</h2>
-    <p class="presence-lead">Pelo WhatsApp, a pessoa pode contar sua história por texto ou áudio. A FormNex organiza experiências, atividades e capacidades — inclusive vivências sem carteira assinada ou registro formal — para a própria pessoa revisar e confirmar.</p>
+    <p class="presence-lead">Pela experiência FormNex Presença, a pessoa poderá contar sua história por texto ou áudio, inclusive pelo WhatsApp quando a integração estiver ativa. A FormNex organiza experiências, atividades e capacidades — inclusive vivências sem carteira assinada ou registro formal — para a própria pessoa revisar e confirmar.</p>
     <div class="presence-grid">
       <div class="presence-card">
-        <div class="presence-chat-head"><div class="presence-avatar">F</div><div><strong>FormNex Presença</strong><small>Experiência demonstrativa de conversa</small></div></div>
+        <div class="presence-chat-head"><div class="presence-avatar">F</div><div><strong>FormNex Presença</strong><small>Simulação de conversa integrada ao site</small></div></div>
         <div class="presence-chat-body" id="fnPresenceChat" aria-live="polite">
           <div class="presence-msg bot">Olá! Vamos construir seu perfil profissional juntos. 😊<small>FormNex</small></div>
           <div class="presence-msg bot">Você já realizou algum trabalho ou atividade, mesmo sem carteira assinada ou registro formal?<small>FormNex</small></div>
@@ -2727,7 +2589,15 @@ body[data-theme="dark"] .experience-kicker { background:#1D3435; color:#99F6E4; 
  function send(text){if(!text.trim())return;bubble(text,'user');input.value='';process(text);}
  function process(text){
   const v=text.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  if(/sim|ja|trabalh|servico|conta propria|pint|reparo|obra|roca|rural|cuid|vendi|fabrica|maquina/.test(v)){
+  if(/ainda nao tive trabalho formal|nao tive experiencia|nunca trabalhei/.test(v)){
+   headline.textContent='Perfil em construção';
+   exp.textContent='A pessoa informou que ainda não teve experiência profissional formal. A conversa pode começar por atividades cotidianas, projetos, estudos, responsabilidades familiares ou aprendizados práticos.';
+   chips.innerHTML='<span class="presence-chip">Potencial a explorar</span>';
+   acts.innerHTML='<li>Experiências ainda não relatadas. Nenhuma capacidade foi presumida.</li>';
+   origin.textContent='Origem: resposta declarada pela pessoa. A ausência de emprego formal não significa ausência de capacidades. A FormNex continuará a conversa sem inventar experiências.';
+   next.textContent='Próxima pergunta: existe alguma atividade que você realiza ou já realizou em casa, na comunidade, nos estudos, em projetos ou ajudando alguém?';
+   bubble('Tudo bem. Não ter tido um emprego formal não impede você de construir seu perfil. Podemos começar por atividades do dia a dia, estudos, projetos, ajuda em negócios da família ou coisas que aprendeu fazendo. Existe alguma atividade que gostaria de contar?','bot');
+  } else if(/sim|ja|trabalh|servico|conta propria|pint|reparo|obra|roca|rural|cuid|vendi|fabrica|maquina/.test(v)){
    exp.textContent=text;
    let found=[];
    if(/pint/.test(v))found.push('Pintura e acabamento','Preparação de superfícies');
