@@ -2592,6 +2592,47 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
  .radar-section,.experience-section,.presence-section,.evolution-section,
  .ecosystem-section,.companies {padding-top:30px!important;padding-bottom:30px!important;}
 }
+</style><style>
+/* Ajuste do rodapé FormNex: marca mais legível e área livre para o WhatsApp */
+.footer-content {
+  display: grid !important;
+  grid-template-columns: minmax(180px, 1fr) minmax(320px, 560px) !important;
+  align-items: center !important;
+  column-gap: 28px !important;
+  padding-right: 150px !important;
+  box-sizing: border-box !important;
+}
+.footer-brand {
+  font-size: clamp(27px, 2.4vw, 34px) !important;
+  line-height: 1 !important;
+  letter-spacing: -1px !important;
+  white-space: nowrap !important;
+}
+.footer-text {
+  max-width: 560px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  footer { padding: 28px 18px 96px !important; }
+  .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding-right: 0 !important;
+  }
+  .footer-brand { font-size: 30px !important; }
+  .footer-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+    padding-right: 0 !important;
+  }
+}
 </style></head>
 <body>
 <header>
