@@ -2673,6 +2673,59 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
 .experience-section h2 span {
   color: #14BBA6 !important;
 }
+</style><style>
+/* Jornada integrada: convite por voz → conversa → perfil confirmado */
+html { scroll-behavior: smooth; }
+#formnex-presenca { scroll-margin-top: 24px; }
+.audience-option--voice {
+  border: 1.5px solid rgba(20,187,166,.55) !important;
+  box-shadow: 0 12px 30px rgba(15,118,110,.10) !important;
+  position: relative;
+}
+.audience-option--voice .audience-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.audience-option--voice .audience-actions .btn::after {
+  content: "↓";
+  font-size: 17px;
+  line-height: 1;
+  transition: transform .18s ease;
+}
+.audience-option--voice .audience-actions .btn:hover::after {
+  transform: translateY(3px);
+}
+#formnex-presenca {
+  position: relative;
+  border-top: 3px solid rgba(20,187,166,.45);
+}
+#formnex-presenca .presence-grid {
+  margin-bottom: 16px;
+}
+#formnex-presenca .presence-bottom {
+  margin-top: 16px !important;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px !important;
+}
+#formnex-presenca .presence-step {
+  height: 100%;
+  box-sizing: border-box;
+  border-color: rgba(15,118,110,.22);
+  background: rgba(255,255,255,.88);
+}
+@media (max-width: 820px) {
+  #formnex-presenca .presence-bottom {
+    grid-template-columns: 1fr;
+    gap: 10px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .audience-option--voice .audience-actions .btn::after { transition: none; }
+}
 </style></head>
 <body>
 <header>
@@ -2728,7 +2781,7 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
 <a class="audience-secondary-link" href="#empresas">▣ Ver oportunidades</a>
 </div>
 </article>
-<article class="audience-option audience-option--voice">
+<article aria-label="Entrada para a experiência FormNex Presença" class="audience-option audience-option--voice">
 <div class="audience-card-top">
 <div aria-hidden="true" class="audience-illustration audience-illustration--voice">
 <svg role="img" viewbox="0 0 100 100"><rect height="49" rx="13" width="26" x="37" y="12"></rect><path d="M26 47v5a24 24 0 0 0 48 0v-5M50 76v12m-15 0h30"></path><path d="M45 23v27m10-31v35M16 37v23m-8-16v9m76-16v23m8-16v9"></path></svg>
@@ -2738,7 +2791,7 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
 <h2>Cadastre suas capacidades por voz.</h2>
 <p>Conte sua experiência com suas próprias palavras. Revise as capacidades sugeridas e confirme suas informações.</p>
 <div class="audience-actions">
-<a class="btn btn-primary" href="#formnex-presenca">♬ Experimentar FormNex Presença</a>
+<a aria-label="Ir para a demonstração FormNex Presença" class="btn btn-primary" href="#formnex-presenca">♬ Experimentar FormNex Presença</a>
 </div>
 </article>
 </div>
@@ -2800,10 +2853,10 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
 </div>
 </div>
 </div>
-</section><section class="presence-section" id="formnex-presenca">
+</section><section aria-labelledby="formnex-presenca-title" class="presence-section" id="formnex-presenca">
 <div class="presence-wrap">
 <span class="presence-kicker">✦ EVOLUÇÃO FORMNEX · PRESENÇA</span>
-<h2>Seu currículo começa com uma conversa.</h2>
+<h2 id="formnex-presenca-title">Seu currículo começa com uma conversa.</h2>
 <p class="presence-lead">Pela experiência FormNex Presença, a pessoa poderá contar sua história por texto ou áudio, inclusive pelo WhatsApp quando a integração estiver ativa. A FormNex organiza experiências, atividades e capacidades — inclusive vivências sem carteira assinada ou registro formal — para a própria pessoa revisar e confirmar.</p>
 <div class="presence-grid">
 <div class="presence-card">
