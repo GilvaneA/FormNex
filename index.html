@@ -2815,6 +2815,66 @@ html { scroll-behavior: smooth; }
   .evolution-section { padding-top: 24px !important; }
   .principle { padding-top: 26px !important; }
 }
+</style><style>
+/* Busca Ativa FormNex — apresentação da função de oportunidades urgentes */
+.active-search-section {
+  padding: 58px 5%;
+  background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%);
+  color: #183B3A;
+}
+.active-search-wrap { max-width: 1280px; margin: 0 auto; }
+.active-search-kicker {
+  display: block; width: fit-content; max-width: 100%; margin: 0 auto 14px;
+  padding: 8px 13px; border: 1px solid #B8E5DC; border-radius: 30px;
+  background: #FFFFFF; color: #0F766E; font-size: 12px; font-weight: 800;
+  letter-spacing: .04em; text-align: center;
+}
+.active-search-section h2 {
+  max-width: 980px; margin: 0 auto 14px; text-align: center;
+  color: #164E49; font-size: clamp(28px, 4vw, 43px); line-height: 1.13;
+}
+.active-search-section h2 span { color: #0F9F8E; }
+.active-search-lead {
+  max-width: 1080px; margin: 0 auto 28px; text-align: center;
+  color: #536B68; font-size: 16px; line-height: 1.7;
+}
+.active-search-flow {
+  display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 14px; align-items: stretch;
+}
+.active-search-step {
+  position: relative; min-width: 0; padding: 22px 18px;
+  border: 1px solid #D6E9E4; border-radius: 18px; background: #FFFFFF;
+  box-shadow: 0 10px 26px rgba(15,70,62,.06);
+}
+.active-search-number { color: #0F9F8E; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.active-search-icon {
+  display: grid; place-items: center; width: 48px; height: 48px; margin: 12px 0;
+  border-radius: 14px; background: #E1F5F1; color: #087F75; font-size: 25px;
+}
+.active-search-step h3 { margin: 0 0 8px; color: #164E49; font-size: 18px; }
+.active-search-step p { margin: 0; color: #536B68; font-size: 14px; line-height: 1.6; }
+.active-search-consent {
+  display: flex; gap: 15px; align-items: flex-start; margin-top: 18px;
+  padding: 20px 22px; border: 1px solid #B8E5DC; border-radius: 16px;
+  background: #E8F8F4;
+}
+.active-search-consent-icon {
+  flex: 0 0 42px; display: grid; place-items: center; width: 42px; height: 42px;
+  border-radius: 13px; background: #D0F1E9; color: #087F75; font-size: 23px;
+}
+.active-search-consent strong { display: block; margin-bottom: 5px; color: #075E54; }
+.active-search-consent p { margin: 0; color: #315D57; font-size: 14px; line-height: 1.6; }
+.active-search-note { margin: 13px 0 0; color: #647B77; font-size: 12px; text-align: center; }
+@media (max-width: 900px) {
+  .active-search-flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+  .active-search-section { padding: 38px 18px; }
+  .active-search-flow { grid-template-columns: 1fr; gap: 11px; }
+  .active-search-step { padding: 18px; }
+  .active-search-consent { padding: 16px; }
+}
 </style></head>
 <body>
 <header>
@@ -2830,7 +2890,7 @@ html { scroll-behavior: smooth; }
 </div>
 </div>
 <div class="menu" id="mainMenu">
-<a href="#formnex-presenca">Presença via WhatsApp</a><a href="#como-pensamos">Como pensamos</a><a href="#radar-potencial">Radar de Potencial</a><a href="#empresas">Oportunidades</a></div>
+<a href="#formnex-presenca">Presença via WhatsApp</a><a href="#como-pensamos">Como pensamos</a><a href="#radar-potencial">Radar de Potencial</a><a href="#busca-ativa">Busca ativa</a><a href="#empresas">Oportunidades</a></div>
 <button aria-label="Ativar modo escuro" class="theme-toggle" id="themeToggle" title="Alternar entre modo claro e escuro" type="button">🌙 <span>Modo escuro</span></button>
 <button aria-controls="mainMenu" aria-expanded="false" aria-label="Abrir menu" class="menu-button" id="menuToggle" type="button">☰</button>
 </nav>
@@ -3306,6 +3366,46 @@ html { scroll-behavior: smooth; }
 <div><h3>Ajude a construir a próxima etapa da FormNex.</h3><p>Estamos buscando empresas parceiras para compartilhar desafios reais, validar funcionalidades e experimentar novas formas de reconhecer capacidades e conectar pessoas a oportunidades. A participação será construída em conjunto, com transparência sobre o que já funciona e o que está em desenvolvimento.</p></div>
 <a href="mailto:contato@formnex.com.br?subject=Quero%20ser%20empresa%20parceira%20de%20valida%C3%A7%C3%A3o%20FormNex">Quero ser parceiro de validação</a>
 </div>
+</div>
+</section><section aria-labelledby="busca-ativa-title" class="active-search-section" id="busca-ativa">
+<div class="active-search-wrap">
+<span class="active-search-kicker">✦ INTELIGÊNCIA DE OPORTUNIDADES · ATUAÇÃO PROATIVA</span>
+<h2 id="busca-ativa-title">Quando a oportunidade é urgente, a FormNex pode <span>ir ao encontro do profissional.</span></h2>
+<p class="active-search-lead">Em situações especiais, a empresa informa a urgência e os requisitos da oportunidade. A inteligência FormNex identifica profissionais potencialmente compatíveis e, respeitando a autorização prévia de cada pessoa, poderá convidá-los por telefone a conhecer a oportunidade.</p>
+<div class="active-search-flow">
+<article class="active-search-step">
+<span class="active-search-number">01</span>
+<div aria-hidden="true" class="active-search-icon">🏢</div>
+<h3>Necessidade urgente</h3>
+<p>A empresa apresenta a função, os requisitos, a localização e o prazo da necessidade.</p>
+</article>
+<article class="active-search-step">
+<span class="active-search-number">02</span>
+<div aria-hidden="true" class="active-search-icon">◇</div>
+<h3>Busca inteligente</h3>
+<p>A FormNex analisa capacidades, evidências, compatibilidade, disponibilidade e deslocamento.</p>
+</article>
+<article class="active-search-step">
+<span class="active-search-number">03</span>
+<div aria-hidden="true" class="active-search-icon">☎</div>
+<h3>Contato autorizado</h3>
+<p>Apenas profissionais que autorizaram receber ligações da FormNex poderão ser contatados.</p>
+</article>
+<article class="active-search-step">
+<span class="active-search-number">04</span>
+<div aria-hidden="true" class="active-search-icon">✓</div>
+<h3>Interesse voluntário</h3>
+<p>A pessoa decide se deseja conhecer a oportunidade. A empresa conduz suas etapas de seleção.</p>
+</article>
+</div>
+<div class="active-search-consent">
+<div aria-hidden="true" class="active-search-consent-icon">♧</div>
+<div>
+<strong>O contato começa com a autorização da pessoa.</strong>
+<p>A autorização deve ser expressa, informada, específica e revogável. Quem não autorizar não receberá ligações. A pessoa poderá retirar sua autorização e consultar o histórico de contatos.</p>
+</div>
+</div>
+<p class="active-search-note">Funcionalidade prevista para desenvolvimento e validação com empresas parceiras. Esta apresentação não representa um serviço de ligações já ativo.</p>
 </div>
 </section><section class="companies" id="empresas">
 <div class="companies-content" style="max-width: 1000px;">
