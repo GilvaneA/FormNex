@@ -3773,5 +3773,217 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
   <span>Fale com a FormNex</span>
 </a>
 
+<style>
+
+
+/* ==========================================================
+   FORMNEX — REVISÃO RESPONSIVA E RITMO VISUAL GLOBAL
+   Regras finais consolidadas para desktop, tablet e celular.
+   Não altera textos, destinos, IDs ou comportamento dos módulos.
+   ========================================================== */
+:root {
+  --section-space: clamp(42px, 4.2vw, 58px);
+  --section-gutter: clamp(16px, 2.2vw, 28px);
+}
+html { scroll-padding-top: 92px; }
+body { overflow-x: hidden; }
+main, section, .nav, .hero-content, .presence-wrap,
+.evolution-wrap, .ecosystem-wrap, .feature-showcase-inner,
+.radar-wrap, .experience-wrap, .companies-content {
+  min-width: 0;
+}
+img, video, iframe, canvas, svg { max-width: 100%; }
+
+/* Ritmo uniforme: reduz os grandes vazios entre funcionalidades. */
+.statement,
+.paths,
+.thinking,
+.off-section,
+.mobility-section,
+.principle,
+.companies,
+.radar-section,
+.experience-section,
+.presence-section,
+.evolution-section,
+.ecosystem-section,
+.feature-showcase {
+  padding: var(--section-space) var(--section-gutter) !important;
+}
+.hero-audience-first { padding: 38px var(--section-gutter) 44px !important; }
+.hero-audience-first .hero-content { gap: 22px !important; }
+.statement-content { max-width: 900px; }
+.statement h2 { margin-bottom: 10px; }
+.section-title { margin-bottom: 28px; }
+.section-title h2 { margin-bottom: 8px; }
+.thinking-grid { gap: 14px; }
+.off-content { gap: clamp(24px, 3vw, 42px); }
+.mobility-box { padding: clamp(22px, 3vw, 36px); }
+.principle h2 { margin-bottom: 16px; }
+.companies-content > p { margin-bottom: 18px; }
+.company-directory { margin-top: 22px; }
+.radar-heading, .experience-heading { margin-bottom: 24px; }
+.radar-panel, .experience-panel, .presence-grid { gap: 16px; }
+.radar-form, .radar-result, .experience-form, .experience-result { padding: 21px; }
+.evolution-heading { margin: 12px auto 26px; }
+.evolution-map, .evolution-detail { padding: 21px; }
+.ecosystem-heading { margin-bottom: 24px; }
+.ecosystem-grid { gap: 12px; }
+.feature-showcase-heading { margin-bottom: 24px; }
+.feature-showcase-grid { gap: 14px; }
+.partner-invite { margin-top: 20px; padding: 22px; }
+.presence-grid { margin-top: 22px; }
+.presence-bottom { margin-top: 16px; }
+
+/* Cabeçalho e marca: uma composição única, sem regras conflitantes. */
+.nav {
+  width: 100%; max-width: 1320px; padding: 10px 24px;
+  display: grid; grid-template-columns: max-content minmax(0,1fr) max-content;
+  align-items: center; column-gap: 20px;
+}
+.brand { min-width: 0; }
+.brand-lockup {
+  display: grid !important;
+  grid-template-columns: 76px max-content !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 8px !important; row-gap: 0 !important;
+  align-items: center !important; width: max-content !important;
+  max-width: 100% !important;
+}
+.brand-main { display: contents !important; }
+.brand-symbol {
+  grid-column: 1 !important; grid-row: 1 !important;
+  width: 76px !important; height: 58px !important; max-width: none !important;
+}
+.brand-wordmark {
+  grid-column: 2 !important; grid-row: 1 !important;
+  font-size: clamp(38px, 3.4vw, 48px) !important;
+  line-height: 1 !important; letter-spacing: -1.7px !important;
+}
+.brand-tagline {
+  grid-column: 2 !important; grid-row: 2 !important;
+  width: 100% !important; max-width: 100% !important;
+  margin: 0 !important; padding: 0 !important;
+  text-align: center !important; white-space: nowrap !important;
+  font-size: 10px !important; line-height: 1.2 !important;
+}
+.menu {
+  min-width: 0; margin: 0 !important; justify-content: center;
+  gap: clamp(10px, 1.25vw, 18px); flex-wrap: nowrap;
+}
+.menu a { font-size: clamp(13px, 1.05vw, 16px) !important; white-space: nowrap; }
+.theme-toggle { margin: 0 !important; }
+
+/* Grades fluidas em telas médias. */
+@media (max-width: 1180px) {
+  .nav {
+    grid-template-columns: minmax(0,1fr) max-content max-content;
+    column-gap: 10px; padding: 9px 18px;
+  }
+  .menu { display: none !important; }
+  .menu.is-open {
+    display: flex !important; position: absolute !important;
+    top: 100%; left: 12px; right: 12px; z-index: 300;
+    flex-direction: column; align-items: stretch; gap: 0;
+    margin: 0 !important; padding: 8px;
+    background: var(--white); border: 1px solid var(--gray-light);
+    border-radius: 12px; box-shadow: var(--shadow);
+  }
+  .menu.is-open a { padding: 11px 13px; font-size: 15px !important; white-space: normal; }
+  .menu-button { display: block !important; justify-self: end; color: var(--graphite); }
+  .brand-lockup { grid-template-columns: 62px max-content !important; }
+  .brand-symbol { width: 62px !important; height: 50px !important; }
+  .brand-wordmark { font-size: clamp(34px, 4.2vw, 44px) !important; }
+  .brand-tagline { font-size: 9px !important; }
+  .hero-content { gap: 26px; }
+  .path-grid, .company-directory { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .thinking-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .mobility-examples { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .presence-grid { grid-template-columns: minmax(0,1fr); }
+  .presence-chat-body { min-height: 280px; }
+  .evolution-layout { grid-template-columns: minmax(0,1fr); }
+  .radar-panel, .experience-panel { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 760px) {
+  .hero-content, .off-content { grid-template-columns: minmax(0,1fr); }
+  .hero-content { display: flex; flex-direction: column; align-items: stretch; }
+  .hero-text, .intelligence-card { width: 100%; max-width: 680px; margin-inline: auto; }
+  .audience-options { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .mobility-examples { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .feature-showcase-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ecosystem-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .radar-panel, .experience-panel { grid-template-columns: minmax(0,1fr); }
+  .radar-result { min-height: 0; }
+  .presence-bottom { grid-template-columns: minmax(0,1fr); }
+  .career-tree { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .path-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .footer-content { align-items: flex-start; flex-direction: column; }
+  .footer-text { text-align: left; }
+}
+@media (max-width: 560px) {
+  :root { --section-space: 34px; --section-gutter: 16px; }
+  html { scroll-padding-top: 78px; }
+  .nav { padding: 8px 10px; column-gap: 6px; }
+  .brand-lockup { grid-template-columns: 43px minmax(0,max-content) !important; column-gap: 6px !important; }
+  .brand-symbol { width: 43px !important; height: 39px !important; }
+  .brand-wordmark { font-size: clamp(27px, 7.4vw, 34px) !important; letter-spacing: -1.1px !important; }
+  .brand-tagline { font-size: clamp(7px, 2.1vw, 9px) !important; white-space: normal !important; text-align: center !important; }
+  .theme-toggle { padding: 7px 8px !important; font-size: 11px !important; }
+  .menu-button { font-size: 24px !important; padding: 4px 6px !important; }
+  .hero-audience-first { padding-top: 28px !important; padding-bottom: 32px !important; }
+  .hero-audience-first .hero-content { gap: 18px !important; }
+  .audience-choice > h1 { font-size: clamp(27px, 7.5vw, 34px); }
+  .audience-intro { font-size: 15px; margin-bottom: 16px; }
+  .audience-options { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .hero-audience-first .audience-option { min-height: 0; padding: 18px 16px !important; }
+  .hero-audience-first .audience-option p { margin-bottom: 13px; }
+  .intelligence-card { padding: 17px !important; }
+  .statement h2, .companies h2 { font-size: clamp(25px, 7vw, 30px); }
+  .statement p, .section-title p { font-size: 15px; }
+  .section-title { margin-bottom: 20px; }
+  .path-grid, .company-directory, .thinking-grid,
+  .mobility-examples, .ecosystem-grid, .feature-showcase-grid {
+    grid-template-columns: minmax(0,1fr);
+  }
+  .path-card { padding: 20px 18px; }
+  .thinking-card { padding: 19px; }
+  .mobility-box { padding: 20px 16px; }
+  .mobility-box h2, .off-content h2, .principle h2 { font-size: clamp(25px, 7vw, 32px); }
+  .off-content { gap: 18px; }
+  .radar-form, .radar-result, .experience-form, .experience-result,
+  .evolution-map, .evolution-detail { padding: 16px !important; }
+  .radar-options, .radar-question-groups { grid-template-columns: minmax(0,1fr); }
+  .radar-actions, .experience-actions { flex-direction: column; }
+  .radar-actions button, .experience-actions button { width: 100%; }
+  .experience-field textarea { min-height: 150px; }
+  .career-tree { grid-template-columns: minmax(0,1fr); }
+  .career-node { min-height: 0; }
+  .evolution-map-top { align-items: flex-start; flex-direction: column; margin-bottom: 16px; }
+  .partner-invite { flex-direction: column; align-items: stretch; padding: 18px; }
+  .partner-invite a, .evolution-cta { width: 100%; text-align: center; white-space: normal; }
+  .presence-profile { padding: 16px; }
+  .presence-profile-top h3 { font-size: 21px; }
+  .presence-entry { flex-direction: column; }
+  .presence-entry button { width: 100%; }
+  .formnex-whatsapp { right: 10px; bottom: 10px; min-height: 46px; padding: 10px 12px; font-size: 12px; }
+}
+@media (max-width: 360px) {
+  :root { --section-gutter: 13px; }
+  .brand-lockup { grid-template-columns: 36px minmax(0,max-content) !important; column-gap: 4px !important; }
+  .brand-symbol { width: 36px !important; height: 34px !important; }
+  .brand-wordmark { font-size: 26px !important; }
+  .brand-tagline { font-size: 7px !important; }
+  .theme-toggle { padding: 6px !important; }
+  .mobility { grid-template-columns: minmax(0,1fr); }
+  .compatibility { align-items: flex-start; }
+  .mobility-box { padding: 17px 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+</style>
+
 </body>
 </html>
