@@ -3615,6 +3615,28 @@ body[data-theme="dark"] header {
   }
 }
 
+
+
+/* Ajuste fino: aproximar o menu da marca FormNex */
+@media (min-width: 1101px) {
+  .nav {
+    justify-content: flex-start !important;
+  }
+  .brand {
+    flex: 0 0 auto !important;
+  }
+  .menu {
+    flex: 1 1 auto !important;
+    justify-content: flex-start !important;
+    margin-left: 30px !important;
+    margin-right: 0 !important;
+    gap: clamp(12px, 1.25vw, 17px) !important;
+  }
+  .theme-toggle {
+    margin-left: auto !important;
+  }
+}
+
 </style>
 <script>
 (function(){
