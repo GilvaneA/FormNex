@@ -2685,6 +2685,319 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
             .experience-hub-action { padding-top: 12px; }
         }
 
+
+/* FORMNEX — padrão visual unificado para quadros com três ou mais itens */
+:root {
+    --fn-card-bg: #FFFFFF;
+    --fn-card-border: #CDEBE5;
+    --fn-card-ink: #173B40;
+    --fn-card-muted: #64748B;
+    --fn-card-accent: #0F766E;
+    --fn-card-accent-soft: #D7F7F0;
+    --fn-card-shadow: 0 8px 24px rgba(15,118,110,.06);
+}
+.audience-options,
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.off-list {
+    align-items: stretch;
+}
+.audience-option,
+.example,
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.off-item {
+    box-sizing: border-box;
+    min-width: 0;
+    border: 1px solid var(--fn-card-border);
+    border-radius: 17px;
+    background: var(--fn-card-bg);
+    color: var(--fn-card-ink);
+    box-shadow: var(--fn-card-shadow);
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background-color .18s ease;
+}
+.audience-option:hover,
+.example:hover,
+.thinking-card:hover,
+.career-node:hover,
+.active-search-step:hover,
+.company-card:hover,
+.off-item:hover {
+    border-color: #14BBA6;
+    box-shadow: 0 12px 28px rgba(15,118,110,.11);
+    transform: translateY(-2px);
+}
+.audience-option h2,
+.thinking-card h3,
+.career-node strong,
+.active-search-step h3,
+.company-card h3,
+.off-item strong,
+.example strong {
+    color: var(--fn-card-ink);
+    font-weight: 800;
+    line-height: 1.3;
+}
+.audience-option p,
+.thinking-card p,
+.active-search-step p,
+.off-item span,
+.example span,
+.company-card .company-location {
+    color: var(--fn-card-muted);
+    line-height: 1.5;
+}
+.audience-icon,
+.thinking-number,
+.example strong,
+.active-search-number,
+.company-card-icon,
+.off-badge {
+    color: var(--fn-card-accent);
+}
+.thinking-number,
+.active-search-number {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--fn-card-accent-soft);
+    font-weight: 800;
+}
+.audience-options { gap: 16px; }
+.audience-option { padding: 22px; }
+.mobility-examples { gap: 14px; }
+.example {
+    min-height: 125px;
+    padding: 18px 16px;
+    justify-content: flex-start;
+}
+.thinking-grid { gap: 16px; }
+.thinking-card { padding: 22px; }
+.career-tree { gap: 14px; }
+.career-node {
+    padding: 18px;
+    text-align: left;
+}
+.career-node[aria-pressed="true"] {
+    border: 2px solid #0F9F91;
+    background: #F0FDFA;
+    box-shadow: 0 0 0 3px rgba(20,187,166,.10);
+}
+.career-node .node-step,
+.career-node .node-state { color: #0F766E; }
+.career-node small { color: var(--fn-card-muted); }
+.active-search-flow { gap: 16px; }
+.active-search-step { padding: 22px; }
+.company-directory { gap: 16px; }
+.company-card {
+    padding: 22px;
+    text-align: left;
+}
+.company-card-icon {
+    background: var(--fn-card-accent-soft);
+    border-radius: 12px;
+}
+.off-list { gap: 14px; }
+.off-item { padding: 18px; }
+.off-item strong { display: block; margin-bottom: 6px; }
+.off-item span { display: block; }
+@media (max-width: 850px) {
+    .audience-options,
+    .thinking-grid,
+    .company-directory,
+    .career-tree {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .mobility-examples { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .audience-options,
+    .thinking-grid,
+    .company-directory,
+    .career-tree,
+    .active-search-flow,
+    .mobility-examples {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .audience-option,
+    .thinking-card,
+    .career-node,
+    .active-search-step,
+    .company-card,
+    .off-item {
+        padding: 19px;
+    }
+}
+/* Mesmo padrão no tema escuro */
+body[data-theme="dark"] .audience-option,
+body[data-theme="dark"] .example,
+body[data-theme="dark"] .thinking-card,
+body[data-theme="dark"] .career-node,
+body[data-theme="dark"] .active-search-step,
+body[data-theme="dark"] .company-card,
+body[data-theme="dark"] .off-item {
+    --fn-card-bg: #1A292D;
+    --fn-card-border: #35474A;
+    --fn-card-ink: #E5F1F0;
+    --fn-card-muted: #B2C3C5;
+    background: var(--fn-card-bg);
+    border-color: var(--fn-card-border);
+    color: var(--fn-card-ink);
+}
+body[data-theme="dark"] .audience-option h2,
+body[data-theme="dark"] .thinking-card h3,
+body[data-theme="dark"] .career-node strong,
+body[data-theme="dark"] .active-search-step h3,
+body[data-theme="dark"] .company-card h3,
+body[data-theme="dark"] .off-item strong,
+body[data-theme="dark"] .example strong {
+    color: var(--fn-card-ink);
+}
+body[data-theme="dark"] .career-node[aria-pressed="true"] {
+    background: #1D3435;
+    border-color: #4EDBC8;
+}
+body[data-theme="dark"] .thinking-number,
+body[data-theme="dark"] .active-search-number,
+body[data-theme="dark"] .company-card-icon {
+    background: #173D39;
+    color: #99F6E4;
+}
+
+
+/* FORMNEX — referência visual aprovada: azul-petróleo, grafite e turquesa */
+:root {
+    --fn-card-bg: #142D38;
+    --fn-card-bg-deep: #10232E;
+    --fn-card-border: #294B56;
+    --fn-card-ink: #F3F8FA;
+    --fn-card-muted: #B8CBD1;
+    --fn-card-accent: #55E3D1;
+    --fn-card-accent-soft: #1A4148;
+    --fn-card-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+/* Painéis com três ou mais itens adotam o mesmo ambiente escuro da referência. */
+.audience-options,
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.off-list {
+    padding: 10px;
+    border: 1px solid #29434E;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #10232E 0%, #122B36 100%);
+}
+.audience-option,
+.example,
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.off-item {
+    border: 1px solid var(--fn-card-border);
+    border-radius: 15px;
+    background: linear-gradient(160deg, #1A3542 0%, #142936 100%);
+    color: var(--fn-card-ink);
+    box-shadow: none;
+}
+.audience-option:hover,
+.example:hover,
+.thinking-card:hover,
+.career-node:hover,
+.active-search-step:hover,
+.company-card:hover,
+.off-item:hover {
+    border-color: #55E3D1;
+    box-shadow: 0 10px 28px rgba(20,187,166,.13);
+    transform: translateY(-2px);
+}
+.audience-option h2,
+.thinking-card h3,
+.career-node strong,
+.active-search-step h3,
+.company-card h3,
+.off-item strong,
+.example strong {
+    color: #F5FBFB;
+}
+.audience-option p,
+.thinking-card p,
+.active-search-step p,
+.off-item span,
+.example span,
+.company-card .company-location {
+    color: #B8CBD1;
+}
+.audience-kicker,
+.thinking-number,
+.career-node .node-step,
+.career-node .node-state,
+.active-search-number,
+.experience-hub-number {
+    color: #70DCCD;
+}
+.thinking-number,
+.active-search-number,
+.experience-hub-number {
+    background: #1A4148;
+}
+.career-node[aria-pressed="true"],
+.experience-hub-button[aria-pressed="true"] {
+    border: 2px solid #4EDBC8;
+    background: linear-gradient(160deg, #174B4D 0%, #183544 100%);
+    box-shadow: 0 0 0 3px rgba(78,219,200,.10);
+}
+.company-card-icon,
+.audience-icon {
+    background: #173D43;
+    color: #99F6E4;
+}
+.off-badge {
+    background: #0F766E;
+    color: #FFFFFF;
+}
+/* Quadro de três caminhos e painéis selecionáveis no mesmo padrão escuro. */
+.experience-hub {
+    background: linear-gradient(135deg, #0B1724 0%, #102633 52%, #101B2B 100%);
+    color: #EAF4F5;
+}
+.experience-hub-heading h2 { color: #F4FAFA; }
+.experience-hub-heading h2 span { color: #4EDBC8; }
+.experience-hub-heading p,
+.experience-hub-hint { color: #B8C9D0; }
+.experience-hub-kicker {
+    color: #80E8D9;
+    background: rgba(20,187,166,.12);
+    border: 1px solid rgba(83,220,201,.28);
+}
+.experience-hub-button {
+    border: 1px solid #31515C;
+    border-radius: 15px;
+    background: linear-gradient(160deg, #1A3542, #142936);
+    color: #DDEBED;
+    box-shadow: none;
+}
+.experience-hub-button strong { color: #F5FBFB; }
+.experience-hub-button small { color: #A9C0C6; }
+.experience-hub-action { color: #70DCCD; }
+.experience-hub-button:hover,
+.experience-hub-button:focus-visible {
+    border-color: #4EDBC8;
+    box-shadow: 0 10px 28px rgba(20,187,166,.13);
+}
+body[data-theme="dark"] .experience-hub {
+    background: linear-gradient(135deg, #0B1724 0%, #102633 52%, #101B2B 100%);
+}
+
 </style>
 <style id="formnex-audience-premium">
 /* Cartões de entrada — identidade visual unificada e responsiva */
