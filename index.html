@@ -2547,6 +2547,144 @@ body[data-theme="dark"] .hero-audience-first .audience-option p { color: #52686A
   }
 }
 
+
+        /* Quadro único para as três experiências FormNex */
+        .experience-hub {
+            padding: 76px 24px;
+            background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%);
+        }
+        .experience-hub-inner {
+            width: min(100%, 1120px);
+            margin: 0 auto;
+        }
+        .experience-hub-heading {
+            max-width: 820px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+        .experience-hub-kicker {
+            display: inline-block;
+            margin-bottom: 13px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #D7F7F0;
+            color: #0F766E;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .experience-hub-heading h2 {
+            margin: 0 0 12px;
+            color: #172B36;
+            font-size: clamp(27px, 3.5vw, 38px);
+            line-height: 1.16;
+        }
+        .experience-hub-heading h2 span { color: #0F9F91; }
+        .experience-hub-heading p {
+            margin: 0 auto;
+            max-width: 720px;
+            color: #64748B;
+            font-size: 16px;
+            text-align: center;
+        }
+        .experience-hub-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .experience-hub-button {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            min-height: 205px;
+            padding: 22px;
+            border: 1px solid #CDEBE5;
+            border-radius: 17px;
+            background: #FFFFFF;
+            color: #1F2937;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(15,118,110,.06);
+            transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
+        }
+        .experience-hub-button:hover,
+        .experience-hub-button:focus-visible {
+            border-color: #14BBA6;
+            box-shadow: 0 12px 28px rgba(15,118,110,.12);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        .experience-hub-button[aria-pressed="true"] {
+            border: 2px solid #0F9F91;
+            background: #F0FDFA;
+            box-shadow: 0 0 0 3px rgba(20,187,166,.10);
+        }
+        .experience-hub-number {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background: #D7F7F0;
+            color: #0F766E;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .experience-hub-button strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #173B40;
+            font-size: 17px;
+            line-height: 1.3;
+        }
+        .experience-hub-button small {
+            display: block;
+            color: #64748B;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .experience-hub-action {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 17px;
+            color: #0F766E;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .experience-hub-hint {
+            margin: 18px 0 0;
+            color: #64748B;
+            font-size: 13px;
+            text-align: center;
+        }
+        .experience-hub-panel[hidden] { display: none !important; }
+        .experience-hub-panel:not([hidden]) { display: block; }
+        body[data-theme="dark"] .experience-hub {
+            background: linear-gradient(180deg, #142124 0%, #10191C 100%);
+        }
+        body[data-theme="dark"] .experience-hub-heading h2 { color: #E5F1F0; }
+        body[data-theme="dark"] .experience-hub-button {
+            background: #1A292D;
+            border-color: #35474A;
+            color: #E5F1F0;
+        }
+        body[data-theme="dark"] .experience-hub-button strong { color: #E5F1F0; }
+        body[data-theme="dark"] .experience-hub-button[aria-pressed="true"] {
+            background: #1D3435;
+            border-color: #4EDBC8;
+        }
+        @media (max-width: 760px) {
+            .experience-hub { padding: 54px 18px; }
+            .experience-hub-buttons { grid-template-columns: 1fr; gap: 12px; }
+            .experience-hub-button { min-height: 0; padding: 19px; }
+            .experience-hub-action { padding-top: 12px; }
+        }
+
 </style>
 <style id="formnex-audience-premium">
 /* Cartões de entrada — identidade visual unificada e responsiva */
@@ -3154,7 +3292,37 @@ html { scroll-behavior: smooth; }
             A decisão final pertence às pessoas envolvidas.
         </p>
 </div>
-</section><section class="off-section">
+</section><section class="experience-hub" id="vivencias-capacidades">
+  <div class="experience-hub-inner">
+    <div class="experience-hub-heading">
+      <span class="experience-hub-kicker">FORMNEX · VIVÊNCIAS E CAPACIDADES</span>
+      <h2>Toda experiência tem valor. <span>Descubra o que ela revela.</span></h2>
+      <p>Escolha uma das opções para explorar suas experiências, reconhecer capacidades e descobrir possibilidades de desenvolvimento.</p>
+    </div>
+    <div class="experience-hub-buttons" role="group" aria-label="Escolha uma experiência">
+      <button class="experience-hub-button" type="button" data-experience-target="vivencias-profissionais" aria-controls="vivencias-profissionais" aria-pressed="false">
+        <span class="experience-hub-number">01</span>
+        <strong>Vivências profissionais</strong>
+        <small>Experiências dentro e fora do emprego formal.</small>
+        <span class="experience-hub-action">Conhecer <span aria-hidden="true">→</span></span>
+      </button>
+      <button class="experience-hub-button" type="button" data-experience-target="tradutor-experiencias" aria-controls="tradutor-experiencias" aria-pressed="false">
+        <span class="experience-hub-number">02</span>
+        <strong>Experiências que revelam capacidades</strong>
+        <small>Conte o que você viveu e descubra o que isso pode revelar.</small>
+        <span class="experience-hub-action">Explorar <span aria-hidden="true">→</span></span>
+      </button>
+      <button class="experience-hub-button" type="button" data-experience-target="radar-potencial" aria-controls="radar-potencial" aria-pressed="false">
+        <span class="experience-hub-number">03</span>
+        <strong>Impulsionador de aptidões</strong>
+        <small>Reconheça aptidões e possibilidades de desenvolvimento.</small>
+        <span class="experience-hub-action">Descobrir <span aria-hidden="true">→</span></span>
+      </button>
+    </div>
+    <p class="experience-hub-hint" id="experienceHubHint" aria-live="polite">Selecione um dos três caminhos para começar.</p>
+  </div>
+</section>
+<section class="off-section experience-hub-panel" id="vivencias-profissionais" hidden>
 <div class="off-content">
 <div>
 <div class="off-badge">VIVÊNCIAS PROFISSIONAIS</div>
@@ -3200,7 +3368,7 @@ html { scroll-behavior: smooth; }
 </div>
 </div>
 </div>
-</section><section class="experience-section" id="tradutor-experiencias">
+</section><section class="experience-section experience-hub-panel" id="tradutor-experiencias" hidden>
 <div class="experience-wrap">
 <div class="experience-heading">
 <span class="experience-kicker">Evolução 02 · Experiências que revelam capacidades</span>
@@ -3244,7 +3412,7 @@ html { scroll-behavior: smooth; }
 </aside>
 </div>
 </div>
-</section><section class="radar-section" id="radar-potencial">
+</section><section class="radar-section experience-hub-panel" id="radar-potencial" hidden>
 <div class="radar-wrap">
 <div class="radar-heading">
 <span class="radar-kicker">Evolução 01 · Inteligência de Potencial Humano</span>
@@ -4173,5 +4341,39 @@ body[data-theme="dark"] header {
 </svg>
 <span>Fale com a FormNex</span>
 </a>
+
+<script>
+/* Navegação entre os três caminhos de vivências e capacidades */
+(function () {
+    const buttons = document.querySelectorAll('.experience-hub-button[data-experience-target]');
+    const panels = document.querySelectorAll('.experience-hub-panel');
+    const hint = document.getElementById('experienceHubHint');
+
+    if (!buttons.length || !panels.length) return;
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const targetId = button.dataset.experienceTarget;
+            const targetPanel = document.getElementById(targetId);
+            if (!targetPanel) return;
+
+            panels.forEach((panel) => {
+                panel.hidden = panel !== targetPanel;
+            });
+
+            buttons.forEach((item) => {
+                item.setAttribute('aria-pressed', String(item === button));
+            });
+
+            if (hint) {
+                hint.textContent = button.querySelector('strong').textContent + ' — conteúdo aberto abaixo.';
+            }
+
+            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+})();
+</script>
+
 </body>
 </html>
