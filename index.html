@@ -3456,12 +3456,14 @@ html { scroll-behavior: smooth; }
 </div>
 </section><section aria-labelledby="formnex-presenca-title" class="presence-section" id="formnex-presenca">
 <div class="presence-wrap">
-<span class="presence-kicker">✦ FORMNEX PRESENÇA · CONSTRUÇÃO DO PERFIL</span>
-<h2 id="formnex-presenca-title">Sua história merece ser reconhecida.</h2>
-<p class="presence-lead">Conte sobre trabalhos, atividades, estudos e aprendizados. Não precisa ter carteira assinada: experiências formais e informais também podem revelar capacidades. A FormNex organiza o que você relata para que possa revisar, corrigir e confirmar seu perfil.</p>
-<div class="presence-start">
-  <button class="presence-btn presence-start-btn" id="fnPresenceStart" type="button">▶ Iniciar conversa</button>
-  <span>Nesta demonstração, a conversa começa por texto. Áudio e integração com WhatsApp estão previstos para uma próxima etapa.</span>
+<div class="presence-intro-card">
+  <span class="presence-kicker">✦ FORMNEX PRESENÇA · CONSTRUÇÃO DO PERFIL</span>
+  <h2 id="formnex-presenca-title">Conte sua história. Mostre o que você sabe fazer.</h2>
+  <p class="presence-lead">Fale sobre trabalhos, atividades, estudos e aprendizados — com ou sem registro formal. A FormNex organiza seu relato para você revisar, corrigir e confirmar seu perfil.</p>
+  <div class="presence-start">
+    <button class="presence-btn presence-start-btn" id="fnPresenceStart" type="button">▶ Começar meu perfil</button>
+    <span>A demonstração começa por texto. Áudio e integração com WhatsApp estão previstos para etapas futuras.</span>
+  </div>
 </div>
 <div class="presence-grid">
 <div class="presence-card">
@@ -5381,6 +5383,232 @@ body, p, li, small, label, input, select, textarea, button,
   .presence-grid {
     grid-template-columns: 1fr !important;
   }
+}
+</style>
+
+
+<style id="formnex-presenca-introducao-refinada">
+/* Introdução da FormNex Presença no mesmo padrão dos cartões aprovados */
+#formnex-presenca .presence-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px !important;
+  padding: 12px !important;
+  background: #102F3A !important;
+  border: 1px solid #254D58 !important;
+  border-radius: 22px !important;
+}
+#formnex-presenca .presence-intro-card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: clamp(20px, 3vw, 32px) !important;
+  border-radius: 18px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #CBE7E2 !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.08) !important;
+  text-align: left;
+}
+#formnex-presenca .presence-intro-card .presence-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 14px !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  color: #087E75 !important;
+  background: #E4F7F3 !important;
+  border: 1px solid #BCE9E1 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: .35px;
+}
+#formnex-presenca .presence-intro-card h2 {
+  max-width: 920px;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  color: #123744 !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  font-size: clamp(26px, 3vw, 36px) !important;
+  line-height: 1.18 !important;
+  text-align: left !important;
+}
+#formnex-presenca .presence-intro-card .presence-lead {
+  max-width: 920px;
+  margin: 0 0 18px !important;
+  color: #365A64 !important;
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  text-align: left !important;
+}
+#formnex-presenca .presence-intro-card .presence-start {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+  flex-wrap: wrap;
+  margin: 0 !important;
+  text-align: left !important;
+}
+#formnex-presenca .presence-intro-card .presence-start-btn {
+  min-width: 210px;
+  min-height: 48px;
+  padding: 12px 22px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D9488 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+}
+#formnex-presenca .presence-intro-card .presence-start span {
+  max-width: 560px;
+  color: #45636A !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+#formnex-presenca .presence-grid {
+  margin-top: 0 !important;
+}
+@media (max-width: 640px) {
+  #formnex-presenca .presence-intro-card { padding: 18px !important; }
+  #formnex-presenca .presence-intro-card .presence-start {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+  #formnex-presenca .presence-intro-card .presence-start-btn { width: 100%; }
+}
+</style>
+
+
+<style id="formnex-statement-card-ajustado">
+/* Faixa institucional: mesma moldura e cartão do padrão aprovado */
+.statement {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  padding: 12px !important;
+  margin: 22px auto !important;
+  border: 1px solid #254D58 !important;
+  border-radius: 22px !important;
+  background: #102F3A !important;
+  box-shadow: 0 8px 22px rgba(8,37,46,.10) !important;
+}
+.statement .statement-content {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 116px;
+  margin: 0 !important;
+  padding: 24px 30px !important;
+  display: grid !important;
+  grid-template-columns: minmax(260px, .9fr) minmax(320px, 1.1fr) !important;
+  align-items: center !important;
+  gap: 28px !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.08) !important;
+  text-align: left !important;
+}
+.statement .statement-content h2 {
+  margin: 0 !important;
+  color: #123744 !important;
+  font-size: clamp(22px, 2.4vw, 29px) !important;
+  line-height: 1.22 !important;
+  text-align: left !important;
+}
+.statement .statement-content h2 span {
+  color: #0D9488 !important;
+}
+.statement .statement-content p {
+  margin: 0 !important;
+  color: #365A64 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+@media (max-width: 700px) {
+  .statement .statement-content {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 20px !important;
+  }
+  .statement .statement-content h2 {
+    font-size: 23px !important;
+  }
+}
+</style>
+
+
+<style id="formnex-evolucao-heading-padrao">
+/* Evolução profissional: introdução no cartão branco dentro da moldura azul-petróleo */
+#evolucao-profissional .evolution-wrap {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  padding: 12px !important;
+  border: 1px solid #254D58 !important;
+  border-radius: 22px !important;
+  background: #102F3A !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(8,37,46,.10) !important;
+}
+#evolucao-profissional .evolution-heading {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 0 12px !important;
+  padding: 24px 28px !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.08) !important;
+  text-align: left !important;
+}
+#evolucao-profissional .evolution-heading .evolution-kicker {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 0 12px !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  color: #087E75 !important;
+  background: #E4F7F3 !important;
+  border: 1px solid #BCE9E1 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: .35px;
+}
+#evolucao-profissional .evolution-heading h2 {
+  max-width: 980px;
+  margin: 0 0 12px !important;
+  color: #123744 !important;
+  font-size: clamp(25px, 3vw, 34px) !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+}
+#evolucao-profissional .evolution-heading h2 span {
+  color: #0D9488 !important;
+}
+#evolucao-profissional .evolution-heading p {
+  max-width: 1000px;
+  margin: 0 !important;
+  color: #365A64 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+#evolucao-profissional .evolution-layout {
+  margin-top: 0 !important;
+}
+@media (max-width: 640px) {
+  #evolucao-profissional .evolution-wrap { padding: 9px !important; }
+  #evolucao-profissional .evolution-heading { padding: 19px !important; }
+  #evolucao-profissional .evolution-heading h2 { font-size: 25px !important; }
 }
 </style>
 
