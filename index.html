@@ -3456,9 +3456,13 @@ html { scroll-behavior: smooth; }
 </div>
 </section><section aria-labelledby="formnex-presenca-title" class="presence-section" id="formnex-presenca">
 <div class="presence-wrap">
-<span class="presence-kicker">✦ EVOLUÇÃO FORMNEX · PRESENÇA</span>
-<h2 id="formnex-presenca-title">Seu currículo começa <span>com a sua voz.</span></h2>
-<p class="presence-lead">Pela experiência FormNex Presença, a pessoa poderá contar sua história por texto ou áudio, inclusive pelo WhatsApp quando a integração estiver ativa. A FormNex organiza experiências, atividades e capacidades — inclusive vivências sem carteira assinada ou registro formal — para a própria pessoa revisar e confirmar.</p>
+<span class="presence-kicker">✦ FORMNEX PRESENÇA · CONSTRUÇÃO DO PERFIL</span>
+<h2 id="formnex-presenca-title">Sua história merece ser reconhecida.</h2>
+<p class="presence-lead">Conte sobre trabalhos, atividades, estudos e aprendizados. Não precisa ter carteira assinada: experiências formais e informais também podem revelar capacidades. A FormNex organiza o que você relata para que possa revisar, corrigir e confirmar seu perfil.</p>
+<div class="presence-start">
+  <button class="presence-btn presence-start-btn" id="fnPresenceStart" type="button">▶ Iniciar conversa</button>
+  <span>Nesta demonstração, a conversa começa por texto. Áudio e integração com WhatsApp estão previstos para uma próxima etapa.</span>
+</div>
 <div class="presence-grid">
 <div class="presence-card">
 <div class="presence-chat-head"><div class="presence-avatar">F</div><div><strong>FormNex Presença</strong><small>Simulação de conversa integrada ao site</small></div></div>
@@ -3472,7 +3476,7 @@ html { scroll-behavior: smooth; }
 <button class="presence-btn alt" id="fnPresenceNo" type="button">Ainda não</button>
 <button class="presence-btn alt" id="fnPresenceAudio" type="button">🎙 Simular áudio</button>
 </div>
-<div class="presence-entry"><input aria-label="Resposta para FormNex Presença" id="fnPresenceInput" placeholder="Digite sua resposta..." type="text"/><button class="presence-btn" id="fnPresenceSend" type="button">Enviar</button></div>
+<div class="presence-entry"><input aria-label="Resposta para FormNex Presença" id="fnPresenceInput" placeholder="Conte uma experiência ou atividade..." type="text"/><button class="presence-btn" id="fnPresenceSend" type="button">Enviar</button></div>
 <p class="presence-note">Demonstração interativa no próprio site. O áudio é ilustrativo; a conexão real com WhatsApp e transcrição será uma próxima etapa.</p>
 </div>
 </div>
@@ -4167,6 +4171,11 @@ body[data-theme="dark"] header {
    bubble('Tudo bem. Podemos começar por atividades do dia a dia, cursos, projetos, ajuda em negócios da família ou coisas que você aprendeu fazendo. Existe alguma atividade que gostaria de contar?','bot');
   }
  }
+ const startButton=document.getElementById('fnPresenceStart');
+ if(startButton) startButton.addEventListener('click',()=>{
+  input.scrollIntoView({behavior:'smooth',block:'center'});
+  window.setTimeout(()=>input.focus(),350);
+ });
  document.getElementById('fnPresenceSend').addEventListener('click',()=>send(input.value));
  input.addEventListener('keydown',e=>{if(e.key==='Enter')send(input.value);});
  document.getElementById('fnPresenceYes').addEventListener('click',()=>send('Sim. Já trabalhei por conta própria, fazendo serviços de pintura e pequenos reparos.'));
@@ -4964,6 +4973,61 @@ body:not([data-theme="dark"]) .footer-contact {
 body:not([data-theme="dark"]) .theme-toggle {
   color: #0F766E;
   border-color: #0F766E;
+}
+</style>
+
+
+<style id="formnex-presenca-cta-ajustes">
+#formnex-presenca .presence-wrap > h2 {
+  margin: 14px 0 10px;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.2;
+}
+#formnex-presenca .presence-lead {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+#formnex-presenca .presence-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px auto 4px;
+  text-align: center;
+}
+#formnex-presenca .presence-start-btn {
+  min-height: 46px;
+  min-width: 190px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #0F766E;
+  color: #FFFFFF;
+  border: 2px solid #0F766E;
+  font-size: 16px !important;
+  font-weight: 800;
+}
+#formnex-presenca .presence-start-btn:hover,
+#formnex-presenca .presence-start-btn:focus-visible {
+  background: #0B5F59;
+  outline: 3px solid rgba(20,187,166,.25);
+  outline-offset: 2px;
+}
+#formnex-presenca .presence-start span {
+  max-width: 520px;
+  color: #45636A;
+  font-size: 15px !important;
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  #formnex-presenca .presence-start {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  #formnex-presenca .presence-start-btn { width: 100%; }
 }
 </style>
 
