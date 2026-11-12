@@ -4688,5 +4688,284 @@ body[data-theme="dark"] header {
 })();
 </script>
 
+
+<style id="formnex-padrao-tipografico-global">
+/* FORMNEX — escala tipográfica institucional aplicada ao site inteiro */
+:root {
+  --fn-font-family: Arial, Helvetica, sans-serif;
+  --fn-size-hero: clamp(2rem, 4vw, 2.65rem); /* título principal */
+  --fn-size-section: clamp(1.55rem, 2.6vw, 1.9rem); /* início de cada quadro/seção */
+  --fn-size-subsection: 1.25rem; /* subtítulos */
+  --fn-size-card-title: 1.05rem; /* títulos dentro dos cartões */
+  --fn-size-body: 0.9375rem; /* textos explicativos */
+  --fn-size-small: 0.8125rem; /* textos auxiliares */
+  --fn-size-label: 0.75rem; /* etiquetas e identificadores */
+  --fn-size-button: 0.875rem; /* botões e ações */
+  --fn-line-heading: 1.22;
+  --fn-line-body: 1.55;
+}
+
+/* Base única de fonte e leitura */
+html { font-size: 16px; }
+body, button, input, select, textarea {
+  font-family: var(--fn-font-family) !important;
+}
+body {
+  font-size: var(--fn-size-body) !important;
+  line-height: var(--fn-line-body) !important;
+}
+
+/* Hierarquia dos títulos principais e títulos de seção */
+h1 {
+  font-size: var(--fn-size-hero) !important;
+  line-height: var(--fn-line-heading) !important;
+}
+h2 {
+  font-size: var(--fn-size-section) !important;
+  line-height: var(--fn-line-heading) !important;
+}
+h3 {
+  font-size: var(--fn-size-subsection) !important;
+  line-height: 1.3 !important;
+}
+h4, h5, h6 {
+  font-size: var(--fn-size-card-title) !important;
+  line-height: 1.35 !important;
+}
+
+/* Textos corridos: mesma escala em todas as áreas */
+p, li, dd, dt, blockquote {
+  font-size: var(--fn-size-body) !important;
+  line-height: var(--fn-line-body) !important;
+}
+
+/* Títulos de cartões, etapas, empresas e opções */
+.audience-option h2,
+.example h2, .example h3, .example strong,
+.thinking-card h3, .career-node strong,
+.active-search-step h3, .company-card h3,
+.off-item strong,
+.experience-hub-button strong,
+.experience-hub-heading h2 {
+  font-size: var(--fn-size-card-title) !important;
+  line-height: 1.3 !important;
+}
+
+/* Identificadores, legendas, categorias e textos auxiliares */
+small, .eyebrow, .kicker, .section-kicker,
+.audience-kicker, .thinking-number, .active-search-number,
+.career-node .node-step, .career-node .node-state,
+.experience-hub-kicker, .experience-hub-hint,
+figcaption, .caption, .meta, .company-location {
+  font-size: var(--fn-size-small) !important;
+  line-height: 1.4 !important;
+}
+
+/* Etiquetas curtas e marcadores superiores */
+[class*="label"], [class*="badge"], [class*="tag"],
+[class*="step-number"], [class*="eyebrow"] {
+  line-height: 1.35;
+}
+
+/* Ações e controles */
+button, .button, a.button, input, select, textarea {
+  font-size: var(--fn-size-button) !important;
+  line-height: 1.35 !important;
+}
+nav a, .nav a {
+  font-size: var(--fn-size-button) !important;
+}
+
+/* Evita que textos auxiliares fiquem pequenos demais em telas estreitas */
+@media (max-width: 640px) {
+  :root {
+    --fn-size-section: 1.5rem;
+    --fn-size-subsection: 1.125rem;
+    --fn-size-card-title: 1rem;
+    --fn-size-body: 0.9rem;
+    --fn-size-small: 0.78rem;
+    --fn-size-button: 0.875rem;
+  }
+}
+</style>
+
+
+<style id="formnex-minimo-tipografico-15px">
+/* Regra institucional: nenhum texto abaixo de 15px */
+:root {
+  --fn-size-body: 15px;
+  --fn-size-small: 15px;
+  --fn-size-label: 15px;
+  --fn-size-button: 15px;
+}
+body, p, li, dd, dt, blockquote, small, figcaption,
+.caption, .meta, .company-location,
+.audience-kicker, .thinking-number, .active-search-number,
+.career-node .node-step, .career-node .node-state,
+.experience-hub-kicker, .experience-hub-hint,
+button, .button, a.button, input, select, textarea,
+nav a, .nav a {
+  font-size: 15px !important;
+}
+@media (max-width: 640px) {
+  :root {
+    --fn-size-body: 15px;
+    --fn-size-small: 15px;
+    --fn-size-label: 15px;
+    --fn-size-button: 15px;
+  }
+}
+</style>
+
+
+<style id="formnex-tema-claro-institucional">
+/* FORMNEX — modo claro: fundo leve + cartões azul-petróleo */
+body:not([data-theme="dark"]) {
+  color: #102B3A;
+  background: #F4FAFB;
+}
+body:not([data-theme="dark"]) header {
+  background: rgba(248, 253, 254, .97);
+  border-bottom-color: #C8E1E5;
+}
+body:not([data-theme="dark"]) .hero,
+body:not([data-theme="dark"]) main,
+body:not([data-theme="dark"]) .mobility-section,
+body:not([data-theme="dark"]) .thinking,
+body:not([data-theme="dark"]) .evolution-section,
+body:not([data-theme="dark"]) .active-search-section,
+body:not([data-theme="dark"]) .companies,
+body:not([data-theme="dark"]) .ecosystem-section,
+body:not([data-theme="dark"]) .off-section,
+body:not([data-theme="dark"]) .principle {
+  background-color: #F4FAFB;
+  color: #102B3A;
+}
+
+/* Navegação e títulos em azul profundo */
+body:not([data-theme="dark"]) .menu a,
+body:not([data-theme="dark"]) .brand-wordmark,
+body:not([data-theme="dark"]) .brand-tagline,
+body:not([data-theme="dark"]) h1,
+body:not([data-theme="dark"]) .section-title {
+  color: #102B3A;
+}
+
+/* Cartões institucionais em azul-petróleo */
+body:not([data-theme="dark"]) .audience-option,
+body:not([data-theme="dark"]) .example,
+body:not([data-theme="dark"]) .mobility-item,
+body:not([data-theme="dark"]) .thinking-card,
+body:not([data-theme="dark"]) .career-node,
+body:not([data-theme="dark"]) .active-search-step,
+body:not([data-theme="dark"]) .company-card,
+body:not([data-theme="dark"]) .off-item,
+body:not([data-theme="dark"]) .experience-hub-button,
+body:not([data-theme="dark"]) .intelligence-card,
+body:not([data-theme="dark"]) .radar-panel,
+body:not([data-theme="dark"]) .presence-card,
+body:not([data-theme="dark"]) .presence-profile,
+body:not([data-theme="dark"]) .experience-panel {
+  color: #F2FAFB;
+  background: linear-gradient(155deg, #173B49 0%, #102B38 100%);
+  border: 1px solid #315866;
+  box-shadow: 0 8px 22px rgba(12, 48, 62, .12);
+}
+
+/* Conteúdo interno dos cartões */
+body:not([data-theme="dark"]) .audience-option h2,
+body:not([data-theme="dark"]) .audience-option h3,
+body:not([data-theme="dark"]) .example h2,
+body:not([data-theme="dark"]) .example h3,
+body:not([data-theme="dark"]) .thinking-card h3,
+body:not([data-theme="dark"]) .career-node strong,
+body:not([data-theme="dark"]) .active-search-step h3,
+body:not([data-theme="dark"]) .company-card h3,
+body:not([data-theme="dark"]) .off-item strong,
+body:not([data-theme="dark"]) .experience-hub-button strong,
+body:not([data-theme="dark"]) .presence-card h3,
+body:not([data-theme="dark"]) .presence-profile h3 {
+  color: #F5FBFC;
+}
+body:not([data-theme="dark"]) .audience-option p,
+body:not([data-theme="dark"]) .thinking-card p,
+body:not([data-theme="dark"]) .career-node p,
+body:not([data-theme="dark"]) .active-search-step p,
+body:not([data-theme="dark"]) .company-card p,
+body:not([data-theme="dark"]) .off-item p,
+body:not([data-theme="dark"]) .experience-hub-button small,
+body:not([data-theme="dark"]) .presence-card p,
+body:not([data-theme="dark"]) .presence-profile p {
+  color: #D0E1E5;
+}
+body:not([data-theme="dark"]) .audience-kicker,
+body:not([data-theme="dark"]) .thinking-number,
+body:not([data-theme="dark"]) .node-step,
+body:not([data-theme="dark"]) .node-state,
+body:not([data-theme="dark"]) .active-search-number,
+body:not([data-theme="dark"]) .experience-hub-action {
+  color: #70E5D5;
+}
+
+/* Quadros explicativos permanecem claros para criar respiro visual */
+body:not([data-theme="dark"]) .mobility-box,
+body:not([data-theme="dark"]) .statement,
+body:not([data-theme="dark"]) .principle-content,
+body:not([data-theme="dark"]) .partner-invite,
+body:not([data-theme="dark"]) .evolution-wrap,
+body:not([data-theme="dark"]) .active-search-wrap,
+body:not([data-theme="dark"]) .companies-content,
+body:not([data-theme="dark"]) .ecosystem-wrap {
+  background: #FFFFFF;
+  color: #102B3A;
+  border: 1px solid #C7E0E5;
+  box-shadow: 0 5px 18px rgba(18, 65, 78, .06);
+  border-radius: 18px;
+}
+
+/* Cartões de presença: conversa clara dentro do cartão escuro */
+body:not([data-theme="dark"]) .presence-chat-body,
+body:not([data-theme="dark"]) .presence-profile-block {
+  background: #F2FAFB;
+  color: #102B3A;
+}
+body:not([data-theme="dark"]) .presence-msg,
+body:not([data-theme="dark"]) .presence-entry {
+  color: #102B3A;
+  background: #DCEFF1;
+}
+
+/* Botões com turquesa, mantendo contraste */
+body:not([data-theme="dark"]) .btn-primary,
+body:not([data-theme="dark"]) .presence-btn,
+body:not([data-theme="dark"]) .radar-button,
+body:not([data-theme="dark"]) .job-button {
+  background: #18CDB7;
+  color: #062B32;
+  border-color: #18CDB7;
+}
+body:not([data-theme="dark"]) .btn-secondary,
+body:not([data-theme="dark"]) .audience-secondary-link {
+  background: transparent;
+  color: #EAFBFC;
+  border-color: #65DCCF;
+}
+
+/* Rodapé e faixa de contato */
+body:not([data-theme="dark"]) footer {
+  background: #102B38;
+  color: #F2FAFB;
+}
+body:not([data-theme="dark"]) footer a,
+body:not([data-theme="dark"]) .footer-text,
+body:not([data-theme="dark"]) .footer-contact {
+  color: #E2F2F4;
+}
+body:not([data-theme="dark"]) .theme-toggle {
+  color: #0F766E;
+  border-color: #0F766E;
+}
+</style>
+
 </body>
 </html>
