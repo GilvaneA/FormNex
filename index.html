@@ -5032,352 +5032,313 @@ body:not([data-theme="dark"]) .theme-toggle {
 </style>
 
 
-<style id="formnex-sistema-visual-unificado">
-/* ==========================================================
-   FORMNEX — SISTEMA VISUAL UNIFICADO
-   Referência: cartões claros, contorno azul-petróleo,
-   destaques turquesa e hierarquia tipográfica consistente.
-   Os cartões mantêm contraste nos dois temas.
-   ========================================================== */
+<style id="formnex-todos-os-quadros-padrao-aprovado">
+/* FORMNEX — todos os quadros seguem o modelo aprovado:
+   moldura azul-petróleo + cartões brancos + destaques turquesa. */
 :root {
-  --fn-ink: #123744;
-  --fn-ink-soft: #365A64;
-  --fn-teal: #0F8F83;
-  --fn-turquoise: #35D9C5;
-  --fn-card: #FFFFFF;
-  --fn-card-border: #C9E7E2;
-  --fn-frame: #102B35;
-  --fn-frame-border: #244C57;
-  --fn-page-light: #F1FAF8;
-  --fn-page-dark: #102126;
-  --fn-radius-card: 20px;
-  --fn-radius-panel: 24px;
-  --fn-shadow-card: 0 8px 22px rgba(10, 54, 61, .10);
+  --fn-frame-bg: #102F3A;
+  --fn-frame-edge: #254D58;
+  --fn-card-bg: #FFFFFF;
+  --fn-card-edge: #CBE7E2;
+  --fn-text-main: #123744;
+  --fn-text-body: #365A64;
+  --fn-accent: #0D8F83;
+  --fn-accent-soft: #DDF6F1;
 }
 
-/* Fundos de página por tema: estrutura visual consistente */
-body:not([data-theme="dark"]) {
-  background: var(--fn-page-light) !important;
-  color: var(--fn-ink) !important;
-}
-body[data-theme="dark"] {
-  background: var(--fn-page-dark) !important;
-  color: #EAF5F4 !important;
-}
-body:not([data-theme="dark"]) main,
-body:not([data-theme="dark"]) .hero,
-body:not([data-theme="dark"]) .mobility-section,
-body:not([data-theme="dark"]) .thinking,
-body:not([data-theme="dark"]) .evolution-section,
-body:not([data-theme="dark"]) .off-section,
-body:not([data-theme="dark"]) .active-search-section,
-body:not([data-theme="dark"]) .companies,
-body:not([data-theme="dark"]) .ecosystem-section,
-body:not([data-theme="dark"]) .principle,
-body:not([data-theme="dark"]) .presence-section {
-  color: var(--fn-ink);
-}
-body[data-theme="dark"] main,
-body[data-theme="dark"] .hero,
-body[data-theme="dark"] .mobility-section,
-body[data-theme="dark"] .thinking,
-body[data-theme="dark"] .evolution-section,
-body[data-theme="dark"] .off-section,
-body[data-theme="dark"] .active-search-section,
-body[data-theme="dark"] .companies,
-body[data-theme="dark"] .ecosystem-section,
-body[data-theme="dark"] .principle,
-body[data-theme="dark"] .presence-section {
-  color: #EAF5F4;
-}
-
-/* Moldura de agrupamento: o mesmo princípio visual do quadro aprovado */
-.audience-options--premium,
+/* Molduras dos quadros principais — mesma linguagem visual em todas as seções */
+.mobility-box,
+.presence-wrap,
+.statement,
 .thinking-grid,
-.career-tree,
-.active-search-flow,
-.company-directory,
-.mobility-examples,
-.off-list,
-.experience-hub-buttons {
-  padding: 10px !important;
-  border: 1px solid var(--fn-frame-border) !important;
-  border-radius: var(--fn-radius-panel) !important;
-  background: var(--fn-frame) !important;
-  gap: 14px !important;
+.evolution-wrap,
+.principle-content,
+.experience-hub-inner,
+.off-content,
+.experience-wrap,
+.radar-wrap,
+.ecosystem-wrap,
+.active-search-wrap,
+.companies-content {
+  box-sizing: border-box;
+  border: 1px solid var(--fn-frame-edge) !important;
+  border-radius: 22px !important;
+  background: var(--fn-frame-bg) !important;
+  padding: 12px !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(8, 37, 46, .10) !important;
 }
 
-/* Cartões principais — fundo branco nos dois temas */
-.audience-options--premium .audience-option,
+/* Cabeçalhos e textos introdutórios dentro das molduras */
+.mobility-box > h2,
+.presence-wrap > h2,
+.statement h2,
+.evolution-heading h2,
+.experience-heading h2,
+.radar-heading h2,
+.active-search-wrap > h2,
+.companies-content > h2,
+.thinking .section-title h2,
+.experience-hub-heading h2,
+.principle-content h2,
+.mobility-box > p,
+.presence-lead,
+.statement p,
+.evolution-heading p,
+.experience-heading p,
+.radar-heading p,
+.active-search-lead,
+.companies-content > p,
+.experience-hub-heading p,
+.principle-content p,
+.mobility-box .section-description {
+  color: #F2FAFB !important;
+}
+.mobility-box .kicker,
+.presence-kicker,
+.evolution-kicker,
+.experience-kicker,
+.radar-kicker,
+.active-search-kicker,
+.experience-hub-kicker,
+.principle-label {
+  color: #62E3D3 !important;
+  background: rgba(53,217,197,.10) !important;
+  border: 1px solid rgba(98,227,211,.35) !important;
+  border-radius: 999px !important;
+}
+
+/* Quadros explicativos e cartões internos: fundo branco, texto escuro */
+.statement-content,
+.mobility-item,
+.intelligence-card,
 .thinking-card,
 .career-node,
-.active-search-step,
-.company-card,
-.mobility-item,
-.example,
-.off-item,
-.experience-hub-button,
 .evolution-map,
 .evolution-detail,
-.radar-panel,
+.gap-list,
+.experience-hub-button,
+.off-item,
 .experience-panel,
+.experience-result,
+.experience-output,
+.experience-example,
+.radar-panel,
+.radar-option,
+.radar-question-group,
+.radar-result,
+.radar-suggestion,
+.partner-invite,
+.active-search-step,
+.active-search-consent,
+.company-card,
+.company-vacancies,
+.vacancy-list,
+.presence-profile,
+.presence-profile-block,
+.presence-bottom,
+.detail-block {
+  box-sizing: border-box;
+  background: var(--fn-card-bg) !important;
+  color: var(--fn-text-main) !important;
+  border: 1px solid var(--fn-card-edge) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 16px rgba(9, 48, 56, .08) !important;
+}
+.statement-content,
 .partner-invite,
 .principle-content,
+.active-search-consent,
 .presence-profile,
-.presence-card,
-.statement,
-.intelligence-card {
-  box-sizing: border-box;
-  color: var(--fn-ink) !important;
-  background: var(--fn-card) !important;
-  border: 1px solid var(--fn-card-border) !important;
-  border-radius: var(--fn-radius-card) !important;
-  box-shadow: var(--fn-shadow-card) !important;
+.presence-bottom {
+  padding: 20px !important;
 }
 
-/* Cartões de entrada: preservar a composição aprovada */
-.hero-audience-first .audience-option {
-  min-height: 390px;
-  border-radius: 22px !important;
-  padding: 24px 22px 22px !important;
-}
-.audience-card-top { gap: 14px; }
-.audience-illustration {
-  border-radius: 17px !important;
-  background: #DDF6F1 !important;
-  color: #087E75 !important;
-  border: 1px solid #BCE9E1 !important;
-}
-.audience-kicker {
-  color: #087E75 !important;
-  background: #E4F7F3 !important;
-  border-radius: 999px !important;
-  letter-spacing: .5px;
-}
-.audience-option h2,
-.audience-option h3,
+/* Todos os textos dentro dos cartões brancos mantêm contraste */
+.statement-content h2,
+.statement-content h3,
+.mobility-item h3,
+.mobility-item strong,
 .thinking-card h3,
 .career-node strong,
-.active-search-step h3,
-.company-card h3,
-.off-item strong,
+.evolution-map h3,
+.evolution-detail h3,
+.gap-list h3,
 .experience-hub-button strong,
-.example strong,
-.mobility-item strong {
-  color: var(--fn-ink) !important;
+.off-item strong,
+.experience-panel h3,
+.experience-result h3,
+.radar-panel h3,
+.radar-option strong,
+.radar-question-group h3,
+.partner-invite h3,
+.active-search-step h3,
+.active-search-consent h3,
+.company-card h3,
+.company-vacancies h3,
+.vacancy-list h3,
+.presence-profile h3,
+.presence-profile strong,
+.detail-block h3 {
+  color: var(--fn-text-main) !important;
 }
-.audience-option p,
-.thinking-card p,
-.career-node small,
-.active-search-step p,
-.company-card p,
-.off-item p,
-.experience-hub-button small,
-.example span,
+.statement-content p,
+.mobility-item p,
 .mobility-item span,
-.evolution-detail p,
+.thinking-card p,
+.career-node p,
 .evolution-map p,
-.radar-panel p,
+.evolution-detail p,
+.gap-list p,
+.experience-hub-button p,
+.experience-hub-button small,
+.off-item p,
 .experience-panel p,
+.experience-result p,
+.radar-panel p,
+.radar-option p,
+.radar-question-group p,
 .partner-invite p,
-.principle-content p,
+.active-search-step p,
+.active-search-consent p,
+.company-card p,
+.company-vacancies p,
+.vacancy-list p,
 .presence-profile p,
-.statement p {
-  color: var(--fn-ink-soft) !important;
+.presence-profile small,
+.detail-block p {
+  color: var(--fn-text-body) !important;
 }
-.audience-option .btn,
+
+/* Repetições: moldura escura envolvendo cartões brancos */
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.gap-list,
+.experience-hub-buttons,
+.off-list,
+.experience-examples,
+.experience-questions,
+.radar-options,
+.radar-question-groups,
+.radar-suggestions,
+.active-search-flow,
+.company-directory,
+.vacancy-list,
+.presence-grid {
+  display: grid;
+  gap: 12px !important;
+  padding: 9px !important;
+  border: 1px solid var(--fn-frame-edge) !important;
+  border-radius: 20px !important;
+  background: var(--fn-frame-bg) !important;
+}
+
+/* Elementos interativos e marcadores */
+.thinking-number,
+.active-search-number,
+.experience-hub-number,
+.node-step,
+.node-state,
+.radar-result-label,
+.experience-result-label,
+.vacancy-count {
+  color: #087E75 !important;
+  background: var(--fn-accent-soft) !important;
+  border-radius: 999px !important;
+}
+.experience-hub-button:hover,
+.career-node:hover,
+.active-search-step:hover,
+.company-card:hover,
+.off-item:hover,
+.thinking-card:hover {
+  border-color: #28C7B5 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(13,143,131,.12) !important;
+}
+.career-node[aria-pressed="true"],
+.experience-hub-button[aria-pressed="true"] {
+  background: #EFFBF8 !important;
+  border: 2px solid #18BBAA !important;
+}
+
+/* Ações em turquesa, com contraste adequado */
 .btn-primary,
+.btn,
 .presence-btn,
+.presence-start-btn,
 .experience-button,
 .radar-button,
-.job-button {
+.job-button,
+.partner-invite a,
+.evolution-cta a {
   background: linear-gradient(135deg, #0D9488, #08786F) !important;
   color: #FFFFFF !important;
   border: 1px solid #0D9488 !important;
   border-radius: 12px !important;
   font-weight: 800 !important;
-  min-height: 44px;
 }
-.audience-option .btn-secondary,
 .btn-secondary,
-.audience-secondary-link {
+.audience-secondary-link,
+.experience-button.secondary {
   background: #FFFFFF !important;
   color: #087E75 !important;
   border: 1px solid #37CDBB !important;
   border-radius: 12px !important;
-  min-height: 42px;
-}
-.audience-option .btn:hover,
-.btn-primary:hover,
-.presence-btn:hover,
-.experience-button:hover,
-.radar-button:hover,
-.job-button:hover {
-  filter: brightness(1.06);
-  transform: translateY(-1px);
-}
-.audience-option .btn-secondary:hover,
-.btn-secondary:hover,
-.audience-secondary-link:hover {
-  background: #EAF9F6 !important;
 }
 
-/* Títulos e introduções de cada seção: sem texto apagado */
-.section-title,
-.mobility-box h2,
-.evolution-heading h2,
-.experience-heading h2,
-.presence-wrap > h2,
-.vacancies-heading h2,
-.companies h2,
-.thinking h2,
-.active-search-section h2,
-.off-section h2 {
-  color: var(--fn-ink) !important;
-}
-body[data-theme="dark"] .section-title,
-body[data-theme="dark"] .mobility-box h2,
-body[data-theme="dark"] .evolution-heading h2,
-body[data-theme="dark"] .experience-heading h2,
-body[data-theme="dark"] .presence-wrap > h2,
-body[data-theme="dark"] .vacancies-heading h2,
-body[data-theme="dark"] .companies h2,
-body[data-theme="dark"] .thinking h2,
-body[data-theme="dark"] .active-search-section h2,
-body[data-theme="dark"] .off-section h2 {
-  color: #EAF5F4 !important;
-}
-.evolution-kicker,
-.experience-kicker,
-.presence-kicker,
-.active-search-kicker,
-.radar-kicker,
-.principle-label {
-  color: #087E75 !important;
-  background: #E5F8F4;
-  border-color: #BDE9E1;
-}
-body[data-theme="dark"] .evolution-kicker,
-body[data-theme="dark"] .experience-kicker,
-body[data-theme="dark"] .presence-kicker,
-body[data-theme="dark"] .active-search-kicker,
-body[data-theme="dark"] .radar-kicker,
-body[data-theme="dark"] .principle-label {
-  color: #49DCCB !important;
-  background: rgba(53,217,197,.10);
-  border-color: rgba(53,217,197,.35);
-}
-
-/* Painéis e superfícies de seção */
-.mobility-box,
-.evolution-wrap,
-.experience-wrap,
-.presence-wrap,
-.radar-wrap,
-.active-search-wrap,
-.companies-content,
-.ecosystem-wrap,
-.off-content,
-.principle-content {
-  border-radius: var(--fn-radius-panel);
-}
-body:not([data-theme="dark"]) .mobility-box,
-body:not([data-theme="dark"]) .evolution-wrap,
-body:not([data-theme="dark"]) .experience-wrap,
-body:not([data-theme="dark"]) .radar-wrap,
-body:not([data-theme="dark"]) .active-search-wrap,
-body:not([data-theme="dark"]) .companies-content,
-body:not([data-theme="dark"]) .ecosystem-wrap,
-body:not([data-theme="dark"]) .off-content {
-  background: transparent !important;
-  color: var(--fn-ink) !important;
-}
-body[data-theme="dark"] .mobility-box,
-body[data-theme="dark"] .evolution-wrap,
-body[data-theme="dark"] .experience-wrap,
-body[data-theme="dark"] .radar-wrap,
-body[data-theme="dark"] .active-search-wrap,
-body[data-theme="dark"] .companies-content,
-body[data-theme="dark"] .ecosystem-wrap,
-body[data-theme="dark"] .off-content {
-  background: transparent !important;
-  color: #EAF5F4 !important;
-}
-
-/* Faixas de princípio e convite: conteúdo em superfície branca, texto legível */
-.partner-invite {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 24px !important;
-}
-.partner-invite h3 { color: var(--fn-ink) !important; }
-.partner-invite p { color: var(--fn-ink-soft) !important; }
-.partner-invite a {
-  background: #0D887D !important;
-  color: #FFFFFF !important;
-  border-radius: 12px !important;
-  font-size: 15px !important;
-}
-.principle-content {
-  padding: 26px !important;
-}
-.principle-content h2 { color: var(--fn-ink) !important; }
-.principle-content p { color: var(--fn-ink-soft) !important; }
-
-/* Etapas, números e ícones em turquesa */
-.thinking-number,
-.active-search-number,
-.experience-hub-number,
-.node-step,
-.node-state {
-  color: #087E75 !important;
-}
-.thinking-number,
-.active-search-number,
-.experience-hub-number {
-  background: #DDF6F1 !important;
-  border-radius: 999px;
-}
-.career-node[aria-pressed="true"],
-.experience-hub-button[aria-pressed="true"] {
-  border: 2px solid #18BBAA !important;
-  background: #F0FCF9 !important;
-  box-shadow: 0 0 0 3px rgba(24,187,170,.12) !important;
-}
-
-/* Painel Presença: conversa escura e perfil claro, com limites claros */
+/* Presença: conversa escura é intencional; perfil continua branco */
 .presence-card {
   background: #0D625B !important;
   color: #FFFFFF !important;
-  border-color: #0D625B !important;
+  border: 1px solid #0D625B !important;
 }
 .presence-chat-head { color: #FFFFFF !important; }
-.presence-chat-body {
-  background: #EAF5F1 !important;
-  color: var(--fn-ink) !important;
-}
-.presence-msg,
-.presence-entry {
-  background: #FFFFFF !important;
-  color: var(--fn-ink) !important;
-}
-.presence-profile {
-  background: #FFFFFF !important;
-  color: var(--fn-ink) !important;
-}
-.presence-profile h3,
-.presence-profile strong { color: var(--fn-ink) !important; }
-.presence-profile p,
-.presence-profile small { color: var(--fn-ink-soft) !important; }
+.presence-chat-body { background: #EAF5F1 !important; color: var(--fn-text-main) !important; }
+.presence-msg, .presence-entry { background: #FFFFFF !important; color: var(--fn-text-main) !important; }
 
-/* Tipografia: escala única e mínimo absoluto de 15px */
-body, p, li, small, label, input, textarea, select, button,
-.audience-option p, .thinking-card p, .career-node small,
-.active-search-step p, .company-card p, .off-item p,
-.example span, .mobility-item span, .partner-invite p,
-.presence-lead, .presence-note, .evolution-footnote {
+/* Modo claro: a moldura permanece escura e os cartões brancos */
+body:not([data-theme="dark"]) {
+  background: #F1FAF8 !important;
+  color: var(--fn-text-main) !important;
+}
+body:not([data-theme="dark"]) header {
+  background: rgba(249,255,253,.97) !important;
+  color: var(--fn-text-main) !important;
+}
+
+/* Modo escuro: mesmo padrão de cartões; apenas a página ao redor escurece */
+body[data-theme="dark"] {
+  background: #102126 !important;
+  color: #EAF5F4 !important;
+}
+body[data-theme="dark"] header {
+  background: rgba(13,34,42,.97) !important;
+  color: #EAF5F4 !important;
+}
+body[data-theme="dark"] .mobility-box,
+body[data-theme="dark"] .presence-wrap,
+body[data-theme="dark"] .statement,
+body[data-theme="dark"] .thinking-grid,
+body[data-theme="dark"] .evolution-wrap,
+body[data-theme="dark"] .principle-content,
+body[data-theme="dark"] .experience-hub-inner,
+body[data-theme="dark"] .off-content,
+body[data-theme="dark"] .experience-wrap,
+body[data-theme="dark"] .radar-wrap,
+body[data-theme="dark"] .ecosystem-wrap,
+body[data-theme="dark"] .active-search-wrap,
+body[data-theme="dark"] .companies-content {
+  background: var(--fn-frame-bg) !important;
+  color: #FFFFFF !important;
+}
+
+/* Tipografia global: mínimo 15px, títulos hierarquizados */
+body, p, li, small, label, input, select, textarea, button,
+.mobility-box p, .presence-lead, .statement-content p,
+.thinking-card p, .career-node p, .active-search-step p,
+.company-card p, .off-item p, .partner-invite p {
   font-size: 15px !important;
   line-height: 1.5 !important;
 }
@@ -5385,88 +5346,41 @@ body, p, li, small, label, input, textarea, select, button,
 .thinking-card h3, .career-node strong,
 .active-search-step h3, .company-card h3,
 .off-item strong, .experience-hub-button strong,
-.example strong, .mobility-item strong,
-.partner-invite h3 {
+.mobility-item strong, .partner-invite h3 {
   font-size: 18px !important;
   line-height: 1.3 !important;
 }
-.section-title,
-.mobility-box h2,
-.evolution-heading h2,
-.experience-heading h2,
-.presence-wrap > h2,
-.companies h2,
-.thinking h2 {
+.section-title, .mobility-box > h2,
+.evolution-heading h2, .experience-heading h2,
+.presence-wrap > h2, .companies-content > h2,
+.radar-heading h2, .active-search-wrap > h2 {
   font-size: clamp(25px, 3vw, 34px) !important;
   line-height: 1.2 !important;
 }
-.audience-kicker,
-.evolution-kicker,
-.experience-kicker,
-.presence-kicker,
-.active-search-kicker,
-.radar-kicker,
-.principle-label,
-.node-step,
-.node-state,
-.thinking-number,
-.active-search-number {
-  font-size: 15px !important;
-}
 
-/* Modo escuro: fundos de seção escuros, cartões continuam claros */
-body[data-theme="dark"] .audience-options--premium,
-body[data-theme="dark"] .thinking-grid,
-body[data-theme="dark"] .career-tree,
-body[data-theme="dark"] .active-search-flow,
-body[data-theme="dark"] .company-directory,
-body[data-theme="dark"] .mobility-examples,
-body[data-theme="dark"] .off-list,
-body[data-theme="dark"] .experience-hub-buttons {
-  background: #0C1D25 !important;
-  border-color: #31515C !important;
-}
-body[data-theme="dark"] .statement,
-body[data-theme="dark"] .principle-content {
-  background: #FFFFFF !important;
-  color: var(--fn-ink) !important;
-}
-
-/* Cabeçalho, navegação e rodapé preservam contraste nos dois temas */
-body:not([data-theme="dark"]) header {
-  background: rgba(249,255,253,.97) !important;
-  border-bottom-color: #C9E7E2 !important;
-}
-body[data-theme="dark"] header {
-  background: rgba(13,34,42,.97) !important;
-  border-bottom-color: #31515C !important;
-}
-footer {
-  background: #102B35 !important;
-  color: #FFFFFF !important;
-}
-footer a, .footer-text, .footer-contact { color: #E5F5F2 !important; }
-
-/* Layout adaptável sem sobrepor cartões */
+/* Sem sobreposição: grade responsiva e botões dentro dos próprios cartões */
 @media (max-width: 900px) {
-  .audience-options--premium { grid-template-columns: 1fr 1fr !important; }
-  .thinking-grid { grid-template-columns: 1fr 1fr !important; }
+  .thinking-grid, .career-tree, .active-search-flow,
+  .company-directory, .mobility-examples, .off-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 @media (max-width: 640px) {
-  .audience-options--premium,
-  .thinking-grid,
-  .career-tree,
-  .active-search-flow,
-  .company-directory,
-  .mobility-examples,
-  .off-list,
-  .experience-hub-buttons {
-    grid-template-columns: 1fr !important;
-    padding: 8px !important;
-    gap: 10px !important;
+  .mobility-box, .presence-wrap, .statement,
+  .evolution-wrap, .principle-content, .experience-hub-inner,
+  .off-content, .experience-wrap, .radar-wrap,
+  .ecosystem-wrap, .active-search-wrap, .companies-content {
+    padding: 9px !important;
+    border-radius: 17px !important;
   }
-  .hero-audience-first .audience-option { min-height: 0; }
-  .partner-invite { flex-direction: column; align-items: stretch; }
+  .mobility-examples, .thinking-grid, .career-tree,
+  .gap-list, .experience-hub-buttons, .off-list,
+  .experience-examples, .experience-questions,
+  .radar-options, .radar-question-groups, .radar-suggestions,
+  .active-search-flow, .company-directory, .vacancy-list,
+  .presence-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 </style>
 
