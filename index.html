@@ -5612,5 +5612,419 @@ body, p, li, small, label, input, select, textarea, button,
 }
 </style>
 
+
+<style id="formnex-design-system-v2">
+/* =========================================================
+   FORMNEX — SISTEMA VISUAL INSTITUCIONAL V2
+   Regra única: moldura azul-petróleo + cartões brancos.
+   Aplicação global, independente do tema claro/escuro.
+   ========================================================= */
+:root {
+  --fn-frame: #102F3A;
+  --fn-frame-border: #254D58;
+  --fn-card: #FFFFFF;
+  --fn-card-border: #CBE7E2;
+  --fn-ink: #123744;
+  --fn-muted: #365A64;
+  --fn-teal: #0D887D;
+  --fn-turquoise: #35D9C5;
+  --fn-soft: #E4F7F3;
+  --fn-radius-frame: 22px;
+  --fn-radius-card: 17px;
+  --fn-shadow: 0 6px 18px rgba(9,48,56,.08);
+}
+
+/* Base da página: temas distintos, conteúdo interno consistente */
+html { font-size: 16px; }
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+body:not([data-theme="dark"]) {
+  background: #F1FAF8 !important;
+  color: var(--fn-ink) !important;
+}
+body[data-theme="dark"] {
+  background: #102126 !important;
+  color: #EAF5F4 !important;
+}
+
+/* Molduras de agrupamento: todas compartilham o mesmo padrão */
+.audience-options,
+.audience-options--premium,
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.off-list,
+.experience-examples,
+.experience-hub-buttons,
+.radar-options,
+.radar-question-groups,
+.radar-suggestions,
+.presence-grid,
+.vacancy-list {
+  box-sizing: border-box;
+  display: grid;
+  gap: 12px !important;
+  padding: 10px !important;
+  border: 1px solid var(--fn-frame-border) !important;
+  border-radius: var(--fn-radius-frame) !important;
+  background: var(--fn-frame) !important;
+}
+
+/* Quadros de seção com conteúdo introdutório e cartões internos */
+.mobility-box,
+.presence-wrap,
+.evolution-wrap,
+.experience-wrap,
+.radar-wrap,
+.active-search-wrap,
+.companies-content,
+.ecosystem-wrap,
+.off-content,
+.principle-content,
+.statement {
+  box-sizing: border-box;
+  padding: 12px !important;
+  border: 1px solid var(--fn-frame-border) !important;
+  border-radius: var(--fn-radius-frame) !important;
+  background: var(--fn-frame) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--fn-shadow) !important;
+}
+
+/* Cartão branco: padrão de todas as unidades de conteúdo */
+.audience-option,
+.mobility-item,
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.off-item,
+.experience-hub-button,
+.experience-panel,
+.experience-example,
+.example,
+.intelligence-card,
+.radar-panel,
+.radar-option,
+.partner-invite,
+.active-search-consent,
+.presence-profile,
+.presence-intro-card,
+.statement-content,
+.evolution-heading,
+.detail-block,
+.evolution-map,
+.evolution-bottom,
+.principle-content > div,
+.companies-content > .company-card {
+  box-sizing: border-box;
+  background: var(--fn-card) !important;
+  color: var(--fn-ink) !important;
+  border: 1px solid var(--fn-card-border) !important;
+  border-radius: var(--fn-radius-card) !important;
+  box-shadow: var(--fn-shadow) !important;
+}
+
+/* Cabeçalho de seção: cartão branco dentro da moldura */
+.section-title,
+.evolution-heading,
+.experience-heading,
+.radar-heading,
+.presence-intro-card,
+.mobility-intro,
+.active-search-heading,
+.companies-heading {
+  box-sizing: border-box;
+  padding: 22px 26px !important;
+  margin: 0 0 12px !important;
+  border: 1px solid var(--fn-card-border) !important;
+  border-radius: var(--fn-radius-card) !important;
+  background: var(--fn-card) !important;
+  color: var(--fn-ink) !important;
+  text-align: left !important;
+}
+
+/* Textos e títulos dos cartões brancos: nunca herdam branco do tema escuro */
+.audience-option h1, .audience-option h2, .audience-option h3,
+.mobility-item h1, .mobility-item h2, .mobility-item h3, .mobility-item strong,
+.thinking-card h1, .thinking-card h2, .thinking-card h3,
+.career-node h1, .career-node h2, .career-node h3, .career-node strong,
+.active-search-step h1, .active-search-step h2, .active-search-step h3,
+.company-card h1, .company-card h2, .company-card h3,
+.off-item h1, .off-item h2, .off-item h3, .off-item strong,
+.experience-hub-button h1, .experience-hub-button h2, .experience-hub-button h3,
+.experience-panel h1, .experience-panel h2, .experience-panel h3,
+.example h1, .example h2, .example h3, .example strong,
+.intelligence-card h1, .intelligence-card h2, .intelligence-card h3,
+.radar-panel h1, .radar-panel h2, .radar-panel h3,
+.radar-option h1, .radar-option h2, .radar-option h3,
+.partner-invite h1, .partner-invite h2, .partner-invite h3,
+.active-search-consent h1, .active-search-consent h2, .active-search-consent h3,
+.presence-profile h1, .presence-profile h2, .presence-profile h3,
+.statement-content h1, .statement-content h2, .statement-content h3,
+.evolution-heading h1, .evolution-heading h2, .evolution-heading h3,
+.detail-block h1, .detail-block h2, .detail-block h3, .detail-block h4,
+.evolution-map h1, .evolution-map h2, .evolution-map h3,
+.evolution-bottom h1, .evolution-bottom h2, .evolution-bottom h3,
+.section-title h1, .section-title h2, .section-title h3,
+.evolution-heading h2, .experience-heading h2, .radar-heading h2 {
+  color: var(--fn-ink) !important;
+}
+
+/* Parágrafos dos cartões: cor escura estável nos dois temas */
+.audience-option p, .mobility-item p, .mobility-item span,
+.thinking-card p, .career-node p, .career-node small,
+.active-search-step p, .company-card p, .off-item p,
+.experience-hub-button p, .experience-hub-button small,
+.experience-panel p, .experience-example p, .example p, .example span,
+.intelligence-card p, .radar-panel p, .radar-option p,
+.partner-invite p, .active-search-consent p,
+.presence-profile p, .presence-profile small,
+.statement-content p, .evolution-heading p,
+.detail-block p, .detail-block li, .evolution-map p,
+.evolution-bottom p, .section-title p,
+.section-title .section-description {
+  color: var(--fn-muted) !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+/* Títulos principais e títulos dos cartões */
+.section-title h2,
+.evolution-heading h2,
+.experience-heading h2,
+.radar-heading h2,
+.presence-intro-card h2,
+.mobility-box > h2,
+.companies-content > h2,
+.active-search-wrap > h2 {
+  font-size: clamp(25px, 3vw, 34px) !important;
+  line-height: 1.2 !important;
+  margin-top: 0 !important;
+}
+.audience-option h2, .audience-option h3,
+.mobility-item h3, .thinking-card h3,
+.career-node h3, .career-node strong,
+.active-search-step h3, .company-card h3,
+.off-item h3, .off-item strong,
+.experience-hub-button h3, .experience-hub-button strong,
+.experience-panel h3, .example h3,
+.intelligence-card h3, .radar-panel h3,
+.radar-option h3, .partner-invite h3,
+.detail-block h4, .evolution-map h3 {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+}
+
+/* Etiquetas e marcadores */
+.audience-kicker,
+.evolution-kicker,
+.experience-kicker,
+.presence-kicker,
+.radar-kicker,
+.active-search-kicker,
+.principle-label,
+.thinking-number,
+.active-search-number,
+.experience-hub-number,
+.node-step,
+.node-state {
+  color: #087E75 !important;
+  background: var(--fn-soft) !important;
+  border: 1px solid #BCE9E1 !important;
+  border-radius: 999px !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+/* Ícones e pequenos elementos visuais */
+.audience-illustration,
+.company-card-icon,
+.company-card-top .icon,
+.mobility-icon {
+  background: var(--fn-soft) !important;
+  color: #087E75 !important;
+  border-color: #BCE9E1 !important;
+}
+
+/* Ações: botão principal e secundário */
+button,
+.btn-primary,
+.btn,
+.presence-btn,
+.presence-start-btn,
+.experience-button,
+.radar-button,
+.job-button,
+.partner-invite a,
+.evolution-cta {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+.btn-primary,
+.btn,
+.presence-btn,
+.presence-start-btn,
+.experience-button,
+.radar-button,
+.job-button,
+.partner-invite a,
+.evolution-cta {
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+}
+.btn-secondary,
+.audience-secondary-link {
+  background: #FFFFFF !important;
+  color: #087E75 !important;
+  border: 1px solid #37CDBB !important;
+  border-radius: 12px !important;
+}
+
+/* Mensagens de destaque: branco dentro da moldura, não texto apagado */
+.statement-content {
+  padding: 22px 26px !important;
+}
+.statement-content h2 { margin: 0 0 8px !important; }
+.statement-content p { margin: 0 !important; }
+
+/* Evolução profissional: mapa e evidências também seguem o padrão */
+.evolution-map {
+  padding: 12px !important;
+}
+.evolution-map-top {
+  color: var(--fn-ink) !important;
+}
+.career-node {
+  padding: 16px !important;
+}
+.detail-block {
+  padding: 16px !important;
+  margin-top: 12px !important;
+}
+.gap-list {
+  margin: 8px 0 0 !important;
+  padding: 14px 18px 14px 32px !important;
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+  border: 1px solid var(--fn-card-border) !important;
+  border-radius: 14px !important;
+}
+.gap-list li { color: var(--fn-muted) !important; }
+
+/* Como pensamos: cabeçalho branco + moldura dos quatro cartões */
+.thinking {
+  box-sizing: border-box;
+  padding: 22px !important;
+  border-radius: var(--fn-radius-frame);
+}
+.thinking .section-title {
+  max-width: none !important;
+  width: 100% !important;
+}
+.thinking-grid {
+  grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+}
+.thinking-card {
+  min-width: 0;
+  padding: 18px !important;
+}
+
+/* FormNex Presença: conversa verde escura intencional; perfil branco */
+.presence-card {
+  background: #0D625B !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D625B !important;
+}
+.presence-chat-head { color: #FFFFFF !important; }
+.presence-chat-body {
+  background: #EAF5F1 !important;
+  color: var(--fn-ink) !important;
+}
+.presence-msg, .presence-entry {
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+}
+.presence-profile {
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+}
+
+/* Rodapé preserva fundo institucional */
+footer {
+  background: #102F3A !important;
+  color: #FFFFFF !important;
+}
+footer a { color: #E4F7F3 !important; }
+
+/* Responsividade: não comprimir nem sobrepor cartões */
+@media (max-width: 900px) {
+  .thinking-grid,
+  .career-tree,
+  .active-search-flow,
+  .company-directory,
+  .mobility-examples,
+  .off-list,
+  .experience-examples,
+  .experience-hub-buttons {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+@media (max-width: 640px) {
+  .thinking-grid,
+  .career-tree,
+  .active-search-flow,
+  .company-directory,
+  .mobility-examples,
+  .off-list,
+  .experience-examples,
+  .experience-hub-buttons,
+  .radar-options,
+  .presence-grid,
+  .vacancy-list {
+    grid-template-columns: 1fr !important;
+  }
+  .thinking { padding: 12px !important; }
+  .section-title,
+  .evolution-heading,
+  .experience-heading,
+  .radar-heading,
+  .presence-intro-card,
+  .mobility-intro,
+  .active-search-heading,
+  .companies-heading {
+    padding: 18px !important;
+  }
+  .mobility-box,
+  .presence-wrap,
+  .evolution-wrap,
+  .experience-wrap,
+  .radar-wrap,
+  .active-search-wrap,
+  .companies-content,
+  .ecosystem-wrap,
+  .off-content,
+  .principle-content,
+  .statement {
+    padding: 9px !important;
+  }
+}
+
+/* Regra absoluta de legibilidade */
+body, p, li, small, label, input, select, textarea, button,
+figcaption, .caption, .meta {
+  font-size: 15px !important;
+}
+</style>
+
 </body>
 </html>
