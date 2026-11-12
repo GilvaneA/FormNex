@@ -5031,5 +5031,444 @@ body:not([data-theme="dark"]) .theme-toggle {
 }
 </style>
 
+
+<style id="formnex-sistema-visual-unificado">
+/* ==========================================================
+   FORMNEX — SISTEMA VISUAL UNIFICADO
+   Referência: cartões claros, contorno azul-petróleo,
+   destaques turquesa e hierarquia tipográfica consistente.
+   Os cartões mantêm contraste nos dois temas.
+   ========================================================== */
+:root {
+  --fn-ink: #123744;
+  --fn-ink-soft: #365A64;
+  --fn-teal: #0F8F83;
+  --fn-turquoise: #35D9C5;
+  --fn-card: #FFFFFF;
+  --fn-card-border: #C9E7E2;
+  --fn-frame: #102B35;
+  --fn-frame-border: #244C57;
+  --fn-page-light: #F1FAF8;
+  --fn-page-dark: #102126;
+  --fn-radius-card: 20px;
+  --fn-radius-panel: 24px;
+  --fn-shadow-card: 0 8px 22px rgba(10, 54, 61, .10);
+}
+
+/* Fundos de página por tema: estrutura visual consistente */
+body:not([data-theme="dark"]) {
+  background: var(--fn-page-light) !important;
+  color: var(--fn-ink) !important;
+}
+body[data-theme="dark"] {
+  background: var(--fn-page-dark) !important;
+  color: #EAF5F4 !important;
+}
+body:not([data-theme="dark"]) main,
+body:not([data-theme="dark"]) .hero,
+body:not([data-theme="dark"]) .mobility-section,
+body:not([data-theme="dark"]) .thinking,
+body:not([data-theme="dark"]) .evolution-section,
+body:not([data-theme="dark"]) .off-section,
+body:not([data-theme="dark"]) .active-search-section,
+body:not([data-theme="dark"]) .companies,
+body:not([data-theme="dark"]) .ecosystem-section,
+body:not([data-theme="dark"]) .principle,
+body:not([data-theme="dark"]) .presence-section {
+  color: var(--fn-ink);
+}
+body[data-theme="dark"] main,
+body[data-theme="dark"] .hero,
+body[data-theme="dark"] .mobility-section,
+body[data-theme="dark"] .thinking,
+body[data-theme="dark"] .evolution-section,
+body[data-theme="dark"] .off-section,
+body[data-theme="dark"] .active-search-section,
+body[data-theme="dark"] .companies,
+body[data-theme="dark"] .ecosystem-section,
+body[data-theme="dark"] .principle,
+body[data-theme="dark"] .presence-section {
+  color: #EAF5F4;
+}
+
+/* Moldura de agrupamento: o mesmo princípio visual do quadro aprovado */
+.audience-options--premium,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.mobility-examples,
+.off-list,
+.experience-hub-buttons {
+  padding: 10px !important;
+  border: 1px solid var(--fn-frame-border) !important;
+  border-radius: var(--fn-radius-panel) !important;
+  background: var(--fn-frame) !important;
+  gap: 14px !important;
+}
+
+/* Cartões principais — fundo branco nos dois temas */
+.audience-options--premium .audience-option,
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.mobility-item,
+.example,
+.off-item,
+.experience-hub-button,
+.evolution-map,
+.evolution-detail,
+.radar-panel,
+.experience-panel,
+.partner-invite,
+.principle-content,
+.presence-profile,
+.presence-card,
+.statement,
+.intelligence-card {
+  box-sizing: border-box;
+  color: var(--fn-ink) !important;
+  background: var(--fn-card) !important;
+  border: 1px solid var(--fn-card-border) !important;
+  border-radius: var(--fn-radius-card) !important;
+  box-shadow: var(--fn-shadow-card) !important;
+}
+
+/* Cartões de entrada: preservar a composição aprovada */
+.hero-audience-first .audience-option {
+  min-height: 390px;
+  border-radius: 22px !important;
+  padding: 24px 22px 22px !important;
+}
+.audience-card-top { gap: 14px; }
+.audience-illustration {
+  border-radius: 17px !important;
+  background: #DDF6F1 !important;
+  color: #087E75 !important;
+  border: 1px solid #BCE9E1 !important;
+}
+.audience-kicker {
+  color: #087E75 !important;
+  background: #E4F7F3 !important;
+  border-radius: 999px !important;
+  letter-spacing: .5px;
+}
+.audience-option h2,
+.audience-option h3,
+.thinking-card h3,
+.career-node strong,
+.active-search-step h3,
+.company-card h3,
+.off-item strong,
+.experience-hub-button strong,
+.example strong,
+.mobility-item strong {
+  color: var(--fn-ink) !important;
+}
+.audience-option p,
+.thinking-card p,
+.career-node small,
+.active-search-step p,
+.company-card p,
+.off-item p,
+.experience-hub-button small,
+.example span,
+.mobility-item span,
+.evolution-detail p,
+.evolution-map p,
+.radar-panel p,
+.experience-panel p,
+.partner-invite p,
+.principle-content p,
+.presence-profile p,
+.statement p {
+  color: var(--fn-ink-soft) !important;
+}
+.audience-option .btn,
+.btn-primary,
+.presence-btn,
+.experience-button,
+.radar-button,
+.job-button {
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  min-height: 44px;
+}
+.audience-option .btn-secondary,
+.btn-secondary,
+.audience-secondary-link {
+  background: #FFFFFF !important;
+  color: #087E75 !important;
+  border: 1px solid #37CDBB !important;
+  border-radius: 12px !important;
+  min-height: 42px;
+}
+.audience-option .btn:hover,
+.btn-primary:hover,
+.presence-btn:hover,
+.experience-button:hover,
+.radar-button:hover,
+.job-button:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+.audience-option .btn-secondary:hover,
+.btn-secondary:hover,
+.audience-secondary-link:hover {
+  background: #EAF9F6 !important;
+}
+
+/* Títulos e introduções de cada seção: sem texto apagado */
+.section-title,
+.mobility-box h2,
+.evolution-heading h2,
+.experience-heading h2,
+.presence-wrap > h2,
+.vacancies-heading h2,
+.companies h2,
+.thinking h2,
+.active-search-section h2,
+.off-section h2 {
+  color: var(--fn-ink) !important;
+}
+body[data-theme="dark"] .section-title,
+body[data-theme="dark"] .mobility-box h2,
+body[data-theme="dark"] .evolution-heading h2,
+body[data-theme="dark"] .experience-heading h2,
+body[data-theme="dark"] .presence-wrap > h2,
+body[data-theme="dark"] .vacancies-heading h2,
+body[data-theme="dark"] .companies h2,
+body[data-theme="dark"] .thinking h2,
+body[data-theme="dark"] .active-search-section h2,
+body[data-theme="dark"] .off-section h2 {
+  color: #EAF5F4 !important;
+}
+.evolution-kicker,
+.experience-kicker,
+.presence-kicker,
+.active-search-kicker,
+.radar-kicker,
+.principle-label {
+  color: #087E75 !important;
+  background: #E5F8F4;
+  border-color: #BDE9E1;
+}
+body[data-theme="dark"] .evolution-kicker,
+body[data-theme="dark"] .experience-kicker,
+body[data-theme="dark"] .presence-kicker,
+body[data-theme="dark"] .active-search-kicker,
+body[data-theme="dark"] .radar-kicker,
+body[data-theme="dark"] .principle-label {
+  color: #49DCCB !important;
+  background: rgba(53,217,197,.10);
+  border-color: rgba(53,217,197,.35);
+}
+
+/* Painéis e superfícies de seção */
+.mobility-box,
+.evolution-wrap,
+.experience-wrap,
+.presence-wrap,
+.radar-wrap,
+.active-search-wrap,
+.companies-content,
+.ecosystem-wrap,
+.off-content,
+.principle-content {
+  border-radius: var(--fn-radius-panel);
+}
+body:not([data-theme="dark"]) .mobility-box,
+body:not([data-theme="dark"]) .evolution-wrap,
+body:not([data-theme="dark"]) .experience-wrap,
+body:not([data-theme="dark"]) .radar-wrap,
+body:not([data-theme="dark"]) .active-search-wrap,
+body:not([data-theme="dark"]) .companies-content,
+body:not([data-theme="dark"]) .ecosystem-wrap,
+body:not([data-theme="dark"]) .off-content {
+  background: transparent !important;
+  color: var(--fn-ink) !important;
+}
+body[data-theme="dark"] .mobility-box,
+body[data-theme="dark"] .evolution-wrap,
+body[data-theme="dark"] .experience-wrap,
+body[data-theme="dark"] .radar-wrap,
+body[data-theme="dark"] .active-search-wrap,
+body[data-theme="dark"] .companies-content,
+body[data-theme="dark"] .ecosystem-wrap,
+body[data-theme="dark"] .off-content {
+  background: transparent !important;
+  color: #EAF5F4 !important;
+}
+
+/* Faixas de princípio e convite: conteúdo em superfície branca, texto legível */
+.partner-invite {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px !important;
+}
+.partner-invite h3 { color: var(--fn-ink) !important; }
+.partner-invite p { color: var(--fn-ink-soft) !important; }
+.partner-invite a {
+  background: #0D887D !important;
+  color: #FFFFFF !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+}
+.principle-content {
+  padding: 26px !important;
+}
+.principle-content h2 { color: var(--fn-ink) !important; }
+.principle-content p { color: var(--fn-ink-soft) !important; }
+
+/* Etapas, números e ícones em turquesa */
+.thinking-number,
+.active-search-number,
+.experience-hub-number,
+.node-step,
+.node-state {
+  color: #087E75 !important;
+}
+.thinking-number,
+.active-search-number,
+.experience-hub-number {
+  background: #DDF6F1 !important;
+  border-radius: 999px;
+}
+.career-node[aria-pressed="true"],
+.experience-hub-button[aria-pressed="true"] {
+  border: 2px solid #18BBAA !important;
+  background: #F0FCF9 !important;
+  box-shadow: 0 0 0 3px rgba(24,187,170,.12) !important;
+}
+
+/* Painel Presença: conversa escura e perfil claro, com limites claros */
+.presence-card {
+  background: #0D625B !important;
+  color: #FFFFFF !important;
+  border-color: #0D625B !important;
+}
+.presence-chat-head { color: #FFFFFF !important; }
+.presence-chat-body {
+  background: #EAF5F1 !important;
+  color: var(--fn-ink) !important;
+}
+.presence-msg,
+.presence-entry {
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+}
+.presence-profile {
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+}
+.presence-profile h3,
+.presence-profile strong { color: var(--fn-ink) !important; }
+.presence-profile p,
+.presence-profile small { color: var(--fn-ink-soft) !important; }
+
+/* Tipografia: escala única e mínimo absoluto de 15px */
+body, p, li, small, label, input, textarea, select, button,
+.audience-option p, .thinking-card p, .career-node small,
+.active-search-step p, .company-card p, .off-item p,
+.example span, .mobility-item span, .partner-invite p,
+.presence-lead, .presence-note, .evolution-footnote {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+.audience-option h2, .audience-option h3,
+.thinking-card h3, .career-node strong,
+.active-search-step h3, .company-card h3,
+.off-item strong, .experience-hub-button strong,
+.example strong, .mobility-item strong,
+.partner-invite h3 {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+}
+.section-title,
+.mobility-box h2,
+.evolution-heading h2,
+.experience-heading h2,
+.presence-wrap > h2,
+.companies h2,
+.thinking h2 {
+  font-size: clamp(25px, 3vw, 34px) !important;
+  line-height: 1.2 !important;
+}
+.audience-kicker,
+.evolution-kicker,
+.experience-kicker,
+.presence-kicker,
+.active-search-kicker,
+.radar-kicker,
+.principle-label,
+.node-step,
+.node-state,
+.thinking-number,
+.active-search-number {
+  font-size: 15px !important;
+}
+
+/* Modo escuro: fundos de seção escuros, cartões continuam claros */
+body[data-theme="dark"] .audience-options--premium,
+body[data-theme="dark"] .thinking-grid,
+body[data-theme="dark"] .career-tree,
+body[data-theme="dark"] .active-search-flow,
+body[data-theme="dark"] .company-directory,
+body[data-theme="dark"] .mobility-examples,
+body[data-theme="dark"] .off-list,
+body[data-theme="dark"] .experience-hub-buttons {
+  background: #0C1D25 !important;
+  border-color: #31515C !important;
+}
+body[data-theme="dark"] .statement,
+body[data-theme="dark"] .principle-content {
+  background: #FFFFFF !important;
+  color: var(--fn-ink) !important;
+}
+
+/* Cabeçalho, navegação e rodapé preservam contraste nos dois temas */
+body:not([data-theme="dark"]) header {
+  background: rgba(249,255,253,.97) !important;
+  border-bottom-color: #C9E7E2 !important;
+}
+body[data-theme="dark"] header {
+  background: rgba(13,34,42,.97) !important;
+  border-bottom-color: #31515C !important;
+}
+footer {
+  background: #102B35 !important;
+  color: #FFFFFF !important;
+}
+footer a, .footer-text, .footer-contact { color: #E5F5F2 !important; }
+
+/* Layout adaptável sem sobrepor cartões */
+@media (max-width: 900px) {
+  .audience-options--premium { grid-template-columns: 1fr 1fr !important; }
+  .thinking-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 640px) {
+  .audience-options--premium,
+  .thinking-grid,
+  .career-tree,
+  .active-search-flow,
+  .company-directory,
+  .mobility-examples,
+  .off-list,
+  .experience-hub-buttons {
+    grid-template-columns: 1fr !important;
+    padding: 8px !important;
+    gap: 10px !important;
+  }
+  .hero-audience-first .audience-option { min-height: 0; }
+  .partner-invite { flex-direction: column; align-items: stretch; }
+}
+</style>
+
 </body>
 </html>
