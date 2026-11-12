@@ -6026,5 +6026,154 @@ figcaption, .caption, .meta {
 }
 </style>
 
+
+<style id="formnex-ajustes-finais-contraste">
+/* 1) Nota explicativa da evolução: recuperar contraste e leitura */
+#evolucao-profissional .evolution-footnote {
+  background: #FFFFFF !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 16px !important;
+  color: #365A64 !important;
+  padding: 18px 20px !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.07) !important;
+}
+#evolucao-profissional .evolution-footnote strong {
+  color: #123744 !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 7px !important;
+}
+
+/* Os quadros de desenvolvimento e evidências permanecem cartões claros */
+#evolucao-profissional .detail-block {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  padding: 16px !important;
+}
+#evolucao-profissional .detail-block h4 {
+  color: #123744 !important;
+  font-size: 18px !important;
+  margin: 0 0 10px !important;
+}
+#evolucao-profissional .gap-list {
+  background: #F7FCFB !important;
+  border: 1px solid #CBE7E2 !important;
+  color: #365A64 !important;
+}
+#evolucao-profissional .gap-list li {
+  color: #365A64 !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+#evolucao-profissional #roleEvidence {
+  color: #365A64 !important;
+  font-size: 15px !important;
+}
+
+/* 2) Como pensamos: seção escura, cabeçalho branco e cartões brancos */
+#como-pensamos {
+  background: #102F3A !important;
+  color: #FFFFFF !important;
+  padding: 24px 20px !important;
+}
+#como-pensamos > .section-title {
+  display: block !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto 12px !important;
+  padding: 22px 26px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.08) !important;
+  text-align: left !important;
+}
+#como-pensamos > .section-title h2 {
+  color: #123744 !important;
+  font-size: clamp(25px, 3vw, 32px) !important;
+  margin: 0 0 8px !important;
+  text-align: left !important;
+}
+#como-pensamos > .section-title p {
+  color: #365A64 !important;
+  font-size: 15px !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+#como-pensamos > .thinking-grid {
+  max-width: 1200px;
+  margin: 0 auto !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  background: #102F3A !important;
+  border: 1px solid #254D58 !important;
+  border-radius: 22px !important;
+  padding: 10px !important;
+}
+#como-pensamos .thinking-card {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+}
+#como-pensamos .thinking-card h3 {
+  color: #123744 !important;
+}
+#como-pensamos .thinking-card p {
+  color: #365A64 !important;
+}
+
+/* 3) Cartão de oportunidade: manter o visual bonito, reforçar contraste */
+.intelligence-card {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 6px 18px rgba(9,48,56,.08) !important;
+  padding: 20px !important;
+}
+.intelligence-card .card-label { color: #087E75 !important; }
+.intelligence-card .job-title { color: #123744 !important; }
+.intelligence-card .company { color: #365A64 !important; }
+.intelligence-card .compatibility {
+  background: #EAF9F6 !important;
+  border-radius: 12px !important;
+}
+.intelligence-card .compatibility small { color: #365A64 !important; }
+.intelligence-card .compatibility strong { color: #087E75 !important; }
+.intelligence-card .mobility-item {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 12px !important;
+}
+.intelligence-card .mobility-item strong { color: #123744 !important; }
+.intelligence-card .mobility-item span { color: #365A64 !important; }
+.intelligence-card .job-button {
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  border-radius: 12px !important;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 760px) {
+  #como-pensamos { padding: 14px 10px !important; }
+  #como-pensamos > .thinking-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+@media (max-width: 520px) {
+  #como-pensamos > .thinking-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #como-pensamos > .section-title {
+    padding: 18px !important;
+  }
+}
+</style>
+
 </body>
 </html>
