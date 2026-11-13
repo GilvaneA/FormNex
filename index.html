@@ -7022,5 +7022,164 @@ table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto;
 }
 </style>
 
+
+<style id="formnex-path-card-actions-visible">
+/* Cartões 1, 2 e 3 — ações Conhecer, Explorar e Descobrir */
+.path-card .path-link,
+.path-card a.path-link,
+.path-card a[href] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  align-self: flex-start !important;
+  min-width: 132px !important;
+  min-height: 46px !important;
+  margin-top: auto !important;
+  padding: 11px 20px !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 11px !important;
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  color: #FFFFFF !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  box-shadow: 0 5px 13px rgba(8,126,117,.16) !important;
+}
+.path-card .path-link *,
+.path-card a.path-link *,
+.path-card a[href] * {
+  color: #FFFFFF !important;
+}
+.path-card .path-link:hover,
+.path-card a.path-link:hover,
+.path-card a[href]:hover {
+  background: #075F58 !important;
+  border-color: #075F58 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+.path-card .path-link:focus-visible,
+.path-card a.path-link:focus-visible,
+.path-card a[href]:focus-visible {
+  outline: 3px solid #67E8D2 !important;
+  outline-offset: 3px !important;
+}
+@media (max-width: 640px) {
+  .path-card .path-link,
+  .path-card a.path-link,
+  .path-card a[href] {
+    width: 100% !important;
+    align-self: stretch !important;
+    min-height: 48px !important;
+  }
+}
+</style>
+
+
+<style id="formnex-ajustes-legibilidade-final">
+/* FormNex Presença — etapas com leitura confortável */
+.presence-bottom .presence-step {
+  padding: 18px 20px !important;
+  min-height: 112px !important;
+  border: 1px solid #B9DFDA !important;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+}
+.presence-bottom .presence-step b {
+  display: block !important;
+  color: #087E75 !important;
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 9px !important;
+}
+.presence-bottom .presence-step span {
+  display: block !important;
+  color: #365A64 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 640px) {
+  .presence-bottom { gap: 12px !important; }
+  .presence-bottom .presence-step { padding: 16px !important; min-height: 0 !important; }
+  .presence-bottom .presence-step b { font-size: 17px !important; }
+  .presence-bottom .presence-step span { font-size: 15px !important; }
+}
+
+/* Vivências e capacidades — rótulos Conhecer, Explorar e Descobrir */
+.experience-hub-button .experience-hub-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  align-self: flex-start !important;
+  margin-top: 16px !important;
+  padding: 9px 15px !important;
+  min-height: 40px !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 10px !important;
+  background: #E4F7F3 !important;
+  color: #075F58 !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.experience-hub-button .experience-hub-action span {
+  color: #075F58 !important;
+  font-weight: 900 !important;
+}
+.experience-hub-button:hover .experience-hub-action,
+.experience-hub-button[aria-pressed="true"] .experience-hub-action {
+  background: #0D9488 !important;
+  color: #FFFFFF !important;
+}
+.experience-hub-button:hover .experience-hub-action span,
+.experience-hub-button[aria-pressed="true"] .experience-hub-action span {
+  color: #FFFFFF !important;
+}
+
+/* Faixas verde-petróleo/azuis: títulos e conteúdo sempre brancos */
+.detail-block > h4,
+.detail-block h4,
+.evolution-map-top,
+.evolution-map-top *,
+.presence-chat-head,
+.presence-chat-head *,
+.experience-hub-panel > h3,
+.experience-hub-panel > h3 *,
+.experience-panel > h3,
+.experience-panel > h3 *,
+.radar-panel > h3,
+.radar-panel > h3 *,
+.radar-question-group > h3,
+.radar-question-group > h3 *,
+.active-search-consent > h3,
+.active-search-consent > h3 *,
+.company-vacancies > h3,
+.company-vacancies > h3 * {
+  color: #FFFFFF !important;
+}
+.detail-block > h4,
+.detail-block h4 {
+  background: #0D625B !important;
+  border: 1px solid #0D625B !important;
+  border-radius: 9px !important;
+  padding: 12px 15px !important;
+  margin: 0 0 12px !important;
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+}
+.evolution-map-top {
+  background: #0D625B !important;
+  border-radius: 9px !important;
+  padding: 12px 15px !important;
+}
+</style>
+
 </body>
 </html>
