@@ -7181,5 +7181,81 @@ table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto;
 }
 </style>
 
+
+<style id="formnex-cabecalho-vivencias-compacto">
+/* Cabeçalho compacto: libera espaço para os três caminhos */
+.experience-hub {
+  padding-top: 28px !important;
+  padding-bottom: 30px !important;
+}
+.experience-hub-inner {
+  width: min(100%, 1120px) !important;
+}
+.experience-hub-heading {
+  max-width: 100% !important;
+  margin: 0 auto 18px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  column-gap: 24px !important;
+  row-gap: 7px !important;
+  align-items: center !important;
+  text-align: left !important;
+}
+.experience-hub-kicker {
+  grid-column: 1 / -1 !important;
+  justify-self: center !important;
+  margin: 0 0 2px !important;
+  padding: 5px 11px !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+}
+.experience-hub-heading h2 {
+  margin: 0 !important;
+  font-size: clamp(20px, 2.2vw, 25px) !important;
+  line-height: 1.25 !important;
+  text-align: right !important;
+}
+.experience-hub-heading p {
+  max-width: none !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+.experience-hub-buttons {
+  gap: 12px !important;
+}
+.experience-hub-button {
+  min-height: 190px !important;
+}
+@media (max-width: 700px) {
+  .experience-hub {
+    padding: 22px 16px 24px !important;
+  }
+  .experience-hub-heading {
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: 7px !important;
+    margin-bottom: 14px !important;
+    text-align: center !important;
+  }
+  .experience-hub-kicker {
+    grid-column: 1 !important;
+    justify-self: center !important;
+    font-size: 15px !important;
+  }
+  .experience-hub-heading h2 {
+    text-align: center !important;
+    font-size: 21px !important;
+  }
+  .experience-hub-heading p {
+    text-align: center !important;
+    font-size: 15px !important;
+  }
+  .experience-hub-button {
+    min-height: 0 !important;
+  }
+}
+</style>
+
 </body>
 </html>
