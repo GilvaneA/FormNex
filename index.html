@@ -6554,5 +6554,277 @@ body[data-theme="dark"] #radar-potencial {
 }
 </style>
 
+
+<style id="formnex-padrao-presenca-para-todos">
+/* =========================================================
+   FORMNEX — PADRÃO DE REFERÊNCIA: PRESENÇA
+   Cabeçalho verde-petróleo, área de conteúdo verde-clara,
+   cartões brancos, texto azul-marinho e destaque turquesa.
+   Aplicação consistente aos painéis e cartões do site.
+   ========================================================= */
+:root {
+  --fn-presence-header: #0D625B;
+  --fn-presence-frame: #123B46;
+  --fn-presence-surface: #EAF5F1;
+  --fn-presence-card: #FFFFFF;
+  --fn-presence-border: #D3E8E2;
+  --fn-presence-ink: #123744;
+  --fn-presence-muted: #365A64;
+  --fn-presence-accent: #0D9488;
+  --fn-presence-accent-soft: #DDF6F1;
+}
+
+/* Painéis interativos: moldura, cabeçalho e área interna */
+.presence-card,
+.experience-hub-panel,
+.experience-panel,
+.radar-panel,
+.radar-question-group,
+.active-search-consent,
+.company-vacancies,
+.vacancy-list,
+.evolution-map,
+.detail-block {
+  border: 1px solid var(--fn-presence-border) !important;
+  border-radius: 17px !important;
+  overflow: hidden;
+  background: var(--fn-presence-surface) !important;
+  color: var(--fn-presence-ink) !important;
+  box-shadow: 0 4px 14px rgba(12,55,65,.07) !important;
+}
+
+/* Cabeçalhos existentes nesses painéis */
+.presence-chat-head,
+.experience-hub-panel > h3,
+.experience-panel > h3,
+.radar-panel > h3,
+.radar-question-group > h3,
+.active-search-consent > h3,
+.company-vacancies > h3,
+.evolution-map-top,
+.detail-block > h4 {
+  background: var(--fn-presence-header) !important;
+  color: #FFFFFF !important;
+  padding: 15px 18px !important;
+  border: 0 !important;
+}
+.presence-chat-head *,
+.experience-hub-panel > h3 *,
+.experience-panel > h3 *,
+.radar-panel > h3 *,
+.radar-question-group > h3 *,
+.active-search-consent > h3 *,
+.company-vacancies > h3 *,
+.evolution-map-top *,
+.detail-block > h4 * {
+  color: #FFFFFF !important;
+}
+
+/* Áreas internas dos painéis */
+.presence-chat-body,
+.experience-hub-panel-body,
+.experience-panel-body,
+.radar-panel-body,
+.radar-question-body,
+.active-search-consent-body,
+.company-vacancies-body {
+  background: var(--fn-presence-surface) !important;
+  color: var(--fn-presence-ink) !important;
+  padding: 16px !important;
+}
+
+/* Cartões de conteúdo internos: branco e com bastante respiro */
+.presence-msg,
+.presence-entry,
+.presence-profile,
+.experience-hub-button,
+.experience-result,
+.experience-output,
+.experience-example,
+.radar-option,
+.radar-result,
+.radar-suggestion,
+.company-card,
+.vacancy-item,
+.detail-block,
+.evolution-map .career-node,
+.evolution-map .evolution-node {
+  background: var(--fn-presence-card) !important;
+  color: var(--fn-presence-ink) !important;
+  border: 1px solid var(--fn-presence-border) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 3px 10px rgba(12,55,65,.055) !important;
+}
+
+/* Textos dos cartões — contraste constante em claro e escuro */
+.presence-msg,
+.presence-entry,
+.presence-profile,
+.experience-hub-button,
+.experience-result,
+.experience-output,
+.experience-example,
+.radar-option,
+.radar-result,
+.radar-suggestion,
+.company-card,
+.vacancy-item,
+.detail-block,
+.evolution-map .career-node,
+.evolution-map .evolution-node {
+  color: var(--fn-presence-ink) !important;
+}
+.presence-msg,
+.presence-entry {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+  padding: 17px 20px !important;
+}
+.presence-msg small,
+.presence-entry small {
+  display: block;
+  color: #6B8790 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+}
+
+/* Títulos e descrições dentro dos cartões */
+.experience-hub-button strong,
+.experience-result strong,
+.radar-option strong,
+.radar-result strong,
+.company-card strong,
+.vacancy-item strong,
+.detail-block h4,
+.evolution-map .career-node strong {
+  color: var(--fn-presence-ink) !important;
+}
+.experience-hub-button p,
+.experience-result p,
+.experience-output p,
+.experience-example p,
+.radar-option p,
+.radar-result p,
+.radar-suggestion p,
+.company-card p,
+.vacancy-item p,
+.detail-block p,
+.evolution-map .career-node p {
+  color: var(--fn-presence-muted) !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+/* Cartões gerais: a mesma superfície branca, sem criar faixas escuras enormes */
+.audience-option,
+.thinking-card,
+.career-node,
+.active-search-step,
+.off-item,
+.mobility-item,
+.intelligence-card,
+.partner-invite,
+.statement-content,
+.evolution-heading,
+.presence-intro-card {
+  background: var(--fn-presence-card) !important;
+  color: var(--fn-presence-ink) !important;
+  border: 1px solid var(--fn-presence-border) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 4px 14px rgba(12,55,65,.07) !important;
+}
+.audience-option h2, .audience-option h3,
+.thinking-card h3, .career-node h3,
+.active-search-step h3, .off-item h3,
+.mobility-item h3, .intelligence-card .job-title,
+.partner-invite h3, .statement-content h2,
+.evolution-heading h2, .presence-intro-card h2 {
+  color: var(--fn-presence-ink) !important;
+}
+.audience-option p, .thinking-card p, .career-node p,
+.active-search-step p, .off-item p, .mobility-item p,
+.intelligence-card .company, .partner-invite p,
+.statement-content p, .evolution-heading p,
+.presence-intro-card p {
+  color: var(--fn-presence-muted) !important;
+}
+
+/* Identificadores, etiquetas e pequenos destaques */
+.audience-kicker,
+.presence-kicker,
+.evolution-kicker,
+.experience-kicker,
+.radar-kicker,
+.active-search-kicker,
+.principle-label,
+.thinking-number,
+.active-search-number,
+.experience-hub-number,
+.node-step,
+.node-state {
+  color: #087E75 !important;
+  background: var(--fn-presence-accent-soft) !important;
+  border: 1px solid #BCE9E1 !important;
+  border-radius: 999px !important;
+}
+
+/* Botões: verde institucional e texto branco */
+.btn-primary, .presence-btn, .presence-start-btn,
+.experience-button, .radar-button, .job-button,
+.partner-invite a, .evolution-cta a {
+  background: linear-gradient(135deg, #0D9488, #08786F) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+/* Modo escuro: muda a página ao redor, não o contraste dos cartões */
+body[data-theme="dark"] .presence-msg,
+body[data-theme="dark"] .presence-entry,
+body[data-theme="dark"] .presence-profile,
+body[data-theme="dark"] .experience-hub-button,
+body[data-theme="dark"] .experience-result,
+body[data-theme="dark"] .experience-output,
+body[data-theme="dark"] .experience-example,
+body[data-theme="dark"] .radar-option,
+body[data-theme="dark"] .radar-result,
+body[data-theme="dark"] .radar-suggestion,
+body[data-theme="dark"] .company-card,
+body[data-theme="dark"] .vacancy-item,
+body[data-theme="dark"] .detail-block,
+body[data-theme="dark"] .audience-option,
+body[data-theme="dark"] .thinking-card,
+body[data-theme="dark"] .career-node,
+body[data-theme="dark"] .active-search-step,
+body[data-theme="dark"] .off-item,
+body[data-theme="dark"] .mobility-item,
+body[data-theme="dark"] .intelligence-card,
+body[data-theme="dark"] .partner-invite,
+body[data-theme="dark"] .statement-content,
+body[data-theme="dark"] .evolution-heading,
+body[data-theme="dark"] .presence-intro-card {
+  background: #FFFFFF !important;
+  color: var(--fn-presence-ink) !important;
+}
+
+/* Ajustes de leitura e adaptação para telas menores */
+@media (max-width: 640px) {
+  .presence-msg,
+  .presence-entry {
+    font-size: 17px !important;
+    padding: 15px 16px !important;
+  }
+  .presence-chat-body,
+  .experience-hub-panel-body,
+  .experience-panel-body,
+  .radar-panel-body {
+    padding: 12px !important;
+  }
+}
+</style>
+
 </body>
 </html>
