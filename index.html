@@ -6826,5 +6826,143 @@ body[data-theme="dark"] .presence-intro-card {
 }
 </style>
 
+
+<style id="formnex-responsive-global">
+/* FORMNEX — responsividade global para computador, tablet e celular */
+html { width: 100%; overflow-x: hidden; }
+body { width: 100%; min-width: 0; overflow-x: hidden; }
+img, video, iframe, svg, canvas { max-width: 100%; }
+button, input, select, textarea { max-width: 100%; font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+section, header, footer, main, article, aside, nav,
+[class*="-wrap"], [class*="-content"], [class*="-grid"],
+[class*="-panel"], [class*="-card"] { min-width: 0; }
+p, h1, h2, h3, h4, small, label, a, button, span {
+  overflow-wrap: anywhere;
+}
+table { max-width: 100%; }
+table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto; }
+
+.audience-options { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+.path-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+.thinking-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.company-directory { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.mobility-examples { grid-template-columns: repeat(auto-fit, minmax(min(100%, 175px), 1fr)); }
+.career-tree { grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); }
+.ecosystem-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.experience-hub-buttons { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.experience-examples { grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); }
+.radar-options { grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); }
+.radar-question-groups { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+.active-search-flow { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.presence-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+
+.audience-option, .path-card, .thinking-card, .company-card,
+.mobility-item, .example, .career-node, .ecosystem-card,
+.experience-hub-button, .experience-example, .radar-option,
+.radar-question-group, .active-search-step, .presence-card,
+.presence-intro-card, .presence-profile, .experience-panel,
+.radar-panel, .evolution-map, .evolution-detail, .mobility-box,
+.intelligence-card, .statement-content, .partner-invite,
+.company-vacancies, .vacancy-item, .off-item {
+  min-width: 0; max-width: 100%; height: auto;
+  overflow-wrap: anywhere;
+}
+
+.path-card p, .thinking-card p, .audience-option p,
+.active-search-step p, .career-node small, .career-node strong,
+.ecosystem-card p, .experience-help, .experience-note,
+.presence-note, .presence-entry, .presence-msg,
+.mobility-item span, .example span, .off-item span,
+.vacancy-item p, .company-location {
+  font-size: max(15px, 1em); line-height: 1.5;
+}
+
+.btn, .path-link, .job-button, .presence-btn, .presence-start-btn,
+.experience-button, .radar-button, .evolution-cta,
+.audience-option button, .experience-hub-button,
+.experience-example, .theme-toggle, .company-card, .career-node {
+  min-height: 44px;
+}
+.btn, .presence-btn, .presence-start-btn, .experience-button,
+.radar-button, .evolution-cta, .job-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-align: center; max-width: 100%; white-space: normal;
+}
+
+@media (max-width: 900px) {
+  .evolution-section, .ecosystem-section, .thinking, .off-section,
+  .mobility-section, .companies, .experience-section, .radar-section,
+  .active-search-section, .presence-section {
+    padding-left: 20px !important; padding-right: 20px !important;
+  }
+  .evolution-layout, .off-content, .presence-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .evolution-map, .evolution-detail, .mobility-box,
+  .experience-panel, .radar-panel { padding: 22px; }
+  .career-node { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .hero, .statement, .paths, .thinking, .off-section,
+  .mobility-section, .principle, .companies, .evolution-section,
+  .ecosystem-section, .experience-section, .radar-section,
+  .active-search-section, .presence-section {
+    padding-left: 14px !important; padding-right: 14px !important;
+  }
+  .hero-content { gap: 24px; }
+  .audience-options, .path-grid, .thinking-grid, .company-directory,
+  .mobility-examples, .career-tree, .ecosystem-grid,
+  .experience-hub-buttons, .experience-examples, .radar-options,
+  .radar-question-groups, .active-search-flow, .presence-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .audience-option, .path-card, .thinking-card, .company-card,
+  .mobility-item, .example, .career-node, .ecosystem-card,
+  .experience-hub-button, .experience-example, .radar-option,
+  .radar-question-group, .active-search-step, .presence-card,
+  .off-item, .vacancy-item {
+    width: 100%; padding: 18px !important;
+  }
+  .evolution-map, .evolution-detail, .mobility-box,
+  .experience-panel, .radar-panel, .presence-intro-card,
+  .company-vacancies { padding: 16px !important; }
+  .evolution-map-top, .evolution-bottom, .partner-invite,
+  .vacancies-heading, .footer-content {
+    flex-direction: column; align-items: stretch;
+  }
+  .evolution-map-top { gap: 8px; }
+  .compatibility { flex-wrap: wrap; }
+  .mobility { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-buttons, .presence-actions, .experience-actions,
+  .radar-actions, .privacy-actions {
+    display: flex; flex-direction: column; align-items: stretch;
+  }
+  .hero-buttons .btn, .presence-actions > *, .experience-actions > *,
+  .radar-actions > *, .privacy-actions > * {
+    width: 100%; max-width: none;
+  }
+  .audience-option .btn, .path-card .btn,
+  .experience-hub-button, .experience-example { width: 100%; }
+  .statement h2, .principle h2, .off-content h2 {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+  .section-title h2, .companies h2, .mobility-box h2 {
+    font-size: clamp(25px, 6.5vw, 32px);
+  }
+  .brand-tagline { white-space: normal; }
+  .privacy-banner { max-width: calc(100vw - 16px); }
+}
+
+@media (max-width: 380px) {
+  .mobility { grid-template-columns: minmax(0, 1fr) !important; }
+  .nav { padding-left: 12px; padding-right: 12px; }
+  .intelligence-card { padding: 16px !important; }
+  .audience-option, .path-card, .thinking-card { padding: 15px !important; }
+  .brand-wordmark { letter-spacing: -.7px; }
+}
+</style>
+
 </body>
 </html>
