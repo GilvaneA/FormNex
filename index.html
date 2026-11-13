@@ -7257,5 +7257,25 @@ table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto;
 }
 </style>
 
+
+<style id="formnex-frase-mais-de-um-caminho">
+/* Mantém a expressão final inteira na mesma linha em telas amplas */
+@media (min-width: 701px) {
+  #evolucao-profissional .evolution-heading h2 span {
+    white-space: nowrap !important;
+  }
+}
+/* Em telas estreitas, permite quebra natural para evitar corte/rolagem */
+@media (max-width: 700px) {
+  #evolucao-profissional .evolution-heading h2 span {
+    white-space: normal !important;
+  }
+  #evolucao-profissional .evolution-heading h2 {
+    font-size: clamp(25px, 6vw, 34px) !important;
+    line-height: 1.18 !important;
+  }
+}
+</style>
+
 </body>
 </html>
