@@ -6432,5 +6432,127 @@ main > section > *:last-child {
 }
 </style>
 
+
+<style id="formnex-remover-faixas-azuis-amplas">
+/* Remove as grandes faixas azul-petróleo que ocupam a seção inteira.
+   Mantém as molduras menores que organizam grupos de cartões. */
+:root {
+  --fn-page-surface: #F1FAF8;
+}
+
+/* Seções externas voltam a respirar sobre o fundo da página */
+#como-pensamos,
+#evolucao-profissional,
+#vivencias-capacidades,
+#formnex-presenca,
+#busca-ativa,
+#empresas,
+#ecossistema-formnex,
+#mobilidade,
+#radar-potencial {
+  background: var(--fn-page-surface) !important;
+  color: #123744 !important;
+}
+
+/* Contêineres gerais deixam de ser grandes blocos escuros */
+#como-pensamos,
+#evolucao-profissional,
+#vivencias-capacidades,
+#formnex-presenca,
+#busca-ativa,
+#empresas,
+#ecossistema-formnex,
+#mobilidade,
+#radar-potencial {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Mantém as molduras compactas dos grupos de cartões */
+.audience-options,
+.audience-options--premium,
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.off-list,
+.experience-examples,
+.experience-hub-buttons,
+.radar-options,
+.radar-question-groups,
+.radar-suggestions,
+.presence-grid,
+.vacancy-list {
+  background: #102F3A !important;
+  border: 1px solid #254D58 !important;
+  border-radius: 22px !important;
+  padding: 10px !important;
+}
+
+/* O conteúdo principal permanece em cartões brancos */
+.statement-content,
+.evolution-heading,
+.presence-intro-card,
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.off-item,
+.experience-hub-button,
+.mobility-item,
+.intelligence-card,
+.radar-panel,
+.radar-option,
+.partner-invite,
+.presence-profile,
+.detail-block {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+}
+
+/* Títulos e textos introdutórios fora dos cartões: contraste no fundo claro */
+#como-pensamos > .section-title,
+#evolucao-profissional .evolution-heading,
+#formnex-presenca .presence-intro-card {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #CBE7E2 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 16px rgba(9,48,56,.08) !important;
+}
+
+/* Não deixar o tema escuro recolocar as faixas externas */
+body[data-theme="dark"] #como-pensamos,
+body[data-theme="dark"] #evolucao-profissional,
+body[data-theme="dark"] #vivencias-capacidades,
+body[data-theme="dark"] #formnex-presenca,
+body[data-theme="dark"] #busca-ativa,
+body[data-theme="dark"] #empresas,
+body[data-theme="dark"] #ecossistema-formnex,
+body[data-theme="dark"] #mobilidade,
+body[data-theme="dark"] #radar-potencial {
+  background: #102126 !important;
+  color: #EAF5F4 !important;
+}
+
+/* Em telas pequenas, preservar respiro lateral e separar as seções */
+@media (max-width: 640px) {
+  #como-pensamos,
+  #evolucao-profissional,
+  #vivencias-capacidades,
+  #formnex-presenca,
+  #busca-ativa,
+  #empresas,
+  #ecossistema-formnex,
+  #mobilidade,
+  #radar-potencial {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+</style>
+
 </body>
 </html>
