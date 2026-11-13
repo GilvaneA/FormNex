@@ -6175,5 +6175,213 @@ figcaption, .caption, .meta {
 }
 </style>
 
+
+<style id="formnex-alinhamento-global-layout">
+/* =========================================================
+   FORMNEX — ALINHAMENTO GLOBAL DO SITE
+   Uma única coluna de conteúdo, margens e espaçamentos.
+   ========================================================= */
+:root {
+  --fn-content-width: 1200px;
+  --fn-page-gutter: clamp(16px, 3.2vw, 42px);
+  --fn-section-space: clamp(24px, 3.2vw, 40px);
+}
+
+/* Base: impede diferenças de cálculo de largura */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+main {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Todas as seções usam a mesma largura externa e ritmo vertical */
+main > section {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: var(--fn-section-space) !important;
+  padding-bottom: var(--fn-section-space) !important;
+}
+
+/* Conteúdos principais alinhados pela mesma coluna central */
+main > section > .hero-content,
+main > section > .mobility-box,
+main > section > .presence-wrap,
+main > section > .statement-content,
+main > section > .evolution-wrap,
+main > section > .principle-content,
+main > section > .experience-hub-inner,
+main > section > .off-content,
+main > section > .experience-wrap,
+main > section > .radar-wrap,
+main > section > .ecosystem-wrap,
+main > section > .active-search-wrap,
+main > section > .companies-content {
+  width: min(var(--fn-content-width), calc(100% - (2 * var(--fn-page-gutter)))) !important;
+  max-width: var(--fn-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* A mensagem institucional é uma moldura completa; centraliza sem esticar */
+main > section.statement {
+  width: min(var(--fn-content-width), calc(100% - (2 * var(--fn-page-gutter)))) !important;
+  max-width: var(--fn-content-width) !important;
+  margin: var(--fn-section-space) auto !important;
+}
+
+/* Como pensamos: cabeçalho e grade compartilham exatamente a mesma coluna */
+#como-pensamos {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#como-pensamos > .section-title,
+#como-pensamos > .thinking-grid {
+  width: min(var(--fn-content-width), calc(100% - (2 * var(--fn-page-gutter)))) !important;
+  max-width: var(--fn-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#como-pensamos > .section-title {
+  margin-bottom: 12px !important;
+}
+
+/* Grades: colunas proporcionais, sem cartões espremidos ou esticados */
+.audience-options,
+.audience-options--premium,
+.mobility-examples,
+.thinking-grid,
+.career-tree,
+.active-search-flow,
+.company-directory,
+.off-list,
+.experience-examples,
+.experience-hub-buttons,
+.radar-options,
+.radar-question-groups,
+.radar-suggestions,
+.presence-grid,
+.vacancy-list {
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+.audience-options > *,
+.audience-options--premium > *,
+.mobility-examples > *,
+.thinking-grid > *,
+.career-tree > *,
+.active-search-flow > *,
+.company-directory > *,
+.off-list > *,
+.experience-examples > *,
+.experience-hub-buttons > *,
+.radar-options > *,
+.radar-question-groups > *,
+.radar-suggestions > *,
+.presence-grid > *,
+.vacancy-list > * {
+  min-width: 0;
+  height: 100%;
+}
+
+/* Alturas coerentes para cartões equivalentes */
+.thinking-card,
+.career-node,
+.active-search-step,
+.company-card,
+.off-item,
+.experience-hub-button,
+.mobility-item,
+.audience-option {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.audience-option .btn,
+.audience-option .btn-secondary,
+.company-card .job-button {
+  margin-top: auto;
+}
+
+/* Distâncias consistentes entre seções e conteúdo interno */
+main > section > .hero-content,
+main > section > .mobility-box,
+main > section > .presence-wrap,
+main > section > .evolution-wrap,
+main > section > .experience-hub-inner,
+main > section > .off-content,
+main > section > .experience-wrap,
+main > section > .radar-wrap,
+main > section > .ecosystem-wrap,
+main > section > .active-search-wrap,
+main > section > .companies-content {
+  min-width: 0;
+}
+
+/* Não deixar títulos ou parágrafos criarem larguras diferentes */
+main h1, main h2, main h3, main h4,
+main p, main ul, main ol {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+main p {
+  margin-top: 0;
+}
+main > section > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Telas médias: reduzir colunas sem alterar a coluna geral */
+@media (max-width: 900px) {
+  :root { --fn-page-gutter: 22px; }
+  .thinking-grid,
+  .career-tree,
+  .active-search-flow,
+  .company-directory,
+  .mobility-examples,
+  .off-list,
+  .experience-examples,
+  .experience-hub-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Celulares: uma coluna, margens iguais e sem rolagem horizontal */
+@media (max-width: 640px) {
+  :root {
+    --fn-page-gutter: 14px;
+    --fn-section-space: 22px;
+  }
+  .thinking-grid,
+  .career-tree,
+  .active-search-flow,
+  .company-directory,
+  .mobility-examples,
+  .off-list,
+  .experience-examples,
+  .experience-hub-buttons,
+  .radar-options,
+  .radar-question-groups,
+  .radar-suggestions,
+  .presence-grid,
+  .vacancy-list {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  main > section.statement {
+    width: calc(100% - 28px) !important;
+  }
+}
+</style>
+
 </body>
 </html>
