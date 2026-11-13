@@ -7277,5 +7277,42 @@ table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto;
 }
 </style>
 
+
+<style id="formnex-titulo-evolucao-uma-linha">
+/* Desktop: frase inteira em uma única linha, usando a largura do quadro */
+@media (min-width: 701px) {
+  #evolucao-profissional .evolution-heading {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  #evolucao-profissional .evolution-heading h2 {
+    width: 100% !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    font-size: clamp(20px, 2.55vw, 30px) !important;
+    letter-spacing: -0.8px !important;
+    line-height: 1.2 !important;
+  }
+  #evolucao-profissional .evolution-heading h2 span {
+    white-space: nowrap !important;
+  }
+}
+/* Celular e telas estreitas: quebra natural para preservar legibilidade */
+@media (max-width: 700px) {
+  #evolucao-profissional .evolution-heading,
+  #evolucao-profissional .evolution-heading h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  #evolucao-profissional .evolution-heading h2 {
+    font-size: clamp(23px, 6vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+}
+</style>
+
 </body>
 </html>
