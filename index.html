@@ -6383,5 +6383,54 @@ main > section > *:last-child {
 }
 </style>
 
+
+<style id="formnex-presenca-mensagens-destaque">
+/* FormNex Presença — mensagens mais legíveis e com maior presença visual */
+#fnPresenceChat {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px !important;
+  padding: 16px !important;
+}
+#fnPresenceChat .presence-msg {
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 62px;
+  padding: 17px 20px 14px !important;
+  border-radius: 15px !important;
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #D8EAE6 !important;
+  box-shadow: 0 3px 9px rgba(12,55,65,.06) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+  letter-spacing: .05px;
+}
+#fnPresenceChat .presence-msg small {
+  display: block !important;
+  margin-top: 8px !important;
+  color: #6B8790 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  text-align: right !important;
+}
+@media (max-width: 640px) {
+  #fnPresenceChat {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+  #fnPresenceChat .presence-msg {
+    padding: 15px 16px 13px !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+  }
+}
+</style>
+
 </body>
 </html>
