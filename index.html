@@ -3470,7 +3470,7 @@ html { scroll-behavior: smooth; }
 <div class="presence-chat-head"><div class="presence-avatar">F</div><div><strong>FormNex Presença</strong><small>Simulação de conversa integrada ao site</small></div></div>
 <div aria-live="polite" class="presence-chat-body" id="fnPresenceChat">
 <div class="presence-msg bot">Olá! Vamos construir seu perfil profissional juntos. 😊<small>FormNex</small></div>
-<div class="presence-msg bot">Você já realizou algum trabalho ou atividade, mesmo sem carteira assinada ou registro formal?<small>FormNex</small></div>
+<div class="presence-msg bot">Para começar, como podemos chamar você?<small>FormNex</small></div>
 </div>
 <div class="presence-controls">
 <div class="presence-actions">
@@ -3484,12 +3484,23 @@ html { scroll-behavior: smooth; }
 </div>
 <div class="presence-card">
 <div class="presence-profile">
-<div class="presence-profile-top"><h3 id="fnPresenceName">Seu nome</h3><p id="fnPresenceHeadline">Perfil profissional em construção</p></div>
+<div class="presence-profile-top">
+<h3 id="fnPresenceName">Seu nome</h3>
+<p id="fnPresenceHeadline">Perfil profissional em construção</p>
+<div class="fn-profile-progress" aria-live="polite">
+  <div class="fn-profile-progress-label"><span>Construção do perfil</span><strong id="fnPresenceProgressText">Iniciando</strong></div>
+  <div class="fn-profile-progress-track"><span id="fnPresenceProgressBar"></span></div>
+</div>
+</div>
 <div class="presence-profile-block"><h4>Vivências e experiências</h4><p id="fnPresenceExperience">As atividades que você contar aparecerão aqui, sejam formais, informais, autônomas ou comunitárias.</p></div>
 <div class="presence-profile-block"><h4>Capacidades identificadas</h4><div class="presence-chips" id="fnPresenceSkills"><span class="presence-chip">Aguardando informações</span></div></div>
 <div class="presence-profile-block"><h4>Atividades relatadas</h4><ul id="fnPresenceActivities"><li>Aguardando relato da pessoa.</li></ul></div>
 <div class="presence-profile-block"><h4>Origem das informações</h4><div class="presence-origin" id="fnPresenceOrigin">Ainda não há informações registradas. A FormNex distinguirá o que foi declarado pela pessoa daquilo que tiver evidência ou verificação independente.</div></div>
 <div class="presence-profile-block"><h4>Autonomia da pessoa</h4><p id="fnPresenceNext">A pessoa poderá complementar, corrigir e confirmar cada informação antes de gerar seu currículo.</p></div>
+<div class="fn-profile-review" id="fnPresenceReview" aria-live="polite">
+  <span id="fnPresenceReviewText">Seu perfil ainda está sendo construído. Você poderá revisar tudo antes de confirmar.</span>
+  <button class="presence-btn alt" id="fnPresenceConfirm" type="button" disabled>Confirmar informações</button>
+</div>
 </div>
 </div>
 </div>
@@ -3586,8 +3597,10 @@ html { scroll-behavior: smooth; }
 <ul class="gap-list" id="roleGaps"><li>Conhecer procedimentos e padrões da operação</li><li>Registrar atividades e ocorrências</li><li>Demonstrar segurança na execução das rotinas</li></ul>
 </div>
 <div class="detail-block">
-<h4>Possíveis evidências</h4>
-<p id="roleEvidence">Registros de atividades, orientações concluídas e demonstração prática acompanhada.</p>
+<h4>Como demonstrar esse desenvolvimento</h4>
+<p class="evidence-intro">O desenvolvimento precisa aparecer em situações reais de trabalho. Por exemplo:</p>
+<p id="roleEvidence">Orientação ou treinamento concluído; registro de atividades e ocorrências; demonstração prática acompanhada por um responsável.</p>
+<div class="evidence-note"><span class="evidence-note-icon">✓</span><span>A evidência deve mostrar o que foi realizado, em qual contexto e, quando aplicável, quem acompanhou ou validou.</span></div>
 </div>
 </div>
 <div class="evolution-bottom">
@@ -4138,51 +4151,172 @@ body[data-theme="dark"] header {
 </style>
 <script>
 (function(){
- const chat=document.getElementById('fnPresenceChat'), input=document.getElementById('fnPresenceInput');
+ const chat=document.getElementById('fnPresenceChat');
+ const input=document.getElementById('fnPresenceInput');
  if(!chat||!input)return;
- const exp=document.getElementById('fnPresenceExperience'), chips=document.getElementById('fnPresenceSkills'), acts=document.getElementById('fnPresenceActivities'), origin=document.getElementById('fnPresenceOrigin'), next=document.getElementById('fnPresenceNext'), headline=document.getElementById('fnPresenceHeadline');
- function bubble(text,who){const d=document.createElement('div');d.className='presence-msg '+who;d.appendChild(document.createTextNode(text));const t=document.createElement('small');t.textContent=who==='bot'?'FormNex':'Você';d.appendChild(t);chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
- function send(text){if(!text.trim())return;bubble(text,'user');input.value='';process(text);}
+
+ const el={
+  name:document.getElementById('fnPresenceName'),
+  headline:document.getElementById('fnPresenceHeadline'),
+  experience:document.getElementById('fnPresenceExperience'),
+  skills:document.getElementById('fnPresenceSkills'),
+  activities:document.getElementById('fnPresenceActivities'),
+  origin:document.getElementById('fnPresenceOrigin'),
+  next:document.getElementById('fnPresenceNext'),
+  progressText:document.getElementById('fnPresenceProgressText'),
+  progressBar:document.getElementById('fnPresenceProgressBar'),
+  review:document.getElementById('fnPresenceReviewText'),
+  confirm:document.getElementById('fnPresenceConfirm')
+ };
+
+ let personName='';
+ let experiences=[];
+ let skills=[];
+ let stage='name';
+ let confirmed=false;
+
+ function bubble(message,who){
+  const d=document.createElement('div');
+  d.className='presence-msg '+who;
+  d.appendChild(document.createTextNode(message));
+  const t=document.createElement('small');
+  t.textContent=who==='bot'?'FormNex':'Você';
+  d.appendChild(t);
+  chat.appendChild(d);
+  chat.scrollTop=chat.scrollHeight;
+ }
+ function setProgress(value,label){
+  if(el.progressText)el.progressText.textContent=label;
+  if(el.progressBar)el.progressBar.style.width=value+'%';
+ }
+ function renderSkills(){
+  el.skills.innerHTML='';
+  const list=skills.length?skills:['Aguardando informações'];
+  list.forEach(label=>{
+   const chip=document.createElement('span');
+   chip.className='presence-chip';
+   chip.textContent=label;
+   el.skills.appendChild(chip);
+  });
+ }
+ function renderActivities(){
+  el.activities.innerHTML='';
+  if(!experiences.length){
+   const li=document.createElement('li');
+   li.textContent='Aguardando relato da pessoa.';
+   el.activities.appendChild(li);
+   el.experience.textContent='As atividades que você contar aparecerão aqui, sejam formais, informais, autônomas ou comunitárias.';
+   return;
+  }
+  experiences.forEach(item=>{
+   const li=document.createElement('li');
+   li.textContent=item;
+   el.activities.appendChild(li);
+  });
+  el.experience.textContent=experiences.join(' ');
+ }
+ function updateReview(){
+  confirmed=false;
+  if(el.confirm){el.confirm.disabled=experiences.length===0;el.confirm.textContent='Confirmar informações';}
+  if(el.review)el.review.textContent=experiences.length
+   ?'Informações declaradas pela pessoa. Revise o conteúdo e confirme quando estiver de acordo.'
+   :'Seu perfil ainda está sendo construído. Você poderá revisar tudo antes de confirmar.';
+ }
+ function detectSkills(text){
+  const v=text.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const found=[];
+  if(/pint/.test(v))found.push('Pintura e acabamento','Preparação de superfícies');
+  if(/repar|manuten|consert/.test(v))found.push('Pequenos reparos','Manutenção prática');
+  if(/maquin|producao|fabrica/.test(v))found.push('Operação de máquinas','Apoio à produção');
+  if(/vend|comer|cliente|negoci/.test(v))found.push('Atendimento ao cliente','Vendas e negociação');
+  if(/cuid|crian|idos|familia/.test(v))found.push('Cuidado e organização','Responsabilidade');
+  if(/roca|rural|plant|colheit|gado/.test(v))found.push('Atividades rurais','Rotina de produção');
+  if(/cozinh|alimento|prepar/.test(v))found.push('Preparo de alimentos','Organização');
+  if(/limp|higien/.test(v))found.push('Limpeza e higienização','Atenção aos procedimentos');
+  if(!found.length)found.push('Experiência prática relatada','Autonomia na execução de atividades');
+  return found;
+ }
+ function acceptName(text){
+  personName=text.trim().replace(/^(meu nome é|me chamo|pode me chamar de)\s*/i,'').trim();
+  if(!personName)return;
+  el.name.textContent=personName;
+  el.headline.textContent='Vamos reconhecer suas vivências';
+  setProgress(20,'Identificação iniciada');
+  stage='experience';
+  bubble('Obrigado, '+personName+'! Agora me conte: você já realizou algum trabalho ou atividade, mesmo sem carteira assinada ou registro formal?','bot');
+  input.placeholder='Conte uma experiência ou atividade...';
+ }
+ function addExperience(text){
+  const clean=text.trim();
+  if(!clean)return;
+  experiences.push(clean);
+  skills=[...new Set([...skills,...detectSkills(clean)])];
+  renderActivities();
+  renderSkills();
+  el.headline.textContent='Vivências profissionais relatadas';
+  el.origin.textContent='Origem: declaração da própria pessoa. As capacidades sugeridas são hipóteses organizadas a partir do relato, não comprovação independente. A pessoa poderá acrescentar evidências quando disponíveis.';
+  el.next.textContent='Você pode contar outras atividades, explicar tarefas, informar há quanto tempo realiza cada uma ou corrigir o que foi registrado. Tudo poderá ser revisado antes da confirmação.';
+  setProgress(Math.min(90,35+experiences.length*18),experiences.length+' relato(s) registrado(s)');
+  updateReview();
+  stage='more';
+  bubble('Obrigado por compartilhar! Registrei essa vivência no seu perfil. Há outra atividade, tarefa ou aprendizado que gostaria de acrescentar?','bot');
+  input.placeholder='Conte outra atividade ou detalhe...';
+ }
  function process(text){
   const v=text.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  if(/ainda nao tive trabalho formal|nao tive experiencia|nunca trabalhei/.test(v)){
-   headline.textContent='Perfil em construção';
-   exp.textContent='A pessoa informou que ainda não teve experiência profissional formal. A conversa pode começar por atividades cotidianas, projetos, estudos, responsabilidades familiares ou aprendizados práticos.';
-   chips.innerHTML='<span class="presence-chip">Potencial a explorar</span>';
-   acts.innerHTML='<li>Experiências ainda não relatadas. Nenhuma capacidade foi presumida.</li>';
-   origin.textContent='Origem: resposta declarada pela pessoa. A ausência de emprego formal não significa ausência de capacidades. A FormNex continuará a conversa sem inventar experiências.';
-   next.textContent='Próxima pergunta: existe alguma atividade que você realiza ou já realizou em casa, na comunidade, nos estudos, em projetos ou ajudando alguém?';
-   bubble('Tudo bem. Não ter tido um emprego formal não impede você de construir seu perfil. Podemos começar por atividades do dia a dia, estudos, projetos, ajuda em negócios da família ou coisas que aprendeu fazendo. Existe alguma atividade que gostaria de contar?','bot');
-  } else if(/sim|ja|trabalh|servico|conta propria|pint|reparo|obra|roca|rural|cuid|vendi|fabrica|maquina/.test(v)){
-   exp.textContent=text;
-   let found=[];
-   if(/pint/.test(v))found.push('Pintura e acabamento','Preparação de superfícies');
-   if(/repar|manuten|consert/.test(v))found.push('Pequenos reparos','Manutenção prática');
-   if(/maquin|producao|fabrica/.test(v))found.push('Operação de máquinas','Apoio à produção');
-   if(/vend|comer|cliente/.test(v))found.push('Atendimento ao cliente','Vendas');
-   if(/cuid|crian|idos|familia/.test(v))found.push('Cuidado e organização','Responsabilidade');
-   if(/roca|rural|plant|colheit|gado/.test(v))found.push('Atividades rurais','Rotina de produção');
-   if(!found.length)found=['Experiência prática relatada','Autonomia na execução de atividades'];
-   chips.innerHTML='';[...new Set(found)].forEach(x=>{const c=document.createElement('span');c.className='presence-chip';c.textContent=x;chips.appendChild(c);});
-   acts.innerHTML='';const li=document.createElement('li');li.textContent='Atividade declarada pela pessoa: '+text;acts.appendChild(li);
-   headline.textContent='Vivência profissional relatada';
-   origin.textContent='Origem: declaração da pessoa. As capacidades sugeridas são hipóteses para revisão, não comprovação independente. A pessoa poderá acrescentar evidências, quando disponíveis.';
-   next.textContent='Próxima pergunta: há quanto tempo você realiza essa atividade e quais tarefas costuma executar? Você poderá revisar e confirmar tudo antes de gerar o currículo.';
-   bubble('Obrigado por compartilhar! Essa vivência tem valor e pode fazer parte do seu perfil, mesmo sem registro formal. Quais tarefas você realizava e há quanto tempo?','bot');
-  }else{
-   bubble('Tudo bem. Podemos começar por atividades do dia a dia, cursos, projetos, ajuda em negócios da família ou coisas que você aprendeu fazendo. Existe alguma atividade que gostaria de contar?','bot');
+  if(stage==='name'){acceptName(text);return;}
+  if(/^(nao|não|ainda nao|por enquanto nao|nenhuma)$/i.test(text.trim()) && experiences.length===0){
+   el.headline.textContent='Perfil em construção';
+   el.experience.textContent='A pessoa informou que ainda não relatou experiências profissionais. A conversa pode começar por atividades cotidianas, estudos, projetos, responsabilidades ou aprendizados práticos.';
+   skills=['Potencial a explorar'];
+   renderSkills();
+   el.activities.innerHTML='<li>Experiências ainda não relatadas. Nenhuma capacidade foi presumida.</li>';
+   el.origin.textContent='Origem: resposta declarada pela pessoa. A ausência de emprego formal não significa ausência de capacidades. A FormNex continuará a conversa sem inventar experiências.';
+   el.next.textContent='Podemos começar por atividades em casa, na comunidade, nos estudos, em projetos ou ajudando alguém. Existe algo que você gostaria de contar?';
+   setProgress(30,'Perfil iniciado');
+   stage='more';
+   bubble('Tudo bem, '+(personName||'vamos')+'! Não ter tido um emprego formal não impede você de construir seu perfil. Podemos começar por atividades do dia a dia, estudos, projetos ou coisas que aprendeu fazendo.','bot');
+   updateReview();
+   return;
   }
+  if(/^(sim|sim,? ja|já|tenho)$/i.test(text.trim())){
+   bubble('Que bom! Conte um pouco sobre uma dessas atividades: o que você fazia?','bot');
+   return;
+  }
+  addExperience(text);
+ }
+ function send(text){
+  if(!text||!text.trim())return;
+  bubble(text,'user');
+  input.value='';
+  process(text);
  }
  const startButton=document.getElementById('fnPresenceStart');
- if(startButton) startButton.addEventListener('click',()=>{
+ if(startButton)startButton.addEventListener('click',()=>{
   input.scrollIntoView({behavior:'smooth',block:'center'});
   window.setTimeout(()=>input.focus(),350);
  });
- document.getElementById('fnPresenceSend').addEventListener('click',()=>send(input.value));
+ const sendButton=document.getElementById('fnPresenceSend');
+ if(sendButton)sendButton.addEventListener('click',()=>send(input.value));
  input.addEventListener('keydown',e=>{if(e.key==='Enter')send(input.value);});
- document.getElementById('fnPresenceYes').addEventListener('click',()=>send('Sim. Já trabalhei por conta própria, fazendo serviços de pintura e pequenos reparos.'));
- document.getElementById('fnPresenceNo').addEventListener('click',()=>send('Ainda não tive trabalho formal.'));
- document.getElementById('fnPresenceAudio').addEventListener('click',()=>send('Áudio simulado: já trabalhei em uma fábrica, operando máquinas e ajudando na organização da produção.'));
+ const yes=document.getElementById('fnPresenceYes');
+ const no=document.getElementById('fnPresenceNo');
+ const audio=document.getElementById('fnPresenceAudio');
+ if(yes)yes.addEventListener('click',()=>send('Sim, já tive vivências. Trabalhei com vendas, atendimento a clientes e organização de produtos.'));
+ if(no)no.addEventListener('click',()=>send('Ainda não tive trabalho formal.'));
+ if(audio)audio.addEventListener('click',()=>send('Áudio ilustrativo: já trabalhei em uma fábrica, operando máquinas e ajudando na organização da produção.'));
+ if(el.confirm)el.confirm.addEventListener('click',()=>{
+  if(!experiences.length)return;
+  confirmed=true;
+  el.confirm.textContent='Informações confirmadas';
+  el.confirm.disabled=true;
+  el.review.textContent='Você confirmou as informações exibidas nesta demonstração. Em uma versão conectada, essa confirmação seria registrada somente após autorização e com as proteções de privacidade adequadas.';
+  setProgress(100,'Revisão confirmada');
+  bubble('Perfeito! Você confirmou as informações desta demonstração. Elas continuam sob seu controle e podem ser revisadas.','bot');
+ });
+ renderActivities();
+ renderSkills();
+ setProgress(8,'Iniciando');
 })();
 </script>
 </main>
@@ -7310,6 +7444,425 @@ table:not(.no-responsive-table) { display: block; width: 100%; overflow-x: auto;
   #evolucao-profissional .evolution-heading h2 {
     font-size: clamp(23px, 6vw, 30px) !important;
     line-height: 1.2 !important;
+  }
+}
+</style>
+
+
+<style id="formnex-quadro-01-reorganizacao-visual">
+/* QUADRO 01 — Exemplo de oportunidade
+   Reorganização: identificação da vaga à esquerda, compatibilidade em destaque
+   à direita, mobilidade em uma linha e chamada para ação no rodapé. */
+.hero .intelligence-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 25px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(128px, .42fr);
+  grid-template-areas:
+    "label label"
+    "title compatibility"
+    "company compatibility"
+    "mobility mobility"
+    "action action";
+  column-gap: 18px;
+  row-gap: 0;
+  align-items: stretch;
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border: 1px solid #C7E5DF !important;
+  border-radius: 21px !important;
+  box-shadow: 0 9px 26px rgba(15, 76, 79, .09) !important;
+}
+.hero .intelligence-card > .card-label {
+  grid-area: label;
+  margin: 0 0 13px !important;
+  color: #087E75 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.15px !important;
+}
+.hero .intelligence-card > .job-title {
+  grid-area: title;
+  align-self: end;
+  margin: 0 0 4px !important;
+  color: #123744 !important;
+  font-size: clamp(21px, 2vw, 25px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.35px;
+}
+.hero .intelligence-card > .company {
+  grid-area: company;
+  align-self: start;
+  margin: 0 0 18px !important;
+  color: #526B73 !important;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
+.hero .intelligence-card > .compatibility {
+  grid-area: compatibility;
+  min-width: 0;
+  min-height: 88px;
+  margin: 0 0 18px !important;
+  padding: 12px 10px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  background: #E8F7F3 !important;
+  border: 1px solid #CDEDE5 !important;
+  border-radius: 15px !important;
+}
+.hero .intelligence-card > .compatibility small {
+  color: #365A64 !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  font-weight: 700;
+}
+.hero .intelligence-card > .compatibility strong {
+  color: #087E75 !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums;
+}
+.hero .intelligence-card > .mobility {
+  grid-area: mobility;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin: 0 0 15px !important;
+}
+.hero .intelligence-card .mobility-item {
+  min-width: 0;
+  min-height: 70px;
+  padding: 10px 8px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: #F8FCFB !important;
+  border: 1px solid #D5E9E4 !important;
+  border-radius: 12px !important;
+  text-align: center;
+}
+.hero .intelligence-card .mobility-item strong {
+  color: #123744 !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-weight: 800 !important;
+}
+.hero .intelligence-card .mobility-item span {
+  color: #526B73 !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+}
+.hero .intelligence-card > .job-button {
+  grid-area: action;
+  min-height: 47px;
+  padding: 12px 16px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #0D9488 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0D9488 !important;
+  border-radius: 11px !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 11px rgba(13, 148, 136, .16);
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.hero .intelligence-card > .job-button:hover {
+  background: #08786F !important;
+  border-color: #08786F !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 148, 136, .2);
+}
+.hero .intelligence-card > .job-button:focus-visible {
+  outline: 3px solid #67E8D2;
+  outline-offset: 3px;
+}
+body[data-theme="dark"] .hero .intelligence-card {
+  background: #FFFFFF !important;
+  color: #123744 !important;
+  border-color: #C7E5DF !important;
+}
+@media (max-width: 900px) {
+  .hero .intelligence-card {
+    padding: 21px !important;
+    column-gap: 12px;
+  }
+}
+@media (max-width: 550px) {
+  .hero .intelligence-card {
+    padding: 18px !important;
+    border-radius: 18px !important;
+    grid-template-columns: minmax(0, 1fr) 112px;
+  }
+  .hero .intelligence-card > .job-title {
+    font-size: 21px !important;
+  }
+  .hero .intelligence-card > .compatibility strong {
+    font-size: 29px !important;
+  }
+  .hero .intelligence-card > .mobility {
+    gap: 7px !important;
+  }
+  .hero .intelligence-card .mobility-item {
+    min-height: 65px;
+    padding: 9px 5px !important;
+  }
+  .hero .intelligence-card .mobility-item strong {
+    font-size: 15px !important;
+  }
+  .hero .intelligence-card .mobility-item span {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 370px) {
+  .hero .intelligence-card {
+    grid-template-columns: minmax(0, 1fr) 98px;
+    column-gap: 9px;
+  }
+  .hero .intelligence-card > .compatibility {
+    padding: 9px 6px !important;
+  }
+  .hero .intelligence-card > .compatibility small {
+    font-size: 12px !important;
+  }
+  .hero .intelligence-card .mobility {
+    grid-template-columns: 1fr !important;
+  }
+  .hero .intelligence-card .mobility-item {
+    min-height: 51px;
+  }
+}
+</style>
+
+
+<style>
+/* FormNex Presença — evolução visual do perfil em construção */
+.presence-profile{padding:24px!important}
+.presence-profile-top{padding-bottom:17px!important;margin-bottom:18px!important}
+.presence-profile-top h3{font-size:26px!important;color:#123744!important}
+.presence-profile-top p{font-size:15px!important;color:#0f766e!important}
+.presence-profile-block{margin:19px 0!important}
+.presence-profile-block h4{font-size:12px!important;letter-spacing:.07em!important}
+.presence-profile-block p,.presence-profile-block li{font-size:15px!important;line-height:1.55!important;color:#365a64!important}
+.presence-chip{font-size:13px!important;padding:7px 11px!important}
+.presence-origin{font-size:13px!important;color:#365a64!important;line-height:1.55!important}
+.fn-profile-progress{margin-top:16px;text-align:left}
+.fn-profile-progress-label{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#365a64;margin-bottom:8px}
+.fn-profile-progress-label strong{color:#0f766e}
+.fn-profile-progress-track{height:8px;border-radius:20px;background:#e5f2ef;overflow:hidden}
+.fn-profile-progress-track span{display:block;width:8%;height:100%;border-radius:20px;background:linear-gradient(90deg,#0f766e,#14bba6);transition:width .35s ease}
+.fn-profile-review{display:grid;gap:12px;padding:15px;margin-top:20px;background:#f0fdfa;border:1px solid #ccece5;border-radius:13px;color:#365a64;font-size:14px;line-height:1.5}
+.fn-profile-review button{justify-self:start;font-size:14px!important;padding:11px 15px!important}
+.fn-profile-review button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:520px){.presence-profile{padding:18px!important}.fn-profile-progress-label{font-size:12px}.fn-profile-review button{width:100%}}
+</style>
+
+
+<style id="formnex-transicao-institucional">
+/* A mensagem institucional fecha a seção Presença e conduz diretamente a "Como pensamos". */
+.statement {
+  margin-top: 22px !important;
+  margin-bottom: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.statement .statement-content {
+  min-height: 116px !important;
+  align-items: center !important;
+}
+#como-pensamos {
+  margin-top: 0 !important;
+  padding-top: 22px !important;
+}
+#como-pensamos > .section-title {
+  margin-top: 0 !important;
+}
+@media (max-width: 700px) {
+  .statement {
+    margin-top: 16px !important;
+    margin-bottom: 0 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  #como-pensamos {
+    padding-top: 16px !important;
+  }
+}
+</style>
+
+
+<style id="formnex-evolucao-desenvolvimento-vivo">
+/* Quadro de desenvolvimento: mais contraste, ritmo visual e leitura rápida */
+#evolucao-profissional .detail-block {
+  border: 1px solid #B8DED7 !important;
+  border-radius: 18px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(10,75,69,.09) !important;
+}
+#evolucao-profissional .detail-block > h4 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 15px 19px !important;
+  background: linear-gradient(100deg,#075E54 0%,#0F766E 65%,#119889 100%) !important;
+  color: #FFFFFF !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  letter-spacing: .01em !important;
+}
+#evolucao-profissional .detail-block:first-of-type > h4::before {
+  content: "↗";
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  border-radius: 9px;
+  background: rgba(255,255,255,.17);
+  color: #A8F3E7;
+  font-size: 19px;
+}
+#evolucao-profissional #roleGaps {
+  counter-reset: development-step;
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 11px !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  background: #EAF6F3 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+#evolucao-profissional #roleGaps li {
+  counter-increment: development-step;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-width: 0;
+  min-height: 92px;
+  box-sizing: border-box;
+  padding: 14px 13px !important;
+  border: 1px solid #C7E5DE !important;
+  border-left: 4px solid #14BBA6 !important;
+  border-radius: 13px !important;
+  background: #FFFFFF !important;
+  color: #174650 !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  line-height: 1.45 !important;
+  box-shadow: 0 3px 9px rgba(13,83,75,.05) !important;
+}
+#evolucao-profissional #roleGaps li::before {
+  content: counter(development-step, decimal-leading-zero) !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: 0 0 29px !important;
+  width: 29px !important;
+  height: 29px !important;
+  margin: 0 !important;
+  border-radius: 9px !important;
+  background: #DDF7F1 !important;
+  color: #087E75 !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+#evolucao-profissional .evidence-intro {
+  margin: 0 !important;
+  padding: 16px 18px 5px !important;
+  color: #365A64 !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+#evolucao-profissional #roleEvidence {
+  position: relative;
+  margin: 8px 16px 14px !important;
+  padding: 16px 17px 16px 48px !important;
+  border: 1px solid #B9E6DC !important;
+  border-radius: 14px !important;
+  background: linear-gradient(110deg,#E7F8F3 0%,#F5FCFA 100%) !important;
+  color: #174650 !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  line-height: 1.6 !important;
+}
+#evolucao-profissional #roleEvidence::before {
+  content: "✓";
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #0F766E;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 900;
+}
+#evolucao-profissional .evidence-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 0 16px 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #123744;
+  color: #F0FAF8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+#evolucao-profissional .evidence-note-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #35D9C5;
+  color: #083F3B;
+  font-weight: 900;
+}
+@media(max-width:760px) {
+  #evolucao-profissional #roleGaps {
+    grid-template-columns: 1fr !important;
+  }
+  #evolucao-profissional #roleGaps li {
+    min-height: 0;
+  }
+}
+@media(max-width:480px) {
+  #evolucao-profissional .detail-block > h4 {
+    font-size: 16px !important;
+    padding: 14px 15px !important;
+  }
+  #evolucao-profissional #roleGaps {
+    padding: 12px !important;
+  }
+  #evolucao-profissional #roleEvidence {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    padding: 14px 13px 14px 43px !important;
+  }
+  #evolucao-profissional .evidence-note {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
   }
 }
 </style>
