@@ -7869,3 +7869,106 @@ body[data-theme="dark"] .hero .intelligence-card {
 
 </body>
 </html>
+
+
+<!-- CORREÇÃO FINAL: símbolo completo da FormNex em telas pequenas -->
+<style id="formnex-correcao-diamante-mobile">
+@media (max-width: 550px) {
+  .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    padding: 8px 10px !important;
+    min-width: 0 !important;
+  }
+
+  .brand {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .brand-lockup {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .brand-main {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 5px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-symbol,
+  .brand-symbol--light,
+  .brand-symbol--dark {
+    display: block !important;
+    position: static !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 0 0 38px !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    align-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body[data-theme="dark"] .brand-symbol--light { display: none !important; }
+  body[data-theme="dark"] .brand-symbol--dark { display: block !important; }
+
+  .brand-wordmark {
+    display: block !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    font-size: clamp(24px, 7vw, 29px) !important;
+    line-height: 1 !important;
+    letter-spacing: -.9px !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-tagline {
+    display: block !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 1px 0 0 43px !important;
+    padding: 0 !important;
+    align-self: flex-start !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+  }
+
+  .theme-toggle {
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+  }
+
+  .menu-button {
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+  }
+}
+</style>
