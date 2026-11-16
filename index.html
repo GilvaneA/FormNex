@@ -7949,3 +7949,15 @@ body[data-theme="dark"] .hero .intelligence-card {
   body[data-theme="dark"] .brand-symbol--dark { display: block !important; }
 }
 </style>
+
+<style id="formnex-simbolo-visivel-nos-dois-temas">
+/* O mesmo símbolo FN deve permanecer visível nos temas claro e escuro. */
+body[data-theme="dark"] .brand-main .brand-symbol--light {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+body[data-theme="dark"] .brand-main .brand-symbol--dark {
+  display: none !important;
+}
+</style>
