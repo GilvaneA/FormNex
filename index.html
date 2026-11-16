@@ -3357,7 +3357,7 @@ html { scroll-behavior: smooth; }
 .research-wrap { max-width: 1120px; margin: 0 auto; }
 .research-card {
   position: relative; overflow: hidden;
-  padding: clamp(26px,5vw,52px);
+  padding: clamp(24px,4.5vw,48px);
   border: 1px solid #CDEBE4; border-radius: 24px;
   background: #FFFFFF; box-shadow: 0 16px 42px rgba(15,118,110,.09);
 }
@@ -3372,21 +3372,63 @@ html { scroll-behavior: smooth; }
   letter-spacing:.06em; text-transform:uppercase;
 }
 .research-card h2 {
-  max-width:800px; margin:18px 0 16px; color:#123744;
+  max-width:800px; margin:18px 0 14px; color:#123744;
   font-size:clamp(29px,4vw,43px); line-height:1.12; letter-spacing:-.7px;
 }
 .research-lead { max-width:850px; color:#526B73; font-size:17px; line-height:1.7; }
 .research-purpose {
-  max-width:900px; margin-top:14px; color:#365A64; font-size:16px; line-height:1.7;
+  max-width:900px; margin-top:12px; color:#365A64; font-size:16px; line-height:1.7;
 }
-.research-states {
-  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:28px 0;
+.research-territory {
+  position:relative; z-index:1; margin:28px 0 24px; padding:clamp(20px,3vw,30px);
+  border-radius:22px; color:#FFFFFF;
+  background:linear-gradient(125deg,#0B4F52 0%,#0F766E 56%,#11998E 100%);
+  box-shadow:0 12px 30px rgba(15,118,110,.16);
 }
-.research-state {
-  padding:15px 12px; border:1px solid #D7EAE5; border-radius:13px;
-  background:#F8FCFB; text-align:center; color:#174650; font-weight:800;
+.research-territory::before,.research-territory::after {
+  content:""; position:absolute; border:1px solid rgba(255,255,255,.13);
+  border-radius:50%; pointer-events:none;
 }
-.research-state small { display:block; margin-top:4px; color:#647C82; font-size:12px; font-weight:500; }
+.research-territory::before { width:300px;height:300px;right:-100px;top:-190px; }
+.research-territory::after { width:210px;height:210px;right:-55px;top:-145px; }
+.research-territory-head {
+  position:relative;z-index:1;display:flex;justify-content:space-between;
+  align-items:flex-start;gap:18px;margin-bottom:20px;
+}
+.research-territory-head h3 { margin:0 0 7px;color:#FFFFFF;font-size:clamp(20px,2.5vw,25px);line-height:1.2; }
+.research-territory-head p { margin:0;max-width:690px;color:rgba(255,255,255,.82);font-size:14px;line-height:1.55; }
+.research-territory-count {
+  flex:0 0 auto;padding:9px 13px;border:1px solid rgba(255,255,255,.28);
+  border-radius:12px;background:rgba(255,255,255,.12);font-size:12px;font-weight:800;
+  white-space:nowrap;
+}
+.research-state-grid { position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px; }
+.research-state-card {
+  min-width:0;padding:19px;border:1px solid rgba(255,255,255,.6);
+  border-radius:16px;background:#FFFFFF;color:#174650;
+  box-shadow:0 8px 22px rgba(0,35,36,.12);
+}
+.research-state-top {
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid #E5F0ED;
+}
+.research-state-name { font-size:18px;font-weight:850;letter-spacing:-.3px; }
+.research-region-tag {
+  padding:5px 9px;border-radius:999px;background:#E4F8F3;color:#0F766E;
+  font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
+}
+.research-city-list { display:grid;gap:7px; }
+.research-city {
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:8px 10px;border-radius:9px;background:#F5FAF8;
+}
+.research-city strong { color:#174650;font-size:13px;line-height:1.35; }
+.research-city span { color:#60777C;font-size:11px;line-height:1.35;text-align:right; }
+.research-method-note {
+  position:relative;z-index:1;margin:16px 0 0;padding:12px 14px;
+  border-radius:11px;background:rgba(255,255,255,.12);
+  color:rgba(255,255,255,.9);font-size:12px;line-height:1.55;
+}
 .research-assurances { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 26px; }
 .research-assurance {
   display:inline-flex; align-items:center; gap:8px; padding:10px 13px;
@@ -3396,9 +3438,13 @@ html { scroll-behavior: smooth; }
 .research-note { margin-top:20px; color:#64748B; font-size:13px; line-height:1.6; }
 @media(max-width:700px) {
  .research-section { padding:54px 16px; }
- .research-states { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .research-territory-head { display:block; }
+ .research-territory-count { display:inline-block;margin-top:13px; }
+ .research-state-grid { grid-template-columns:1fr; }
  .research-card { border-radius:18px; }
  .research-actions .btn { width:100%; text-align:center; }
+ .research-city { align-items:flex-start; }
+ .research-city span { max-width:48%; }
 }
 body[data-theme="dark"] .research-section { background:#10191C; }
 body[data-theme="dark"] .research-card { background:#172326; border-color:#355B58; }
@@ -3406,9 +3452,13 @@ body[data-theme="dark"] .research-card h2 { color:#E5F1F0; }
 body[data-theme="dark"] .research-lead,
 body[data-theme="dark"] .research-purpose,
 body[data-theme="dark"] .research-note { color:#B2C3C5; }
-body[data-theme="dark"] .research-state { background:#1D3435; border-color:#355B58; color:#E5F1F0; }
-body[data-theme="dark"] .research-state small { color:#B2C3C5; }
-body[data-theme="dark"] .research-assurance { background:#1D3435; color:#99F6E4; }
+body[data-theme="dark"] .research-state-card { background:#1A292D;border-color:#355B58; }
+body[data-theme="dark"] .research-state-name,
+body[data-theme="dark"] .research-city strong { color:#E5F1F0; }
+body[data-theme="dark"] .research-state-top { border-bottom-color:#35474A; }
+body[data-theme="dark"] .research-city { background:#243D3D; }
+body[data-theme="dark"] .research-city span { color:#B2C3C5; }
+body[data-theme="dark"] .research-assurance { background:#1D3435;color:#B9F5EB; }
 </style>
 </head>
 <body>
@@ -4411,12 +4461,61 @@ body[data-theme="dark"] header {
       <h2 id="research-title">Pesquisa Trabalho, Oportunidades e Mobilidade Profissional</h2>
       <p class="research-lead">A FormNex está organizando um estudo exploratório com moradores de municípios das regiões Norte e Nordeste do Brasil.</p>
       <p class="research-purpose">O objetivo é compreender o interesse por oportunidades profissionais em outros estados e identificar as condições necessárias para uma mobilidade profissional segura e viável.</p>
-      <div class="research-states" aria-label="Estados previstos para a pesquisa">
-        <div class="research-state">Pará<small>Região Norte</small></div>
-        <div class="research-state">Amazonas<small>Região Norte</small></div>
-        <div class="research-state">Bahia<small>Região Nordeste</small></div>
-        <div class="research-state">Piauí<small>Região Nordeste</small></div>
+
+      <div class="research-territory" aria-label="Abrangência territorial da pesquisa">
+        <div class="research-territory-head">
+          <div>
+            <h3>16 municípios. 4 estados. Um estudo.</h3>
+            <p>A aplicação está planejada para acontecer no mesmo dia, simultaneamente nos municípios abaixo. A seleção considera diferentes portes populacionais e realidades territoriais.</p>
+          </div>
+          <div class="research-territory-count">4 municípios por estado</div>
+        </div>
+
+        <div class="research-state-grid">
+          <article class="research-state-card" aria-label="Municípios selecionados no Pará">
+            <div class="research-state-top"><span class="research-state-name">Pará</span><span class="research-region-tag">Região Norte</span></div>
+            <div class="research-city-list">
+              <div class="research-city"><strong>Belém</strong><span>Capital</span></div>
+              <div class="research-city"><strong>Ananindeua</strong><span>2º município mais populoso</span></div>
+              <div class="research-city"><strong>Paragominas</strong><span>Porte próximo a 100 mil habitantes</span></div>
+              <div class="research-city"><strong>Almeirim</strong><span>Entre 30 e 50 mil habitantes</span></div>
+            </div>
+          </article>
+
+          <article class="research-state-card" aria-label="Municípios selecionados no Amazonas">
+            <div class="research-state-top"><span class="research-state-name">Amazonas</span><span class="research-region-tag">Região Norte</span></div>
+            <div class="research-city-list">
+              <div class="research-city"><strong>Manaus</strong><span>Capital</span></div>
+              <div class="research-city"><strong>Itacoatiara</strong><span>2º município mais populoso</span></div>
+              <div class="research-city"><strong>Manacapuru</strong><span>Porte próximo a 100 mil habitantes</span></div>
+              <div class="research-city"><strong>Autazes</strong><span>Entre 30 e 50 mil habitantes</span></div>
+            </div>
+          </article>
+
+          <article class="research-state-card" aria-label="Municípios selecionados na Bahia">
+            <div class="research-state-top"><span class="research-state-name">Bahia</span><span class="research-region-tag">Região Nordeste</span></div>
+            <div class="research-city-list">
+              <div class="research-city"><strong>Salvador</strong><span>Capital</span></div>
+              <div class="research-city"><strong>Feira de Santana</strong><span>2º município mais populoso</span></div>
+              <div class="research-city"><strong>Santo Antônio de Jesus</strong><span>Porte próximo a 100 mil habitantes</span></div>
+              <div class="research-city"><strong>Ipiaú</strong><span>Entre 30 e 50 mil habitantes</span></div>
+            </div>
+          </article>
+
+          <article class="research-state-card" aria-label="Municípios selecionados no Piauí">
+            <div class="research-state-top"><span class="research-state-name">Piauí</span><span class="research-region-tag">Região Nordeste</span></div>
+            <div class="research-city-list">
+              <div class="research-city"><strong>Teresina</strong><span>Capital</span></div>
+              <div class="research-city"><strong>Parnaíba</strong><span>2º município mais populoso</span></div>
+              <div class="research-city"><strong>Picos</strong><span>Porte intermediário · cerca de 83 mil habitantes</span></div>
+              <div class="research-city"><strong>São Raimundo Nonato</strong><span>Entre 30 e 50 mil habitantes</span></div>
+            </div>
+          </article>
+        </div>
+
+        <p class="research-method-note"><strong>Critério de seleção:</strong> capital estadual, segundo município mais populoso, município de porte próximo a 100 mil habitantes e município com população entre 30 mil e 50 mil habitantes. No Amazonas, Itacoatiara e Manacapuru têm populações próximas, por isso os dois aparecem em faixas semelhantes.</p>
       </div>
+
       <div class="research-assurances">
         <span class="research-assurance">✓ Participação voluntária</span>
         <span class="research-assurance">▣ Pesquisa digital</span>
