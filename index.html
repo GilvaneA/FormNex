@@ -5,8 +5,8 @@
 <!-- Google Analytics será carregado somente após consentimento do visitante. -->
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="FormNex conecta pessoas, capacidades e oportunidades com mais inteligência." name="description"/>
-<title>FormNex — Talento reconhecido. Potencial conectado.</title>
+<meta content="FormNex — Inteligência de capacidades e oportunidades. Pesquisa sobre trabalho, oportunidades e mobilidade profissional." name="description"/>
+<title>FormNex — Inteligência de capacidades e oportunidades</title>
 <style>
         :root {
             --teal-dark: #0F766E;
@@ -3347,7 +3347,70 @@ html { scroll-behavior: smooth; }
     object-position: center !important;
   }
 }
-</style></head>
+</style>
+<style id="formnex-pesquisa-mobilidade">
+/* Seção institucional da pesquisa territorial FormNex */
+.research-section {
+  padding: 78px 24px;
+  background: linear-gradient(180deg,#F0FDFA 0%,#FFFFFF 100%);
+}
+.research-wrap { max-width: 1120px; margin: 0 auto; }
+.research-card {
+  position: relative; overflow: hidden;
+  padding: clamp(26px,5vw,52px);
+  border: 1px solid #CDEBE4; border-radius: 24px;
+  background: #FFFFFF; box-shadow: 0 16px 42px rgba(15,118,110,.09);
+}
+.research-card::after {
+  content:""; position:absolute; width:250px; height:250px; right:-90px; top:-110px;
+  border:32px solid rgba(20,187,166,.07); transform:rotate(45deg); border-radius:34px;
+  pointer-events:none;
+}
+.research-kicker {
+  display:inline-flex; padding:7px 12px; border-radius:999px;
+  color:#0F766E; background:#DDF7F1; font-size:12px; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase;
+}
+.research-card h2 {
+  max-width:800px; margin:18px 0 16px; color:#123744;
+  font-size:clamp(29px,4vw,43px); line-height:1.12; letter-spacing:-.7px;
+}
+.research-lead { max-width:850px; color:#526B73; font-size:17px; line-height:1.7; }
+.research-purpose {
+  max-width:900px; margin-top:14px; color:#365A64; font-size:16px; line-height:1.7;
+}
+.research-states {
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:28px 0;
+}
+.research-state {
+  padding:15px 12px; border:1px solid #D7EAE5; border-radius:13px;
+  background:#F8FCFB; text-align:center; color:#174650; font-weight:800;
+}
+.research-state small { display:block; margin-top:4px; color:#647C82; font-size:12px; font-weight:500; }
+.research-assurances { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 26px; }
+.research-assurance {
+  display:inline-flex; align-items:center; gap:8px; padding:10px 13px;
+  border-radius:10px; background:#F0FDFA; color:#155E59; font-size:13px; font-weight:700;
+}
+.research-actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.research-note { margin-top:20px; color:#64748B; font-size:13px; line-height:1.6; }
+@media(max-width:700px) {
+ .research-section { padding:54px 16px; }
+ .research-states { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .research-card { border-radius:18px; }
+ .research-actions .btn { width:100%; text-align:center; }
+}
+body[data-theme="dark"] .research-section { background:#10191C; }
+body[data-theme="dark"] .research-card { background:#172326; border-color:#355B58; }
+body[data-theme="dark"] .research-card h2 { color:#E5F1F0; }
+body[data-theme="dark"] .research-lead,
+body[data-theme="dark"] .research-purpose,
+body[data-theme="dark"] .research-note { color:#B2C3C5; }
+body[data-theme="dark"] .research-state { background:#1D3435; border-color:#355B58; color:#E5F1F0; }
+body[data-theme="dark"] .research-state small { color:#B2C3C5; }
+body[data-theme="dark"] .research-assurance { background:#1D3435; color:#99F6E4; }
+</style>
+</head>
 <body>
 <header>
 <nav class="nav">
@@ -3358,11 +3421,11 @@ html { scroll-behavior: smooth; }
 
 <div class="brand-wordmark">Form<span>Nex</span></div>
 </div>
-<span class="brand-tagline">Talento reconhecido. Potencial conectado.</span>
+<span class="brand-tagline">Inteligência de capacidades e oportunidades.</span>
 </div>
 </div>
 <div class="menu" id="mainMenu">
-<a href="#formnex-presenca">Presença via WhatsApp</a><a href="#como-pensamos">Como pensamos</a><a href="#radar-potencial">Radar de Potencial</a><a href="#busca-ativa">Busca ativa</a><a href="#empresas">Oportunidades</a></div>
+<a href="#formnex-presenca">Presença via WhatsApp</a><a href="#como-pensamos">Como pensamos</a><a href="#radar-potencial">Radar de Potencial</a><a href="#busca-ativa">Busca ativa</a><a href="#empresas">Oportunidades</a><a href="#pesquisa-mobilidade">Pesquisa</a></div>
 <button aria-label="Ativar modo escuro" class="theme-toggle" id="themeToggle" title="Alternar entre modo claro e escuro" type="button">🌙 <span>Modo escuro</span></button>
 <button aria-controls="mainMenu" aria-expanded="false" aria-label="Abrir menu" class="menu-button" id="menuToggle" type="button">☰</button>
 </nav>
@@ -4340,6 +4403,33 @@ body[data-theme="dark"] header {
  setProgress(8,'Iniciando');
 })();
 </script>
+
+<section class="research-section" id="pesquisa-mobilidade" aria-labelledby="research-title">
+  <div class="research-wrap">
+    <div class="research-card">
+      <span class="research-kicker">Iniciativa de pesquisa FormNex</span>
+      <h2 id="research-title">Pesquisa Trabalho, Oportunidades e Mobilidade Profissional</h2>
+      <p class="research-lead">A FormNex está organizando um estudo exploratório com moradores de municípios das regiões Norte e Nordeste do Brasil.</p>
+      <p class="research-purpose">O objetivo é compreender o interesse por oportunidades profissionais em outros estados e identificar as condições necessárias para uma mobilidade profissional segura e viável.</p>
+      <div class="research-states" aria-label="Estados previstos para a pesquisa">
+        <div class="research-state">Pará<small>Região Norte</small></div>
+        <div class="research-state">Amazonas<small>Região Norte</small></div>
+        <div class="research-state">Bahia<small>Região Nordeste</small></div>
+        <div class="research-state">Piauí<small>Região Nordeste</small></div>
+      </div>
+      <div class="research-assurances">
+        <span class="research-assurance">✓ Participação voluntária</span>
+        <span class="research-assurance">▣ Pesquisa digital</span>
+        <span class="research-assurance">◇ Transparência e privacidade</span>
+      </div>
+      <div class="research-actions">
+        <a class="btn btn-primary" href="mailto:formnexoficial@gmail.com?subject=Interesse%20em%20apoiar%20a%20pesquisa%20FormNex">Instituições: fale com a FormNex</a>
+        <a class="btn btn-secondary" href="mailto:formnexoficial@gmail.com?subject=Informa%C3%A7%C3%B5es%20sobre%20a%20pesquisa%20FormNex">Solicitar informações</a>
+      </div>
+      <p class="research-note">A pesquisa está em fase de organização. A participação será voluntária. As informações sobre finalidade, tratamento e proteção dos dados serão apresentadas aos participantes antes do preenchimento do questionário.</p>
+    </div>
+  </div>
+</section>
 </main>
 <footer>
 <div class="footer-content">
@@ -4349,7 +4439,7 @@ body[data-theme="dark"] header {
 <div class="footer-text">
             Capacidade → Evidência → Conhecimento → Decisão
             <br/>
-            Menos procura. Mais compatibilidade.
+            Inteligência de capacidades e oportunidades.
             <br/>
 <span class="footer-contact">Contato: <a href="mailto:formnexoficial@gmail.com" style="color: inherit; text-decoration: underline;">formnexoficial@gmail.com</a></span>
 <br/>
