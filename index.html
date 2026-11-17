@@ -37,6 +37,10 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
 .recruiter-callout{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:18px}
 .recruiter-callout strong{font-size:16px}.recruiter-callout p{margin:3px 0 0;color:var(--muted);font-size:14px}
 .search-note{font-size:12px;color:var(--muted);margin:0}
+
+.curriculum-callout{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.curriculum-copy strong{font-size:16px}.curriculum-copy p{margin:3px 0 0;color:var(--muted);font-size:14px}
+@media(max-width:560px){.curriculum-callout{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
@@ -72,6 +76,13 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
       <input id="local" name="local" type="search" placeholder="Cidade, estado ou região — Brasil">
       <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
      </form>
+     <div class="curriculum-callout">
+      <div class="curriculum-copy">
+       <strong>Quer construir ou cadastrar seu currículo?</strong>
+       <p>Comece do seu jeito: escrevendo, contando sua história ou usando o WhatsApp.</p>
+      </div>
+      <a class="btn secondary" href="curriculo.html">Fazer ou cadastrar currículo →</a>
+     </div>
      <div class="recruiter-callout">
       <div><strong>É recrutador ou empresa?</strong><p>Divulgue suas vagas e encontre profissionais compatíveis.</p></div>
       <a class="btn secondary" href="plataforma.html#empresas">Divulgar uma vaga →</a>
