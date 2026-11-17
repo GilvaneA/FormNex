@@ -29,31 +29,9 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
  
 .search-panel{margin-top:28px;background:#fff;color:var(--ink);border-radius:20px;padding:24px;display:grid;grid-template-columns:1fr;gap:16px}
-#job-search{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
-#job-search label{grid-row:1;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:-7px}
-#job-search input{width:100%;min-width:0;border:1px solid var(--line);border-radius:11px;padding:14px 13px;font:inherit;color:var(--ink);background:#fff}
-#job-search input:focus{outline:3px solid #0f8f8330;border-color:var(--teal)}
-.search-button{min-height:49px;cursor:pointer;font:inherit}
-.recruiter-callout{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:18px}
-.recruiter-callout strong{font-size:16px}.recruiter-callout p{margin:3px 0 0;color:var(--muted);font-size:14px}
-.search-note{font-size:12px;color:var(--muted);margin:0}
-
-.curriculum-callout{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:18px}
-.curriculum-copy strong{font-size:16px}.curriculum-copy p{margin:3px 0 0;color:var(--muted);font-size:14px}
-@media(max-width:560px){.curriculum-callout{align-items:flex-start;flex-direction:column}}
-
-/* FormNex: quatro ações principais, com hierarquia e contraste reforçados */
-.search-panel{margin-top:28px;background:#fff;color:#10333d;border-radius:20px;padding:clamp(16px,2.5vw,28px);display:grid;gap:0}
-.action-row{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid #cfe5df}
-.action-row:first-child{padding-top:4px}.action-row:last-of-type{border-bottom:0}
-.action-heading{display:flex;align-items:flex-start;gap:14px;min-width:0;flex:1}
-.action-number{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#dff5f0;color:#075f58;font-weight:900;font-size:15px}
-.action-row h2{font-size:clamp(18px,2vw,21px);line-height:1.2;margin:0 0 5px;color:#10333d}
-.action-row p{font-size:15px;line-height:1.45;margin:0;color:#405c62;max-width:760px}
-.action-row .modality-note{margin-top:7px;font-size:14px}
-.action-row .modality-note strong{color:#075f58}
-#job-search{display:grid;grid-template-columns:1.2fr .8fr 1fr auto;gap:10px;align-items:end;flex:1.6;min-width:0}
-#job-search label{font-size:13px;font-weight:800;color:#29484e;display:block;margin:0 0 -4px}
+#job-search{display:grid;grid-template-columns:minmax(220px,1.5fr) minmax(170px,.8fr) auto;gap:12px;align-items:end;flex:1.6;min-width:0}
+.search-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+#job-search label{font-size:13px;font-weight:800;color:#29484e;display:block}
 #job-search label span{font-weight:500;color:#536b70}
 #job-search input,#job-search select{width:100%;min-width:0;min-height:50px;border:1px solid #a9cfc6;border-radius:11px;padding:12px 13px;font:inherit;font-size:15px;color:#10333d;background:#fff}
 #job-search input:focus,#job-search select:focus{outline:3px solid #0f8f8340;border-color:#087f75}
@@ -116,15 +94,17 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
      <section class="action-row action-search" aria-labelledby="search-title">
       <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Buscar vagas</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
       <form id="job-search" action="plataforma.html" method="get">
-       <label for="cargo">Profissão, cargo ou palavra-chave</label>
-       <input id="cargo" name="busca" type="search" placeholder="Ex.: vendedor, operador, motorista">
-       <label for="estado">Estado <span>(opcional)</span></label>
-       <select id="estado" name="estado">
-        <option value="">Todos os estados</option>
-        <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
-       </select>
-       <label for="cidade">Cidade <span>(opcional)</span></label>
-       <input id="cidade" name="cidade" type="search" placeholder="Digite uma cidade">
+       <div class="search-field">
+        <label for="cargo">Profissão, cargo ou palavra-chave</label>
+        <input id="cargo" name="busca" type="search" placeholder="Ex.: vendedor, operador, motorista">
+       </div>
+       <div class="search-field">
+        <label for="estado">Estado <span>(opcional)</span></label>
+        <select id="estado" name="estado">
+         <option value="">Todos os estados</option>
+         <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
+        </select>
+       </div>
        <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
       </form>
      </section>
