@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10333d"><meta name="description" content="Faça ou cadastre seu currículo na FormNex.">
+<title>Currículo | FormNex</title>
+<style>
+:root{--ink:#10333d;--teal:#0f8f83;--paper:#f1faf7;--muted:#536b70;--line:#cfe5df}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+.wrap{width:min(980px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}
+header{border-bottom:1px solid var(--line);background:var(--paper)}.nav{min-height:68px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:24px;font-weight:800}.brand span{color:var(--teal)}.back{font-weight:700;color:var(--teal)}
+main{padding:42px 0 60px}.hero{background:var(--ink);color:white;padding:36px;border-radius:22px}
+.kicker{color:#68e0cb;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1;margin:12px 0}
+.hero p{color:#e1f1ee;max-width:700px;margin:0}
+h2{font-size:25px;margin:30px 0 6px}.lead{color:var(--muted);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:23px;display:flex;flex-direction:column;gap:11px;scroll-margin-top:18px}
+.card h3{font-size:21px;margin:0}.card p{margin:0;color:var(--muted)}
+.pill{font-size:12px;font-weight:800;padding:5px 9px;border-radius:99px;background:#dff5f0;color:#075f58;width:max-content}
+.pill.future{background:#fff2d2;color:#76550a}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:11px;border:2px solid var(--teal);font-weight:800;font-size:15px}
+.btn.primary{background:var(--teal);color:#fff}.btn.secondary{background:#fff;color:var(--ink)}
+.note{margin-top:20px;padding:17px 19px;border-radius:14px;background:#e2f3ee;color:#35565b}
+footer{background:var(--ink);color:#e7f3f0;padding:22px 0;font-size:13px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.hero{padding:25px}.nav{min-height:60px}}
+@media(prefers-color-scheme:dark){body,header{background:#0b2026;color:#eaf5f2}header{border-color:#29464d}.back{color:#75dfce}.card{background:#142f37;border-color:#35545b}.card h3{color:#f2fbf8}.card p,.lead{color:#c3d8d4}.pill{background:#214b50;color:#8ce7d8}.pill.future{background:#51431e;color:#ffe2a0}.btn.secondary{background:#eaf5f2;color:#10333d}.note{background:#173f45;color:#cce9e2}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="index.html">Form<span>Nex</span></a><a class="back" href="index.html">← Página inicial</a></div></header>
+<main class="wrap">
+<section class="hero"><span class="kicker">FormNex · Perfil profissional</span><h1>Seu currículo começa com a sua história.</h1><p>Escolha se deseja cadastrar um currículo que já existe ou construir um novo. Você revisa e confirma suas informações antes de compor seu perfil.</p></section>
+<h2>Como deseja começar?</h2><p class="lead">Duas entradas simples. Você escolhe o caminho.</p>
+<div class="grid">
+ <article class="card" id="cadastrar"><span class="pill future">Cadastro de arquivo · próxima etapa</span><h3>Cadastrar currículo existente</h3><p>Para quem já tem um currículo pronto em PDF ou Word. O envio, a leitura e a conferência do documento serão habilitados na próxima etapa.</p><div class="actions"><span class="btn secondary">PDF ou Word em breve</span></div></article>
+ <article class="card" id="fazer"><span class="pill">Construção por texto disponível</span><h3>Fazer meu currículo</h3><p>Conte suas experiências e atividades. A FormNex organiza as informações para você revisar e confirmar.</p><div class="actions"><a class="btn primary" href="plataforma.html#formnex-presenca">Começar por escrita →</a></div></article>
+ <article class="card"><span class="pill future">Em desenvolvimento</span><h3>Construir por voz</h3><p>Conte sua história falando, sem depender de um formulário longo. A entrada por voz real será implementada em uma próxima etapa.</p><div class="actions"><a class="btn secondary" href="plataforma.html#formnex-presenca">Conhecer a experiência →</a></div></article>
+ <article class="card"><span class="pill future">Integração futura</span><h3>Construir pelo WhatsApp</h3><p>Compartilhe suas experiências por uma conversa guiada no WhatsApp. A integração ainda está em desenvolvimento.</p><div class="actions"><a class="btn secondary" href="plataforma.html#formnex-presenca">Conhecer a proposta →</a></div></article>
+</div>
+<div class="note"><strong>Você no controle:</strong> revise, corrija e confirme suas informações. A FormNex respeita sua autonomia e a privacidade dos seus dados.</div>
+</main><footer><div class="wrap">FormNex · Capacidade → Evidência → Conhecimento → Decisão</div></footer>
+</body></html>
