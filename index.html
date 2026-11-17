@@ -41,6 +41,50 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
 .curriculum-callout{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:18px}
 .curriculum-copy strong{font-size:16px}.curriculum-copy p{margin:3px 0 0;color:var(--muted);font-size:14px}
 @media(max-width:560px){.curriculum-callout{align-items:flex-start;flex-direction:column}}
+
+/* FormNex: quatro ações principais, com hierarquia e contraste reforçados */
+.search-panel{margin-top:28px;background:#fff;color:#10333d;border-radius:20px;padding:clamp(16px,2.5vw,28px);display:grid;gap:0}
+.action-row{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid #cfe5df}
+.action-row:first-child{padding-top:4px}.action-row:last-of-type{border-bottom:0}
+.action-heading{display:flex;align-items:flex-start;gap:14px;min-width:0;flex:1}
+.action-number{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#dff5f0;color:#075f58;font-weight:900;font-size:15px}
+.action-row h2{font-size:clamp(18px,2vw,21px);line-height:1.2;margin:0 0 5px;color:#10333d}
+.action-row p{font-size:15px;line-height:1.45;margin:0;color:#405c62;max-width:760px}
+.action-row .modality-note{margin-top:7px;font-size:14px}
+.action-row .modality-note strong{color:#075f58}
+#job-search{display:grid;grid-template-columns:1.2fr .8fr 1fr auto;gap:10px;align-items:end;flex:1.6;min-width:0}
+#job-search label{font-size:13px;font-weight:800;color:#29484e;display:block;margin:0 0 -4px}
+#job-search label span{font-weight:500;color:#536b70}
+#job-search input,#job-search select{width:100%;min-width:0;min-height:50px;border:1px solid #a9cfc6;border-radius:11px;padding:12px 13px;font:inherit;font-size:15px;color:#10333d;background:#fff}
+#job-search input:focus,#job-search select:focus{outline:3px solid #0f8f8340;border-color:#087f75}
+.btn.action-button,.search-button{font:800 16px/1.2 Arial,Helvetica,sans-serif;min-height:50px;padding:13px 19px;border-radius:12px;white-space:nowrap;cursor:pointer}
+.search-button{background:#087f75;color:#fff;border:2px solid #087f75}
+.publish-button{background:#10333d;color:#fff;border:2px solid #10333d}
+.register-button{background:#e0f4ef;color:#075f58;border:2px solid #0f8f83}
+.create-button{background:#0f8f83;color:#fff;border:2px solid #0f8f83}
+.btn.action-button:hover,.search-button:hover{filter:brightness(.94);transform:translateY(-1px);box-shadow:0 6px 18px #10333d20}
+.search-note{font-size:13px;color:#405c62;margin:12px 0 0}
+@media(max-width:900px){#job-search{grid-template-columns:1fr 1fr}.search-button{grid-column:1/-1}.action-search{display:block}.action-search .action-heading{margin-bottom:15px}}
+@media(max-width:650px){.action-row{align-items:stretch;flex-direction:column;gap:14px}.action-row .action-button{width:100%}#job-search{grid-template-columns:1fr}.search-button{grid-column:auto}.action-search .action-heading{margin-bottom:14px}}
+@media(prefers-color-scheme:dark){
+ body{background:#0b2026;color:#eaf5f2}
+ header{background:rgba(11,32,38,.97);border-color:#29464d}
+ .brand-word{color:#eaf5f2}
+ nav a{color:#eaf5f2}
+ .search-panel{background:#142f37;color:#f2fbf8;border:1px solid #35545b}
+ .action-row{border-color:#35545b}
+ .action-row h2{color:#f2fbf8}
+ .action-row p,.search-note{color:#c3d8d4}
+ .action-number{background:#214b50;color:#8ce7d8}
+ #job-search label{color:#d7e8e4}
+ #job-search label span{color:#a9c4be}
+ #job-search input,#job-search select{background:#0d252c;color:#f2fbf8;border-color:#54757a}
+ #job-search input::placeholder{color:#a9c4be}
+ .publish-button{background:#e9f5f2;color:#10333d;border-color:#e9f5f2}
+ .register-button{background:#173f45;color:#b9f3e8;border-color:#55cdb9}
+ .create-button,.search-button{background:#20a997;color:#062e31;border-color:#20a997}
+ .action-row .modality-note strong{color:#8ce7d8}
+}
 </style>
 </head>
 <body>
@@ -69,25 +113,34 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
      <div class="hero-note">A inteligência da FormNex aproxima capacidades, experiências e oportunidades.<br><br><strong>Capacidade → Evidência → Conhecimento → Decisão</strong></div>
     </div>
     <div class="search-panel">
-     <form id="job-search" action="plataforma.html" method="get">
-      <label for="cargo">O que você procura?</label>
-      <input id="cargo" name="busca" type="search" placeholder="Cargo, profissão ou palavra-chave">
-      <label for="local">Onde?</label>
-      <input id="local" name="local" type="search" placeholder="Cidade, estado ou região — Brasil">
-      <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
-     </form>
-     <div class="curriculum-callout">
-      <div class="curriculum-copy">
-       <strong>Quer construir ou cadastrar seu currículo?</strong>
-       <p>Comece do seu jeito: escrevendo, contando sua história ou usando o WhatsApp.</p>
-      </div>
-      <a class="btn secondary" href="curriculo.html">Fazer ou cadastrar currículo →</a>
-     </div>
-     <div class="recruiter-callout">
-      <div><strong>É recrutador ou empresa?</strong><p>Divulgue suas vagas e encontre profissionais compatíveis.</p></div>
-      <a class="btn secondary" href="plataforma.html#empresas">Divulgar uma vaga →</a>
-     </div>
-     <p class="search-note">Busca nacional: você pode informar qualquer cidade, estado ou região do Brasil.</p>
+     <section class="action-row action-search" aria-labelledby="search-title">
+      <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Buscar vagas</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
+      <form id="job-search" action="plataforma.html" method="get">
+       <label for="cargo">Profissão, cargo ou palavra-chave</label>
+       <input id="cargo" name="busca" type="search" placeholder="Ex.: vendedor, operador, motorista">
+       <label for="estado">Estado <span>(opcional)</span></label>
+       <select id="estado" name="estado">
+        <option value="">Todos os estados</option>
+        <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
+       </select>
+       <label for="cidade">Cidade <span>(opcional)</span></label>
+       <input id="cidade" name="cidade" type="search" placeholder="Digite uma cidade">
+       <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
+      </form>
+     </section>
+     <section class="action-row action-publish" aria-labelledby="publish-title">
+      <div class="action-heading"><span class="action-number">02</span><div><h2 id="publish-title">Divulgar vagas</h2><p>Qualquer empresa ou recrutador pode divulgar uma oportunidade. Pessoas de qualquer localidade podem se candidatar, conforme os requisitos da vaga.</p><p class="modality-note">A publicação deve informar se a vaga é <strong>presencial, híbrida ou remota</strong>.</p></div></div>
+      <a class="btn action-button publish-button" href="plataforma.html#empresas">Divulgar uma vaga <span aria-hidden="true">→</span></a>
+     </section>
+     <section class="action-row action-register" aria-labelledby="register-title">
+      <div class="action-heading"><span class="action-number">03</span><div><h2 id="register-title">Cadastrar currículo</h2><p>Já possui um currículo? Comece enviando o documento para organizar suas informações.</p></div></div>
+      <a class="btn action-button register-button" href="curriculo.html#cadastrar">Cadastrar currículo <span aria-hidden="true">→</span></a>
+     </section>
+     <section class="action-row action-create" aria-labelledby="create-title">
+      <div class="action-heading"><span class="action-number">04</span><div><h2 id="create-title">Fazer currículo</h2><p>Construa seu perfil contando suas experiências por escrita, voz ou WhatsApp.</p></div></div>
+      <a class="btn action-button create-button" href="curriculo.html#fazer">Fazer currículo <span aria-hidden="true">→</span></a>
+     </section>
+     <p class="search-note">Busca nacional: selecione um estado ou cidade se desejar. Sem filtros, a busca considera todo o Brasil.</p>
     </div>
    </div>
   </div>
