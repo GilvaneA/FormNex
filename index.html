@@ -232,7 +232,7 @@ footer{margin-top:28px}
     </div>
     <div class="search-panel">
      <section class="action-row action-search" aria-labelledby="search-title">
-      <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Buscar vagas disponíveis</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
+      <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Vagas</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
       <form id="job-search" action="plataforma.html" method="get">
        <div class="search-field">
         <label for="cargo">Profissão, cargo ou palavra-chave</label>
@@ -245,7 +245,7 @@ footer{margin-top:28px}
          <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
         </select>
        </div>
-       <button class="btn primary search-button" type="submit">Buscar vagas disponíveis <span aria-hidden="true">→</span></button>
+       <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
       </form>
      </section>
      <section class="action-row action-publish" aria-labelledby="publish-title">
@@ -294,5 +294,36 @@ footer{margin-top:28px}
   <div><small>Capacidade → Evidência → Conhecimento → Decisão</small><br><small>Contato: formnexoficial@gmail.com</small></div>
  </div>
 </footer>
+
+<style id="formnex-search-layout-final">
+/* Ajuste solicitado: campo de busca e estado em duas colunas; ação abaixo */
+#job-search{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+  align-items:end;
+}
+#job-search .search-field{min-width:0}
+#job-search .search-button{
+  grid-column:1/-1;
+  width:100%;
+  min-height:48px;
+  justify-content:center;
+  border-radius:10px;
+  white-space:normal;
+}
+@media(max-width:650px){
+  #job-search{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  #job-search .search-button{grid-column:1/-1;width:100%}
+  #job-search input,#job-search select{font-size:14px;padding:11px 10px}
+  #job-search label{font-size:12px}
+}
+@media(max-width:360px){
+  #job-search{grid-template-columns:1fr}
+  #job-search .search-button{grid-column:auto}
+}
+</style>
+
 </body>
 </html>
