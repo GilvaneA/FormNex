@@ -196,6 +196,90 @@ footer{margin-top:28px}
 }
 </style>
 
+
+<style id="formnex-functionality-grid-fix">
+/* Funcionalidades: grade completa, sem espaço vazio artificial */
+.search-panel{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:stretch;
+  gap:14px;
+  padding:22px;
+}
+.search-panel .action-search{grid-column:1/-1}
+.search-panel .action-row{
+  min-width:0;
+  min-height:205px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:stretch;
+  gap:18px;
+  padding:20px;
+}
+.search-panel .action-heading{display:flex;align-items:flex-start;gap:13px}
+.search-panel .action-heading>div{min-width:0}
+.search-panel .action-heading h2{font-size:19px;line-height:1.3}
+.search-panel .action-heading p{font-size:14px;line-height:1.5}
+.search-panel .action-button{width:100%;max-width:300px;align-self:flex-start}
+.search-panel .action-compatibility{background:#f2fbf8;border-color:#a8d9ce}
+.search-panel .compatibility-button{background:#0f766e;color:#fff;border-color:#0f766e}
+.search-panel .search-note{
+  grid-column:1/-1;
+  margin:0;
+  padding:8px 2px 0;
+  color:#405c62;
+  font-size:13px;
+  line-height:1.5;
+}
+.methodology-strip{
+  padding:22px 0 8px;
+}
+.methodology-strip>.wrap{
+  background:#e4f5f0;
+  border:1px solid #c9e4de;
+  border-radius:18px;
+  padding:22px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.methodology-copy{max-width:460px}
+.methodology-copy h2{margin:0 0 6px;font-size:22px;line-height:1.25;color:#123744}
+.methodology-copy p{margin:0;font-size:14px;line-height:1.55;color:#506c72}
+.methodology-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.methodology-flow span{padding:9px 12px;border-radius:10px;background:#fff;color:#0f766e;font-size:12px;font-weight:800;border:1px solid #c9e4de}
+.methodology-flow b{color:#0f766e;font-size:14px}
+@media(max-width:800px){
+ .search-panel{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .methodology-strip>.wrap{align-items:flex-start;flex-direction:column}
+ .methodology-flow{justify-content:flex-start}
+}
+@media(max-width:650px){
+ .search-panel{grid-template-columns:1fr!important;padding:14px;gap:12px}
+ .search-panel .action-search{grid-column:auto}
+ .search-panel .action-row{min-height:0;padding:17px}
+ .search-panel .action-button{max-width:none}
+ .search-panel .search-note{grid-column:auto}
+ .methodology-strip{padding-top:16px}
+ .methodology-strip>.wrap{padding:18px}
+ .methodology-copy h2{font-size:20px}
+ .methodology-flow{gap:6px}
+ .methodology-flow span{padding:8px 9px}
+}
+@media(prefers-color-scheme:dark){
+ .search-panel .action-compatibility{background:#142f37;border-color:#4a8d82}
+ .search-panel .compatibility-button{background:#20a997;color:#062e31;border-color:#20a997}
+ .search-panel .search-note{color:#c3d8d4}
+ .methodology-strip>.wrap{background:#142f37;border-color:#35545b}
+ .methodology-copy h2{color:#f2fbf8}
+ .methodology-copy p{color:#c3d8d4}
+ .methodology-flow span{background:#0d252c;color:#8ce7d8;border-color:#35545b}
+ .methodology-flow b{color:#8ce7d8}
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -261,8 +345,23 @@ footer{margin-top:28px}
       <div class="action-heading"><span class="action-number">04</span><div><h2 id="create-title">Fazer currículo</h2><p>Construa seu perfil contando suas experiências por escrita, voz ou WhatsApp.</p></div></div>
       <a class="btn action-button create-button" href="curriculo.html#fazer">Fazer currículo <span aria-hidden="true">→</span></a>
      </section>
-     <p class="search-note">Busca nacional: selecione um estado ou cidade se desejar. Sem filtros, a busca considera todo o Brasil.</p>
+     <section class="action-row action-compatibility" aria-labelledby="compatibility-title">
+      <div class="action-heading"><span class="action-number">05</span><div><h2 id="compatibility-title">Compatibilidade profissional</h2><p>Conheça como suas experiências e capacidades se relacionam com os requisitos das oportunidades.</p></div></div>
+      <a class="btn action-button compatibility-button" href="#metodologia-formnex">Conheça a compatibilidade <span aria-hidden="true">→</span></a>
+     </section>
+     <p class="search-note">Busca nacional: escolha um estado ou cidade se desejar. Sem filtros, a busca considera todo o Brasil.</p>
     </div>
+   </div>
+  </div>
+ </section>
+ <section class="methodology-strip" id="metodologia-formnex" aria-labelledby="methodology-title">
+  <div class="wrap">
+   <div class="methodology-copy">
+    <h2 id="methodology-title">Mais compatibilidade. Menos procura.</h2>
+    <p>A FormNex organiza capacidades e evidências para ajudar pessoas e empresas a compreender melhor a relação entre profissionais e oportunidades.</p>
+   </div>
+   <div class="methodology-flow" aria-label="Metodologia FormNex">
+    <span>Capacidade</span><b aria-hidden="true">→</b><span>Evidência</span><b aria-hidden="true">→</b><span>Conhecimento</span><b aria-hidden="true">→</b><span>Decisão</span>
    </div>
   </div>
  </section>
