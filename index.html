@@ -389,6 +389,22 @@ footer{margin-top:28px}
 }
 </style>
 
+
+<style id="formnex-hero-contact-links">
+.hero-contact-area{display:flex;flex-direction:column;gap:18px}
+.hero-contact-area .hero-contact-intro{margin:0;color:#d6e9e6;font-size:15px;line-height:1.55}
+.hero-contact-links{display:flex;flex-wrap:wrap;gap:10px}
+.hero-contact-link{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid #3c9e98;border-radius:12px;background:#0d4650;color:#e9fbf7;font-size:14px;font-weight:700;transition:background .15s ease,border-color .15s ease}
+.hero-contact-link:hover,.hero-contact-link:focus-visible{background:#12616a;border-color:#68e0cb;outline:2px solid #68e0cb;outline-offset:2px}
+.contact-symbol{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:50%;background:#4bd1bd;color:#10333d;font-size:14px;font-weight:900}
+.hero-methodology{font-size:14px;line-height:1.5;color:#d6e9e6}
+@media(max-width:760px){
+ .hero-contact-area{gap:14px}
+ .hero-contact-links{gap:8px}
+ .hero-contact-link{padding:9px 12px}
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -414,7 +430,21 @@ footer{margin-top:28px}
       <h1>Encontre oportunidades que combinam com <span>você.</span></h1>
       <p>Pesquise vagas por profissão, cargo ou palavra-chave e encontre oportunidades em qualquer região do Brasil.</p>
      </div>
-     <div class="hero-note">A inteligência da FormNex aproxima capacidades, experiências e oportunidades.<br><br><strong>Capacidade → Evidência → Conhecimento → Decisão</strong></div>
+     <div class="hero-note hero-contact-area">
+      <p class="hero-contact-intro">A inteligência da FormNex aproxima capacidades, experiências e oportunidades.</p>
+      <div class="hero-contact-links" aria-label="Canais de contato FormNex">
+       <a class="hero-contact-link" href="mailto:formnexoficial@gmail.com" aria-label="Enviar e-mail para FormNex">
+        <span class="contact-symbol" aria-hidden="true">✉</span><span>E-mail</span>
+       </a>
+       <a class="hero-contact-link" href="https://wa.me/554598106504" target="_blank" rel="noopener noreferrer" aria-label="Conversar com FormNex pelo WhatsApp">
+        <span class="contact-symbol" aria-hidden="true">◉</span><span>WhatsApp</span>
+       </a>
+       <a class="hero-contact-link" href="https://www.facebook.com/profile.php?id=61596277115647" target="_blank" rel="noopener noreferrer" aria-label="Visitar FormNex no Facebook">
+        <span class="contact-symbol" aria-hidden="true">f</span><span>Facebook</span>
+       </a>
+      </div>
+      <strong class="hero-methodology">Capacidade → Evidência → Conhecimento → Decisão</strong>
+     </div>
     </div>
     <div class="search-panel">
      <section class="action-row action-search" aria-labelledby="search-title">
