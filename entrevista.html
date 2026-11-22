@@ -13,22 +13,18 @@ a{color:inherit;text-decoration:none}
 .wrap{width:min(1200px,calc(100% - 32px));margin:auto}
 header{background:rgba(241,250,247,.96);border-bottom:1px solid var(--line);padding:14px 0}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:800;letter-spacing:-.6px}
-.brand span{color:var(--teal)}
+.brand{font-size:23px;font-weight:800;letter-spacing:-.6px}.brand span{color:var(--teal)}
 .status-pill{background:var(--mint);color:#075f58;border:1px solid var(--teal);padding:6px 14px;border-radius:99px;font-size:13px;font-weight:800}
 main{padding:28px 0 48px}
-.room-head{margin-bottom:20px}
-.room-head h1{margin:0 0 6px;font-size:clamp(24px,3vw,32px);letter-spacing:-.6px}
-.room-head p{margin:0;color:var(--muted)}
+.room-head{margin-bottom:20px}.room-head h1{margin:0 0 6px;font-size:clamp(24px,3vw,32px);letter-spacing:-.6px}.room-head p{margin:0;color:var(--muted)}
 .interview-grid{display:grid;grid-template-columns:1.65fr .85fr;gap:20px;align-items:start}
 .video-box{background:var(--ink);border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 28px #10333d14}
-.video-frame{width:100%;height:540px;border:0;display:block;background:#0b2026}
+#meet-container{width:100%;height:540px;background:#0b2026}
+#meet-container iframe{width:100%!important;height:100%!important;border:0!important}
 .video-bar{padding:12px 18px;background:#10333d;color:#e1f1ee;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px}
 .panel{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 6px 20px #10333d08}
-.panel h2{margin:0 0 8px;font-size:19px}
-.panel p{margin:0 0 16px;color:var(--muted);font-size:14px}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}
+.panel h2{margin:0 0 8px;font-size:19px}.panel p{margin:0 0 16px;color:var(--muted);font-size:14px}
+.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}
 .field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid #a9cfc6;border-radius:10px;font:inherit;font-size:14px;background:var(--white);color:var(--ink)}
 .outcome-group{display:grid;gap:9px;margin-bottom:16px}
 .btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:12px;font:800 15px/1.2 Arial,Helvetica,sans-serif;cursor:pointer;border:2px solid transparent;transition:.16s ease}
@@ -38,127 +34,136 @@ main{padding:28px 0 48px}
 .btn:hover{transform:translateY(-1px);filter:brightness(.96)}
 .feedback-msg{display:none;margin-top:14px;padding:12px;border-radius:12px;background:var(--mint);color:#075f58;font-size:14px;font-weight:700}
 .security-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.warning{margin:0 0 18px;padding:14px 16px;border:1px solid #e3c78c;border-radius:12px;background:#fff8e8;color:#684c15;font-size:13px}
 footer{background:var(--ink);color:#e7f3f0;padding:24px 0;font-size:13px}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:900px){.interview-grid{grid-template-columns:1fr}.video-frame{height:400px}}
+@media(max-width:900px){.interview-grid{grid-template-columns:1fr}#meet-container{height:400px}}
+@media(max-width:560px){.wrap{width:calc(100% - 24px)}main{padding:20px 0 32px}.panel{padding:17px}#meet-container{height:340px}.video-bar{font-size:12px;padding:11px 13px}}
 @media(prefers-color-scheme:dark){
- body{background:#0b2026;color:#eaf5f2}
- header{background:rgba(11,32,38,.97);border-color:#29464d}
- .panel{background:#142f37;border-color:#35545b}
- .panel p,.security-note{color:#c3d8d4}
+ body{background:#0b2026;color:#eaf5f2}header{background:rgba(11,32,38,.97);border-color:#29464d}
+ .panel{background:#142f37;border-color:#35545b}.panel p,.security-note{color:#c3d8d4}
  .field input,.field select,.field textarea{background:#0d252c;color:#f2fbf8;border-color:#54757a}
  .btn-decline{background:#0d252c;color:#c3d8d4;border-color:#35545b}
+ .warning{background:#332b17;color:#f4dfa8;border-color:#75602e}
 }
 </style>
+<script src="https://meet.jit.si/external_api.js"></script>
 </head>
 <body>
 <header>
  <div class="wrap nav">
   <a class="brand" href="index.html">Form<span>Nex</span></a>
-  <span class="status-pill" id="room-badge">Sala Oficial de Entrevista</span>
+  <span class="status-pill" id="room-badge">Sala de Entrevista</span>
  </div>
 </header>
-
 <main class="wrap">
  <div class="room-head">
   <h1>Entrevista Online — FormNex</h1>
-  <p>Ambiente oficial de conexão entre candidatos e empresas parceiras.</p>
+  <p>Espaço de conexão entre candidatos e empresas.</p>
  </div>
-
+ <div class="warning">
+  <strong>Versão de demonstração:</strong> esta sala utiliza o serviço público Jitsi Meet.
+  Não insira dados pessoais sensíveis. O registro de resultado ainda não é enviado nem salvo no banco da FormNex.
+ </div>
  <div class="interview-grid">
-  <!-- Área de Vídeo -->
   <div class="video-box">
-   <iframe
-    id="jitsi-frame"
-    class="video-frame"
-    allow="camera; microphone; fullscreen; display-capture; autoplay"
-    title="Sala de vídeo FormNex">
-   </iframe>
+   <div id="meet-container" aria-label="Área da videoconferência"></div>
    <div class="video-bar">
-    <span id="room-code-text">Código da sala: carregando...</span>
-    <span>🔒 Conexão criptografada via FormNex</span>
+    <span id="room-code-text">Código da sala: preparando...</span>
+    <span>Videoconferência fornecida pelo Jitsi Meet</span>
    </div>
   </div>
-
-  <!-- Painel de Registro e Contabilização -->
   <aside class="panel">
-   <h2>Registro da Conexão</h2>
-   <p>Após concluir a conversa, a empresa registra o resultado para contabilizarmos o avanço e a contratação.</p>
-
+   <h2>Registro da entrevista</h2>
+   <p>Use este painel apenas para testar o fluxo. O registro oficial será conectado ao banco após autenticação e autorização.</p>
    <div class="field">
     <label for="empresa-nome">Empresa / Recrutador</label>
-    <input type="text" id="empresa-nome" placeholder="Nome da empresa">
+    <input type="text" id="empresa-nome" placeholder="Nome da empresa" autocomplete="organization">
    </div>
-
    <div class="field">
     <label for="candidato-nome">Candidato entrevistado</label>
-    <input type="text" id="candidato-nome" placeholder="Nome do candidato">
+    <input type="text" id="candidato-nome" placeholder="Nome do candidato" autocomplete="off">
    </div>
-
    <div class="field">
     <label for="vaga-titulo">Vaga / Função</label>
-    <input type="text" id="vaga-titulo" placeholder="Ex: Auxiliar de Produção">
+    <input type="text" id="vaga-titulo" placeholder="Ex.: Auxiliar de produção" autocomplete="off">
    </div>
-
    <div class="outcome-group">
-    <button type="button" class="btn btn-hired" onclick="registrarDesfecho('CONTRATADO')">
-     ✅ Aprovado / Contratado
-    </button>
-    <button type="button" class="btn btn-next" onclick="registrarDesfecho('SEGUNDA_ETAPA')">
-     📋 Avançou para etapa presencial
-    </button>
-    <button type="button" class="btn btn-decline" onclick="registrarDesfecho('NAO_AVANCOU')">
-     Não avançou nesta vaga
-    </button>
+    <button type="button" class="btn btn-hired" onclick="registrarDesfecho('CONTRATADO')">Contratado</button>
+    <button type="button" class="btn btn-next" onclick="registrarDesfecho('PROXIMA_ETAPA')">Avançou para próxima etapa</button>
+    <button type="button" class="btn btn-decline" onclick="registrarDesfecho('NAO_AVANCOU')">Não avançou nesta vaga</button>
    </div>
-
-   <div class="feedback-msg" id="feedback-msg"></div>
-
+   <div class="feedback-msg" id="feedback-msg" role="status" aria-live="polite"></div>
    <div class="security-note">
-    <strong>Compromisso FormNex:</strong> Nunca cobramos taxas de candidatos. O registro acima serve exclusivamente para medir a efetividade das conexões realizadas pela plataforma.
+    <strong>Compromisso FormNex:</strong> nunca cobramos taxas de candidatos. A plataforma deverá registrar resultados apenas por usuários autorizados e com finalidade definida.
    </div>
   </aside>
  </div>
 </main>
-
 <footer>
  <div class="wrap foot">
   <div><strong>FormNex</strong> — Inteligência de capacidades e oportunidades.</div>
   <div>Capacidade → Evidência → Conhecimento → Decisão</div>
  </div>
 </footer>
-
 <script>
- // Lê o nome da sala pela URL (ex: entrevista.html?sala=Vaga102-Maria)
- const params = new URLSearchParams(window.location.search);
- const salaParam = params.get('sala') || 'FormNex-Entrevista-' + Math.floor(1000 + Math.random() * 9000);
- const salaLimpa = salaParam.replace(/[^a-zA-Z0-9_-]/g, '');
+"use strict";
+const params = new URLSearchParams(window.location.search);
+let roomName = params.get("sala");
 
- document.getElementById('room-code-text').textContent = 'Sala: ' + salaLimpa;
- document.getElementById('jitsi-frame').src =
-  'https://jit.si' + encodeURIComponent(salaLimpa) +
-  '#config.prejoinPageEnabled=true&config.disableDeepLinking=true';
+/* Para demonstração, cria um código imprevisível e o mantém na URL.
+   Em produção, o backend deverá gerar e autorizar a sala. */
+if (!roomName) {
+  const randomId = (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID().replace(/-/g, "")
+    : Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, "0")).join("");
+  roomName = "FormNex-Entrevista-" + randomId;
+  params.set("sala", roomName);
+  history.replaceState(null, "", window.location.pathname + "?" + params.toString());
+}
+roomName = roomName.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 100);
+document.getElementById("room-code-text").textContent = "Sala: " + roomName;
 
- function registrarDesfecho(status) {
-  const empresa = document.getElementById('empresa-nome').value.trim() || 'Não informada';
-  const candidato = document.getElementById('candidato-nome').value.trim() || 'Não informado';
-  const vaga = document.getElementById('vaga-titulo').value.trim() || 'Não informada';
-  const box = document.getElementById('feedback-msg');
+let jitsiApi = null;
+const meetContainer = document.getElementById("meet-container");
+if (typeof JitsiMeetExternalAPI === "function") {
+  jitsiApi = new JitsiMeetExternalAPI("meet.jit.si", {
+    roomName,
+    parentNode: meetContainer,
+    width: "100%",
+    height: "100%",
+    lang: "ptBR",
+    configOverwrite: {
+      prejoinConfig: { enabled: true },
+      disableDeepLinking: true
+    }
+  });
+} else {
+  meetContainer.textContent = "Não foi possível carregar o Jitsi Meet. Verifique sua conexão e tente novamente.";
+}
 
-  box.style.display = 'block';
-  box.textContent = 'Registro salvo (' + status + ') para ' + candidato + ' — ' + empresa + '.';
+function registrarDesfecho(status) {
+  const empresa = document.getElementById("empresa-nome").value.trim();
+  const candidato = document.getElementById("candidato-nome").value.trim();
+  const vaga = document.getElementById("vaga-titulo").value.trim();
+  const box = document.getElementById("feedback-msg");
 
-  // Opcional: abre WhatsApp ou e-mail para enviar o comprovante automático à FormNex
-  const texto = encodeURIComponent(
-   'Registro FormNex Entrevista:\n' +
-   'Sala: ' + salaLimpa + '\n' +
-   'Empresa: ' + empresa + '\n' +
-   'Candidato: ' + candidato + '\n' +
-   'Vaga: ' + vaga + '\n' +
-   'Status: ' + status
-  );
-  console.log('Dados prontos para envio:', { salaLimpa, empresa, candidato, vaga, status });
- }
+  if (!empresa || !candidato || !vaga) {
+    box.style.display = "block";
+    box.textContent = "Para testar o registro, preencha empresa, candidato e vaga. Não use dados reais nesta versão demonstrativa.";
+    return;
+  }
+
+  /* Não afirma que foi salvo: ainda não existe integração com servidor. */
+  box.style.display = "block";
+  box.textContent = "Demonstração: resultado selecionado (" + status + "). Ainda não foi enviado nem salvo.";
+  const demoData = { roomName, empresa, candidato, vaga, status, registradoEm: new Date().toISOString() };
+  console.info("Registro demonstrativo (não persistido):", demoData);
+}
+
+window.addEventListener("beforeunload", () => {
+  if (jitsiApi && typeof jitsiApi.dispose === "function") jitsiApi.dispose();
+});
 </script>
 </body>
 </html>
