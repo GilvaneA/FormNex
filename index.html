@@ -64,6 +64,138 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
  .action-row .modality-note strong{color:#8ce7d8}
 }
 </style>
+
+<style id="formnex-homepage-visual-refresh">
+/* FormNex — página inicial: ações mais claras, leves e independentes */
+:root{
+ --fn-page:#f2faf8;--fn-ink:#123744;--fn-muted:#506c72;
+ --fn-teal:#087f75;--fn-teal-dark:#075e59;--fn-line:#c9e4de;
+ --fn-card:#fff;--fn-soft:#e3f6f1;
+}
+body{background:var(--fn-page);color:var(--fn-ink)}
+.wrap{width:min(1160px,calc(100% - 44px))}
+header{background:rgba(248,253,251,.96);border-bottom:1px solid #d8eae5}
+.nav{min-height:68px}
+.brand{font-size:23px}
+.brand-mark img{width:43px;height:43px}
+nav{gap:22px;font-size:14px}
+.menu-cta{border-radius:10px;padding:11px 16px;background:var(--fn-teal);border-color:var(--fn-teal)}
+.hero{padding:34px 0 20px}
+.hero-panel{
+ background:linear-gradient(135deg,#123744 0%,#164b52 100%);
+ border-radius:26px;padding:clamp(24px,4vw,48px);
+ box-shadow:0 14px 38px rgba(18,55,68,.10)
+}
+.hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr);gap:28px}
+.hero h1{font-size:clamp(34px,4.3vw,52px);line-height:1.08;letter-spacing:-1.2px;margin:15px 0}
+.hero p{font-size:17px;line-height:1.6;color:#e2f2ee;max-width:590px}
+.hero-note{font-size:14px;line-height:1.7;border-left-color:#39d1bd}
+.hero-shortcut{margin:24px 0 0;display:flex}
+.recent-button{
+ display:flex;align-items:center;gap:14px;max-width:420px;width:100%;
+ padding:15px 18px;border:1px solid #6ad7c6;border-radius:15px;
+ background:#eafffa;color:#123744;box-shadow:0 5px 16px rgba(4,25,31,.12);
+ transition:transform .18s ease,box-shadow .18s ease
+}
+.recent-button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,25,31,.18)}
+.recent-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;
+ border-radius:12px;background:#0d887d;color:#fff;font-size:23px;font-weight:700}
+.recent-button strong{display:block;font-size:17px;line-height:1.25}
+.recent-button small{display:block;margin-top:3px;color:#506c72;font-size:12px;font-weight:500}
+.recent-arrow{margin-left:auto;font-size:22px;color:#087f75}
+.search-panel{
+ margin-top:18px;padding:22px;background:#fff;color:var(--fn-ink);
+ border:1px solid #d6e9e4;border-radius:20px;
+ box-shadow:0 8px 24px rgba(18,55,68,.07);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px
+}
+.action-row{
+ min-width:0;margin:0;padding:20px;border:1px solid var(--fn-line);
+ border-radius:16px;background:#fff;display:flex;flex-direction:column;
+ align-items:flex-start;gap:16px;justify-content:space-between;
+ box-shadow:0 3px 12px rgba(18,55,68,.035)
+}
+.action-search{grid-column:1/-1;background:#f8fcfb;border-color:#b7dcd4}
+.action-heading{display:flex;align-items:flex-start;gap:13px;width:100%}
+.action-number{display:grid;place-items:center;flex:none;width:34px;height:34px;
+ border-radius:10px;background:#e1f5f0;color:#087f75;font-size:13px;font-weight:800}
+.action-heading h2{font-size:20px;line-height:1.25;margin:0;color:#123744}
+.action-heading p{font-size:14px;line-height:1.5;margin:7px 0 0;color:#506c72}
+.action-heading .modality-note{margin-top:9px}
+#job-search{width:100%;grid-template-columns:minmax(180px,1.5fr) minmax(150px,.8fr) auto;gap:12px}
+#job-search label{font-size:13px;color:#29484e}
+#job-search input,#job-search select{min-height:48px;border-radius:10px;border-color:#bddbd4}
+.search-button{background:#087f75;color:#fff;border:1px solid #087f75;border-radius:10px;min-height:48px}
+.btn.action-button{width:100%;max-width:260px;min-height:44px;border-radius:10px;font-size:14px}
+.publish-button{background:#123744;color:#fff;border-color:#123744}
+.register-button{background:#fff;color:#087f75;border-color:#087f75}
+.create-button{background:#087f75;color:#fff;border-color:#087f75}
+.search-note{grid-column:1/-1;margin:0;color:#627a7f;font-size:12px;line-height:1.5}
+section#empresas{padding:28px 0}
+.section-head{align-items:center;margin-bottom:16px}
+.section-head h2{font-size:clamp(24px,2.7vw,32px)}
+.section-head p{font-size:14px}
+.companies{gap:14px}
+.company{border-radius:15px;padding:18px;min-height:104px;transition:transform .18s ease,box-shadow .18s ease}
+.company:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(18,55,68,.09)}
+.company h3{font-size:16px}
+.company p{font-size:13px;line-height:1.45}
+.disclaimer{font-size:12px;line-height:1.5}
+.value{border:1px solid #cfe9e2;background:#e4f5f0;border-radius:20px;padding:26px}
+.value h2{font-size:24px}
+.value p{font-size:15px;line-height:1.6}
+footer{margin-top:28px}
+.btn,.menu-cta{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+.btn:focus-visible,.menu-cta:focus-visible,.recent-button:focus-visible,a:focus-visible,button:focus-visible{
+ outline:3px solid #45cdb8;outline-offset:3px
+}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}
+ .hero-note{max-width:560px}
+ #job-search{grid-template-columns:1fr 1fr}
+ .search-button{grid-column:1/-1}
+ .companies{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+ .wrap{width:calc(100% - 28px)}
+ .nav{padding:12px 0;min-height:auto}
+ nav{gap:14px;font-size:12px}
+ .hero{padding:22px 0 12px}
+ .hero-panel{padding:22px 16px;border-radius:20px}
+ .hero h1{font-size:35px;letter-spacing:-.8px}
+ .hero p{font-size:15px}
+ .hero-shortcut{margin-top:18px}
+ .recent-button{max-width:none;padding:13px}
+ .search-panel{grid-template-columns:1fr;padding:12px;gap:10px}
+ .action-row{padding:16px;gap:14px}
+ .action-search{grid-column:auto}
+ .action-heading h2{font-size:18px}
+ #job-search{grid-template-columns:1fr}
+ .search-button{grid-column:auto;width:100%}
+ .btn.action-button{max-width:none}
+ .section-head{display:block}
+ .section-head .btn{margin-top:12px}
+ .value{padding:20px}
+ .value h2{font-size:21px}
+}
+@media(prefers-color-scheme:dark){
+ /* A identidade da página inicial permanece clara e consistente, sem textos apagados. */
+ body{background:#f2faf8;color:#123744}
+ header{background:rgba(248,253,251,.96);border-color:#d8eae5}
+ .brand-word{color:#123744}
+ nav a{color:#123744}
+ .search-panel,.action-row,.company{background:#fff;color:#123744;border-color:#c9e4de}
+ .action-search{background:#f8fcfb}
+ .action-heading h2{color:#123744}
+ .action-heading p,.search-note{color:#506c72}
+ #job-search label{color:#29484e}
+ #job-search label span{color:#536b70}
+ #job-search input,#job-search select{background:#fff;color:#123744;border-color:#bddbd4}
+ .publish-button{background:#123744;color:#fff;border-color:#123744}
+ .register-button{background:#fff;color:#087f75;border-color:#087f75}
+ .create-button,.search-button{background:#087f75;color:#fff;border-color:#087f75}
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -90,9 +222,17 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
      </div>
      <div class="hero-note">A inteligência da FormNex aproxima capacidades, experiências e oportunidades.<br><br><strong>Capacidade → Evidência → Conhecimento → Decisão</strong></div>
     </div>
+
+    <div class="hero-shortcut">
+     <a class="btn recent-button" href="plataforma.html#vagas-recentes">
+      <span class="recent-icon" aria-hidden="true">↘</span>
+      <span><strong>Vagas recentes</strong><small>Veja oportunidades publicadas recentemente</small></span>
+      <span class="recent-arrow" aria-hidden="true">→</span>
+     </a>
+    </div>
     <div class="search-panel">
      <section class="action-row action-search" aria-labelledby="search-title">
-      <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Buscar vagas</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
+      <div class="action-heading"><span class="action-number">01</span><div><h2 id="search-title">Buscar vagas disponíveis</h2><p>Encontre oportunidades em qualquer lugar do Brasil.</p></div></div>
       <form id="job-search" action="plataforma.html" method="get">
        <div class="search-field">
         <label for="cargo">Profissão, cargo ou palavra-chave</label>
@@ -105,7 +245,7 @@ footer{margin-top:42px;background:var(--ink);color:#e7f3f0;padding:32px 0}.foot{
          <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
         </select>
        </div>
-       <button class="btn primary search-button" type="submit">Buscar vagas <span aria-hidden="true">→</span></button>
+       <button class="btn primary search-button" type="submit">Buscar vagas disponíveis <span aria-hidden="true">→</span></button>
       </form>
      </section>
      <section class="action-row action-publish" aria-labelledby="publish-title">
